@@ -9,6 +9,10 @@ if (openttd_version < version_openttd(1, 9, 0)) {
 	error(FATAL, REQUIRES_OPENTTD, "1.9.0");
 }
 
+if (climate == CLIMATE_TOYLAND) {
+ error(FATAL, string(STR_ERR_NO_TOYLAND));
+}
+
 grf {
 	grfid: "zgy\00";
 	name: string(STR_GRF_NAME);
@@ -47,3 +51,5 @@ cargotable {
 
 disable_item(FEAT_CARGOS);
 disable_item(FEAT_INDUSTRIES);
+
+// ===== CARGO DATA =====

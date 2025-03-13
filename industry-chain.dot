@@ -1,0 +1,80 @@
+strict digraph {
+    compound=true
+    subgraph cluster_city {
+        label = "Town"
+        Hotel
+        "ECS Houses"
+        "Town Houses" [ shape=ellipse]
+        "Store"
+        "Bank"
+        "Water Tower"
+        "City Hall"
+    }
+    "Coal Mine" [ shape=ellipse]
+    "Power Plant" [ shape=ellipse]
+    "Coal Mine" -> "Power Plant" [ label = "Coal"]
+    "Oil Wells" [ shape=ellipse]
+    "Oil Rig" [ shape=ellipse]
+    "Oil Refinery" [ shape=ellipse]
+    "Oil Wells" -> "Oil Refinery" [label = Oil]
+    "Oil Rig" -> "Oil Refinery" [label = Oil]
+    "Farm" [ shape=ellipse]
+    "Factory"
+    "Forest"
+    "Lumber Mill"
+    "Iron Ore Mine"
+    "Foundry"
+    "Paper Mill"
+    "Iron Ore Mine" -> "Foundry" [label = "Iron Ore"]
+    "Lumber Mill" -> "Paper Mill" [label = "Wood"]
+    Forest -> "Paper Mill" [label = "Wood"]
+    "Paper Mill" -> Factory  [label = "Paper"]
+    Farm -> "Paper Mill"  [label = "Flax"]
+    "Foundry" -> Factory [label = "Metal"]
+    Factory -> "Town Houses"  [label = "Goods"]
+    "Food Processing Plant"
+    Farm -> "Food Processing Plant"  [label = "Grain"]
+    "Food Processing Plant" -> "Town Houses" [label = "Food"]
+    "Copper Ore Mine"
+    "Copper Ore Mine" -> "Foundry" [label = "Copper Ore"]
+    "Fruit Plantation"
+    "Oil Refinery" -> "Store" [label = "Petrol"]
+    "Fruit Plantation" "Oil Refinery"
+    "Fruit Plantation" -> "Food Processing Plant" [label = "Fruit"]
+    "Food Processing Plant" -> "ECS Houses"  [label = "Food"]
+    "Oil Refinery" -> "ECS Houses" [label = "Petrol"]
+    "Food Processing Plant" -> Hotel [label = "Food"]
+    "Rubber Plantation"
+    "Rubber Plantation" Factory
+    "Ranch"
+    Ranch -> "Food Processing Plant" [label="Livestock"]
+    "Oil Rig" -> "Town Houses"[label="Passengers", dir=both]
+    "Water Supply"
+    "Water Supply" -> "Water Tower" [label="Water"]
+    "Desalination Plant"
+    "Desalination Plant" -> "Water Tower" [label="Water"]
+    "Gold Mine"
+    "Diamond Mine"
+    Bank -> Bank[label="Valuables"]
+    "Food Processing Plant" -> "Store" [label="Food"]
+    "Junkyard" -> "Foundry" [label="Scrap Metal"]
+    "Fruit Plantation" -> "Store" [label="Alcohol"]
+    "Fruit Plantation" -> Hotel [label="Alcohol"]
+    "Oil Refinery" -> "Power Plant" [label="Petrol"]
+    "Junkyard"
+    "Desalination Plant" "Oil Refinery"
+    "Junkyard" -> "Power Plant"[label="Waste"]
+    Factory -> "Store"[label="Goods"]
+    "Junkyard" "Oil Refinery"
+    Bank
+    "Gold Mine" -> Bank[label="Gold"]
+    "Diamond Mine" -> Bank[label="Diamond"]
+    "Chemicals Plant"
+    "Rubber Plantation" -> "Chemicals Plant"[label="Rubber"]
+    "Chemicals Plant" -> "Town Houses" [label="Goods"]
+    "Chemicals Plant" -> "Store" [label="Goods"]
+    "Copper Ore Mine" -> "Chemicals Plant"[label="Sulphur"]
+    "Desalination Plant" -> "Chemicals Plant" [label="Chemicals"]
+    Junkyard -> "Chemicals Plant" [label="Chemicals"]
+    Farm -> "Oil Refinery" [label="Oil Seeds"]
+}

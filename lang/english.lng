@@ -1,0 +1,9 @@
+##grflangid 0x00
+##plural 0
+STR_GRF_NAME                                :Simple Dilach Industries
+STR_GRF_DESCRIPTION                         :{}Simple Dilach Industries is intended to be a reshuffled vanilla experience, via adding some additional cargoes but keeping the logics as vanilla.{}{}See readme for more info.{}{}License: GPL v2
+STR_GRF_URL                                 :https://github.com/GraionDilach/TODO
+
+#Error strings
+
+STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work with toyland climate.

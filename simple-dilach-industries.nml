@@ -75,6 +75,26 @@ disable_item(FEAT_CARGOS);
 
 // ===== CARGO DATA =====
 
+/*
+CC conversion table
+bit | OTTD              | FRAX
+  0 | CC_PASSENGERS     | CC_PASSENGERS
+  1 | CC_MAIL           | CC_MAIL
+  2 | CC_EXPRESS        | CC_EXPRESS
+  3 | CC_ARMOURED       | CC_ARMOURED
+  4 | CC_BULK           | CC_OPEN_BULK
+  5 | CC_PIECE_GOODS    | CC_PIECE_GOODS
+  6 | CC_LIQUID         | CC_LIQUID_BULK
+  7 | CC_REFRIGERATED   | CC_REFRIGERATED
+  8 | CC_HAZARDOUS      | CC_GAS_BULK
+  9 | CC_COVERED        | CC_COVERED_BULK
+ 10 | CC_OVERSIZED      | CC_FLATBED
+ 11 | CC_POWDERIZED     | CC_POWDER_BULK
+ 12 | CC_NON_POURABLE   | CC_WEIRD
+ 13 | CC_POTABLE        | CC_POTABLE
+ 14 | CC_NON_POTABLE    | CC_NON_POTABLE
+*/
+
 spriteset(cargoicon_passenger) {
     [0, 0, "gfx/cargo_icons/pass.png"]
 }
@@ -103,6 +123,30 @@ item(FEAT_CARGOS, cargo_passenger, 0) {
     }
     graphics {
         cargoicon_passenger;
+    }
+}
+
+item(FEAT_CARGOS, cargo_coal, 1) {
+    property {
+        type_name: TTD_STR_CARGO_PLURAL_COAL;
+        unit_name: TTD_STR_CARGO_SINGULAR_COAL;
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: TTD_STR_QUANTITY_COAL;
+        type_abbreviation: TTD_STR_ABBREV_COAL;
+        sprite: 4298; // vanilla
+        weight: 1;
+        station_list_colour: 6;
+        cargo_payment_list_colour: 6;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_NON_POTABLE);
+        cargo_label: "COAL";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 7;
+        single_penalty_length: 255;
+        price_factor: (5916 * 10.0 * 20 * 255) / (1 << 21); // 143.869400024414
+        capacity_multiplier: 1;
+        number: 1;
     }
 }
 

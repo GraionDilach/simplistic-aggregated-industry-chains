@@ -223,6 +223,30 @@ item(FEAT_CARGOS, cargo_livestock, 4) {
     }
 }
 
+item(FEAT_CARGOS, cargo_goods, 5) {
+    property {
+        type_name: TTD_STR_CARGO_PLURAL_GOODS;
+        unit_name: TTD_STR_CARGO_SINGULAR_GOODS;
+        units_of_cargo: TTD_STR_CRATES;
+        items_of_cargo: TTD_STR_QUANTITY_GOODS;
+        type_abbreviation: TTD_STR_ABBREV_GOODS;
+        sprite: 4302; // vanilla
+        weight: 0.5; // 8/16
+        station_list_colour: 194;
+        cargo_payment_list_colour: 194;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_EXPRESS, CC_NON_POTABLE);
+        cargo_label: "GOOD";
+        town_growth_effect: TOWNGROWTH_GOODS;
+        town_growth_multiplier: 1;
+        penalty_lowerbound: 5;
+        single_penalty_length: 28;
+        price_factor: (6144 * 10.0 * 20 * 255) / (1 << 21); // 149.4140625
+        capacity_multiplier: 1;
+        number: 5;
+    }
+}
+
 spriteset(cargoicon_tourist) {
     [0, 0, "gfx/cargo_icons/tour.png"]
 }

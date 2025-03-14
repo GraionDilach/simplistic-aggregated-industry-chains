@@ -28,10 +28,8 @@ strict digraph {
     "Iron Ore Mine" -> "Foundry" [label = "Iron Ore"]
     "Lumber Mill" -> "Paper Mill" [label = "Wood"]
     Forest -> "Paper Mill" [label = "Wood"]
-    "Paper Mill" -> Factory  [label = "Paper"]
     Farm -> "Paper Mill"  [label = "Flax"]
     "Foundry" -> Factory [label = "Metal"]
-    Factory -> "Town Houses"  [label = "Goods"]
     "Food Processing Plant"
     Farm -> "Food Processing Plant"  [label = "Grain"]
     "Food Processing Plant" -> "Town Houses" [label = "Food"]
@@ -64,17 +62,19 @@ strict digraph {
     "Junkyard"
     "Desalination Plant" "Oil Refinery"
     "Junkyard" -> "Power Plant"[label="Waste"]
-    Factory -> "Store"[label="Goods"]
     "Junkyard" "Oil Refinery"
     Bank
     "Gold Mine" -> Bank[label="Gold"]
     "Diamond Mine" -> Bank[label="Diamond"]
     "Chemicals Plant"
-    "Rubber Plantation" -> "Chemicals Plant"[label="Rubber"]
-    "Chemicals Plant" -> "Town Houses" [label="Goods"]
-    "Chemicals Plant" -> "Store" [label="Goods"]
     "Copper Ore Mine" -> "Chemicals Plant"[label="Sulphur"]
     "Desalination Plant" -> "Chemicals Plant" [label="Chemicals"]
     Junkyard -> "Chemicals Plant" [label="Chemicals"]
     Farm -> "Oil Refinery" [label="Oil Seeds"]
+    "Rubber Plantation" -> Factory [label=Rubber]
+    "Printing Works"
+    "Paper Mill" -> "Printing Works" [label=Paper]
+    "Chemicals Plant" -> "Printing Works" [label=Dyes]
+    "Printing Works" -> "Town Houses" [label=Goods]
+    Factory -> "ECS Houses" [label=Vehicles]
 }

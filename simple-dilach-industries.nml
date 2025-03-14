@@ -150,6 +150,30 @@ item(FEAT_CARGOS, cargo_coal, 1) {
     }
 }
 
+item(FEAT_CARGOS, cargo_mail, 2) {
+    property {
+        type_name: TTD_STR_CARGO_PLURAL_MAIL;
+        unit_name: TTD_STR_CARGO_SINGULAR_MAIL;
+        units_of_cargo: TTD_STR_BAGS;
+        items_of_cargo: TTD_STR_QUANTITY_MAIL;
+        type_abbreviation: TTD_STR_ABBREV_MAIL;
+        sprite: 4299; // vanilla
+        weight: 0.25;
+        station_list_colour: 15;
+        cargo_payment_list_colour: 15;
+        is_freight: 0;
+        cargo_classes: bitmask(CC_MAIL);
+        cargo_label: "MAIL";
+        town_growth_effect: TOWNGROWTH_MAIL;
+        town_growth_multiplier: 1.0;
+        penalty_lowerbound: 20;
+        single_penalty_length: 90;
+        price_factor: (4550 * 10.0 * 20 * 255) / (1 << 21); // 110.650062561035
+        capacity_multiplier: 2;
+        number: 2;
+    }
+}
+
 spriteset(cargoicon_tourist) {
     [0, 0, "gfx/cargo_icons/tour.png"]
 }

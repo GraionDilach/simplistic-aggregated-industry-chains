@@ -158,7 +158,7 @@ item(FEAT_CARGOS, cargo_mail, 2) {
         items_of_cargo: TTD_STR_QUANTITY_MAIL;
         type_abbreviation: TTD_STR_ABBREV_MAIL;
         sprite: 4299; // vanilla
-        weight: 0.25;
+        weight: 0.25; // 4/16
         station_list_colour: 15;
         cargo_payment_list_colour: 15;
         is_freight: 0;
@@ -171,6 +171,55 @@ item(FEAT_CARGOS, cargo_mail, 2) {
         price_factor: (4550 * 10.0 * 20 * 255) / (1 << 21); // 110.650062561035
         capacity_multiplier: 2;
         number: 2;
+    }
+}
+
+item(FEAT_CARGOS, cargo_oil, 3) {
+    property {
+        type_name: TTD_STR_CARGO_PLURAL_OIL;
+        unit_name: TTD_STR_CARGO_SINGULAR_OIL;
+        units_of_cargo: TTD_STR_LITERS;
+        items_of_cargo: TTD_STR_QUANTITY_OIL;
+        type_abbreviation: TTD_STR_ABBREV_OIL;
+        sprite: 4300; // vanilla
+        weight: 1;
+        station_list_colour: 174;
+        cargo_payment_list_colour: 174;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
+        cargo_label: "OIL_";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 25;
+        single_penalty_length: 255;
+        price_factor: (4437 * 10.0 * 20 * 255) / (1 << 21); // Temperate, 107.902050018311
+        //price_factor: (4892 * 10.0 * 20 * 255) / (1 << 21); // Tropic, 118.967056274414
+        capacity_multiplier: 1;
+        number: 3;
+    }
+}
+
+item(FEAT_CARGOS, cargo_livestock, 4) {
+    property {
+        type_name: TTD_STR_CARGO_PLURAL_LIVESTOCK;
+        unit_name: TTD_STR_CARGO_SINGULAR_LIVESTOCK;
+        units_of_cargo: TTD_STR_ITEMS;
+        items_of_cargo: TTD_STR_QUANTITY_LIVESTOCK;
+        type_abbreviation: TTD_STR_ABBREV_LIVESTOCK;
+        sprite: 4301; // vanilla
+        weight: 0.1875; // 3/16
+        station_list_colour: 208;
+        cargo_payment_list_colour: 208;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_NON_POURABLE, CC_NON_POTABLE);
+        cargo_label: "LVST";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 4;
+        single_penalty_length: 18;
+        price_factor: (4322 * 10.0 * 20 * 255) / (1 << 21); // 105.105400085449
+        capacity_multiplier: 1;
+        number: 4;
     }
 }
 
@@ -190,7 +239,7 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
         station_list_colour: 94;
         cargo_payment_list_colour: 94;
         is_freight: 0;
-        cargo_classes: bitmask(CC_PASSENGERS); // omitting CC_EXPRESS, because that also allows them to be stuffed at armored vans, due to Polar Fox
+        cargo_classes: bitmask(CC_PASSENGERS); // omitting CC_EXPRESS, because that also allows them to be stuffed at armored vans in FRAX
         cargo_label: "TOUR";
         town_growth_effect: TOWNGROWTH_PASSENGERS;
         town_growth_multiplier: 1.25;

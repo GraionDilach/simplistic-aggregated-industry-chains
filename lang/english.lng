@@ -7,3 +7,9 @@ STR_GRF_URL                                 :https://github.com/GraionDilach/TOD
 #Error strings
 
 STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work with toyland climate.
+
+#Cargos
+
+STR_CARGO_NAME_TOURIST						:Tourists
+STR_CID_TOURIST				    			:{TINYFONT}TR
+STR_CARGO_UNIT_TOURIST						:{COMMA} tourist{P 0 "" s}

@@ -25,31 +25,114 @@ grf {
 // ===== CARGO TABLE =====
 
 cargotable {
-    // OpenGFX+ Industries (merges MAIZ/WHEA into GRAI)
-	PASS, COAL, MAIL, OIL_,
-	LVST, GOOD, GRAI, WOOD,
-	IORE, WATR, VALU, FOOD,
-	STEL, // rename to Metal from Steel to include Copper
-    CORE, FRUT, DIAM,
-	PAPR, GOLD, RUBR,
+    // Note that for ECS compatibility, classes from ECS need to inherit the index to work with ECS Houses
+    // Vanilla cargos
+    PASS, // #0 in OTTD Temperate & ECS
+    COAL, // #1 in OTTD Temperate & ECS
+    MAIL, // #2 in OTTD Temperate & ECS
+    OIL_, // #3 in OTTD Temperate & ECS
+    LVST, // #4 in OTTD Temperate & ECS
+    GOOD, // #5 in OTTD Temperate & ECS
+    GRAI, // #6 in OTTD/ECS, OpenGFX+ Industries merged MAIZ/WHEA into GRAI already, also see ECS CERE
+    WOOD, // #7 in OTTD Temperate & ECS
+    IORE, // #8 in OTTD Temperate & ECS
+    STEL, // #9 in OTTD Temperate & ECS, renamed to Metal to include Copper
+    VALU, // #10 in OTTD Temperate & ECS
+    FOOD, // #11 in OTTD Arctic, Tropic & ECS
+    PAPR, // #12 in ECS, #9 in OTTD Arctic
+    WATR, // #27 in ECS, #9 in OTTD Tropic
+    // following ones received sorta-dynamic IDs
+    FRUT, // #14 here, #13 in ECS (but pushed aside for alcohol), #4 in OTTD Tropic
+    CORE, // #15 here, #8 in OTTD Tropic
+    DIAM, // #16 here, #10 in OTTD Tropic
+    GOLD, // #17 here, #10 in OTTD Arctic
+    RUBR, // #18 here, #1 in OTTD Tropic
+    // New cargos
+    // ECS/NewCargos copies
+    BEER, // #13 here, Alcohol, index inherited from mb's NewCargos
+    FICR, // #29 here, Flax, index and label inherited from ECS
+    OLSD, // #22 here/in ECS, Oil Seeds, coulda use FIRS FERT sunflower as icon
+    PETR, // #25 here, Fuel Oil (Petrol), index inherited from ECS
+    RFPR, // #23 here, Chemicals, index inherited from ECS
+    TOUR, // #31 here/in ECS, Tourist
     // FIRS copies
-    BEER, // Alcohol, shared with ECS
-    FICR, // Flax (gonna use Fibre Crops from ECS/FIRS for compat)
-    PETR, // Fuel Oil (Petrol), shared with ECS
-    RCYC, // Waste (was Recyclables in FIRS, but ehhhh)
-    RFPR, // Chemicals (ECS, Wannaroo)
-    SCMT, // Scrap Metal
-    SULP, // Sulphur, shared with ECS
-    // Wannaroo copies
-    TOUR, // Tourist (ECS)
-    // ECS copies
-    OLSD, // Oil Seeds, coulda use FIRS FERT sunflower as icon
+    RCYC, // #19 here, Waste (was Recyclables in FIRS, but ehhhh)
+    SCMT, // #20 here, Scrap Metal
+    SULP, // #21 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    // Unused indices
+    // #24
+    // #26
+    // #28
+    // #30
+    // #32+
 }
 
 // ===== DISABLE DEFAULT INDUSTRIES =====
 // I'll just respecify them
 
 disable_item(FEAT_CARGOS);
-disable_item(FEAT_INDUSTRIES);
+//disable_item(FEAT_INDUSTRIES);
 
 // ===== CARGO DATA =====
+
+spriteset(cargoicon_passenger) {
+    [0, 0, "gfx/cargo_icons/pass.png"]
+}
+
+item(FEAT_CARGOS, cargo_passenger, 0) {
+    property {
+        type_name: TTD_STR_CARGO_PLURAL_PASSENGERS;
+        unit_name: TTD_STR_CARGO_SINGULAR_PASSENGER;
+        units_of_cargo: TTD_STR_PASSENGERS;
+        items_of_cargo: TTD_STR_QUANTITY_PASSENGERS;
+        type_abbreviation: TTD_STR_ABBREV_PASSENGERS;
+        sprite: NEW_CARGO_SPRITE;
+        weight: 0.0625; // 1/16
+        station_list_colour: 152;
+        cargo_payment_list_colour: 152;
+        is_freight: 0;
+        cargo_classes: bitmask(CC_PASSENGERS);
+        cargo_label: "PASS";
+        town_growth_effect: TOWNGROWTH_PASSENGERS;
+        town_growth_multiplier: 1.0;
+        penalty_lowerbound: 0;
+        single_penalty_length: 24;
+        price_factor: (3185 * 10.0 * 20 * 255) / (1 << 21); // 77.4550437927246
+        capacity_multiplier: 4;
+        number: 0;
+    }
+    graphics {
+        cargoicon_passenger;
+    }
+}
+
+spriteset(cargoicon_tourist) {
+    [0, 0, "gfx/cargo_icons/tour.png"]
+}
+
+item(FEAT_CARGOS, cargo_tourist, 31) {
+    property {
+        type_name: string(STR_CARGO_NAME_TOURIST);
+        unit_name: string(STR_CARGO_NAME_TOURIST);
+        type_abbreviation: string(STR_CID_TOURIST);
+        units_of_cargo: string(STR_CARGO_UNIT_TOURIST);
+        items_of_cargo: string(STR_CARGO_UNIT_TOURIST);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 0.125;
+        station_list_colour: 94;
+        cargo_payment_list_colour: 94;
+        is_freight: 0;
+        cargo_classes: bitmask(CC_PASSENGERS); // omitting CC_EXPRESS, because that also allows them to be stuffed at armored vans, due to Polar Fox
+        cargo_label: "TOUR";
+        town_growth_effect: TOWNGROWTH_PASSENGERS;
+        town_growth_multiplier: 1.25;
+        penalty_lowerbound: 0;
+        single_penalty_length: 15; // 2/3 passenger value as tourists are usually in a hurry
+        price_factor: 210; // copy from Wannaroo
+        capacity_multiplier: 2.67; // passenger = 4
+        number: 31;  // required for ECS compat
+    }
+    graphics {
+        cargoicon_tourist;
+    }
+}

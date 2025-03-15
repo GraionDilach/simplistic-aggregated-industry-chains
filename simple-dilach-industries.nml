@@ -45,26 +45,27 @@ cargotable {
     FRUT, // #14 here, #13 in ECS (but pushed aside for beverage), #4 in OTTD Tropic
     CORE, // #15 here, #8 in OTTD Tropic
     DIAM, // #16 here, #10 in OTTD Tropic
-    GOLD, // #17 here, #10 in OTTD Arctic
-    RUBR, // #18 here, #1 in OTTD Tropic
+    GOLD, // #19 here, #10 in OTTD Arctic
+    RUBR, // #21 here, #1 in OTTD Tropic
     // New cargos
     // ECS/NewCargos copies
     BEER, // #13 here, Beverage, index inherited from mb's NewCargos
     DYES, // #20 here, Dyes, index inherited from ECS
     FICR, // #29 here, Flax, index and label inherited from ECS
+    GLAS, // #18 here, Glass, index inherited from ECS
     OLSD, // #22 here/in ECS, Oil Seeds, coulda use FIRS FERT sunflower as icon
     PETR, // #25 here, Fuel Oil (Petrol), index inherited from ECS
     RFPR, // #23 here, Chemicals, index inherited from ECS
+    SAND, // #17 here, Sand, index inherited from ECS
     TOUR, // #31 here/in ECS, Tourist
     VEHI, // #24 here, Vehicles, index inherited from ECS
     // FIRS copies
-    RCYC, // #19 here, Waste (was Recyclables in FIRS, but ehhhh)
-    SCMT, // #21 here, Scrap Metal
-    SULP, // #26 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    RCYC, // #26 here, Waste (was Recyclables in FIRS, but ehhhh)
+    LIME, // #28 here, Limestone
+    SCMT, // #30 here, Scrap Metal
+    SULP, // #32 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
     // Unused indices
-    // #28
-    // #30
-    // #32+
+    // #33+
 }
 
 // ===== DISABLE DEFAULT INDUSTRIES =====

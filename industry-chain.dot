@@ -43,7 +43,6 @@ strict digraph {
     "Oil Refinery" -> "ECS Houses" [label = "Petrol"]
     "Food Processing Plant" -> Hotel [label = "Food"]
     "Rubber Plantation"
-    "Rubber Plantation" Factory
     "Ranch"
     Ranch -> "Food Processing Plant" [label="Livestock"]
     "Oil Rig" -> "Town Houses"[label="Passengers", dir=both]
@@ -56,13 +55,11 @@ strict digraph {
     Bank -> Bank[label="Valuables"]
     "Food Processing Plant" -> "Store" [label="Food"]
     "Junkyard" -> "Foundry" [label="Scrap Metal"]
-    "Fruit Plantation" -> "Store" [label="Alcohol"]
-    "Fruit Plantation" -> Hotel [label="Alcohol"]
+    "Fruit Plantation" -> Hotel [label="Beverages"]
     "Oil Refinery" -> "Power Plant" [label="Petrol"]
     "Junkyard"
     "Desalination Plant" "Oil Refinery"
     "Junkyard" -> "Power Plant"[label="Waste"]
-    "Junkyard" "Oil Refinery"
     Bank
     "Gold Mine" -> Bank[label="Gold"]
     "Diamond Mine" -> Bank[label="Diamond"]
@@ -77,4 +74,11 @@ strict digraph {
     "Chemicals Plant" -> "Printing Works" [label=Dyes]
     "Printing Works" -> "Town Houses" [label=Goods]
     Factory -> "ECS Houses" [label=Vehicles]
+    Factory -> Store [label=Vehicles]
+    "Glass Works"
+    "Gold Mine" -> "Glass Works" [label=Sand]
+    "Glass Works" -> Factory [label=Glass]
+    "Limestone Mine"
+    "Limestone Mine" -> "Glass Works" [label=Limestone]
+    "Fruit Plantation" -> Store [label=Beverages]
 }

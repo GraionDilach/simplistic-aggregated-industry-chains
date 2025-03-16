@@ -472,6 +472,68 @@ item(FEAT_CARGOS, cargo_fruit, 14) {
     }
 }
 
+spriteset(cargoicon_limestone) {
+    [0, 0, "gfx/cargo_icons/lime.png"]
+}
+
+item(FEAT_CARGOS, cargo_limestone, 16) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_LIMESTONE);
+        unit_name: string(STR_CARGO_SINGULAR_LIMESTONE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_LIMESTONE);
+        type_abbreviation: string(STR_ABBREV_LIMESTONE);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 57;
+        cargo_payment_list_colour: 57;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_POTABLE);
+        cargo_label: "LIME";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 38;
+        single_penalty_length: 255;
+        price_factor: (4322 * 10.0 * 20 * 255) / (1 << 21); // 105.105400085449
+        capacity_multiplier: 1;
+        number: 16;
+    }
+    graphics {
+        cargoicon_limestone;
+    }
+}
+
+spriteset(cargoicon_glass) {
+    [0, 0, "gfx/cargo_icons/glas.png"]
+}
+
+item(FEAT_CARGOS, cargo_glass, 18) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_GLASS);
+        unit_name: string(STR_CARGO_SINGULAR_GLASS);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_GLASS);
+        type_abbreviation: string(STR_ABBREV_GLASS);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 153;
+        cargo_payment_list_colour: 153;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_NON_POTABLE);
+        cargo_label: "GLAS";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 12;
+        single_penalty_length: 180;
+        price_factor: (5574 * 10.0 * 20 * 255) / (1 << 21); // 138.324737548828
+        capacity_multiplier: 1;
+        number: 18;
+    }
+    graphics {
+        cargoicon_glass;
+    }
+}
+
 item(FEAT_CARGOS, cargo_copper_ore, 19) {
     property {
         type_name: TTD_STR_CARGO_PLURAL_COPPER_ORE;
@@ -512,7 +574,7 @@ item(FEAT_CARGOS, cargo_dyes, 20) {
         station_list_colour: 184;
         cargo_payment_list_colour: 184;
         is_freight: 1;
-        cargo_classes: bitmask(CC_PIECE_GOODS);
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_NON_POTABLE);
         cargo_label: "DYES";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -651,6 +713,37 @@ item(FEAT_CARGOS, cargo_rubber, 28) {
         price_factor: (4437 * 10.0 * 20 * 255) / (1 << 21); // 107.902050018311
         capacity_multiplier: 1;
         number: 28;
+    }
+}
+
+spriteset(cargoicon_flax) {
+    [0, 0, "gfx/cargo_icons/ficr.png"]
+}
+
+item(FEAT_CARGOS, cargo_flax, 29) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_FLAX);
+        unit_name: string(STR_CARGO_SINGULAR_FLAX);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_FLAX);
+        type_abbreviation: string(STR_ABBREV_FLAX);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 187;
+        cargo_payment_list_colour: 187;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_COVERED, CC_NON_POTABLE);
+        cargo_label: "FICR";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 4;
+        single_penalty_length: 40;
+        price_factor: (4322 * 10.0 * 20 * 255) / (1 << 21); // 105.105400085449
+        capacity_multiplier: 1;
+        number: 29;
+    }
+    graphics {
+        cargoicon_flax;
     }
 }
 

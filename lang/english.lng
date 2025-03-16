@@ -20,6 +20,21 @@ STR_CARGO_SINGULAR_DYES                     :Dye
 STR_QUANTITY_DYES                           :{COMMA} bag{P "" s} of dyes
 STR_ABBREV_DYES                             :{TINYFONT}DY
 
+STR_CARGO_PLURAL_FLAX                       :Flax
+STR_CARGO_SINGULAR_FLAX                     :Flax
+STR_QUANTITY_FLAX                           :{WEIGHT} of flax
+STR_ABBREV_FLAX                             :{TINYFONT}FL
+
+STR_CARGO_PLURAL_GLASS                      :Glass
+STR_CARGO_SINGULAR_GLASS                    :Glass
+STR_QUANTITY_GLASS                          :{WEIGHT} of glass
+STR_ABBREV_GLASS                            :{TINYFONT}GL
+
+STR_CARGO_PLURAL_LIMESTONE                  :Limestone
+STR_CARGO_SINGULAR_LIMESTONE                :Limestone
+STR_QUANTITY_LIMESTONE                      :{WEIGHT} of limestone
+STR_ABBREV_LIMESTONE                        :{TINYFONT}LS
+
 STR_CARGO_PLURAL_PETROL                     :Petrol
 STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol

@@ -70,11 +70,9 @@ cargotable {
     // #34+
 }
 
-// ===== DISABLE DEFAULT INDUSTRIES =====
-// I'll just respecify them
+// ===== DISABLE DEFAULT CARGOS =====
 
 disable_item(FEAT_CARGOS);
-//disable_item(FEAT_INDUSTRIES);
 
 // ===== CARGO DATA =====
 
@@ -610,7 +608,7 @@ item(FEAT_CARGOS, cargo_copper_ore, 19) {
         cargo_payment_list_colour: 184;
         is_freight: 1;
         cargo_classes: bitmask(CC_BULK, CC_POTABLE);
-        cargo_label: "IORE";
+        cargo_label: "CORE";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
@@ -1017,5 +1015,191 @@ item(FEAT_CARGOS, cargo_waste, 33) {
         price_factor: 100;
         capacity_multiplier: 1;
         number: 33;
+    }
+}
+
+// ===== INDUSTRY DATA =====
+
+// disable default industries to help debugging
+disable_item(FEAT_INDUSTRIES);
+
+// never place primary industries close to each other
+
+// Coal Mine
+if (1) {
+    item(FEAT_INDUSTRIES, industry_coal_mine, 0) {
+        property {
+            substitute: 0;
+            override: 0;
+            cargo_types: [
+                produce_cargo("COAL", 15)
+            ];
+            prob_map_gen: 8;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_coal_mine)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_COAL_MINE_STATION_NAME);
+        }
+    }
+}
+
+// Power Plant
+if (1) {
+    item(FEAT_INDUSTRIES, industry_power_plant, 1) {
+    property {
+        substitute: 1;
+        override: 1;
+        cargo_types: [
+            accept_cargo("COAL"),
+            accept_cargo("PETR"),
+            accept_cargo("WSTE")
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_BLACK_HOLE;
+        conflicting_ind_types: [
+            industry_type(IND_TYPE_NEW, industry_coal_mine)
+        ];
+        nearby_station_name: string(STR_INDUSTRY_POWER_STATION_STATION_NAME);
+    }
+    }
+}
+
+// Sawmill is #2, skipped
+
+// Forest
+if (1) {
+    item(FEAT_INDUSTRIES, industry_forest, 3) {
+    property {
+        substitute: 3;
+        override: 3;
+        cargo_types: [
+            produce_cargo("WOOD", 13)
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 4;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        conflicting_ind_types: [
+            industry_type(IND_TYPE_NEW, industry_forest)
+        ];
+        nearby_station_name: string(STR_INDUSTRY_FOREST_STATION_NAME);
+    }
+    }
+}
+
+// (Oil) Refinery
+if (1) {
+    item(FEAT_INDUSTRIES, industry_refinery, 4) {
+        property {
+            substitute: 4;
+            override: 4;
+            name: string(STR_INDUSTRY_REFINERY_NAME);
+            cargo_types: [
+                accept_cargo("OIL_", produce_cargo("PETR", 1)),
+                accept_cargo("OLSD", produce_cargo("PETR", 1))
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_oil_rig)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_REFINERY_STATION_NAME);
+        }
+        graphics {
+            location_check: CB_RESULT_LOCATION_ALLOW;
+        }
+    }
+}
+
+// Oil Rig
+if (1) {
+    item(FEAT_INDUSTRIES, industry_oil_rig, 5) {
+        property {
+            substitute: 5;
+            override: 5;
+            cargo_types: [
+                produce_cargo("OIL_", 15),
+                produce_cargo("PASS", 2)
+            ];
+            prob_map_gen: 3;
+            prob_in_game: 6;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_oil_rig),
+                industry_type(IND_TYPE_NEW, industry_refinery)
+            ];
+	        nearby_station_name: string(STR_INDUSTRY_OIL_RIG_STATION_NAME);
+            spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
+        }
+    }
+}
+
+// Factory
+if (1) {
+    item(FEAT_INDUSTRIES, industry_factory, 6) {
+        property {
+            substitute: 6;
+            override: 6;
+            cargo_types: [
+                accept_cargo("STEL", produce_cargo("VEHI", 1)),
+                accept_cargo("GLAS", produce_cargo("VEHI", 1)),
+                accept_cargo("RUBR", produce_cargo("VEHI", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_foundry)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_FACTORY_STATION_NAME);
+        }
+    }
+}
+
+// Printing Works
+if (1) {
+    item(FEAT_INDUSTRIES, industry_printing_works, 7) {
+        property {
+            substitute: 7;
+            override: 7;
+            cargo_types: [
+                accept_cargo("PAPR", produce_cargo("GOOD", 1)),
+                accept_cargo("WOOL", produce_cargo("GOOD", 1)),
+                accept_cargo("DYES", produce_cargo("GOOD", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                //industry_type(IND_TYPE_NEW, industry_oil_rig)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
+        }
+    }
+}
+
+// Foundry (ex-Steel Mill)
+if (1) {
+    item(FEAT_INDUSTRIES, industry_foundry, 8) {
+        property {
+            substitute: 8;
+            override: 8;
+            name: string(STR_INDUSTRY_FOUNDRY_NAME);
+            cargo_types: [
+                accept_cargo("IORE", produce_cargo("STEL", 1)),
+                accept_cargo("CORE", produce_cargo("STEL", 1)),
+                accept_cargo("SCMT", produce_cargo("STEL", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                //industry_type(IND_TYPE_NEW, industry_oil_rig)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_FOUNDRY_STATION_NAME);
+        }
     }
 }

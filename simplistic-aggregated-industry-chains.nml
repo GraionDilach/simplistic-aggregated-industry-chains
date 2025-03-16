@@ -354,16 +354,16 @@ item(FEAT_CARGOS, cargo_valuables, 10) {
         type_abbreviation: TTD_STR_ABBREV_VALUABLES;
         sprite: 4307; // vanilla
         weight: 0.125; // 2/16
-        station_list_colour: 202;
-        cargo_payment_list_colour: 202;
+        station_list_colour: 69;
+        cargo_payment_list_colour: 69;
         is_freight: 1;
         cargo_classes: bitmask(CC_ARMOURED, CC_EXPRESS, CC_NON_POTABLE);
         cargo_label: "VALU";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 1;
-        single_penalty_length: 32;
-        price_factor: (7509 * 10.0 * 20 * 255) / (1 << 21); // 182.609081268311
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: 200;
         capacity_multiplier: 2;
         number: 10;
     }
@@ -715,8 +715,8 @@ item(FEAT_CARGOS, cargo_gold, 26) {
         type_abbreviation: TTD_STR_ABBREV_GOLD;
         sprite: 4307; // vanilla
         weight: 0.5; // 8/16
-        station_list_colour: 202;
-        cargo_payment_list_colour: 202;
+        station_list_colour: 67;
+        cargo_payment_list_colour: 67;
         is_freight: 1;
         cargo_classes: bitmask(CC_ARMOURED, CC_NON_POTABLE);
         cargo_label: "GOLD";
@@ -813,7 +813,6 @@ spriteset(cargoicon_tourist) {
     [0, 0, "gfx/cargo_icons/tour.png"]
 }
 
-//stats are copied from Wannaroo
 item(FEAT_CARGOS, cargo_tourist, 31) {
     property {
         type_name: string(STR_CARGO_PLURAL_TOURIST);
@@ -832,7 +831,7 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
         town_growth_multiplier: 1.25;
         penalty_lowerbound: 0;
         single_penalty_length: 15; // 2/3 passenger value as tourists are usually in a hurry
-        price_factor: 210;
+        price_factor: 191.8; // PASS*1.4
         capacity_multiplier: 2.67;
         number: 31;
     }

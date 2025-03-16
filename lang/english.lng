@@ -20,6 +20,11 @@ STR_CARGO_SINGULAR_CHEMICALS                :Chemicals
 STR_QUANTITY_CHEMICALS                      :{VOLUME} of chemicals
 STR_ABBREV_CHEMICALS                        :{TINYFONT}CH
 
+STR_CARGO_PLURAL_DEVICE                     :Devices
+STR_CARGO_SINGULAR_DEVICE                   :Device
+STR_QUANTITY_DEVICE                         :{COMMA} device{P 0 "" s}
+STR_ABBREV_DEVICE                           :{TINYFONT}DE
+
 STR_CARGO_PLURAL_DYES                       :Dyes
 STR_CARGO_SINGULAR_DYES                     :Dye
 STR_QUANTITY_DYES                           :{COMMA} bag{P "" s} of dyes
@@ -50,7 +55,33 @@ STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol
 STR_ABBREV_PETROL                           :{TINYFONT}PT
 
+STR_CARGO_PLURAL_SAND                       :Sand
+STR_CARGO_SINGULAR_SAND                     :Sand
+STR_QUANTITY_SAND                           :{WEIGHT} of sand
+STR_ABBREV_SAND                             :{TINYFONT}SN
+
+STR_CARGO_PLURAL_SCRAP_METAL                :Scrap Metal
+STR_CARGO_SINGULAR_SCRAP_METAL              :Scrap Metal
+STR_QUANTITY_SCRAP_METAL                    :{WEIGHT} of scrap metal
+STR_ABBREV_SCRAP_METAL                      :{TINYFONT}SC
+
+STR_CARGO_PLURAL_SULPHUR                    :Sulphur
+STR_CARGO_SINGULAR_SULPHUR                  :Sulphur
+STR_QUANTITY_SULPHUR                        :{WEIGHT} of sulphur
+STR_ABBREV_SULPHUR                          :{TINYFONT}SU
+
+
 STR_CARGO_PLURAL_TOURIST                    :Tourists
 STR_CARGO_SINGULAR_TOURIST                  :Tourist
 STR_QUANTITY_TOURIST                        :{COMMA} tourist{P 0 "" s}
 STR_ABBREV_TOURIST                          :{TINYFONT}TR
+
+STR_CARGO_PLURAL_WASTE                      :Waste
+STR_CARGO_SINGULAR_WASTE                    :Waste
+STR_QUANTITY_WASTE                          :{WEIGHT} of waste
+STR_ABBREV_WASTE                            :{TINYFONT}WS
+
+STR_CARGO_PLURAL_WOOL                       :Wool
+STR_CARGO_SINGULAR_WOOL                     :Wool
+STR_QUANTITY_WOOL                           :{COMMA} item{P "" s} of wool
+STR_ABBREV_WOOL                             :{TINYFONT}WL

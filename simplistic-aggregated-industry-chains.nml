@@ -59,12 +59,13 @@ cargotable {
     RFPR, // #23 here, Chemicals, index inherited from ECS
     SAND, // #17 here, Sand, index inherited from ECS
     TOUR, // #31 here/in ECS, Tourist
-    VEHI, // #24 here, Supplies (mostly Vehicles elsewhere), index inherited from ECS
+    VEHI, // #24 here, Devices (mostly Vehicles elsewhere), index inherited from ECS
     WOOL, // #15 here, Wool, index inherited from ECS
     // FIRS copies
-    RCYC, // #30 here, Waste (was Recyclables in FIRS, but ehhhh)
-    SCMT, // #32 here, Scrap Metal
-    SULP, // #33 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    SCMT, // #30 here, Scrap Metal
+    SULP, // #32 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    // Additional ones
+    WSTE, // #33 here, Waste
     // Unused indices
     // #34+
 }
@@ -472,6 +473,37 @@ item(FEAT_CARGOS, cargo_fruit, 14) {
     }
 }
 
+spriteset(cargoicon_wool) {
+    [0, 0, "gfx/cargo_icons/wool.png"]
+}
+
+item(FEAT_CARGOS, cargo_wool, 15) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_WOOL);
+        unit_name: string(STR_CARGO_SINGULAR_WOOL);
+        units_of_cargo: TTD_STR_ITEMS;
+        items_of_cargo: string(STR_QUANTITY_WOOL);
+        type_abbreviation: string(STR_ABBREV_WOOL);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 15;
+        cargo_payment_list_colour: 15;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_NON_POTABLE);
+        cargo_label: "WOOL";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 10;
+        single_penalty_length: 48;
+        price_factor: (5005 * 10.0 * 20 * 255) / (1 << 21); // 121.715068817139
+        capacity_multiplier: 1;
+        number: 15;
+    }
+    graphics {
+        cargoicon_wool;
+    }
+}
+
 spriteset(cargoicon_limestone) {
     [0, 0, "gfx/cargo_icons/lime.png"]
 }
@@ -500,6 +532,37 @@ item(FEAT_CARGOS, cargo_limestone, 16) {
     }
     graphics {
         cargoicon_limestone;
+    }
+}
+
+spriteset(cargoicon_sand) {
+    [0, 0, "gfx/cargo_icons/sand.png"]
+}
+
+item(FEAT_CARGOS, cargo_sand, 17) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_SAND);
+        unit_name: string(STR_CARGO_SINGULAR_SAND);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_SAND);
+        type_abbreviation: string(STR_ABBREV_SAND);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 58;
+        cargo_payment_list_colour: 58;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_POWDERIZED, CC_NON_POTABLE);
+        cargo_label: "SAND";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 40;
+        single_penalty_length: 255;
+        price_factor: 93;
+        capacity_multiplier: 1;
+        number: 17;
+    }
+    graphics {
+        cargoicon_sand;
     }
 }
 
@@ -675,6 +738,37 @@ item(FEAT_CARGOS, cargo_chemicals, 23) {
     }
 }
 
+spriteset(cargoicon_device) {
+    [0, 0, "gfx/cargo_icons/vehi.png"]
+}
+
+item(FEAT_CARGOS, cargo_device, 24) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_DEVICE);
+        unit_name: string(STR_CARGO_SINGULAR_DEVICE);
+        units_of_cargo: string(STR_QUANTITY_DEVICE);
+        items_of_cargo: string(STR_QUANTITY_DEVICE);
+        type_abbreviation: string(STR_ABBREV_DEVICE);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1.15;
+        station_list_colour: 194;
+        cargo_payment_list_colour: 194;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_EXPRESS, CC_NON_POTABLE);
+        cargo_label: "VEHI";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 15;
+        single_penalty_length: 128;
+        price_factor: 175;
+        capacity_multiplier: 1;
+        number: 24;
+    }
+    graphics {
+        cargoicon_device;
+    }
+}
+
 spriteset(cargoicon_petrol) {
     [0, 0, "gfx/cargo_icons/petr.png"]
 }
@@ -809,6 +903,37 @@ item(FEAT_CARGOS, cargo_flax, 29) {
     }
 }
 
+spriteset(cargoicon_scrap_metal) {
+    [0, 0, "gfx/cargo_icons/scmt.png"]
+}
+
+item(FEAT_CARGOS, cargo_scrap_metal, 30) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_SCRAP_METAL);
+        unit_name: string(STR_CARGO_SINGULAR_SCRAP_METAL);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_SCRAP_METAL);
+        type_abbreviation: string(STR_ABBREV_SCRAP_METAL);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 57;
+        cargo_payment_list_colour: 57;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_NON_POTABLE);
+        cargo_label: "SCMT";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 38;
+        single_penalty_length: 255;
+        price_factor: 107;
+        capacity_multiplier: 1;
+        number: 30;
+    }
+    graphics {
+        cargoicon_scrap_metal;
+    }
+}
+
 spriteset(cargoicon_tourist) {
     [0, 0, "gfx/cargo_icons/tour.png"]
 }
@@ -837,5 +962,60 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
     }
     graphics {
         cargoicon_tourist;
+    }
+}
+
+spriteset(cargoicon_sulphur) {
+    [0, 0, "gfx/cargo_icons/sulp.png"]
+}
+
+item(FEAT_CARGOS, cargo_sulphur, 32) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_SULPHUR);
+        unit_name: string(STR_CARGO_SINGULAR_SULPHUR);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_SULPHUR);
+        type_abbreviation: string(STR_ABBREV_SULPHUR);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 190;
+        cargo_payment_list_colour: 190;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_POWDERIZED, CC_NON_POTABLE);
+        cargo_label: "SULP";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: 105;
+        capacity_multiplier: 1;
+        number: 32;
+    }
+    graphics {
+        cargoicon_sulphur;
+    }
+}
+
+item(FEAT_CARGOS, cargo_waste, 33) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_WASTE);
+        unit_name: string(STR_CARGO_SINGULAR_WASTE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_WASTE);
+        type_abbreviation: string(STR_ABBREV_WASTE);
+        sprite: 4319;
+        weight: 1;
+        station_list_colour: 16;
+        cargo_payment_list_colour: 16;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_BULK, CC_NON_POTABLE);
+        cargo_label: "WSTE";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 38;
+        single_penalty_length: 255;
+        price_factor: 100;
+        capacity_multiplier: 1;
+        number: 33;
     }
 }

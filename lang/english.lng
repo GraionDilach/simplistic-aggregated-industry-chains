@@ -1,7 +1,7 @@
 ##grflangid 0x00
 ##plural 0
-STR_GRF_NAME                                :Simple Dilach Industries
-STR_GRF_DESCRIPTION                         :{}Simple Dilach Industries is intended to be a reshuffled vanilla experience, via adding some additional cargoes but keeping the logics as vanilla.{}{}See readme for more info.{}{}License: GPL v2
+STR_GRF_NAME                                :Simplistic Aggregated Industry Chains
+STR_GRF_DESCRIPTION                         :{}Simplinstic Aggregated Industry Chains shakes up the industy setup via adding some additional cargoes but keeping the logics as vanilla.{}{}See readme for more info.{}{}License: GPL v2
 STR_GRF_URL                                 :https://github.com/GraionDilach/TODO
 
 #Error strings

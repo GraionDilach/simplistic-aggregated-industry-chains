@@ -15,6 +15,11 @@ STR_CARGO_SINGULAR_BEVERAGE                 :Beverage
 STR_QUANTITY_BEVERAGE                       :{VOLUME} of beverage
 STR_ABBREV_BEVERAGE                         :{TINYFONT}BE
 
+STR_CARGO_PLURAL_DYES                       :Dyes
+STR_CARGO_SINGULAR_DYES                     :Dye
+STR_QUANTITY_DYES                           :{COMMA} bag{P "" s} of dyes
+STR_ABBREV_DYES                             :{TINYFONT}DY
+
 STR_CARGO_PLURAL_PETROL                     :Petrol
 STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol

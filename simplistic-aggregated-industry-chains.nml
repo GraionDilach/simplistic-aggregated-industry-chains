@@ -496,6 +496,37 @@ item(FEAT_CARGOS, cargo_copper_ore, 19) {
     }
 }
 
+spriteset(cargoicon_dyes) {
+    [0, 0, "gfx/cargo_icons/dyes.png"]
+}
+
+item(FEAT_CARGOS, cargo_dyes, 20) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_DYES);
+        unit_name: string(STR_CARGO_SINGULAR_DYES);
+        units_of_cargo: TTD_STR_BAGS;
+        items_of_cargo: string(STR_QUANTITY_DYES);
+        type_abbreviation: string(STR_ABBREV_DYES);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 0.25; // 4/16
+        station_list_colour: 184;
+        cargo_payment_list_colour: 184;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS);
+        cargo_label: "DYES";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 10;
+        single_penalty_length: 25;
+        price_factor: (5005 * 10.0 * 20 * 255) / (1 << 21); // 121.715068817139
+        capacity_multiplier: 2;
+        number: 20;
+    }
+    graphics {
+        cargoicon_dyes;
+    }
+}
+
 item(FEAT_CARGOS, cargo_diamond, 21) {
     property {
         type_name: TTD_STR_CARGO_PLURAL_DIAMONDS;

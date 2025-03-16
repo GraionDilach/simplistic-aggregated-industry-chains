@@ -1,7 +1,7 @@
 ##grflangid 0x00
 ##plural 0
 STR_GRF_NAME                                :Simplistic Aggregated Industry Chains
-STR_GRF_DESCRIPTION                         :{}Simplinstic Aggregated Industry Chains shakes up the industy setup via adding some additional cargoes but keeping the logics as vanilla.{}{}See readme for more info.{}{}License: GPL v2
+STR_GRF_DESCRIPTION                         :{}Simplistic Aggregated Industry Chains shakes up the industry setup via adding some additional cargoes but keeping the logics as vanilla.{}{}See readme for more info.{}{}License: GPL v2
 STR_GRF_URL                                 :https://github.com/GraionDilach/TODO
 
 #Error strings
@@ -10,6 +10,17 @@ STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work wi
 
 #Cargos
 
-STR_CARGO_NAME_TOURIST						:Tourists
-STR_CID_TOURIST				    			:{TINYFONT}TR
-STR_CARGO_UNIT_TOURIST						:{COMMA} tourist{P 0 "" s}
+STR_CARGO_PLURAL_BEVERAGE                   :Beverage
+STR_CARGO_SINGULAR_BEVERAGE                 :Beverage
+STR_QUANTITY_BEVERAGE                       :{VOLUME} of beverage
+STR_ABBREV_BEVERAGE                         :{TINYFONT}BE
+
+STR_CARGO_PLURAL_PETROL                     :Petrol
+STR_CARGO_SINGULAR_PETROL                   :Petrol
+STR_QUANTITY_PETROL                         :{VOLUME} of petrol
+STR_ABBREV_PETROL                           :{TINYFONT}PT
+
+STR_CARGO_PLURAL_TOURIST                    :Tourists
+STR_CARGO_SINGULAR_TOURIST                  :Tourist
+STR_QUANTITY_TOURIST                        :{COMMA} tourist{P 0 "" s}
+STR_ABBREV_TOURIST                          :{TINYFONT}TR

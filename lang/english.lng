@@ -15,6 +15,11 @@ STR_CARGO_SINGULAR_BEVERAGE                 :Beverage
 STR_QUANTITY_BEVERAGE                       :{VOLUME} of beverage
 STR_ABBREV_BEVERAGE                         :{TINYFONT}BE
 
+STR_CARGO_PLURAL_CHEMICALS                  :Chemicals
+STR_CARGO_SINGULAR_CHEMICALS                :Chemicals
+STR_QUANTITY_CHEMICALS                      :{VOLUME} of chemicals
+STR_ABBREV_CHEMICALS                        :{TINYFONT}CH
+
 STR_CARGO_PLURAL_DYES                       :Dyes
 STR_CARGO_SINGULAR_DYES                     :Dye
 STR_QUANTITY_DYES                           :{COMMA} bag{P "" s} of dyes
@@ -34,6 +39,11 @@ STR_CARGO_PLURAL_LIMESTONE                  :Limestone
 STR_CARGO_SINGULAR_LIMESTONE                :Limestone
 STR_QUANTITY_LIMESTONE                      :{WEIGHT} of limestone
 STR_ABBREV_LIMESTONE                        :{TINYFONT}LS
+
+STR_CARGO_PLURAL_OIL_SEED                   :Oil Seeds
+STR_CARGO_SINGULAR_OIL_SEED                 :Oil Seed
+STR_QUANTITY_OIL_SEED                       :{WEIGHT} of oil seeds
+STR_ABBREV_OIL_SEED                         :{TINYFONT}OS
 
 STR_CARGO_PLURAL_PETROL                     :Petrol
 STR_CARGO_SINGULAR_PETROL                   :Petrol

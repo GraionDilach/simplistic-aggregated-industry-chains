@@ -613,6 +613,69 @@ item(FEAT_CARGOS, cargo_diamond, 21) {
     }
 }
 
+spriteset(cargoicon_oil_seed) {
+    [0, 0, "gfx/cargo_icons/olsd.png"]
+}
+
+item(FEAT_CARGOS, cargo_oil_seed, 22) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_OIL_SEED);
+        unit_name: string(STR_CARGO_SINGULAR_OIL_SEED);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_OIL_SEED);
+        type_abbreviation: string(STR_ABBREV_OIL_SEED);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 53;
+        cargo_payment_list_colour: 53;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_COVERED, CC_NON_POTABLE);
+        cargo_label: "OLSD";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 4;
+        single_penalty_length: 40;
+        price_factor: (4209 * 10.0 * 20 * 255) / (1 << 21); // 102.357387542725
+        capacity_multiplier: 1;
+        number: 22;
+    }
+    graphics {
+        cargoicon_oil_seed;
+    }
+}
+
+spriteset(cargoicon_chemicals) {
+    [0, 0, "gfx/cargo_icons/rfpr.png"]
+}
+
+item(FEAT_CARGOS, cargo_chemicals, 23) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_CHEMICALS);
+        unit_name: string(STR_CARGO_SINGULAR_CHEMICALS);
+        units_of_cargo: TTD_STR_LITERS;
+        items_of_cargo: string(STR_QUANTITY_CHEMICALS);
+        type_abbreviation: string(STR_ABBREV_CHEMICALS);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 174;
+        cargo_payment_list_colour: 174;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
+        cargo_label: "RFPR";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 25;
+        single_penalty_length: 255;
+        price_factor: (4322 * 10.0 * 20 * 255) / (1 << 21); // 105.105400085449
+        capacity_multiplier: 1;
+        number: 23;
+    }
+    graphics {
+        cargoicon_chemicals;
+    }
+}
+
+
 spriteset(cargoicon_petrol) {
     [0, 0, "gfx/cargo_icons/petr.png"]
 }

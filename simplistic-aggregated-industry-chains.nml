@@ -2001,67 +2001,129 @@ if (1) {
 }
 
 // Chemical Plant, #28
+tilelayout jrpetrolplant_tilelayout1 {
+	0, 0: jrpetrolplant_tile_distiller;
+	0, 1: jrpetrolplant_tile_tallredtanks;
+//	0, 2
+	1, 0: jrpetrolplant_tile_cracker;
+	1, 1: jrpetrolplant_tile_cracker;
+	1, 2: jrpetrolplant_tile_shed;
+	2, 0: jrpetrolplant_tile_widetank;
+	2, 1: jrpetrolplant_tile_widetank;
+	2, 2: jrconcrete_tile;
+}
+
+tilelayout jrpetrolplant_tilelayout2 {
+	0, 0: jrpetrolplant_tile_distiller;
+	0, 1: jrpetrolplant_tile_tallredtanks;
+//	0, 2
+	1, 0: jrconcrete_tile;
+	1, 1: jrpetrolplant_tile_cracker;
+	1, 2: jrpetrolplant_tile_cracker;
+	2, 0: jrpetrolplant_tile_shed;
+	2, 1: jrpetrolplant_tile_widetank;
+	2, 2: jrpetrolplant_tile_widetank;
+}
+
+spritelayout jrconcrete_tile_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+}
+
+item (FEAT_INDUSTRYTILES, jrconcrete_tile) {
+	property {
+		substitute: 0;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		jrconcrete_tile_spritelayout;
+	}
+}
+
+spritelayout jrshed_tile_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 2061 : construction_state==3 ? 2063 : 2062); }
+}
+
+spritelayout jrpetrolplant_tile_distiller_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 2084 : construction_state==3 ? 2086 : 2085); }
+	building { sprite: (construction_state==0 ? 2084 : construction_state==3 ? 2086 : 2085); xoffset: 6; }
+}
+
+spritelayout jrpetrolplant_tile_cracker_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 2090 : construction_state==3 ? 2092 : 2091); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_GREY); }
+}
+
+spritelayout jrpetrolplant_tile_tallredtanks_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_ORANGE); }
+	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
+	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_ORANGE); }
+	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
+}
+
+spritelayout jrpetrolplant_tile_widetank_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 2078 : construction_state==3 ? 2080 : 2079); xoffset: 2; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+}
+
 if (1) {
-    /*
-    item(FEAT_INDUSTRYTILES, refinery_tile_1) {
-        property {
-            substitute: 18;
-            override: 18;
-            accepted_cargos: [];
-            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-        }
+    item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_distiller) {
+    	property {
+    		substitute: 0;
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrpetrolplant_tile_distiller_spritelayout;
+    	}
     }
 
-    item(FEAT_INDUSTRYTILES, refinery_tile_2) {
-        property {
-            substitute: 19;
-            override: 19;
-            accepted_cargos: [];
-            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-        }
+    item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_tallredtanks) {
+    	property {
+    		substitute: 0;
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrpetrolplant_tile_tallredtanks_spritelayout;
+    	}
     }
 
-    item(FEAT_INDUSTRYTILES, refinery_tile_3) {
-        property {
-            substitute: 20;
-            override: 20;
-            accepted_cargos: [];
-            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-        }
+    item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_widetank) {
+    	property {
+    		substitute: 0;
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrpetrolplant_tile_widetank_spritelayout;
+    	}
     }
 
-    item(FEAT_INDUSTRYTILES, refinery_tile_4) {
-        property {
-            substitute: 21;
-            override: 21;
-            accepted_cargos: [];
-            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-        }
+    item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_shed) {
+    	property {
+    		substitute: 0;
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrshed_tile_spritelayout;
+    	}
     }
 
-    item(FEAT_INDUSTRYTILES, refinery_tile_5) {
-        property {
-            substitute: 22;
-            override: 22;
-            accepted_cargos: [];
-            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-        }
+    item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_cracker) {
+    	property {
+    		substitute: 0;
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrpetrolplant_tile_cracker_spritelayout;
+    	}
     }
-
-    item(FEAT_INDUSTRYTILES, refinery_tile_6) {
-        property {
-            substitute: 23;
-            override: 23;
-            accepted_cargos: [[PASS, 1]];
-            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-        }
-    }
-    */
 
     item(FEAT_INDUSTRIES, industry_chemical_plant, 28) {
         property {
             substitute: 4;
             name: string(STR_INDUSTRY_CHEMICAL_PLANT_NAME);
+            layouts: [jrpetrolplant_tilelayout1, jrpetrolplant_tilelayout2];
             cargo_types: [
                 accept_cargo("SULP", produce_cargo("DYES", 1)),
                 accept_cargo("RFPR", produce_cargo("DYES", 1))
@@ -2074,6 +2136,7 @@ if (1) {
                 industry_type(IND_TYPE_NEW, industry_printing_works),
                 industry_type(IND_TYPE_NEW, industry_desalination_plant)
             ];
+            map_colour: 165;
             nearby_station_name: string(STR_INDUSTRY_CHEMICAL_PLANT_STATION_NAME);
         }
         graphics {

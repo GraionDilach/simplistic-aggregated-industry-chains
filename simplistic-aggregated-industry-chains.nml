@@ -6,7 +6,7 @@
 // ===== HEADER =====
 
 if (openttd_version < version_openttd(1, 9, 0)) {
-	error(FATAL, REQUIRES_OPENTTD, "1.9.0");
+    error(FATAL, REQUIRES_OPENTTD, "1.9.0");
 }
 
 if (climate == CLIMATE_TOYLAND) {
@@ -14,12 +14,12 @@ if (climate == CLIMATE_TOYLAND) {
 }
 
 grf {
-	grfid: "zgy\00";
-	name: string(STR_GRF_NAME);
-	desc: string(STR_GRF_DESCRIPTION);
-	version: 0000;
-	min_compatible_version: 10;
-	url: string(STR_GRF_URL);
+    grfid: "zgy\00";
+    name: string(STR_GRF_NAME);
+    desc: string(STR_GRF_DESCRIPTION);
+    version: 0000;
+    min_compatible_version: 10;
+    url: string(STR_GRF_URL);
 }
 
 // ===== CARGO TABLE =====
@@ -1047,23 +1047,55 @@ if (1) {
 
 // Power Plant
 if (1) {
-    item(FEAT_INDUSTRIES, industry_power_plant, 1) {
-    property {
-        substitute: 1;
-        override: 1;
-        cargo_types: [
-            accept_cargo("COAL"),
-            accept_cargo("PETR"),
-            accept_cargo("WSTE")
-        ];
-        prob_map_gen: 5;
-        prob_in_game: 2;
-        life_type: IND_LIFE_TYPE_BLACK_HOLE;
-        conflicting_ind_types: [
-            industry_type(IND_TYPE_NEW, industry_coal_mine)
-        ];
-        nearby_station_name: string(STR_INDUSTRY_POWER_STATION_STATION_NAME);
+    item(FEAT_INDUSTRYTILES, power_plant_tile_1) {
+        property {
+            substitute: 7;
+            override: 7;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
     }
+
+    item(FEAT_INDUSTRYTILES, power_plant_tile_2) {
+        property {
+            substitute: 8;
+            override: 8;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, power_plant_tile_3) {
+        property {
+            substitute: 9;
+            override: 9;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, power_plant_tile_4) {
+        property {
+            substitute: 10;
+            override: 10;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_power_plant, 1) {
+        property {
+            substitute: 1;
+            override: 1;
+            cargo_types: [
+                accept_cargo("COAL"),
+                accept_cargo("PETR"),
+                accept_cargo("WSTE")
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_coal_mine)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_POWER_STATION_STATION_NAME);
+        }
     }
 }
 
@@ -1072,20 +1104,20 @@ if (1) {
 // Forest
 if (1) {
     item(FEAT_INDUSTRIES, industry_forest, 3) {
-    property {
-        substitute: 3;
-        override: 3;
-        cargo_types: [
-            produce_cargo("WOOD", 13)
-        ];
-        prob_map_gen: 5;
-        prob_in_game: 4;
-        life_type: IND_LIFE_TYPE_ORGANIC;
-        conflicting_ind_types: [
-            industry_type(IND_TYPE_NEW, industry_forest)
-        ];
-        nearby_station_name: string(STR_INDUSTRY_FOREST_STATION_NAME);
-    }
+        property {
+            substitute: 3;
+            override: 3;
+            cargo_types: [
+                produce_cargo("WOOD", 13)
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 4;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_forest)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_FOREST_STATION_NAME);
+        }
     }
 }
 
@@ -1131,7 +1163,7 @@ if (1) {
                 industry_type(IND_TYPE_NEW, industry_oil_rig),
                 industry_type(IND_TYPE_NEW, industry_refinery)
             ];
-	        nearby_station_name: string(STR_INDUSTRY_OIL_RIG_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_OIL_RIG_STATION_NAME);
             spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
         }
     }

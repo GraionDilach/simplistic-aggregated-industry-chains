@@ -1493,46 +1493,43 @@ if (1) {
     }
 }
 
-// Bank, #12
+// City Hall, #12 (was Temperate Bank)
 if (1) {
-    item(FEAT_INDUSTRYTILES, bank_tile_1) {
+    item(FEAT_INDUSTRYTILES, city_hall_tile_1) {
         property {
             substitute: 58;
             override: 58;
-            accepted_cargos: [[PASS, 1]];
+            accepted_cargos: [[PASS, 1], [MAIL, 1], [GOOD, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
 
-    item(FEAT_INDUSTRYTILES, bank_tile_2) {
+    item(FEAT_INDUSTRYTILES, city_hall_tile_2) {
         property {
             substitute: 59;
             override: 59;
-            accepted_cargos: [[PASS, 1]];
+            accepted_cargos: [[PASS, 1], [FOOD, 1], [GOOD, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
 
-    item(FEAT_INDUSTRIES, industry_bank, 12) {
+    item(FEAT_INDUSTRIES, industry_city_hall, 12) {
         property {
             substitute: 12;
             override: 12;
+            name: string(STR_INDUSTRY_CITY_HALL_NAME);
             cargo_types: [
-                produce_cargo("VALU", 6),
-                accept_cargo("VALU"),
-                accept_cargo("GOLD", produce_cargo("VALU", 0.25)),
-                accept_cargo("DIAM", produce_cargo("VALU", 0.25)),
+                produce_cargo("TOUR", 4),
+                accept_cargo("TOUR"),
             ];
             prob_map_gen: 6;
-            prob_in_game: 7;
+            prob_in_game: 3;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_bank),
-                industry_type(IND_TYPE_NEW, industry_gold_mine),
-                industry_type(IND_TYPE_NEW, industry_diamond_mine)
+                industry_type(IND_TYPE_NEW, industry_city_hall)
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
-            nearby_station_name: string(STR_INDUSTRY_BANK_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_CITY_HALL_STATION_NAME);
         }
     }
 }
@@ -1713,43 +1710,46 @@ if (1) {
     }
 }
 
-// City Hall, #16 (was Arctic Bank)
+// (Arctic/Tropical) Bank, #16
 if (1) {
-    item(FEAT_INDUSTRYTILES, city_hall_tile_1) {
+    item(FEAT_INDUSTRYTILES, bank_tile_1) {
         property {
             substitute: 89;
             override: 89;
-            accepted_cargos: [[PASS, 1]];
+            accepted_cargos: [[PASS, 1], [MAIL, 1], [GOOD, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
 
-    item(FEAT_INDUSTRYTILES, city_hall_tile_2) {
+    item(FEAT_INDUSTRYTILES, bank_tile_2) {
         property {
             substitute: 90;
             override: 90;
-            accepted_cargos: [[PASS, 1]];
+            accepted_cargos: [[PASS, 1], [FOOD, 1], [GOOD, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
 
-    item(FEAT_INDUSTRIES, industry_city_hall, 16) {
+    item(FEAT_INDUSTRIES, industry_bank, 16) {
         property {
             substitute: 16;
             override: 16;
-            name: string(STR_INDUSTRY_CITY_HALL_NAME);
             cargo_types: [
-                produce_cargo("TOUR", 4),
-                accept_cargo("TOUR"),
+                produce_cargo("VALU", 6),
+                accept_cargo("VALU"),
+                accept_cargo("GOLD", produce_cargo("VALU", 0.25)),
+                accept_cargo("DIAM", produce_cargo("VALU", 0.25)),
             ];
             prob_map_gen: 6;
-            prob_in_game: 3;
+            prob_in_game: 7;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_city_hall)
+                industry_type(IND_TYPE_NEW, industry_bank),
+                industry_type(IND_TYPE_NEW, industry_gold_mine),
+                industry_type(IND_TYPE_NEW, industry_diamond_mine)
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
-            nearby_station_name: string(STR_INDUSTRY_CITY_HALL_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_BANK_STATION_NAME);
         }
     }
 }

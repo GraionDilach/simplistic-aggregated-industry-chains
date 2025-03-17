@@ -111,7 +111,8 @@ STR_INDUSTRY_COPPER_ORE_MINE_STATION_NAME           :{STRING} Copper Ore Mine
 
 STR_INDUSTRY_OIL_WELLS_STATION_NAME                 :{STRING} Oil Wells
 
-STR_INDUSTRY_BANK_STATION_NAME                      :{STRING} Bank
+STR_INDUSTRY_CITY_HALL_NAME                         :City Hall
+STR_INDUSTRY_CITY_HALL_STATION_NAME                 :{STRING} City Hall
 
 STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME     :{STRING} Food Processing Plant
 
@@ -119,8 +120,7 @@ STR_INDUSTRY_PAPER_MILL_STATION_NAME                :{STRING} Paper Mill
 
 STR_INDUSTRY_GOLD_MINE_STATION_NAME                 :{STRING} Gold Mine
 
-STR_INDUSTRY_CITY_HALL_NAME                         :City Hall
-STR_INDUSTRY_CITY_HALL_STATION_NAME                 :{STRING} City Hall
+STR_INDUSTRY_BANK_STATION_NAME                      :{STRING} Bank
 
 STR_INDUSTRY_DIAMOND_MINE_STATION_NAME              :{STRING} Diamond Mine
 

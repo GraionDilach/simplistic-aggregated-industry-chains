@@ -1280,7 +1280,8 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_foundry)
+                industry_type(IND_TYPE_NEW, industry_foundry),
+                industry_type(IND_TYPE_NEW, industry_rubber_plantation)
             ];
             nearby_station_name: string(STR_INDUSTRY_FACTORY_STATION_NAME);
         }
@@ -1587,7 +1588,8 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_farm)
+                industry_type(IND_TYPE_NEW, industry_farm),
+                industry_type(IND_TYPE_NEW, industry_fruit_plantation)
             ];
             nearby_station_name: string(STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME);
         }
@@ -1681,7 +1683,8 @@ if (1) {
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_farm),
-                industry_type(IND_TYPE_NEW, industry_forest)
+                industry_type(IND_TYPE_NEW, industry_forest),
+                industry_type(IND_TYPE_NEW, industry_lumber_mill)
             ];
             nearby_station_name: string(STR_INDUSTRY_PAPER_MILL_STATION_NAME);
         }
@@ -1789,6 +1792,128 @@ if (1) {
                 industry_type(IND_TYPE_NEW, industry_foundry)
             ];
             nearby_station_name: string(STR_INDUSTRY_IRON_ORE_MINE_STATION_NAME);
+        }
+    }
+}
+
+// Fruit Plantation, #19
+if (1) {
+    item(FEAT_INDUSTRIES, industry_fruit_plantation, 19) {
+        property {
+            substitute: 19;
+            override: 19;
+            cargo_types: [
+                produce_cargo("FRUT", 10),
+                produce_cargo("BEER", 5)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_fruit_plantation),
+                industry_type(IND_TYPE_NEW, industry_food_processing_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_FRUIT_PLANTATION_STATION_NAME);
+        }
+    }
+}
+
+// Rubber Plantation, #20
+if (1) {
+    item(FEAT_INDUSTRIES, industry_rubber_plantation, 20) {
+        property {
+            substitute: 20;
+            override: 20;
+            cargo_types: [
+                produce_cargo("RUBR", 10)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_rubber_plantation),
+                industry_type(IND_TYPE_NEW, industry_factory)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_RUBBER_PLANTATION_STATION_NAME);
+        }
+    }
+}
+
+// Water Supply, #21
+if (1) {
+    item(FEAT_INDUSTRIES, industry_water_supply, 21) {
+        property {
+            substitute: 21;
+            override: 21;
+            cargo_types: [
+                produce_cargo("WATR", 12)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_water_supply),
+                industry_type(IND_TYPE_NEW, industry_water_tower)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_WATER_SUPPLY_STATION_NAME);
+        }
+    }
+}
+
+// Water Tower, #22
+if (1) {
+    item(FEAT_INDUSTRYTILES, water_tower_tile_1) {
+        property {
+            substitute: 120;
+            override: 120;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_water_tower, 22) {
+        property {
+            substitute: 22;
+            override: 22;
+            cargo_types: [
+                accept_cargo("WATR"),
+            ];
+            prob_map_gen: 6;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_water_tower),
+                industry_type(IND_TYPE_NEW, industry_water_supply)
+            ];
+            spec_flags: bitmask(IND_FLAG_ONLY_IN_TOWNS);
+            nearby_station_name: string(STR_INDUSTRY_WATER_TOWER_STATION_NAME);
+        }
+    }
+}
+
+// Tropic Factory, #23 skipped
+
+// Tropic Farm, #24 skipped
+
+// Lumber Mill, #25
+if (1) {
+    item(FEAT_INDUSTRIES, industry_lumber_mill, 25) {
+        property {
+            substitute: 25;
+            override: 25;
+            cargo_types: [
+                produce_cargo("WOOD",  0)
+            ];
+            prob_map_gen: 1;
+            prob_in_game: 1;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_lumber_mill),
+                industry_type(IND_TYPE_NEW, industry_forest),
+                industry_type(IND_TYPE_NEW, industry_paper_mill)
+            ];
+            spec_flags: bitmask(IND_FLAG_CUT_TREES, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+            nearby_station_name: string(STR_INDUSTRY_LUMBER_MILL_STATION_NAME);
         }
     }
 }

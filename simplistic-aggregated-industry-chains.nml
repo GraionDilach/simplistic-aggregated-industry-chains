@@ -1025,7 +1025,7 @@ disable_item(FEAT_INDUSTRIES);
 
 // never place primary industries close to each other
 
-// Coal Mine
+// Coal Mine, #0
 if (1) {
     item(FEAT_INDUSTRIES, industry_coal_mine, 0) {
         property {
@@ -1045,7 +1045,7 @@ if (1) {
     }
 }
 
-// Power Plant
+// Power Plant, #1
 if (1) {
     item(FEAT_INDUSTRYTILES, power_plant_tile_1) {
         property {
@@ -1103,9 +1103,9 @@ if (1) {
     }
 }
 
-// Sawmill is #2, skipped
+// Sawmill, #2, skipped
 
-// Forest
+// Forest, #3
 if (1) {
     item(FEAT_INDUSTRIES, industry_forest, 3) {
         property {
@@ -1118,14 +1118,15 @@ if (1) {
             prob_in_game: 4;
             life_type: IND_LIFE_TYPE_ORGANIC;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_forest)
+                industry_type(IND_TYPE_NEW, industry_forest),
+                industry_type(IND_TYPE_NEW, industry_paper_mill)
             ];
             nearby_station_name: string(STR_INDUSTRY_FOREST_STATION_NAME);
         }
     }
 }
 
-// (Oil) Refinery
+// (Oil) Refinery, #4
 if (1) {
     item(FEAT_INDUSTRYTILES, refinery_tile_1) {
         property {
@@ -1194,7 +1195,8 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_oil_rig)
+                industry_type(IND_TYPE_NEW, industry_oil_rig),
+                industry_type(IND_TYPE_NEW, industry_oil_wells)
             ];
             nearby_station_name: string(STR_INDUSTRY_REFINERY_STATION_NAME);
         }
@@ -1204,7 +1206,7 @@ if (1) {
     }
 }
 
-// Oil Rig
+// Oil Rig, #5
 if (1) {
     item(FEAT_INDUSTRIES, industry_oil_rig, 5) {
         property {
@@ -1227,7 +1229,7 @@ if (1) {
     }
 }
 
-// Factory
+// Factory, #6
 if (1) {
     item(FEAT_INDUSTRYTILES, factory_tile_1) {
         property {
@@ -1285,7 +1287,7 @@ if (1) {
     }
 }
 
-// Printing Works
+// Printing Works, #7
 if (1) {
     item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
         property {
@@ -1336,14 +1338,14 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                //industry_type(IND_TYPE_NEW, industry_oil_rig)
+                industry_type(IND_TYPE_NEW, industry_paper_mill)
             ];
             nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
         }
     }
 }
 
-// Foundry (ex-Steel Mill)
+// Foundry (ex-Steel Mill), #8
 if (1) {
     item(FEAT_INDUSTRYTILES, foundry_tile_1) {
         property {
@@ -1413,9 +1415,380 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                //industry_type(IND_TYPE_NEW, industry_oil_rig)
+                industry_type(IND_TYPE_NEW, industry_copper_ore_mine),
+                industry_type(IND_TYPE_NEW, industry_iron_ore_mine)
             ];
             nearby_station_name: string(STR_INDUSTRY_FOUNDRY_STATION_NAME);
+        }
+    }
+}
+
+// Farm, #9
+if (1) {
+    item(FEAT_INDUSTRIES, industry_farm, 9) {
+        property {
+            substitute: 9;
+            override: 9;
+            cargo_types: [
+                produce_cargo("GRAI", 10),
+                produce_cargo("FICR", 10),
+                produce_cargo("OLSD", 10)
+            ];
+            prob_map_gen: 9;
+            prob_in_game: 4;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_farm),
+                industry_type(IND_TYPE_NEW, industry_refinery),
+                industry_type(IND_TYPE_NEW, industry_food_processing_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_FARM_STATION_NAME);
+            spec_flags: bitmask(IND_FLAG_PLANT_FIELDS_PERIODICALLY, IND_FLAG_PLANT_FIELDS_WHEN_BUILT);
+        }
+    }
+}
+
+// Copper Ore Mine, #10
+if (1) {
+    item(FEAT_INDUSTRIES, industry_copper_ore_mine, 10) {
+        property {
+            substitute: 10;
+            override: 10;
+            cargo_types: [
+                produce_cargo("CORE", 10),
+                produce_cargo("SULP", 8)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_copper_ore_mine),
+                industry_type(IND_TYPE_NEW, industry_foundry)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_COPPER_ORE_MINE_STATION_NAME);
+        }
+    }
+}
+
+// Oil Wells, #11
+if (1) {
+    item(FEAT_INDUSTRIES, industry_oil_wells, 11) {
+        property {
+            substitute: 11;
+            override: 11;
+            cargo_types: [
+                produce_cargo("OIL_", 12),
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 5;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_oil_wells),
+                industry_type(IND_TYPE_NEW, industry_refinery)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_OIL_WELLS_STATION_NAME);
+            spec_flags: 0;
+        }
+    }
+}
+
+// Bank, #12
+if (1) {
+    item(FEAT_INDUSTRYTILES, bank_tile_1) {
+        property {
+            substitute: 58;
+            override: 58;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, bank_tile_2) {
+        property {
+            substitute: 59;
+            override: 59;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_bank, 12) {
+        property {
+            substitute: 12;
+            override: 12;
+            cargo_types: [
+                produce_cargo("VALU", 6),
+                accept_cargo("VALU"),
+                accept_cargo("GOLD", produce_cargo("VALU", 0.25)),
+                accept_cargo("DIAM", produce_cargo("VALU", 0.25)),
+            ];
+            prob_map_gen: 6;
+            prob_in_game: 7;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_bank),
+                industry_type(IND_TYPE_NEW, industry_gold_mine),
+                industry_type(IND_TYPE_NEW, industry_diamond_mine)
+            ];
+            spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+            nearby_station_name: string(STR_INDUSTRY_BANK_STATION_NAME);
+        }
+    }
+}
+
+// Food Processing Plant, #13
+if (1) {
+    item(FEAT_INDUSTRYTILES, food_processing_plant_tile_1) {
+        property {
+            substitute: 60;
+            override: 60;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, food_processing_plant_tile_2) {
+        property {
+            substitute: 61;
+            override: 61;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, food_processing_plant_tile_3) {
+        property {
+            substitute: 62;
+            override: 62;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, food_processing_plant_tile_4) {
+        property {
+            substitute: 63;
+            override: 63;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_food_processing_plant, 13) {
+        property {
+            substitute: 13;
+            override: 13;
+            cargo_types: [
+                accept_cargo("GRAI", produce_cargo("FOOD", 1)),
+                accept_cargo("LVST", produce_cargo("FOOD", 1)),
+                accept_cargo("FRUT", produce_cargo("FOOD", 1))
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_farm)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME);
+        }
+    }
+}
+
+// Paper Mill, #14
+if (1) {
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_1) {
+        property {
+            substitute: 64;
+            override: 64;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_2) {
+        property {
+            substitute: 65;
+            override: 65;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_3) {
+        property {
+            substitute: 66;
+            override: 66;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_4) {
+        property {
+            substitute: 67;
+            override: 67;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_5) {
+        property {
+            substitute: 68;
+            override: 68;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_6) {
+        property {
+            substitute: 69;
+            override: 69;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_7) {
+        property {
+            substitute: 70;
+            override: 70;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, paper_mill_tile_8) {
+        property {
+            substitute: 71;
+            override: 71;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_paper_mill, 14) {
+        property {
+            substitute: 14;
+            override: 14;
+            cargo_types: [
+                accept_cargo("WOOD", produce_cargo("PAPR", 1)),
+                accept_cargo("FICR", produce_cargo("PAPR", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_farm),
+                industry_type(IND_TYPE_NEW, industry_forest)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_PAPER_MILL_STATION_NAME);
+        }
+    }
+}
+
+// Gold Mine, #15
+if (1) {
+    item(FEAT_INDUSTRIES, industry_gold_mine, 15) {
+        property {
+            substitute: 15;
+            override: 15;
+            cargo_types: [
+                produce_cargo("GOLD", 7),
+                produce_cargo("SAND", 7)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_gold_mine),
+                industry_type(IND_TYPE_NEW, industry_bank)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_GOLD_MINE_STATION_NAME);
+        }
+    }
+}
+
+// City Hall, #16 (was Arctic Bank)
+if (1) {
+    item(FEAT_INDUSTRYTILES, city_hall_tile_1) {
+        property {
+            substitute: 89;
+            override: 89;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, city_hall_tile_2) {
+        property {
+            substitute: 90;
+            override: 90;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_city_hall, 16) {
+        property {
+            substitute: 16;
+            override: 16;
+            name: string(STR_INDUSTRY_CITY_HALL_NAME);
+            cargo_types: [
+                produce_cargo("TOUR", 4),
+                accept_cargo("TOUR"),
+            ];
+            prob_map_gen: 6;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_city_hall)
+            ];
+            spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+            nearby_station_name: string(STR_INDUSTRY_CITY_HALL_STATION_NAME);
+        }
+    }
+}
+
+// Diamond Mine, #17
+if (1) {
+    item(FEAT_INDUSTRIES, industry_diamond_mine, 17) {
+        property {
+            substitute: 17;
+            override: 17;
+            cargo_types: [
+                produce_cargo("DIAM", 7)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_diamond_mine),
+                industry_type(IND_TYPE_NEW, industry_bank)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_DIAMOND_MINE_STATION_NAME);
+        }
+    }
+}
+
+// Iron Ore Mine, #18
+if (1) {
+    item(FEAT_INDUSTRIES, industry_iron_ore_mine, 18) {
+        property {
+            substitute: 18;
+            override: 18;
+            cargo_types: [
+                produce_cargo("IORE", 10)
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_iron_ore_mine),
+                industry_type(IND_TYPE_NEW, industry_foundry)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_IRON_ORE_MINE_STATION_NAME);
         }
     }
 }

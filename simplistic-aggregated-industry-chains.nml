@@ -1051,6 +1051,7 @@ if (1) {
         property {
             substitute: 7;
             override: 7;
+            accepted_cargos: [];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1059,6 +1060,7 @@ if (1) {
         property {
             substitute: 8;
             override: 8;
+            accepted_cargos: [];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1067,6 +1069,7 @@ if (1) {
         property {
             substitute: 9;
             override: 9;
+            accepted_cargos: [];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1075,6 +1078,7 @@ if (1) {
         property {
             substitute: 10;
             override: 10;
+            accepted_cargos: [];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1123,6 +1127,60 @@ if (1) {
 
 // (Oil) Refinery
 if (1) {
+    item(FEAT_INDUSTRYTILES, refinery_tile_1) {
+        property {
+            substitute: 18;
+            override: 18;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_2) {
+        property {
+            substitute: 19;
+            override: 19;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_3) {
+        property {
+            substitute: 20;
+            override: 20;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_4) {
+        property {
+            substitute: 21;
+            override: 21;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_5) {
+        property {
+            substitute: 22;
+            override: 22;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_6) {
+        property {
+            substitute: 23;
+            override: 23;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_refinery, 4) {
         property {
             substitute: 4;
@@ -1171,6 +1229,42 @@ if (1) {
 
 // Factory
 if (1) {
+    item(FEAT_INDUSTRYTILES, factory_tile_1) {
+        property {
+            substitute: 39;
+            override: 39;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, factory_tile_2) {
+        property {
+            substitute: 40;
+            override: 40;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, factory_tile_3) {
+        property {
+            substitute: 41;
+            override: 41;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, factory_tile_4) {
+        property {
+            substitute: 42;
+            override: 42;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_factory, 6) {
         property {
             substitute: 6;
@@ -1193,6 +1287,42 @@ if (1) {
 
 // Printing Works
 if (1) {
+    item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
+        property {
+            substitute: 43;
+            override: 43;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, printing_works_tile_2) {
+        property {
+            substitute: 44;
+            override: 44;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, printing_works_tile_3) {
+        property {
+            substitute: 45;
+            override: 45;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, printing_works_tile_4) {
+        property {
+            substitute: 46;
+            override: 46;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_printing_works, 7) {
         property {
             substitute: 7;
@@ -1215,6 +1345,60 @@ if (1) {
 
 // Foundry (ex-Steel Mill)
 if (1) {
+    item(FEAT_INDUSTRYTILES, foundry_tile_1) {
+        property {
+            substitute: 52;
+            override: 52;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, foundry_tile_2) {
+        property {
+            substitute: 53;
+            override: 53;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, foundry_tile_3) {
+        property {
+            substitute: 54;
+            override: 54;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, foundry_tile_4) {
+        property {
+            substitute: 55;
+            override: 55;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, foundry_tile_5) {
+        property {
+            substitute: 56;
+            override: 56;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, foundry_tile_6) {
+        property {
+            substitute: 57;
+            override: 57;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_foundry, 8) {
         property {
             substitute: 8;

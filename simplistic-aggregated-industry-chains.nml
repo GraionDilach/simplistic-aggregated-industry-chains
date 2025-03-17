@@ -1428,6 +1428,60 @@ if (1) {
 
 // Farm, #9
 if (1) {
+    item(FEAT_INDUSTRYTILES, farm_tile_1) {
+        property {
+            substitute: 33;
+            override: 33;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, farm_tile_2) {
+        property {
+            substitute: 34;
+            override: 34;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, farm_tile_3) {
+        property {
+            substitute: 35;
+            override: 35;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, farm_tile_4) {
+        property {
+            substitute: 36;
+            override: 36;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, farm_tile_5) {
+        property {
+            substitute: 37;
+            override: 37;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, farm_tile_6) {
+        property {
+            substitute: 38;
+            override: 38;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_farm, 9) {
         property {
             substitute: 9;
@@ -1898,7 +1952,30 @@ if (1) {
 
 // Tropic Factory, #23 skipped
 
-// Tropic Farm, #24 skipped
+// Ranch (was Tropic Farm), #24
+if (1) {
+    item(FEAT_INDUSTRIES, industry_ranch, 24) {
+        property {
+            substitute: 24;
+            override: 24;
+            name: string(STR_INDUSTRY_RANCH_NAME);
+            cargo_types: [
+                produce_cargo("LVST", 10),
+                produce_cargo("WOOL", 10)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_ranch),
+                industry_type(IND_TYPE_NEW, industry_printing_works),
+                industry_type(IND_TYPE_NEW, industry_food_processing_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_RANCH_STATION_NAME);
+            spec_flags: 0;
+        }
+    }
+}
 
 // Lumber Mill, #25
 if (1) {
@@ -1976,31 +2053,7 @@ if (1) {
     }
 }
 
-// Ranch, #27
-if (1) {
-    item(FEAT_INDUSTRIES, industry_ranch, 27) {
-        property {
-            substitute: 9;
-            name: string(STR_INDUSTRY_RANCH_NAME);
-            cargo_types: [
-                produce_cargo("LVST", 10),
-                produce_cargo("WOOL", 10)
-            ];
-            prob_map_gen: 4;
-            prob_in_game: 2;
-            life_type: IND_LIFE_TYPE_ORGANIC;
-            conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_ranch),
-                industry_type(IND_TYPE_NEW, industry_printing_works),
-                industry_type(IND_TYPE_NEW, industry_food_processing_plant)
-            ];
-            nearby_station_name: string(STR_INDUSTRY_RANCH_STATION_NAME);
-            spec_flags: 0;
-        }
-    }
-}
-
-// Chemical Plant, #28
+// Chemical Plant, #27
 tilelayout jrpetrolplant_tilelayout1 {
 	0, 0: jrpetrolplant_tile_distiller;
 	0, 1: jrpetrolplant_tile_tallredtanks;
@@ -2119,7 +2172,7 @@ if (1) {
     	}
     }
 
-    item(FEAT_INDUSTRIES, industry_chemical_plant, 28) {
+    item(FEAT_INDUSTRIES, industry_chemical_plant, 27) {
         property {
             substitute: 4;
             name: string(STR_INDUSTRY_CHEMICAL_PLANT_NAME);
@@ -2145,7 +2198,7 @@ if (1) {
     }
 }
 
-// Desalination Plant, #29
+// Desalination Plant, #28
 switch (FEAT_INDUSTRYTILES, SELF, tile_water_check, (nearby_tile_water_class(0, 0) == WATER_CLASS_SEA)) {
     1: return CB_RESULT_LOCATION_ALLOW;
     return CB_RESULT_LOCATION_DISALLOW;
@@ -2328,7 +2381,7 @@ if (1) {
     	}
     }
 
-    item(FEAT_INDUSTRIES, industry_desalination_plant, 29) {
+    item(FEAT_INDUSTRIES, industry_desalination_plant, 28) {
         property {
             substitute: 21;
             name: string(STR_INDUSTRY_DESALINATION_PLANT_NAME);
@@ -2354,9 +2407,9 @@ if (1) {
     }
 }
 
-// Junkyard, #30
+// Junkyard, #29
 if (1) {
-    item(FEAT_INDUSTRIES, industry_junkyard, 30) {
+    item(FEAT_INDUSTRIES, industry_junkyard, 29) {
         property {
             substitute: 18;
             name: string(STR_INDUSTRY_JUNKYARD_NAME);
@@ -2378,9 +2431,9 @@ if (1) {
     }
 }
 
-// Limestone Quarry, #31
+// Limestone Quarry, #30
 if (1) {
-    item(FEAT_INDUSTRIES, industry_limestone_quarry, 31) {
+    item(FEAT_INDUSTRIES, industry_limestone_quarry, 30) {
         property {
             substitute: 0;
             name: string(STR_INDUSTRY_LIMESTONE_QUARRY_NAME);
@@ -2399,7 +2452,7 @@ if (1) {
     }
 }
 
-// Glass Works, #32
+// Glass Works, #31
 if (1) {
     /*
     item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
@@ -2439,7 +2492,7 @@ if (1) {
     }
     */
 
-    item(FEAT_INDUSTRIES, industry_glass_works, 32) {
+    item(FEAT_INDUSTRIES, industry_glass_works, 31) {
         property {
             substitute: 7;
             name: string(STR_INDUSTRY_GLASS_WORKS_NAME);
@@ -2460,9 +2513,9 @@ if (1) {
     }
 }
 
-// Hotel Resort, #33
+// Hotel Resort, #32
 if (1) {
-    item(FEAT_INDUSTRIES, industry_hotel_resort, 33) {
+    item(FEAT_INDUSTRIES, industry_hotel_resort, 32) {
         property {
             substitute: 1;
             name: string(STR_INDUSTRY_HOTEL_RESORT_NAME);
@@ -2485,9 +2538,9 @@ if (1) {
     }
 }
 
-// Distribution Center, #34
+// Distribution Center, #33
 if (1) {
-    item(FEAT_INDUSTRIES, industry_distribution_center, 34) {
+    item(FEAT_INDUSTRIES, industry_distribution_center, 33) {
         property {
             substitute: 1;
             name: string(STR_INDUSTRY_DISTRIBUTION_CENTER_NAME);

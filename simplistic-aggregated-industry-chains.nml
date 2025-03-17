@@ -1060,7 +1060,7 @@ if (1) {
         property {
             substitute: 8;
             override: 8;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1177,7 +1177,7 @@ if (1) {
         property {
             substitute: 23;
             override: 23;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1352,7 +1352,7 @@ if (1) {
         property {
             substitute: 52;
             override: 52;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1361,7 +1361,7 @@ if (1) {
         property {
             substitute: 53;
             override: 53;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1370,7 +1370,7 @@ if (1) {
         property {
             substitute: 54;
             override: 54;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1379,7 +1379,7 @@ if (1) {
         property {
             substitute: 55;
             override: 55;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1388,7 +1388,7 @@ if (1) {
         property {
             substitute: 56;
             override: 56;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }
@@ -1397,7 +1397,7 @@ if (1) {
         property {
             substitute: 57;
             override: 57;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 1]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
     }

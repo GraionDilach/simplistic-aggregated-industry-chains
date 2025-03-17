@@ -1427,6 +1427,49 @@ if (1) {
 }
 
 // Farm, #9
+
+tilelayout farm_layout_1 {
+    0, 0: farm_tile_5;
+    0, 1: farm_tile_5;
+    0, 2: farm_tile_5;
+    0, 3: farm_tile_4;
+    1, 0: farm_tile_5;
+    1, 1: farm_tile_1;
+    1, 2: farm_tile_2;
+    1, 3: farm_tile_3;
+    2, 0: farm_tile_4;
+    2, 1: farm_tile_4;
+    2, 2: farm_tile_3;
+    2, 3: farm_tile_3;
+}
+
+tilelayout farm_layout_2 {
+    0, 0: farm_tile_5;
+    0, 1: farm_tile_5;
+    0, 2: farm_tile_4;
+    1, 0: farm_tile_1;
+    1, 1: farm_tile_2;
+    1, 2: farm_tile_3;
+    2, 0: farm_tile_4;
+    2, 1: farm_tile_3;
+    2, 2: farm_tile_3;
+}
+
+tilelayout farm_layout_3 {
+    0, 0: farm_tile_5;
+    0, 1: farm_tile_4;
+    0, 2: farm_tile_5;
+    0, 3: farm_tile_5;
+    1, 0: farm_tile_4;
+    1, 1: farm_tile_3;
+    1, 2: farm_tile_3;
+    1, 3: farm_tile_4;
+    2, 0: farm_tile_1;
+    2, 1: farm_tile_2;
+    2, 2: farm_tile_5;
+    2, 3: farm_tile_3;
+}
+
 if (1) {
     item(FEAT_INDUSTRYTILES, farm_tile_1) {
         property {
@@ -1486,6 +1529,7 @@ if (1) {
         property {
             substitute: 9;
             override: 9;
+            layouts: [farm_layout_1, farm_layout_2, farm_layout_3];
             cargo_types: [
                 produce_cargo("GRAI", 10),
                 produce_cargo("FICR", 10),
@@ -1953,12 +1997,46 @@ if (1) {
 // Tropic Factory, #23 skipped
 
 // Ranch (was Tropic Farm), #24
+// OpenGFX is missing the dedicated sprites for it though
+tilelayout ranch_layout_1 {
+    0, 0: farm_tile_1;
+    0, 1: farm_tile_2;
+    0, 2: farm_tile_4;
+    1, 0: farm_tile_6;
+    1, 1: farm_tile_6;
+    1, 2: farm_tile_3;
+}
+
+tilelayout ranch_layout_2 {
+    0, 0: farm_tile_6;
+    0, 1: farm_tile_6;
+    0, 2: farm_tile_4;
+    1, 0: farm_tile_1;
+    1, 1: farm_tile_2;
+    1, 2: farm_tile_3;
+    2, 0: farm_tile_4;
+    2, 1: farm_tile_3;
+    2, 2: farm_tile_6;
+}
+
+tilelayout ranch_layout_3 {
+    0, 0: farm_tile_3;
+    0, 1: farm_tile_1;
+    0, 2: farm_tile_2;
+    0, 3: farm_tile_4;
+    1, 0: farm_tile_6;
+    1, 1: farm_tile_6;
+    1, 2: farm_tile_6;
+    1, 3: farm_tile_6;
+}
+
 if (1) {
     item(FEAT_INDUSTRIES, industry_ranch, 24) {
         property {
             substitute: 24;
             override: 24;
             name: string(STR_INDUSTRY_RANCH_NAME);
+            layouts: [ranch_layout_1, ranch_layout_2, ranch_layout_3];
             cargo_types: [
                 produce_cargo("LVST", 10),
                 produce_cargo("WOOL", 10)
@@ -2010,21 +2088,21 @@ spriteset(shop_sprite, "gfx/shop/shop.png") {
 }
 
 spritelayout shop_tile_1_layout {
-   	ground   { sprite: GROUNDSPRITE_NORMAL; }
-   	building { sprite: shop_sprite; }
+       ground   { sprite: GROUNDSPRITE_NORMAL; }
+       building { sprite: shop_sprite; }
 }
 
 if (1) {
     item(FEAT_INDUSTRYTILES, shop_tile_1) {
-    	property {
-    		substitute: 0x00;
-    		accepted_cargos: [[PASS, 7], [GOOD, 4]];
+        property {
+            substitute: 0x00;
+            accepted_cargos: [[PASS, 7], [GOOD, 4]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
-    	}
-    	graphics {
-    		shop_tile_1_layout;
-    	}
+            land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+        }
+        graphics {
+            shop_tile_1_layout;
+        }
     }
 
     item(FEAT_INDUSTRIES, industry_shop, 26) {
@@ -2055,121 +2133,121 @@ if (1) {
 
 // Chemical Plant, #27
 tilelayout jrpetrolplant_tilelayout1 {
-	0, 0: jrpetrolplant_tile_distiller;
-	0, 1: jrpetrolplant_tile_tallredtanks;
+    0, 0: jrpetrolplant_tile_distiller;
+    0, 1: jrpetrolplant_tile_tallredtanks;
 //	0, 2
-	1, 0: jrpetrolplant_tile_cracker;
-	1, 1: jrpetrolplant_tile_cracker;
-	1, 2: jrpetrolplant_tile_shed;
-	2, 0: jrpetrolplant_tile_widetank;
-	2, 1: jrpetrolplant_tile_widetank;
-	2, 2: jrconcrete_tile;
+    1, 0: jrpetrolplant_tile_cracker;
+    1, 1: jrpetrolplant_tile_cracker;
+    1, 2: jrpetrolplant_tile_shed;
+    2, 0: jrpetrolplant_tile_widetank;
+    2, 1: jrpetrolplant_tile_widetank;
+    2, 2: jrconcrete_tile;
 }
 
 tilelayout jrpetrolplant_tilelayout2 {
-	0, 0: jrpetrolplant_tile_distiller;
-	0, 1: jrpetrolplant_tile_tallredtanks;
+    0, 0: jrpetrolplant_tile_distiller;
+    0, 1: jrpetrolplant_tile_tallredtanks;
 //	0, 2
-	1, 0: jrconcrete_tile;
-	1, 1: jrpetrolplant_tile_cracker;
-	1, 2: jrpetrolplant_tile_cracker;
-	2, 0: jrpetrolplant_tile_shed;
-	2, 1: jrpetrolplant_tile_widetank;
-	2, 2: jrpetrolplant_tile_widetank;
+    1, 0: jrconcrete_tile;
+    1, 1: jrpetrolplant_tile_cracker;
+    1, 2: jrpetrolplant_tile_cracker;
+    2, 0: jrpetrolplant_tile_shed;
+    2, 1: jrpetrolplant_tile_widetank;
+    2, 2: jrpetrolplant_tile_widetank;
 }
 
 spritelayout jrconcrete_tile_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
 }
 
 item (FEAT_INDUSTRYTILES, jrconcrete_tile) {
-	property {
-		substitute: 0;
-		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-	}
-	graphics {
-		jrconcrete_tile_spritelayout;
-	}
+    property {
+        substitute: 0;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        jrconcrete_tile_spritelayout;
+    }
 }
 
 spritelayout jrshed_tile_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2061 : construction_state==3 ? 2063 : 2062); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2061 : construction_state==3 ? 2063 : 2062); }
 }
 
 spritelayout jrpetrolplant_tile_distiller_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2084 : construction_state==3 ? 2086 : 2085); }
-	building { sprite: (construction_state==0 ? 2084 : construction_state==3 ? 2086 : 2085); xoffset: 6; }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2084 : construction_state==3 ? 2086 : 2085); }
+    building { sprite: (construction_state==0 ? 2084 : construction_state==3 ? 2086 : 2085); xoffset: 6; }
 }
 
 spritelayout jrpetrolplant_tile_cracker_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2090 : construction_state==3 ? 2092 : 2091); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_GREY); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2090 : construction_state==3 ? 2092 : 2091); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_GREY); }
 }
 
 spritelayout jrpetrolplant_tile_tallredtanks_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_ORANGE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_ORANGE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_ORANGE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_ORANGE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
 }
 
 spritelayout jrpetrolplant_tile_widetank_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2078 : construction_state==3 ? 2080 : 2079); xoffset: 2; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2078 : construction_state==3 ? 2080 : 2079); xoffset: 2; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
 if (1) {
     item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_distiller) {
-    	property {
-    		substitute: 0;
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrpetrolplant_tile_distiller_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrpetrolplant_tile_distiller_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_tallredtanks) {
-    	property {
-    		substitute: 0;
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrpetrolplant_tile_tallredtanks_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrpetrolplant_tile_tallredtanks_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_widetank) {
-    	property {
-    		substitute: 0;
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrpetrolplant_tile_widetank_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrpetrolplant_tile_widetank_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_shed) {
-    	property {
-    		substitute: 0;
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrshed_tile_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrshed_tile_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrpetrolplant_tile_cracker) {
-    	property {
-    		substitute: 0;
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrpetrolplant_tile_cracker_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrpetrolplant_tile_cracker_spritelayout;
+        }
     }
 
     item(FEAT_INDUSTRIES, industry_chemical_plant, 27) {
@@ -2225,160 +2303,160 @@ switch (FEAT_INDUSTRYTILES, SELF, tile_slope_check_ne, nearby_tile_slope(0, 0) =
 }
 
 spritelayout jrdesalplant_tile_pump_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2350 : construction_state==3 ? 2352 : 2351); xoffset: 3; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2350 : construction_state==3 ? 2352 : 2351); xoffset: 3; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
 }
 
 spritelayout jrdesalplant_tile_talltanks_se_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
 }
 
 spritelayout jrdesalplant_tile_talltanks_sw_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
 }
 
 spritelayout jrdesalplant_tile_talltanks_nw_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
 }
 
 spritelayout jrdesalplant_tile_talltanks_ne_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
-	building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
 }
 
 spritelayout jrdesalplant_tile_widetank_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 2078 : construction_state==3 ? 2080 : 2079); xoffset: 2; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2078 : construction_state==3 ? 2080 : 2079); xoffset: 2; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
 }
 
 tilelayout desal_plant_layout_se {
-	0, 0: jrdesalplant_tile_talltanks_se;
-	0, 1: jrdesalplant_tile_widetank;
-	1, 1: jrdesalplant_tile_pump;
-	1, 0: jrdesalplant_tile_pump_sloped;
+    0, 0: jrdesalplant_tile_talltanks_se;
+    0, 1: jrdesalplant_tile_widetank;
+    1, 1: jrdesalplant_tile_pump;
+    1, 0: jrdesalplant_tile_pump_sloped;
 }
 
 tilelayout desal_plant_layout_sw {
-	0, 0: jrdesalplant_tile_talltanks_sw;
-	0, 1: jrdesalplant_tile_pump_sloped;
-	1, 1: jrdesalplant_tile_pump;
-	1, 0: jrdesalplant_tile_widetank;
+    0, 0: jrdesalplant_tile_talltanks_sw;
+    0, 1: jrdesalplant_tile_pump_sloped;
+    1, 1: jrdesalplant_tile_pump;
+    1, 0: jrdesalplant_tile_widetank;
 }
 
 tilelayout desal_plant_layout_nw {
-	0, 0: jrdesalplant_tile_widetank;
-	0, 1: jrdesalplant_tile_talltanks_nw;
-	1, 1: jrdesalplant_tile_pump_sloped;
-	1, 0: jrdesalplant_tile_pump;
+    0, 0: jrdesalplant_tile_widetank;
+    0, 1: jrdesalplant_tile_talltanks_nw;
+    1, 1: jrdesalplant_tile_pump_sloped;
+    1, 0: jrdesalplant_tile_pump;
 }
 
 tilelayout desal_plant_layout_ne {
-	0, 0: jrdesalplant_tile_widetank;
-	0, 1: jrdesalplant_tile_pump;
-	1, 1: jrdesalplant_tile_pump_sloped;
-	1, 0: jrdesalplant_tile_talltanks_ne;
+    0, 0: jrdesalplant_tile_widetank;
+    0, 1: jrdesalplant_tile_pump;
+    1, 1: jrdesalplant_tile_pump_sloped;
+    1, 0: jrdesalplant_tile_talltanks_ne;
 }
 
 if (1) {
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_pump) {
-    	property {
-    		substitute: 0;
-    	}
-    	graphics {
-    		default: jrdesalplant_tile_pump_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    	}
+        property {
+            substitute: 0;
+        }
+        graphics {
+            default: jrdesalplant_tile_pump_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_pump_sloped) {
-    	property {
-    		substitute: 0;
-    		land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
-    	}
-    	graphics {
-    		default: jrdesalplant_tile_pump_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    	}
+        property {
+            substitute: 0;
+            land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+        }
+        graphics {
+            default: jrdesalplant_tile_pump_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_talltanks_se) {
-    	property {
-    		substitute: 0;
-    		land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
-    	}
-    	graphics {
-    		default: jrdesalplant_tile_talltanks_se_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    		tile_check: tile_slope_check_se;
-    	}
+        property {
+            substitute: 0;
+            land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+        }
+        graphics {
+            default: jrdesalplant_tile_talltanks_se_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+            tile_check: tile_slope_check_se;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_talltanks_sw) {
-    	property {
-    		substitute: 0;
-    		land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
-    	}
-    	graphics {
-    		default: jrdesalplant_tile_talltanks_sw_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    		tile_check: tile_slope_check_sw;
-    	}
+        property {
+            substitute: 0;
+            land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+        }
+        graphics {
+            default: jrdesalplant_tile_talltanks_sw_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+            tile_check: tile_slope_check_sw;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_talltanks_nw) {
-    	property {
-    		substitute: 0;
-    		land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
-    	}
-    	graphics {
-    		default: jrdesalplant_tile_talltanks_nw_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    		tile_check: tile_slope_check_nw;
-    	}
+        property {
+            substitute: 0;
+            land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+        }
+        graphics {
+            default: jrdesalplant_tile_talltanks_nw_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+            tile_check: tile_slope_check_nw;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_talltanks_ne) {
-    	property {
-    		substitute: 0;
-    		land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
-    	}
-    	graphics {
-    		default: jrdesalplant_tile_talltanks_ne_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    		tile_check: tile_slope_check_ne;
-    	}
+        property {
+            substitute: 0;
+            land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+        }
+        graphics {
+            default: jrdesalplant_tile_talltanks_ne_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+            tile_check: tile_slope_check_ne;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrdesalplant_tile_widetank) {
-    	property {
-    		substitute: 0;
-    	}
-    	graphics {
-    	    default: jrdesalplant_tile_widetank_spritelayout;
-    		foundations: return CB_RESULT_FOUNDATIONS;
-    		autoslope: return CB_RESULT_AUTOSLOPE;
-    	}
+        property {
+            substitute: 0;
+        }
+        graphics {
+            default: jrdesalplant_tile_widetank_spritelayout;
+            foundations: return CB_RESULT_FOUNDATIONS;
+            autoslope: return CB_RESULT_AUTOSLOPE;
+        }
     }
 
     item(FEAT_INDUSTRIES, industry_desalination_plant, 28) {

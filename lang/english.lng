@@ -136,4 +136,29 @@ STR_INDUSTRY_WATER_TOWER_STATION_NAME               :{STRING} Water Tower
 
 STR_INDUSTRY_LUMBER_MILL_STATION_NAME               :{STRING} Lumber Mill
 
-#STR_INDUSTRY_SHOP_STATION_NAME                      :{STRING} Shop
+STR_INDUSTRY_SHOP_NAME                              :Shop
+STR_INDUSTRY_SHOP_STATION_NAME                      :{STRING} Shop
+
+STR_INDUSTRY_RANCH_NAME                             :Ranch
+STR_INDUSTRY_RANCH_STATION_NAME                     :{STRING} Ranch
+
+STR_INDUSTRY_CHEMICAL_PLANT_NAME                    :Chemical Plant
+STR_INDUSTRY_CHEMICAL_PLANT_STATION_NAME            :{STRING} Chemical Plant
+
+STR_INDUSTRY_DESALINATION_PLANT_NAME                :Desalination Plant
+STR_INDUSTRY_DESALINATION_PLANT_STATION_NAME        :{STRING} Desalination Plant
+
+STR_INDUSTRY_JUNKYARD_NAME                          :Junkyard
+STR_INDUSTRY_JUNKYARD_STATION_NAME                  :{STRING} Junkyard
+
+STR_INDUSTRY_LIMESTONE_QUARRY_NAME                  :Limestone Quarry
+STR_INDUSTRY_LIMESTONE_QUARRY_STATION_NAME          :{STRING} Limestone Quarry
+
+STR_INDUSTRY_GLASS_WORKS_NAME                       :Glass Works
+STR_INDUSTRY_GLASS_WORKS_STATION_NAME               :{STRING} Glass Works
+
+STR_INDUSTRY_HOTEL_RESORT_NAME                      :Hotel Resort
+STR_INDUSTRY_HOTEL_RESORT_STATION_NAME              :{STRING} Hotel Resort
+
+STR_INDUSTRY_DISTRIBUTION_CENTER_NAME               :Distribution Center
+STR_INDUSTRY_DISTRIBUTION_CENTER_STATION_NAME       :{STRING} Distribution Center

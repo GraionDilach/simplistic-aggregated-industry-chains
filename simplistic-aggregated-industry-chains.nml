@@ -1339,7 +1339,9 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_paper_mill)
+                industry_type(IND_TYPE_NEW, industry_paper_mill),
+                industry_type(IND_TYPE_NEW, industry_ranch),
+                industry_type(IND_TYPE_NEW, industry_chemical_plant)
             ];
             nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
         }
@@ -1586,7 +1588,9 @@ if (1) {
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_farm),
-                industry_type(IND_TYPE_NEW, industry_fruit_plantation)
+                industry_type(IND_TYPE_NEW, industry_fruit_plantation),
+                industry_type(IND_TYPE_NEW, industry_ranch)
+
             ];
             nearby_station_name: string(STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME);
         }
@@ -1811,7 +1815,8 @@ if (1) {
             life_type: IND_LIFE_TYPE_ORGANIC;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_fruit_plantation),
-                industry_type(IND_TYPE_NEW, industry_food_processing_plant)
+                industry_type(IND_TYPE_NEW, industry_food_processing_plant),
+                industry_type(IND_TYPE_NEW, industry_shop)
             ];
             nearby_station_name: string(STR_INDUSTRY_FRUIT_PLANTATION_STATION_NAME);
         }
@@ -1876,7 +1881,7 @@ if (1) {
             substitute: 22;
             override: 22;
             cargo_types: [
-                accept_cargo("WATR"),
+                accept_cargo("WATR")
             ];
             prob_map_gen: 6;
             prob_in_game: 3;
@@ -1902,7 +1907,7 @@ if (1) {
             substitute: 25;
             override: 25;
             cargo_types: [
-                produce_cargo("WOOD",  0)
+                produce_cargo("WOOD", 0)
             ];
             prob_map_gen: 1;
             prob_in_game: 1;
@@ -1914,6 +1919,344 @@ if (1) {
             ];
             spec_flags: bitmask(IND_FLAG_CUT_TREES, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_LUMBER_MILL_STATION_NAME);
+        }
+    }
+}
+
+// Shop, #26
+tilelayout shop_layout {
+    0, 0: shop_tile_1;
+}
+
+spriteset(shop_sprite, "gfx/shop/shop.png") {
+    [ 0, 0, 64, 36, -31, -4 ]
+}
+
+spritelayout shop_tile_1_layout {
+   	ground   { sprite: GROUNDSPRITE_NORMAL; }
+   	building { sprite: shop_sprite; }
+}
+
+if (1) {
+    item(FEAT_INDUSTRYTILES, shop_tile_1) {
+    	property {
+    		substitute: 0x00;
+    		accepted_cargos: [[PASS, 7], [GOOD, 4]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+    	}
+    	graphics {
+    		shop_tile_1_layout;
+    	}
+    }
+
+    item(FEAT_INDUSTRIES, industry_shop, 26) {
+        property {
+            substitute: 1;
+            name: string(STR_INDUSTRY_SHOP_NAME);
+            layouts: [shop_layout];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            cargo_types: [
+                accept_cargo("FOOD"),
+                accept_cargo("BEER")
+            ];
+            map_colour: 0x30;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_shop),
+                industry_type(IND_TYPE_NEW, industry_food_processing_plant),
+                industry_type(IND_TYPE_NEW, industry_fruit_plantation)
+            ];
+            life_type:                      IND_LIFE_TYPE_BLACK_HOLE;
+            fund_cost_multiplier:           100;
+            spec_flags:                     bitmask(IND_FLAG_ONLY_IN_TOWNS);
+            prospect_chance:                1;
+            nearby_station_name:            string(STR_INDUSTRY_SHOP_STATION_NAME);
+        }
+    }
+}
+
+// Ranch, #27
+if (1) {
+    item(FEAT_INDUSTRIES, industry_ranch, 27) {
+        property {
+            substitute: 9;
+            name: string(STR_INDUSTRY_RANCH_NAME);
+            cargo_types: [
+                produce_cargo("LVST", 10),
+                produce_cargo("WOOL", 10)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_ranch),
+                industry_type(IND_TYPE_NEW, industry_printing_works),
+                industry_type(IND_TYPE_NEW, industry_food_processing_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_RANCH_STATION_NAME);
+            spec_flags: 0;
+        }
+    }
+}
+
+// Chemical Plant, #28
+if (1) {
+    /*
+    item(FEAT_INDUSTRYTILES, refinery_tile_1) {
+        property {
+            substitute: 18;
+            override: 18;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_2) {
+        property {
+            substitute: 19;
+            override: 19;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_3) {
+        property {
+            substitute: 20;
+            override: 20;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_4) {
+        property {
+            substitute: 21;
+            override: 21;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_5) {
+        property {
+            substitute: 22;
+            override: 22;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, refinery_tile_6) {
+        property {
+            substitute: 23;
+            override: 23;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+    */
+
+    item(FEAT_INDUSTRIES, industry_chemical_plant, 28) {
+        property {
+            substitute: 4;
+            name: string(STR_INDUSTRY_CHEMICAL_PLANT_NAME);
+            cargo_types: [
+                accept_cargo("SULP", produce_cargo("DYES", 1)),
+                accept_cargo("RFPR", produce_cargo("DYES", 1))
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_copper_ore_mine),
+                industry_type(IND_TYPE_NEW, industry_printing_works),
+                industry_type(IND_TYPE_NEW, industry_desalination_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_CHEMICAL_PLANT_STATION_NAME);
+        }
+        graphics {
+            location_check: CB_RESULT_LOCATION_ALLOW;
+        }
+    }
+}
+
+// Desalination Plant, #29
+if (1) {
+    item(FEAT_INDUSTRIES, industry_desalination_plant, 29) {
+        property {
+            substitute: 21;
+            name: string(STR_INDUSTRY_DESALINATION_PLANT_NAME);
+            cargo_types: [
+                produce_cargo("WATR", 8),
+                produce_cargo("RFPR", 8),
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_desalination_plant),
+                industry_type(IND_TYPE_NEW, industry_water_tower),
+                industry_type(IND_TYPE_NEW, industry_chemical_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_DESALINATION_PLANT_STATION_NAME);
+        }
+    }
+}
+
+// Junkyard, #30
+if (1) {
+    item(FEAT_INDUSTRIES, industry_junkyard, 30) {
+        property {
+            substitute: 18;
+            name: string(STR_INDUSTRY_JUNKYARD_NAME);
+            cargo_types: [
+                produce_cargo("SCMT", 9),
+                produce_cargo("WSTE", 9),
+                produce_cargo("RFPR", 7)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_junkyard),
+                industry_type(IND_TYPE_NEW, industry_foundry),
+                industry_type(IND_TYPE_NEW, industry_power_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_JUNKYARD_STATION_NAME);
+        }
+    }
+}
+
+// Limestone Quarry, #31
+if (1) {
+    item(FEAT_INDUSTRIES, industry_limestone_quarry, 31) {
+        property {
+            substitute: 0;
+            name: string(STR_INDUSTRY_LIMESTONE_QUARRY_NAME);
+            cargo_types: [
+                produce_cargo("LIME", 13)
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_limestone_quarry),
+                industry_type(IND_TYPE_NEW, industry_glass_works)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_LIMESTONE_QUARRY_STATION_NAME);
+        }
+    }
+}
+
+// Glass Works, #32
+if (1) {
+    /*
+    item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
+        property {
+            substitute: 43;
+            override: 43;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, printing_works_tile_2) {
+        property {
+            substitute: 44;
+            override: 44;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, printing_works_tile_3) {
+        property {
+            substitute: 45;
+            override: 45;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, printing_works_tile_4) {
+        property {
+            substitute: 46;
+            override: 46;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+    */
+
+    item(FEAT_INDUSTRIES, industry_glass_works, 32) {
+        property {
+            substitute: 7;
+            name: string(STR_INDUSTRY_GLASS_WORKS_NAME);
+            cargo_types: [
+                accept_cargo("SAND", produce_cargo("GLAS", 1)),
+                accept_cargo("LIME", produce_cargo("GLAS", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_limestone_quarry),
+                industry_type(IND_TYPE_NEW, industry_gold_mine),
+                industry_type(IND_TYPE_NEW, industry_factory)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
+        }
+    }
+}
+
+// Hotel Resort, #33
+if (1) {
+    item(FEAT_INDUSTRIES, industry_hotel_resort, 33) {
+        property {
+            substitute: 1;
+            name: string(STR_INDUSTRY_HOTEL_RESORT_NAME);
+            cargo_types: [
+                produce_cargo("TOUR", 6),
+                accept_cargo("TOUR", produce_cargo("TOUR", 0.25)),
+                accept_cargo("BEER")
+            ];
+            prob_map_gen: 3;
+            prob_in_game: 1;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_hotel_resort),
+                industry_type(IND_TYPE_NEW, industry_city_hall),
+                industry_type(IND_TYPE_NEW, industry_fruit_plantation)
+            ];
+            spec_flags: 0;
+            nearby_station_name: string(STR_INDUSTRY_HOTEL_RESORT_STATION_NAME);
+        }
+    }
+}
+
+// Distribution Center, #34
+if (1) {
+    item(FEAT_INDUSTRIES, industry_distribution_center, 34) {
+        property {
+            substitute: 1;
+            name: string(STR_INDUSTRY_DISTRIBUTION_CENTER_NAME);
+            cargo_types: [
+                accept_cargo("PETR"),
+                accept_cargo("GOOD"),
+                accept_cargo("VEHI"),
+            ];
+            prob_map_gen: 1;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_factory),
+                industry_type(IND_TYPE_NEW, industry_refinery),
+                industry_type(IND_TYPE_NEW, industry_printing_works)
+            ];
+            spec_flags: bitmask(IND_FLAG_BUILT_NEAR_TOWN, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+            nearby_station_name: string(STR_INDUSTRY_DISTRIBUTION_CENTER_STATION_NAME);
         }
     }
 }

@@ -183,3 +183,6 @@ STR_INDUSTRY_CLAY_PIT_STATION_NAME                  :{STRING} Clay Pit
 
 STR_INDUSTRY_BRICKWORKS_NAME                        :Brickworks
 STR_INDUSTRY_BRICKWORKS_STATION_NAME                :{STRING} Brickworks
+
+STR_INDUSTRY_TOWN_SQUARE_NAME                        :Town Square
+STR_INDUSTRY_TOWN_SQUARE_STATION_NAME                :{STRING} Town Square

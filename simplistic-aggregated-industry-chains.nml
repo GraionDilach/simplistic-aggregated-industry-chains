@@ -2665,75 +2665,75 @@ if (1) {
 
 // Resort, #32
 tilelayout jrhotel_tilelayout1 {
-	0, 0: jrhotel_tile_N;
-	0, 1: jrhotel_tile_E;
-	1, 1: jrhotel_tile_S;
-	1, 0: jrhotel_tile_W;
+    0, 0: jrhotel_tile_N;
+    0, 1: jrhotel_tile_E;
+    1, 1: jrhotel_tile_S;
+    1, 0: jrhotel_tile_W;
 }
 
 spritelayout jrhotel_tile_N_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 4471 : construction_state==3 ? 4475 : 4473); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 4471 : construction_state==3 ? 4475 : 4473); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
 }
 
 spritelayout jrhotel_tile_E_spritelayout {
-	ground { sprite: GROUNDSPRITE_CONCRETE; }
-	building { sprite: (construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
 }
 
 spritelayout jrhotel_tile_S_spritelayout {
-	ground { sprite: GROUNDSPRITE_NORMAL; }
-	childsprite { sprite: 1455; yoffset: 6; }
+    ground { sprite: GROUNDSPRITE_NORMAL; }
+    childsprite { sprite: 1455; yoffset: 6; }
 }
 
 spritelayout jrhotel_tile_W_spritelayout {
-	ground { sprite: GROUNDSPRITE_NORMAL; }
-	building { sprite: 1456; }
+    ground { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 1456; }
 }
 
 if (1) {
     item (FEAT_INDUSTRYTILES, jrhotel_tile_N) {
-    	property {
-    		substitute: 0;
+        property {
+            substitute: 0;
             accepted_cargos: [];
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrhotel_tile_N_spritelayout;
-    	}
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrhotel_tile_N_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrhotel_tile_E) {
-    	property {
-    		substitute: 0;
+        property {
+            substitute: 0;
             accepted_cargos: [];
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrhotel_tile_E_spritelayout;
-    	}
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrhotel_tile_E_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrhotel_tile_S) {
-    	property {
-    		substitute: 0;
-    		accepted_cargos: [];
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrhotel_tile_S_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrhotel_tile_S_spritelayout;
+        }
     }
 
     item (FEAT_INDUSTRYTILES, jrhotel_tile_W) {
-    	property {
-    		substitute: 0;
-    		accepted_cargos: [];
-    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-    	}
-    	graphics {
-    		jrhotel_tile_W_spritelayout;
-    	}
+        property {
+            substitute: 0;
+            accepted_cargos: [];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrhotel_tile_W_spritelayout;
+        }
     }
 
     item(FEAT_INDUSTRIES, industry_resort, 32) {
@@ -2827,6 +2827,130 @@ if (1) {
                 industry_type(IND_TYPE_NEW, industry_clay_pit),
             ];
             nearby_station_name: string(STR_INDUSTRY_BRICKWORKS_STATION_NAME);
+        }
+    }
+}
+
+// Town Square, #36
+tilelayout jrtownsquare_tilelayout1 {
+    0, 0: jrtownsquare_tile_N;
+    0, 1: jrtownsquare_tile_E;
+    1, 1: jrtownsquare_tile_S;
+    1, 0: jrtownsquare_tile_W;
+}
+
+spritelayout jrtownsquare_tile_N_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: -16; }
+    building { sprite: 4090; xoffset: -16; yoffset: 0; }
+    building { sprite: 1877; xoffset: 0; }
+    building { sprite: 1877; xoffset: 6; }
+    building { sprite: 1877; xoffset: 11; }
+    building { sprite: 1877; yoffset: 6; }
+    building { sprite: 1877; yoffset: 11; }
+}
+
+spritelayout jrtownsquare_tile_E_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: 0; }
+    building { sprite: 4090; xoffset: -16; yoffset: 0; }
+    building { sprite: 1877; yoffset: 0; }
+    building { sprite: 1877; yoffset: 6; }
+    building { sprite: 1877; yoffset: 11; }
+    //building { sprite: 2000; yoffset: 10; }
+    building { sprite: 1877; xoffset: 11; yoffset: 11; }
+    building { sprite: 1877; xoffset: 6; yoffset: 11; }
+}
+
+spritelayout jrtownsquare_tile_S_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: 0; }
+    building { sprite: 4090; xoffset: 0; yoffset: 0; }
+    building { sprite: 1455; xoffset: -7; yoffset: -7; }
+    building { sprite: 1877; xoffset: 11; }
+    building { sprite: 1877; xoffset: 11; yoffset: 5; }
+    building { sprite: 1877; xoffset: 11; yoffset: 11; }
+    building { sprite: 1877; xoffset: 5; yoffset: 11; }
+    building { sprite: 1877; xoffset: 0; yoffset: 11; }
+}
+
+spritelayout jrtownsquare_tile_W_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: -16; }
+    building { sprite: 4090; xoffset: 0; yoffset: 0; }
+    building { sprite: 1877; xoffset: 0; }
+    building { sprite: 1877; xoffset: 6; }
+    building { sprite: 1877; xoffset: 11; }
+    building { sprite: 1877; xoffset: 11; yoffset: 6; }
+    building { sprite: 1877; xoffset: 11; yoffset: 11; }
+    //building { sprite: 2000; xoffset: 10; }
+}
+
+if (1) {
+    item (FEAT_INDUSTRYTILES, jrtownsquare_tile_N) {
+        property {
+            substitute: 0;
+            accepted_cargos: [[PASS, 2]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrtownsquare_tile_N_spritelayout;
+        }
+    }
+
+    item (FEAT_INDUSTRYTILES, jrtownsquare_tile_E) {
+        property {
+            substitute: 0;
+            accepted_cargos: [[PASS, 2]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrtownsquare_tile_E_spritelayout;
+        }
+    }
+
+    item (FEAT_INDUSTRYTILES, jrtownsquare_tile_S) {
+        property {
+            substitute: 0;
+            accepted_cargos: [[PASS, 2]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrtownsquare_tile_S_spritelayout;
+        }
+    }
+
+    item (FEAT_INDUSTRYTILES, jrtownsquare_tile_W) {
+        property {
+            substitute: 0;
+            accepted_cargos: [[PASS, 2]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+        graphics {
+            jrtownsquare_tile_W_spritelayout;
+        }
+    }
+
+    item(FEAT_INDUSTRIES, industry_town_square, 36) {
+        property {
+            substitute: 23;
+            map_colour: 37;
+            name: string(STR_INDUSTRY_TOWN_SQUARE_NAME);
+            layouts: [jrtownsquare_tilelayout1];
+            cargo_types: [
+                accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
+                accept_cargo("BEER"),
+                accept_cargo("GOOD"),
+            ];
+            prob_map_gen: 1;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_resort),
+                industry_type(IND_TYPE_NEW, industry_town_square)
+            ];
+            spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+            nearby_station_name: string(STR_INDUSTRY_TOWN_SQUARE_STATION_NAME);
         }
     }
 }

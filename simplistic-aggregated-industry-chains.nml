@@ -2206,7 +2206,7 @@ if (1) {
 tilelayout jrpetrolplant_tilelayout1 {
     0, 0: jrpetrolplant_tile_distiller;
     0, 1: jrpetrolplant_tile_tallredtanks;
-//	0, 2
+    //  0, 2
     1, 0: jrpetrolplant_tile_cracker;
     1, 1: jrpetrolplant_tile_cracker;
     1, 2: jrpetrolplant_tile_shed;
@@ -2218,7 +2218,7 @@ tilelayout jrpetrolplant_tilelayout1 {
 tilelayout jrpetrolplant_tilelayout2 {
     0, 0: jrpetrolplant_tile_distiller;
     0, 1: jrpetrolplant_tile_tallredtanks;
-//	0, 2
+    //  0, 2
     1, 0: jrconcrete_tile;
     1, 1: jrpetrolplant_tile_cracker;
     1, 2: jrpetrolplant_tile_cracker;

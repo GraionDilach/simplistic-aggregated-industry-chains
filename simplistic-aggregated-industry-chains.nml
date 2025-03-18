@@ -1082,6 +1082,10 @@ item(FEAT_CARGOS, cargo_waste, 35) {
     }
 }
 
+// AORE - Bauxit?
+// Quarzite (PORE) + Copper = Electrical Parts (POWR)
+// Vehicle Parts (VPTS) + Electrical Parts = Vehicles
+
 // ===== INDUSTRY DATA =====
 
 // disable default industries to help debugging

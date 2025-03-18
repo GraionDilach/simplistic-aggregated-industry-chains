@@ -987,7 +987,7 @@ item(FEAT_CARGOS, cargo_stone, 32) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: 68;
+        price_factor: 78;
         capacity_multiplier: 1;
         number: 32;
     }
@@ -1902,7 +1902,7 @@ if (1) {
             substitute: 16;
             override: 16;
             cargo_types: [
-                produce_cargo("VALU", 6),
+                produce_cargo("VALU", 2),
                 accept_cargo("VALU", produce_cargo("VALU", 0.75)),
                 accept_cargo("GOLD", produce_cargo("VALU", 0.25)),
                 accept_cargo("DIAM", produce_cargo("VALU", 0.25)),
@@ -1928,7 +1928,7 @@ if (1) {
             substitute: 17;
             override: 17;
             cargo_types: [
-                produce_cargo("DIAM", 9),
+                produce_cargo("DIAM", 7),
                 produce_cargo("GRVL", 6)
             ];
             prob_map_gen: 4;

@@ -20,6 +20,11 @@ STR_CARGO_SINGULAR_CHEMICALS                :Chemicals
 STR_QUANTITY_CHEMICALS                      :{VOLUME} of chemicals
 STR_ABBREV_CHEMICALS                        :{TINYFONT}CH
 
+STR_CARGO_PLURAL_CLAY                       :Clay
+STR_CARGO_SINGULAR_CLAY                     :Clay
+STR_QUANTITY_CLAY                           :{WEIGHT} of clay
+STR_ABBREV_CLAY                             :{TINYFONT}CY
+
 STR_CARGO_PLURAL_DEVICE                     :Devices
 STR_CARGO_SINGULAR_DEVICE                   :Device
 STR_QUANTITY_DEVICE                         :{COMMA} device{P 0 "" s}
@@ -45,6 +50,11 @@ STR_CARGO_SINGULAR_LIMESTONE                :Limestone
 STR_QUANTITY_LIMESTONE                      :{WEIGHT} of limestone
 STR_ABBREV_LIMESTONE                        :{TINYFONT}LS
 
+STR_CARGO_PLURAL_METAL                      :Metal
+STR_CARGO_SINGULAR_METAL                    :Metal
+STR_QUANTITY_METAL                          :{WEIGHT} of metal
+STR_ABBREV_METAL                            :{TINYFONT}MT
+
 STR_CARGO_PLURAL_OIL_SEED                   :Oil Seeds
 STR_CARGO_SINGULAR_OIL_SEED                 :Oil Seed
 STR_QUANTITY_OIL_SEED                       :{WEIGHT} of oil seeds
@@ -64,6 +74,11 @@ STR_CARGO_PLURAL_SCRAP_METAL                :Scrap Metal
 STR_CARGO_SINGULAR_SCRAP_METAL              :Scrap Metal
 STR_QUANTITY_SCRAP_METAL                    :{WEIGHT} of scrap metal
 STR_ABBREV_SCRAP_METAL                      :{TINYFONT}SC
+
+STR_CARGO_PLURAL_STONE                      :Stone
+STR_CARGO_SINGULAR_STONE                    :Stone
+STR_QUANTITY_STONE                          :{WEIGHT} of stone
+STR_ABBREV_STONE                            :{TINYFONT}ST
 
 STR_CARGO_PLURAL_SULPHUR                    :Sulphur
 STR_CARGO_SINGULAR_SULPHUR                  :Sulphur

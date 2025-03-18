@@ -62,12 +62,14 @@ cargotable {
     VEHI, // #24 here, Devices (mostly Vehicles elsewhere), index inherited from ECS
     WOOL, // #15 here, Wool, index inherited from ECS
     // FIRS copies
-    SCMT, // #30 here, Scrap Metal
-    SULP, // #32 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    CLAY, // #30 here, Clay
+    GRVL, // #32 here, Stone
+    SCMT, // #33 here, Scrap Metal
+    SULP, // #34 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
     // Additional ones
-    WSTE, // #33 here, Waste
+    WSTE, // #35 here, Waste
     // Unused indices
-    // #34+
+    // #36+
 }
 
 // ===== DISABLE DEFAULT CARGOS =====
@@ -320,13 +322,13 @@ item(FEAT_CARGOS, cargo_iron_ore, 8) {
     }
 }
 
-item(FEAT_CARGOS, cargo_steel, 9) {
+item(FEAT_CARGOS, cargo_metal, 9) {
     property {
-        type_name: TTD_STR_CARGO_PLURAL_STEEL;
-        unit_name: TTD_STR_CARGO_SINGULAR_STEEL;
+        type_name: string(STR_CARGO_PLURAL_METAL);
+        unit_name: string(STR_CARGO_SINGULAR_METAL);
         units_of_cargo: TTD_STR_TONS;
-        items_of_cargo: TTD_STR_QUANTITY_STEEL;
-        type_abbreviation: TTD_STR_ABBREV_STEEL;
+        items_of_cargo: string(STR_QUANTITY_METAL);
+        type_abbreviation: string(STR_ABBREV_METAL);
         sprite: 4306; // vanilla
         weight: 1;
         station_list_colour: 10;
@@ -901,34 +903,34 @@ item(FEAT_CARGOS, cargo_flax, 29) {
     }
 }
 
-spriteset(cargoicon_scrap_metal) {
-    [0, 0, "gfx/cargo_icons/scmt.png"]
+spriteset(cargoicon_clay) {
+    [0, 0, "gfx/cargo_icons/clay.png"]
 }
 
-item(FEAT_CARGOS, cargo_scrap_metal, 30) {
+item(FEAT_CARGOS, cargo_clay, 30) {
     property {
-        type_name: string(STR_CARGO_PLURAL_SCRAP_METAL);
-        unit_name: string(STR_CARGO_SINGULAR_SCRAP_METAL);
+        type_name: string(STR_CARGO_PLURAL_CLAY);
+        unit_name: string(STR_CARGO_SINGULAR_CLAY);
         units_of_cargo: TTD_STR_TONS;
-        items_of_cargo: string(STR_QUANTITY_SCRAP_METAL);
-        type_abbreviation: string(STR_ABBREV_SCRAP_METAL);
+        items_of_cargo: string(STR_QUANTITY_CLAY);
+        type_abbreviation: string(STR_ABBREV_CLAY);
         sprite: NEW_CARGO_SPRITE;
         weight: 1;
-        station_list_colour: 57;
-        cargo_payment_list_colour: 57;
+        station_list_colour: 117;
+        cargo_payment_list_colour: 117;
         is_freight: 1;
-        cargo_classes: bitmask(CC_BULK, CC_NON_POTABLE);
-        cargo_label: "SCMT";
+        cargo_classes: bitmask(CC_BULK, CC_COVERED, CC_NON_POTABLE);
+        cargo_label: "CLAY";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 38;
+        penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: 107;
+        price_factor: (4209 * 10.0 * 20 * 255) / (1 << 21); // 102.357387542725
         capacity_multiplier: 1;
         number: 30;
     }
     graphics {
-        cargoicon_scrap_metal;
+        cargoicon_clay;
     }
 }
 
@@ -963,11 +965,73 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
     }
 }
 
+spriteset(cargoicon_stone) {
+    [0, 0, "gfx/cargo_icons/grvl.png"]
+}
+
+item(FEAT_CARGOS, cargo_stone, 32) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_STONE);
+        unit_name: string(STR_CARGO_SINGULAR_STONE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_STONE);
+        type_abbreviation: string(STR_ABBREV_STONE);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 36;
+        cargo_payment_list_colour: 36;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_NON_POTABLE);
+        cargo_label: "GRVL";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: 68;
+        capacity_multiplier: 1;
+        number: 32;
+    }
+    graphics {
+        cargoicon_stone;
+    }
+}
+
+spriteset(cargoicon_scrap_metal) {
+    [0, 0, "gfx/cargo_icons/scmt.png"]
+}
+
+item(FEAT_CARGOS, cargo_scrap_metal, 33) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_SCRAP_METAL);
+        unit_name: string(STR_CARGO_SINGULAR_SCRAP_METAL);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_SCRAP_METAL);
+        type_abbreviation: string(STR_ABBREV_SCRAP_METAL);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 57;
+        cargo_payment_list_colour: 57;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_NON_POTABLE);
+        cargo_label: "SCMT";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 38;
+        single_penalty_length: 255;
+        price_factor: 107;
+        capacity_multiplier: 1;
+        number: 33;
+    }
+    graphics {
+        cargoicon_scrap_metal;
+    }
+}
+
 spriteset(cargoicon_sulphur) {
     [0, 0, "gfx/cargo_icons/sulp.png"]
 }
 
-item(FEAT_CARGOS, cargo_sulphur, 32) {
+item(FEAT_CARGOS, cargo_sulphur, 34) {
     property {
         type_name: string(STR_CARGO_PLURAL_SULPHUR);
         unit_name: string(STR_CARGO_SINGULAR_SULPHUR);
@@ -987,14 +1051,14 @@ item(FEAT_CARGOS, cargo_sulphur, 32) {
         single_penalty_length: 255;
         price_factor: 105;
         capacity_multiplier: 1;
-        number: 32;
+        number: 34;
     }
     graphics {
         cargoicon_sulphur;
     }
 }
 
-item(FEAT_CARGOS, cargo_waste, 33) {
+item(FEAT_CARGOS, cargo_waste, 35) {
     property {
         type_name: string(STR_CARGO_PLURAL_WASTE);
         unit_name: string(STR_CARGO_SINGULAR_WASTE);
@@ -1014,11 +1078,9 @@ item(FEAT_CARGOS, cargo_waste, 33) {
         single_penalty_length: 255;
         price_factor: 100;
         capacity_multiplier: 1;
-        number: 33;
+        number: 35;
     }
 }
-
-// clay + gravel => brick works (goods)?
 
 // ===== INDUSTRY DATA =====
 

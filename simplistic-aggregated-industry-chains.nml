@@ -2024,14 +2024,16 @@ if (1) {
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_water_supply),
-                industry_type(IND_TYPE_NEW, industry_water_tower)
+                // industry_type(IND_TYPE_NEW, industry_water_tower)
+                industry_type(IND_TYPE_NEW, industry_shop)
             ];
             nearby_station_name: string(STR_INDUSTRY_WATER_SUPPLY_STATION_NAME);
         }
     }
 }
 
-// Water Tower, #22
+// Water Tower, #22, merged into Shop
+/*
 if (1) {
     item(FEAT_INDUSTRYTILES, water_tower_tile_1) {
         property {
@@ -2061,6 +2063,7 @@ if (1) {
         }
     }
 }
+*/
 
 // Tropic Factory, #23 skipped
 
@@ -2175,13 +2178,14 @@ if (1) {
 
     item(FEAT_INDUSTRIES, industry_shop, 26) {
         property {
-            substitute: 1;
+            substitute: 22;
             name: string(STR_INDUSTRY_SHOP_NAME);
             layouts: [shop_layout];
-            prob_map_gen: 4;
-            prob_in_game: 2;
+            prob_map_gen: 6;
+            prob_in_game: 3;
             cargo_types: [
                 accept_cargo("FOOD"),
+                accept_cargo("WATR"),
                 accept_cargo("BEER")
             ];
             map_colour: 0x30;
@@ -2541,7 +2545,8 @@ if (1) {
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_desalination_plant),
-                industry_type(IND_TYPE_NEW, industry_water_tower),
+                // industry_type(IND_TYPE_NEW, industry_water_tower),
+                industry_type(IND_TYPE_NEW, industry_shop),
                 industry_type(IND_TYPE_NEW, industry_chemical_plant)
             ];
             map_colour: 151;

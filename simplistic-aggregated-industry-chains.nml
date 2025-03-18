@@ -2826,8 +2826,6 @@ if (1) {
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_clay_pit),
-                industry_type(IND_TYPE_NEW, industry_gold_mine),
-                industry_type(IND_TYPE_NEW, industry_factory)
             ];
             nearby_station_name: string(STR_INDUSTRY_BRICKWORKS_STATION_NAME);
         }

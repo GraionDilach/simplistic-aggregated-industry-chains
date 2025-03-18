@@ -1903,9 +1903,9 @@ if (1) {
             override: 16;
             cargo_types: [
                 produce_cargo("VALU", 2),
-                accept_cargo("VALU", produce_cargo("VALU", 0.75)),
-                accept_cargo("GOLD", produce_cargo("VALU", 0.25)),
-                accept_cargo("DIAM", produce_cargo("VALU", 0.25)),
+                accept_cargo("VALU", produce_cargo("VALU", 0.5)),
+                accept_cargo("GOLD", produce_cargo("VALU", 0.75)),
+                accept_cargo("DIAM", produce_cargo("VALU", 1)),
             ];
             prob_map_gen: 6;
             prob_in_game: 7;

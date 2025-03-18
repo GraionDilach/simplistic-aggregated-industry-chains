@@ -2592,14 +2592,89 @@ if (1) {
 }
 
 // Resort, #32
+tilelayout jrhotel_tilelayout1 {
+	0, 0: jrhotel_tile_N;
+	0, 1: jrhotel_tile_E;
+	1, 1: jrhotel_tile_S;
+	1, 0: jrhotel_tile_W;
+}
+
+spritelayout jrhotel_tile_N_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 4471 : construction_state==3 ? 4475 : 4473); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
+}
+
+spritelayout jrhotel_tile_E_spritelayout {
+	ground { sprite: GROUNDSPRITE_CONCRETE; }
+	building { sprite: (construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
+}
+
+spritelayout jrhotel_tile_S_spritelayout {
+	ground { sprite: GROUNDSPRITE_NORMAL; }
+	childsprite { sprite: 1455; yoffset: 6; }
+}
+
+spritelayout jrhotel_tile_W_spritelayout {
+	ground { sprite: GROUNDSPRITE_NORMAL; }
+	building { sprite: 1456; }
+}
+
 if (1) {
+    item (FEAT_INDUSTRYTILES, jrhotel_tile_N) {
+    	property {
+    		substitute: 0;
+            accepted_cargos: [];
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrhotel_tile_N_spritelayout;
+    	}
+    }
+
+    item (FEAT_INDUSTRYTILES, jrhotel_tile_E) {
+    	property {
+    		substitute: 0;
+            accepted_cargos: [];
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrhotel_tile_E_spritelayout;
+    	}
+    }
+
+    item (FEAT_INDUSTRYTILES, jrhotel_tile_S) {
+    	property {
+    		substitute: 0;
+    		accepted_cargos: [];
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrhotel_tile_S_spritelayout;
+    	}
+    }
+
+    item (FEAT_INDUSTRYTILES, jrhotel_tile_W) {
+    	property {
+    		substitute: 0;
+    		accepted_cargos: [];
+    		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    	}
+    	graphics {
+    		jrhotel_tile_W_spritelayout;
+    	}
+    }
+
     item(FEAT_INDUSTRIES, industry_resort, 32) {
         property {
             substitute: 1;
             name: string(STR_INDUSTRY_RESORT_NAME);
+            layouts: [jrhotel_tilelayout1];
             cargo_types: [
                 produce_cargo("TOUR", 6),
                 accept_cargo("TOUR", produce_cargo("TOUR", 0.25)),
+                produce_cargo("PASS", 2),
+                accept_cargo("PASS", produce_cargo("TOUR", 0.125)),
+                accept_cargo("FOOD"),
                 accept_cargo("BEER")
             ];
             prob_map_gen: 3;

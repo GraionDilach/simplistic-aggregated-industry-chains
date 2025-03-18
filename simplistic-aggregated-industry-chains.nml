@@ -2938,6 +2938,7 @@ if (1) {
             name: string(STR_INDUSTRY_TOWN_SQUARE_NAME);
             layouts: [jrtownsquare_tilelayout1];
             cargo_types: [
+                produce_cargo("TOUR", 4),
                 accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
                 accept_cargo("BEER"),
                 accept_cargo("GOOD"),

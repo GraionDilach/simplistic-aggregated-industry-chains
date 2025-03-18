@@ -157,8 +157,8 @@ STR_INDUSTRY_LIMESTONE_QUARRY_STATION_NAME          :{STRING} Limestone Quarry
 STR_INDUSTRY_GLASS_WORKS_NAME                       :Glass Works
 STR_INDUSTRY_GLASS_WORKS_STATION_NAME               :{STRING} Glass Works
 
-STR_INDUSTRY_HOTEL_RESORT_NAME                      :Hotel Resort
-STR_INDUSTRY_HOTEL_RESORT_STATION_NAME              :{STRING} Hotel Resort
+STR_INDUSTRY_RESORT_NAME                            :Resort
+STR_INDUSTRY_RESORT_STATION_NAME                    :{STRING} Resort
 
 STR_INDUSTRY_DISTRIBUTION_CENTER_NAME               :Distribution Center
 STR_INDUSTRY_DISTRIBUTION_CENTER_STATION_NAME       :{STRING} Distribution Center

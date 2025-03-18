@@ -2591,12 +2591,12 @@ if (1) {
     }
 }
 
-// Hotel Resort, #32
+// Resort, #32
 if (1) {
-    item(FEAT_INDUSTRIES, industry_hotel_resort, 32) {
+    item(FEAT_INDUSTRIES, industry_resort, 32) {
         property {
             substitute: 1;
-            name: string(STR_INDUSTRY_HOTEL_RESORT_NAME);
+            name: string(STR_INDUSTRY_RESORT_NAME);
             cargo_types: [
                 produce_cargo("TOUR", 6),
                 accept_cargo("TOUR", produce_cargo("TOUR", 0.25)),
@@ -2606,12 +2606,12 @@ if (1) {
             prob_in_game: 1;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_hotel_resort),
+                industry_type(IND_TYPE_NEW, industry_resort),
                 industry_type(IND_TYPE_NEW, industry_city_hall),
                 industry_type(IND_TYPE_NEW, industry_fruit_plantation)
             ];
             spec_flags: 0;
-            nearby_station_name: string(STR_INDUSTRY_HOTEL_RESORT_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_RESORT_STATION_NAME);
         }
     }
 }

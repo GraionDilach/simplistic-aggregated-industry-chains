@@ -177,3 +177,9 @@ STR_INDUSTRY_RESORT_STATION_NAME                    :{STRING} Resort
 
 STR_INDUSTRY_DISTRIBUTION_CENTER_NAME               :Distribution Center
 STR_INDUSTRY_DISTRIBUTION_CENTER_STATION_NAME       :{STRING} Distribution Center
+
+STR_INDUSTRY_CLAY_PIT_NAME                          :Clay Pit
+STR_INDUSTRY_CLAY_PIT_STATION_NAME                  :{STRING} Clay Pit
+
+STR_INDUSTRY_BRICKWORKS_NAME                        :Brickworks
+STR_INDUSTRY_BRICKWORKS_STATION_NAME                :{STRING} Brickworks

@@ -1096,7 +1096,8 @@ if (1) {
             substitute: 0;
             override: 0;
             cargo_types: [
-                produce_cargo("COAL", 15)
+                produce_cargo("COAL", 15),
+                produce_cargo("GRVL", 9)
             ];
             prob_map_gen: 8;
             prob_in_game: 3;
@@ -1621,7 +1622,8 @@ if (1) {
             override: 10;
             cargo_types: [
                 produce_cargo("CORE", 10),
-                produce_cargo("SULP", 8)
+                produce_cargo("SULP", 8),
+                produce_cargo("GRVL", 6)
             ];
             prob_map_gen: 4;
             prob_in_game: 3;
@@ -1861,7 +1863,7 @@ if (1) {
             substitute: 15;
             override: 15;
             cargo_types: [
-                produce_cargo("GOLD", 7),
+                produce_cargo("GOLD", 9),
                 produce_cargo("SAND", 7)
             ];
             prob_map_gen: 4;
@@ -1927,7 +1929,8 @@ if (1) {
             substitute: 17;
             override: 17;
             cargo_types: [
-                produce_cargo("DIAM", 7)
+                produce_cargo("DIAM", 9),
+                produce_cargo("GRVL", 6)
             ];
             prob_map_gen: 4;
             prob_in_game: 3;
@@ -1948,7 +1951,8 @@ if (1) {
             substitute: 18;
             override: 18;
             cargo_types: [
-                produce_cargo("IORE", 10)
+                produce_cargo("IORE", 10),
+                produce_cargo("GRVL", 6)
             ];
             prob_map_gen: 5;
             prob_in_game: 2;
@@ -2650,7 +2654,7 @@ if (1) {
                 industry_type(IND_TYPE_NEW, industry_gold_mine),
                 industry_type(IND_TYPE_NEW, industry_factory)
             ];
-            nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_GLASS_WORKS_STATION_NAME);
         }
     }
 }
@@ -2759,7 +2763,7 @@ if (1) {
 if (1) {
     item(FEAT_INDUSTRIES, industry_distribution_center, 33) {
         property {
-            substitute: 1;
+            substitute: 2;
             name: string(STR_INDUSTRY_DISTRIBUTION_CENTER_NAME);
             cargo_types: [
                 accept_cargo("PETR"),
@@ -2776,6 +2780,51 @@ if (1) {
             ];
             spec_flags: bitmask(IND_FLAG_BUILT_NEAR_TOWN, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_DISTRIBUTION_CENTER_STATION_NAME);
+        }
+    }
+}
+
+// Sand Pit, #34
+if (1) {
+    item(FEAT_INDUSTRIES, industry_clay_pit, 34) {
+        property {
+            substitute: 18;
+            name: string(STR_INDUSTRY_CLAY_PIT_NAME);
+            cargo_types: [
+                produce_cargo("CLAY", 13),
+                produce_cargo("SAND", 7)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_clay_pit),
+                industry_type(IND_TYPE_NEW, industry_brickworks)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_CLAY_PIT_STATION_NAME);
+        }
+    }
+}
+
+// Brickworks, #35
+if (1) {
+    item(FEAT_INDUSTRIES, industry_brickworks, 35) {
+        property {
+            substitute: 23;
+            name: string(STR_INDUSTRY_BRICKWORKS_NAME);
+            cargo_types: [
+                accept_cargo("CLAY", produce_cargo("GOOD", 1)),
+                accept_cargo("GRVL", produce_cargo("GOOD", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_clay_pit),
+                industry_type(IND_TYPE_NEW, industry_gold_mine),
+                industry_type(IND_TYPE_NEW, industry_factory)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_BRICKWORKS_STATION_NAME);
         }
     }
 }

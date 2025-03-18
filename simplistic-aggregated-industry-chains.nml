@@ -1492,7 +1492,6 @@ if (1) {
 }
 
 // Farm, #9
-
 tilelayout farm_layout_1 {
     0, 0: farm_tile_5;
     0, 1: farm_tile_5;
@@ -1686,7 +1685,7 @@ if (1) {
             name: string(STR_INDUSTRY_CITY_HALL_NAME);
             cargo_types: [
                 produce_cargo("TOUR", 4),
-                accept_cargo("TOUR"),
+                accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
             ];
             prob_map_gen: 6;
             prob_in_game: 3;
@@ -1904,7 +1903,7 @@ if (1) {
             override: 16;
             cargo_types: [
                 produce_cargo("VALU", 6),
-                accept_cargo("VALU"),
+                accept_cargo("VALU", produce_cargo("VALU", 0.75)),
                 accept_cargo("GOLD", produce_cargo("VALU", 0.25)),
                 accept_cargo("DIAM", produce_cargo("VALU", 0.25)),
             ];
@@ -2744,7 +2743,7 @@ if (1) {
             layouts: [jrhotel_tilelayout1];
             cargo_types: [
                 produce_cargo("TOUR", 6),
-                accept_cargo("TOUR", produce_cargo("TOUR", 0.25)),
+                accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
                 produce_cargo("PASS", 2),
                 accept_cargo("PASS", produce_cargo("TOUR", 0.125)),
                 accept_cargo("FOOD"),

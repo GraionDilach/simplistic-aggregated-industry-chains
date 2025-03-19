@@ -2,14 +2,12 @@ strict digraph {
     compound=true
     subgraph cluster_city {
         label = "Town"
-        Hotel
-        "ECS Houses"
         "Town Houses" [ shape=ellipse]
         "Store"
         "Bank"
-        "Water Tower"
         "City Hall"
     }
+    "Resort"
     "Coal Mine" [ shape=ellipse]
     "Power Plant" [ shape=ellipse]
     "Coal Mine" -> "Power Plant" [ label = "Coal"]
@@ -34,28 +32,26 @@ strict digraph {
     Farm -> "Food Processing Plant"  [label = "Grain"]
     "Food Processing Plant" -> "Town Houses" [label = "Food"]
     "Copper Ore Mine"
-    "Copper Ore Mine" -> "Foundry" [label = "Copper Ore"]
     "Fruit Plantation"
     "Oil Refinery" -> "Store" [label = "Petrol"]
     "Fruit Plantation" "Oil Refinery"
     "Fruit Plantation" -> "Food Processing Plant" [label = "Fruit"]
-    "Food Processing Plant" -> "ECS Houses"  [label = "Food"]
-    "Oil Refinery" -> "ECS Houses" [label = "Petrol"]
-    "Food Processing Plant" -> Hotel [label = "Food"]
+    "Food Processing Plant" -> "Resort" [label = "Food"]
     "Rubber Plantation"
     "Ranch"
     Ranch -> "Food Processing Plant" [label="Livestock"]
     "Oil Rig" -> "Town Houses"[label="Passengers", dir=both]
     "Water Supply"
-    "Water Supply" -> "Water Tower" [label="Water"]
+    "Water Supply" -> "Store" [label="Water"]
     "Desalination Plant"
-    "Desalination Plant" -> "Water Tower" [label="Water"]
+    "Desalination Plant" -> "Store" [label="Water"]
     "Gold Mine"
     "Diamond Mine"
     Bank -> Bank[label="Valuables"]
     "Food Processing Plant" -> "Store" [label="Food"]
     "Junkyard" -> "Foundry" [label="Scrap Metal"]
-    "Fruit Plantation" -> Hotel [label="Beverages"]
+    "Fruit Plantation" "Store"
+    "Fruit Plantation" -> "Resort" [label="Beverages"]
     "Oil Refinery" -> "Power Plant" [label="Petrol"]
     "Junkyard"
     "Desalination Plant" "Oil Refinery"
@@ -73,12 +69,36 @@ strict digraph {
     "Paper Mill" -> "Printing Works" [label=Paper]
     "Chemicals Plant" -> "Printing Works" [label=Dyes]
     "Printing Works" -> "Town Houses" [label=Goods]
-    Factory -> "ECS Houses" [label=Vehicles]
-    Factory -> Store [label=Vehicles]
     "Glass Works"
     "Gold Mine" -> "Glass Works" [label=Sand]
     "Glass Works" -> Factory [label=Glass]
-    "Limestone Mine"
-    "Limestone Mine" -> "Glass Works" [label=Limestone]
+    "Quarry"
+    "Quarry" -> "Glass Works" [label=Limestone]
     "Fruit Plantation" -> Store [label=Beverages]
+    Ranch -> "Printing Works" [label=Wool]
+    "Assembly Plant"
+    "Electronics Production Plant"
+    "Electronics Production Plant" -> "Assembly Plant" [label="Electronic Parts"]
+    Factory -> "Assembly Plant" [label="Vehicle Parts"]
+    "Copper Ore Mine" -> "Electronics Production Plant" [label=Copper]
+    "Brickworks"
+    "City Hall" -> Resort[label="Tourists", dir=both]
+    "Town Houses" -> Resort [label="Passengers", dir=both]
+    "Clay Pit"
+    "Coal Mine" -> Brickworks [label=Stone]
+    "Diamond Mine" -> Brickworks [label=Stone]
+    "Iron Ore Mine" -> "Electronics Production Plant" [label=Quartzite]
+    "Clay Pit" -> Brickworks [label=Clay]
+    Brickworks -> "Town Houses" [label=Goods]
+    "Clay Pit" -> "Glass Works" [label=Sand]
+    Quarry -> "Electronics Production Plant" [label=Quartzite]
+    "Bauxite Mine"
+    "Bauxite Mine" -> "Foundry" [label=Bauxite]
+    "Bauxite Mine" -> "Glass Works" [label=Limestone]
+    "Copper Ore Mine" -> Brickworks [label=Stone]
+    "Delivery Center"
+    "Assembly Plant" -> "Delivery Center" [label=Vehicles]
+    Brickworks -> "Delivery Center" [label=Goods]
+    "Printing Works" -> "Delivery Center" [label=Goods]
+    "Oil Refinery" -> "Delivery Center" [label=Petrol]
 }

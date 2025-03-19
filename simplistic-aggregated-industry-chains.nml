@@ -29,6 +29,66 @@ grf {
             def_value: 0;
         }
     }
+    param 1 {
+        bank_valu {
+            type: int;
+            name: string(STR_PARAM_NAME_BANK_VALU_RATE);
+            min_value: 0;
+            max_value: 8;
+            def_value: 6;
+            names: {
+                0: string(STR_PARAM_CONVERSION_RATE_20_PERCENT);
+                1: string(STR_PARAM_CONVERSION_RATE_30_PERCENT);
+                2: string(STR_PARAM_CONVERSION_RATE_40_PERCENT);
+                3: string(STR_PARAM_CONVERSION_RATE_50_PERCENT);
+                4: string(STR_PARAM_CONVERSION_RATE_60_PERCENT);
+                5: string(STR_PARAM_CONVERSION_RATE_70_PERCENT);
+                6: string(STR_PARAM_CONVERSION_RATE_80_PERCENT);
+                7: string(STR_PARAM_CONVERSION_RATE_90_PERCENT);
+                8: string(STR_PARAM_CONVERSION_RATE_100_PERCENT);
+            };
+        }
+    }
+    param 2 {
+        bank_gold {
+            type: int;
+            name: string(STR_PARAM_NAME_BANK_GOLD_RATE);
+            min_value: 0;
+            max_value: 8;
+            def_value: 4;
+            names: {
+                0: string(STR_PARAM_CONVERSION_RATE_20_PERCENT);
+                1: string(STR_PARAM_CONVERSION_RATE_30_PERCENT);
+                2: string(STR_PARAM_CONVERSION_RATE_40_PERCENT);
+                3: string(STR_PARAM_CONVERSION_RATE_50_PERCENT);
+                4: string(STR_PARAM_CONVERSION_RATE_60_PERCENT);
+                5: string(STR_PARAM_CONVERSION_RATE_70_PERCENT);
+                6: string(STR_PARAM_CONVERSION_RATE_80_PERCENT);
+                7: string(STR_PARAM_CONVERSION_RATE_90_PERCENT);
+                8: string(STR_PARAM_CONVERSION_RATE_100_PERCENT);
+            };
+        }
+    }
+    param 3 {
+        bank_diam {
+            type: int;
+            name: string(STR_PARAM_NAME_BANK_DIAM_RATE);
+            min_value: 0;
+            max_value: 8;
+            def_value: 8;
+            names: {
+                0: string(STR_PARAM_CONVERSION_RATE_20_PERCENT);
+                1: string(STR_PARAM_CONVERSION_RATE_30_PERCENT);
+                2: string(STR_PARAM_CONVERSION_RATE_40_PERCENT);
+                3: string(STR_PARAM_CONVERSION_RATE_50_PERCENT);
+                4: string(STR_PARAM_CONVERSION_RATE_60_PERCENT);
+                5: string(STR_PARAM_CONVERSION_RATE_70_PERCENT);
+                6: string(STR_PARAM_CONVERSION_RATE_80_PERCENT);
+                7: string(STR_PARAM_CONVERSION_RATE_90_PERCENT);
+                8: string(STR_PARAM_CONVERSION_RATE_100_PERCENT);
+            };
+        }
+    }
 }
 
 // ===== CARGO TABLE =====
@@ -2049,6 +2109,20 @@ if (1) {
 }
 
 // (Arctic/Tropical) Bank, #16
+produce(
+    bank_production,
+    [
+        VALU: incoming_cargo_waiting("VALU");
+        GOLD: incoming_cargo_waiting("GOLD");
+        DIAM: incoming_cargo_waiting("DIAM");
+    ],
+    [
+        VALU: incoming_cargo_waiting("VALU") * (2 + bank_valu) / 10
+            + incoming_cargo_waiting("GOLD") * (2 + bank_gold) / 10
+            + incoming_cargo_waiting("DIAM") * (2 + bank_diam) / 10;
+    ]
+)
+
 if (1) {
     item(FEAT_INDUSTRYTILES, bank_tile_1) {
         property {
@@ -2074,9 +2148,9 @@ if (1) {
             override: 16;
             cargo_types: [
                 produce_cargo("VALU", 2),
-                accept_cargo("VALU", produce_cargo("VALU", 0.5)),
-                accept_cargo("GOLD", produce_cargo("VALU", 0.75)),
-                accept_cargo("DIAM", produce_cargo("VALU", 1)),
+                accept_cargo("VALU"),
+                accept_cargo("GOLD"),
+                accept_cargo("DIAM"),
             ];
             prob_map_gen: 6;
             prob_in_game: 7;
@@ -2088,6 +2162,9 @@ if (1) {
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_BANK_STATION_NAME);
+        }
+        graphics {
+            produce_cargo_arrival: bank_production;
         }
     }
 }

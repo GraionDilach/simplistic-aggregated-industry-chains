@@ -92,10 +92,10 @@ STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol
 STR_ABBREV_PETROL                           :{TINYFONT}PT
 
-STR_CARGO_PLURAL_QUARZITE                   :Quarzite
-STR_CARGO_SINGULAR_QUARZITE                 :Quarzite
-STR_QUANTITY_QUARZITE                       :{WEIGHT} of quarzite
-STR_ABBREV_QUARZITE                         :{TINYFONT}QZ
+STR_CARGO_PLURAL_QUARTZITE                  :Quartzite
+STR_CARGO_SINGULAR_QUARTZITE                :Quartzite
+STR_QUANTITY_QUARTZITE                      :{WEIGHT} of quartzite
+STR_ABBREV_QUARTZITE                        :{TINYFONT}QZ
 
 STR_CARGO_PLURAL_SAND                       :Sand
 STR_CARGO_SINGULAR_SAND                     :Sand

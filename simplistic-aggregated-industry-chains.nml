@@ -174,7 +174,7 @@ cargotable {
     // FIRS copies
     CLAY, // #32 here, Clay
     GRVL, // #33 here, Stone
-    PORE, // #34 here, Quarzite, uses FIRS Pyrite Ore stats
+    PORE, // #34 here, Quartzite, uses FIRS Pyrite Ore stats
     POWR, // #35 here, Electrical Parts
     SCMT, // #36 here, Scrap Metal
     SULP, // #37 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
@@ -1174,17 +1174,17 @@ item(FEAT_CARGOS, cargo_stone, 33) {
     }
 }
 
-spriteset(cargoicon_quarzite) {
+spriteset(cargoicon_quartzite) {
     [0, 0, "gfx/cargo_icons/pore.png"]
 }
 
-item(FEAT_CARGOS, cargo_quarzite, 34) {
+item(FEAT_CARGOS, cargo_quartzite, 34) {
     property {
-        type_name: string(STR_CARGO_PLURAL_QUARZITE);
-        unit_name: string(STR_CARGO_SINGULAR_QUARZITE);
+        type_name: string(STR_CARGO_PLURAL_QUARTZITE);
+        unit_name: string(STR_CARGO_SINGULAR_QUARTZITE);
         units_of_cargo: TTD_STR_TONS;
-        items_of_cargo: string(STR_QUANTITY_QUARZITE);
-        type_abbreviation: string(STR_ABBREV_QUARZITE);
+        items_of_cargo: string(STR_QUANTITY_QUARTZITE);
+        type_abbreviation: string(STR_ABBREV_QUARTZITE);
         sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: 184;
@@ -1201,7 +1201,7 @@ item(FEAT_CARGOS, cargo_quarzite, 34) {
         number: 34;
     }
     graphics {
-        cargoicon_quarzite;
+        cargoicon_quartzite;
     }
 }
 

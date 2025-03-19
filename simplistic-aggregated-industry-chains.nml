@@ -1097,7 +1097,7 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
         station_list_colour: 94;
         cargo_payment_list_colour: 94;
         is_freight: 0;
-        cargo_classes: bitmask(CC_PASSENGERS); // omitting CC_EXPRESS, because that also allows them to be stuffed at armored vans in FRAX
+        cargo_classes: bitmask(CC_PASSENGERS, CC_EXPRESS); // breaking FRAX here; https://github.com/andythenorth/polar-fox/issues/9
         cargo_label: "TOUR";
         town_growth_effect: TOWNGROWTH_PASSENGERS;
         town_growth_multiplier: 1.25;

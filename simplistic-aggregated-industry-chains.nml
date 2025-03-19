@@ -89,6 +89,46 @@ grf {
             };
         }
     }
+    param 4 {
+        tourist_tour {
+            type: int;
+            name: string(STR_PARAM_NAME_TOURIST_TOUR_RATE);
+            min_value: 0;
+            max_value: 8;
+            def_value: 6;
+            names: {
+                0: string(STR_PARAM_CONVERSION_RATE_20_PERCENT);
+                1: string(STR_PARAM_CONVERSION_RATE_30_PERCENT);
+                2: string(STR_PARAM_CONVERSION_RATE_40_PERCENT);
+                3: string(STR_PARAM_CONVERSION_RATE_50_PERCENT);
+                4: string(STR_PARAM_CONVERSION_RATE_60_PERCENT);
+                5: string(STR_PARAM_CONVERSION_RATE_70_PERCENT);
+                6: string(STR_PARAM_CONVERSION_RATE_80_PERCENT);
+                7: string(STR_PARAM_CONVERSION_RATE_90_PERCENT);
+                8: string(STR_PARAM_CONVERSION_RATE_100_PERCENT);
+            };
+        }
+    }
+    param 5 {
+        resort_pass {
+            type: int;
+            name: string(STR_PARAM_NAME_RESORT_PASS_RATE);
+            min_value: 0;
+            max_value: 8;
+            def_value: 0;
+            names: {
+                0: string(STR_PARAM_CONVERSION_RATE_20_PERCENT);
+                1: string(STR_PARAM_CONVERSION_RATE_30_PERCENT);
+                2: string(STR_PARAM_CONVERSION_RATE_40_PERCENT);
+                3: string(STR_PARAM_CONVERSION_RATE_50_PERCENT);
+                4: string(STR_PARAM_CONVERSION_RATE_60_PERCENT);
+                5: string(STR_PARAM_CONVERSION_RATE_70_PERCENT);
+                6: string(STR_PARAM_CONVERSION_RATE_80_PERCENT);
+                7: string(STR_PARAM_CONVERSION_RATE_90_PERCENT);
+                8: string(STR_PARAM_CONVERSION_RATE_100_PERCENT);
+            };
+        }
+    }
 }
 
 // ===== CARGO TABLE =====
@@ -1890,6 +1930,16 @@ if (1) {
 }
 
 // City Hall, #12 (was Temperate Bank)
+produce(
+    city_hall_production,
+    [
+        TOUR: incoming_cargo_waiting("TOUR");
+    ],
+    [
+        TOUR: incoming_cargo_waiting("TOUR") * (2 + tourist_tour) / 10;
+    ]
+)
+
 if (1) {
     item(FEAT_INDUSTRYTILES, city_hall_tile_1) {
         property {
@@ -1916,7 +1966,7 @@ if (1) {
             name: string(STR_INDUSTRY_CITY_HALL_NAME);
             cargo_types: [
                 produce_cargo("TOUR", 4),
-                accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
+                accept_cargo("TOUR"),
             ];
             prob_map_gen: 6;
             prob_in_game: 3;
@@ -1926,6 +1976,9 @@ if (1) {
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_CITY_HALL_STATION_NAME);
+        }
+        graphics {
+            produce_cargo_arrival: city_hall_production;
         }
     }
 }
@@ -3055,6 +3108,20 @@ if (1) {
 }
 
 // Resort, #32
+produce(
+    resort_production,
+    [
+        TOUR: incoming_cargo_waiting("TOUR");
+        PASS: incoming_cargo_waiting("PASS");
+        FOOD: incoming_cargo_waiting("FOOD");
+        BEER: incoming_cargo_waiting("BEER");
+    ],
+    [
+        TOUR: incoming_cargo_waiting("TOUR") * (2 + tourist_tour) / 10
+            + incoming_cargo_waiting("PASS") * (2 + resort_pass) / 10;
+    ]
+)
+
 tilelayout jrhotel_tilelayout1 {
     0, 0: jrhotel_tile_N;
     0, 1: jrhotel_tile_E;
@@ -3134,9 +3201,9 @@ if (1) {
             layouts: [jrhotel_tilelayout1];
             cargo_types: [
                 produce_cargo("TOUR", 6),
-                accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
+                accept_cargo("TOUR"),
                 produce_cargo("PASS", 2),
-                accept_cargo("PASS", produce_cargo("TOUR", 0.125)),
+                accept_cargo("PASS"),
                 accept_cargo("FOOD"),
                 accept_cargo("BEER")
             ];
@@ -3150,6 +3217,9 @@ if (1) {
             ];
             spec_flags: 0;
             nearby_station_name: string(STR_INDUSTRY_RESORT_STATION_NAME);
+        }
+        graphics {
+            produce_cargo_arrival: resort_production;
         }
     }
 }
@@ -3223,6 +3293,18 @@ if (1) {
 }
 
 // Town Square, #36
+produce(
+    town_square_production,
+    [
+        TOUR: incoming_cargo_waiting("TOUR");
+        FOOD: incoming_cargo_waiting("GOOD");
+        BEER: incoming_cargo_waiting("BEER");
+    ],
+    [
+        TOUR: incoming_cargo_waiting("TOUR") * (2 + tourist_tour) / 10;
+    ]
+)
+
 tilelayout jrtownsquare_tilelayout1 {
     0, 0: jrtownsquare_tile_N;
     0, 1: jrtownsquare_tile_E;
@@ -3330,7 +3412,7 @@ if (1) {
             layouts: [jrtownsquare_tilelayout1];
             cargo_types: [
                 produce_cargo("TOUR", 4),
-                accept_cargo("TOUR", produce_cargo("TOUR", 0.75)),
+                accept_cargo("TOUR"),
                 accept_cargo("BEER"),
                 accept_cargo("GOOD"),
             ];
@@ -3343,6 +3425,9 @@ if (1) {
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_TOWN_SQUARE_STATION_NAME);
+        }
+        graphics {
+            produce_cargo_arrival: town_square_production;
         }
     }
 }

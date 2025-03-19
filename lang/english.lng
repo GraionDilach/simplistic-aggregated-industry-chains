@@ -23,6 +23,9 @@ STR_PARAM_NAME_BANK_VALU_RATE               :Bank - Valuables production rate on
 STR_PARAM_NAME_BANK_GOLD_RATE               :Bank - Valuables production rate on delivered Gold
 STR_PARAM_NAME_BANK_DIAM_RATE               :Bank - Valuables production rate on delivered Diamonds
 
+STR_PARAM_NAME_TOURIST_TOUR_RATE            :Tourist industries - Tourist production rate on delivered Tourists
+STR_PARAM_NAME_RESORT_PASS_RATE             :Resort - Tourist production rate on delivered Passengers
+
 #Error strings
 
 STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work with toyland climate.

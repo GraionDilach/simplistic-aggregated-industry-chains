@@ -2558,7 +2558,137 @@ if (1) {
 }
 
 // Water Supply, #21
+// water_supply_base_sprite = 2347;
+
+spritelayout water_supply_tile_1_stage0_SNOW {
+    ground   { sprite: GROUNDSPRITE_SNOW; }
+    building { sprite: 2347 + 0 + (1 - 1)*3; }
+}
+
+spritelayout water_supply_tile_1_stage0_NORMAL {
+    ground   { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 2347 + 0 + (1 - 1)*3; }
+}
+
+spritelayout water_supply_tile_1_stage1_SNOW {
+    ground   { sprite: GROUNDSPRITE_SNOW; }
+    building { sprite: 2347 + 1 + (1 - 1)*3; }
+}
+
+spritelayout water_supply_tile_1_stage1_NORMAL {
+    ground   { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 2347 + 1 + (1 - 1)*3; }
+}
+
+spritelayout water_supply_tile_1_stage2_SNOW {
+    ground   { sprite: GROUNDSPRITE_SNOW; }
+    building { sprite: 2347 + 2 + (1 - 1)*3; }
+}
+
+spritelayout water_supply_tile_1_stage2_NORMAL {
+    ground   { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 2347 + 2 + (1 - 1)*3; }
+}
+
+spritelayout water_supply_tile_2_stage0_SNOW {
+    ground   { sprite: GROUNDSPRITE_SNOW; }
+    building { sprite: 2347 + 0 + (2 - 1)*3; }
+}
+
+spritelayout water_supply_tile_2_stage0_NORMAL {
+    ground   { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 2347 + 0 + (2 - 1)*3; }
+}
+
+spritelayout water_supply_tile_2_stage1_SNOW {
+    ground   { sprite: GROUNDSPRITE_SNOW; }
+    building { sprite: 2347 + 1 + (2 - 1)*3; }
+}
+
+spritelayout water_supply_tile_2_stage1_NORMAL {
+    ground   { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 2347 + 1 + (2 - 1)*3; }
+}
+
+spritelayout water_supply_tile_2_stage2_SNOW {
+    ground   { sprite: GROUNDSPRITE_SNOW; }
+    building { sprite: 2347 + 2 + (2 - 1)*3; }
+}
+
+spritelayout water_supply_tile_2_stage2_NORMAL {
+    ground   { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 2347 + 2 + (2 - 1)*3; }
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_1_stage0_terrain_switch, terrain_type) {
+    TILETYPE_SNOW: water_supply_tile_1_stage0_SNOW;
+    TILETYPE_DESERT: water_supply_tile_1_stage0_SNOW;
+    water_supply_tile_1_stage0_NORMAL;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_1_stage1_terrain_switch, terrain_type) {
+    TILETYPE_SNOW: water_supply_tile_1_stage1_SNOW;
+    TILETYPE_DESERT: water_supply_tile_1_stage1_SNOW;
+    water_supply_tile_1_stage1_NORMAL;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_1_stage2_terrain_switch, terrain_type) {
+    TILETYPE_SNOW: water_supply_tile_1_stage2_SNOW;
+    TILETYPE_DESERT: water_supply_tile_1_stage2_SNOW;
+    water_supply_tile_1_stage2_NORMAL;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_2_stage0_terrain_switch, terrain_type) {
+    TILETYPE_SNOW: water_supply_tile_2_stage0_SNOW;
+    TILETYPE_DESERT: water_supply_tile_2_stage0_SNOW;
+    water_supply_tile_2_stage0_NORMAL;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_2_stage1_terrain_switch, terrain_type) {
+    TILETYPE_SNOW: water_supply_tile_2_stage1_SNOW;
+    TILETYPE_DESERT: water_supply_tile_2_stage1_SNOW;
+    water_supply_tile_2_stage1_NORMAL;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_2_stage2_terrain_switch, terrain_type) {
+    TILETYPE_SNOW: water_supply_tile_2_stage2_SNOW;
+    TILETYPE_DESERT: water_supply_tile_2_stage2_SNOW;
+    water_supply_tile_2_stage2_NORMAL;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_1_construction_switch, construction_state) {
+    0: water_supply_tile_1_stage0_terrain_switch;
+    1: water_supply_tile_1_stage1_terrain_switch;
+    water_supply_tile_1_stage2_terrain_switch;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, water_supply_tile_2_construction_switch, construction_state) {
+    0: water_supply_tile_2_stage0_terrain_switch;
+    1: water_supply_tile_2_stage1_terrain_switch;
+    water_supply_tile_2_stage2_terrain_switch;
+}
+
 if (1) {
+    item(FEAT_INDUSTRYTILES, water_supply_tile_1) {
+        property {
+            substitute:         118;
+            override:           118;
+        }
+        graphics {
+            water_supply_tile_1_construction_switch;
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, water_supply_tile_2) {
+        property {
+            substitute:         119;
+            override:           119;
+        }
+        graphics {
+            water_supply_tile_2_construction_switch;
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_water_supply, 21) {
         property {
             substitute: 21;

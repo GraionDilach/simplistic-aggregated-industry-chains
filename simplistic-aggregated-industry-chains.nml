@@ -45,10 +45,11 @@ cargotable {
     FRUT, // #14 here, #13 in ECS (but pushed aside for beverage), #4 in OTTD Tropic
     CORE, // #19 here, #8 in OTTD Tropic
     DIAM, // #21 here, #10 in OTTD Tropic
-    GOLD, // #26 here, #10 in OTTD Arctic
-    RUBR, // #28 here, #1 in OTTD Tropic
+    GOLD, // #28 here, #10 in OTTD Arctic
+    RUBR, // #30 here, #1 in OTTD Tropic
     // New cargos
     // ECS/NewCargos copies
+    AORE, // #26 here, Bauxit, index inherited from ECS
     BEER, // #13 here, Beverage, index inherited from mb's NewCargos
     DYES, // #20 here, Dyes, index inherited from ECS
     FICR, // #29 here, Flax, index and label inherited from ECS
@@ -62,14 +63,17 @@ cargotable {
     VEHI, // #24 here, Devices (mostly Vehicles elsewhere), index inherited from ECS
     WOOL, // #15 here, Wool, index inherited from ECS
     // FIRS copies
-    CLAY, // #30 here, Clay
-    GRVL, // #32 here, Stone
-    SCMT, // #33 here, Scrap Metal
-    SULP, // #34 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    CLAY, // #32 here, Clay
+    GRVL, // #33 here, Stone
+    PORE, // #34 here, Quarzite, uses FIRS Pyrite Ore stats
+    POWR, // #35 here, Electrical Parts
+    SCMT, // #36 here, Scrap Metal
+    SULP, // #37 here, Sulphur, defined as #27 in http://www.ttdpatch.de/ecs.html, but isn't part of the ECS NewGRFs
+    VPTS, // #38 here, Vehicle Parts
     // Additional ones
-    WSTE, // #35 here, Waste
+    WSTE, // #39 here, Waste
     // Unused indices
-    // #36+
+    // #40+
 }
 
 // ===== DISABLE DEFAULT CARGOS =====
@@ -615,7 +619,7 @@ item(FEAT_CARGOS, cargo_copper_ore, 19) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: (4892 * 10.0 * 20 * 255) / (1 << 21); // 118.967056274414
+        price_factor: 129;
         capacity_multiplier: 1;
         number: 19;
     }
@@ -738,19 +742,19 @@ item(FEAT_CARGOS, cargo_chemicals, 23) {
     }
 }
 
-spriteset(cargoicon_device) {
+spriteset(cargoicon_vehicle) {
     [0, 0, "gfx/cargo_icons/vehi.png"]
 }
 
-item(FEAT_CARGOS, cargo_device, 24) {
+item(FEAT_CARGOS, cargo_vehicle, 24) {
     property {
-        type_name: string(STR_CARGO_PLURAL_DEVICE);
-        unit_name: string(STR_CARGO_SINGULAR_DEVICE);
-        units_of_cargo: string(STR_QUANTITY_DEVICE);
-        items_of_cargo: string(STR_QUANTITY_DEVICE);
-        type_abbreviation: string(STR_ABBREV_DEVICE);
+        type_name: string(STR_CARGO_PLURAL_VEHICLE);
+        unit_name: string(STR_CARGO_SINGULAR_VEHICLE);
+        units_of_cargo: string(STR_QUANTITY_VEHICLE);
+        items_of_cargo: string(STR_QUANTITY_VEHICLE);
+        type_abbreviation: string(STR_ABBREV_VEHICLE);
         sprite: NEW_CARGO_SPRITE;
-        weight: 1.15;
+        weight: 1;
         station_list_colour: 194;
         cargo_payment_list_colour: 194;
         is_freight: 1;
@@ -765,7 +769,7 @@ item(FEAT_CARGOS, cargo_device, 24) {
         number: 24;
     }
     graphics {
-        cargoicon_device;
+        cargoicon_vehicle;
     }
 }
 
@@ -800,27 +804,34 @@ item(FEAT_CARGOS, cargo_petrol, 25) {
     }
 }
 
-item(FEAT_CARGOS, cargo_gold, 26) {
+spriteset(cargoicon_bauxite) {
+    [0, 0, "gfx/cargo_icons/aore.png"]
+}
+
+item(FEAT_CARGOS, cargo_bauxite, 26) {
     property {
-        type_name: TTD_STR_CARGO_PLURAL_GOLD;
-        unit_name: TTD_STR_CARGO_SINGULAR_GOLD;
-        units_of_cargo: TTD_STR_BAGS;
-        items_of_cargo: TTD_STR_QUANTITY_GOLD;
-        type_abbreviation: TTD_STR_ABBREV_GOLD;
-        sprite: 4307; // vanilla
-        weight: 0.5; // 8/16
-        station_list_colour: 67;
-        cargo_payment_list_colour: 67;
+        type_name: string(STR_CARGO_PLURAL_BAUXITE);
+        unit_name: string(STR_CARGO_SINGULAR_BAUXITE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_BAUXITE);
+        type_abbreviation: string(STR_ABBREV_BAUXITE);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 184;
+        cargo_payment_list_colour: 184;
         is_freight: 1;
-        cargo_classes: bitmask(CC_ARMOURED, CC_NON_POTABLE);
-        cargo_label: "GOLD";
+        cargo_classes: bitmask(CC_BULK, CC_POTABLE);
+        cargo_label: "AORE";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: 152;
-        capacity_multiplier: 2;
+        price_factor: (4892 * 10.0 * 20 * 255) / (1 << 21); // 118.967056274414
+        capacity_multiplier: 1;
         number: 26;
+    }
+    graphics {
+        cargoicon_bauxite;
     }
 }
 
@@ -848,26 +859,26 @@ item(FEAT_CARGOS, cargo_water, 27) {
     }
 }
 
-item(FEAT_CARGOS, cargo_rubber, 28) {
+item(FEAT_CARGOS, cargo_gold, 28) {
     property {
-        type_name: TTD_STR_CARGO_PLURAL_RUBBER;
-        unit_name: TTD_STR_CARGO_SINGULAR_RUBBER;
-        units_of_cargo: TTD_STR_LITERS;
-        items_of_cargo: TTD_STR_QUANTITY_RUBBER;
-        type_abbreviation: TTD_STR_ABBREV_RUBBER;
-        sprite: 4314; // vanilla
-        weight: 1;
-        station_list_colour: 6;
-        cargo_payment_list_colour: 6;
+        type_name: TTD_STR_CARGO_PLURAL_GOLD;
+        unit_name: TTD_STR_CARGO_SINGULAR_GOLD;
+        units_of_cargo: TTD_STR_BAGS;
+        items_of_cargo: TTD_STR_QUANTITY_GOLD;
+        type_abbreviation: TTD_STR_ABBREV_GOLD;
+        sprite: 4307; // vanilla
+        weight: 0.5; // 8/16
+        station_list_colour: 67;
+        cargo_payment_list_colour: 67;
         is_freight: 1;
-        cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
-        cargo_label: "RUBR";
+        cargo_classes: bitmask(CC_ARMOURED, CC_NON_POTABLE);
+        cargo_label: "GOLD";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 10;
-        single_penalty_length: 36;
-        price_factor: 110;
-        capacity_multiplier: 1;
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: 152;
+        capacity_multiplier: 2;
         number: 28;
     }
 }
@@ -903,34 +914,27 @@ item(FEAT_CARGOS, cargo_flax, 29) {
     }
 }
 
-spriteset(cargoicon_clay) {
-    [0, 0, "gfx/cargo_icons/clay.png"]
-}
-
-item(FEAT_CARGOS, cargo_clay, 30) {
+item(FEAT_CARGOS, cargo_rubber, 30) {
     property {
-        type_name: string(STR_CARGO_PLURAL_CLAY);
-        unit_name: string(STR_CARGO_SINGULAR_CLAY);
-        units_of_cargo: TTD_STR_TONS;
-        items_of_cargo: string(STR_QUANTITY_CLAY);
-        type_abbreviation: string(STR_ABBREV_CLAY);
-        sprite: NEW_CARGO_SPRITE;
+        type_name: TTD_STR_CARGO_PLURAL_RUBBER;
+        unit_name: TTD_STR_CARGO_SINGULAR_RUBBER;
+        units_of_cargo: TTD_STR_LITERS;
+        items_of_cargo: TTD_STR_QUANTITY_RUBBER;
+        type_abbreviation: TTD_STR_ABBREV_RUBBER;
+        sprite: 4314; // vanilla
         weight: 1;
-        station_list_colour: 117;
-        cargo_payment_list_colour: 117;
+        station_list_colour: 6;
+        cargo_payment_list_colour: 6;
         is_freight: 1;
-        cargo_classes: bitmask(CC_BULK, CC_COVERED, CC_NON_POTABLE);
-        cargo_label: "CLAY";
+        cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
+        cargo_label: "RUBR";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 30;
-        single_penalty_length: 255;
-        price_factor: (4209 * 10.0 * 20 * 255) / (1 << 21); // 102.357387542725
+        penalty_lowerbound: 10;
+        single_penalty_length: 36;
+        price_factor: 110;
         capacity_multiplier: 1;
         number: 30;
-    }
-    graphics {
-        cargoicon_clay;
     }
 }
 
@@ -965,11 +969,42 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
     }
 }
 
+spriteset(cargoicon_clay) {
+    [0, 0, "gfx/cargo_icons/clay.png"]
+}
+
+item(FEAT_CARGOS, cargo_clay, 32) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_CLAY);
+        unit_name: string(STR_CARGO_SINGULAR_CLAY);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_CLAY);
+        type_abbreviation: string(STR_ABBREV_CLAY);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 117;
+        cargo_payment_list_colour: 117;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_COVERED, CC_NON_POTABLE);
+        cargo_label: "CLAY";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: (4209 * 10.0 * 20 * 255) / (1 << 21); // 102.357387542725
+        capacity_multiplier: 1;
+        number: 32;
+    }
+    graphics {
+        cargoicon_clay;
+    }
+}
+
 spriteset(cargoicon_stone) {
     [0, 0, "gfx/cargo_icons/grvl.png"]
 }
 
-item(FEAT_CARGOS, cargo_stone, 32) {
+item(FEAT_CARGOS, cargo_stone, 33) {
     property {
         type_name: string(STR_CARGO_PLURAL_STONE);
         unit_name: string(STR_CARGO_SINGULAR_STONE);
@@ -989,10 +1024,72 @@ item(FEAT_CARGOS, cargo_stone, 32) {
         single_penalty_length: 255;
         price_factor: 78;
         capacity_multiplier: 1;
-        number: 32;
+        number: 33;
     }
     graphics {
         cargoicon_stone;
+    }
+}
+
+spriteset(cargoicon_quarzite) {
+    [0, 0, "gfx/cargo_icons/pore.png"]
+}
+
+item(FEAT_CARGOS, cargo_quarzite, 34) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_QUARZITE);
+        unit_name: string(STR_CARGO_SINGULAR_QUARZITE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_QUARZITE);
+        type_abbreviation: string(STR_ABBREV_QUARZITE);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 184;
+        cargo_payment_list_colour: 184;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_POTABLE);
+        cargo_label: "PORE";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: 111;
+        capacity_multiplier: 1;
+        number: 34;
+    }
+    graphics {
+        cargoicon_quarzite;
+    }
+}
+
+spriteset(cargoicon_electrical_part) {
+    [0, 0, "gfx/cargo_icons/powr.png"]
+}
+
+item(FEAT_CARGOS, cargo_electrical_part, 35) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_ELECTRICAL_PART);
+        unit_name: string(STR_CARGO_SINGULAR_ELECTRICAL_PART);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_ELECTRICAL_PART);
+        type_abbreviation: string(STR_ABBREV_ELECTRICAL_PART);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 194;
+        cargo_payment_list_colour: 194;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_NON_POTABLE);
+        cargo_label: "POWR";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 7;
+        single_penalty_length: 255;
+        price_factor: 148;
+        capacity_multiplier: 1;
+        number: 35;
+    }
+    graphics {
+        cargoicon_electrical_part;
     }
 }
 
@@ -1000,7 +1097,7 @@ spriteset(cargoicon_scrap_metal) {
     [0, 0, "gfx/cargo_icons/scmt.png"]
 }
 
-item(FEAT_CARGOS, cargo_scrap_metal, 33) {
+item(FEAT_CARGOS, cargo_scrap_metal, 36) {
     property {
         type_name: string(STR_CARGO_PLURAL_SCRAP_METAL);
         unit_name: string(STR_CARGO_SINGULAR_SCRAP_METAL);
@@ -1020,7 +1117,7 @@ item(FEAT_CARGOS, cargo_scrap_metal, 33) {
         single_penalty_length: 255;
         price_factor: 107;
         capacity_multiplier: 1;
-        number: 33;
+        number: 36;
     }
     graphics {
         cargoicon_scrap_metal;
@@ -1031,7 +1128,7 @@ spriteset(cargoicon_sulphur) {
     [0, 0, "gfx/cargo_icons/sulp.png"]
 }
 
-item(FEAT_CARGOS, cargo_sulphur, 34) {
+item(FEAT_CARGOS, cargo_sulphur, 37) {
     property {
         type_name: string(STR_CARGO_PLURAL_SULPHUR);
         unit_name: string(STR_CARGO_SINGULAR_SULPHUR);
@@ -1051,14 +1148,45 @@ item(FEAT_CARGOS, cargo_sulphur, 34) {
         single_penalty_length: 255;
         price_factor: 105;
         capacity_multiplier: 1;
-        number: 34;
+        number: 37;
     }
     graphics {
         cargoicon_sulphur;
     }
 }
 
-item(FEAT_CARGOS, cargo_waste, 35) {
+spriteset(cargoicon_vehicle_part) {
+    [0, 0, "gfx/cargo_icons/vpts.png"]
+}
+
+item(FEAT_CARGOS, cargo_vehicle_part, 38) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_VEHICLE_PART);
+        unit_name: string(STR_CARGO_SINGULAR_VEHICLE_PART);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_VEHICLE_PART);
+        type_abbreviation: string(STR_ABBREV_VEHICLE_PART);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 194;
+        cargo_payment_list_colour: 194;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_NON_POTABLE);
+        cargo_label: "VPTS";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 15;
+        single_penalty_length: 128;
+        price_factor: 151;
+        capacity_multiplier: 1;
+        number: 38;
+    }
+    graphics {
+        cargoicon_vehicle_part;
+    }
+}
+
+item(FEAT_CARGOS, cargo_waste, 39) {
     property {
         type_name: string(STR_CARGO_PLURAL_WASTE);
         unit_name: string(STR_CARGO_SINGULAR_WASTE);
@@ -1078,13 +1206,9 @@ item(FEAT_CARGOS, cargo_waste, 35) {
         single_penalty_length: 255;
         price_factor: 100;
         capacity_multiplier: 1;
-        number: 35;
+        number: 39;
     }
 }
-
-// AORE - Bauxit?
-// Quarzite (PORE) + Copper = Electrical Parts (POWR)
-// Vehicle Parts (VPTS) + Electrical Parts = Vehicles
 
 // ===== INDUSTRY DATA =====
 
@@ -1341,9 +1465,9 @@ if (1) {
             substitute: 6;
             override: 6;
             cargo_types: [
-                accept_cargo("STEL", produce_cargo("VEHI", 1)),
-                accept_cargo("GLAS", produce_cargo("VEHI", 1)),
-                accept_cargo("RUBR", produce_cargo("VEHI", 1))
+                accept_cargo("STEL", produce_cargo("VPTS", 1)),
+                accept_cargo("GLAS", produce_cargo("VPTS", 1)),
+                accept_cargo("RUBR", produce_cargo("VPTS", 1))
             ];
             prob_map_gen: 5;
             prob_in_game: 2;
@@ -1480,14 +1604,14 @@ if (1) {
             name: string(STR_INDUSTRY_FOUNDRY_NAME);
             cargo_types: [
                 accept_cargo("IORE", produce_cargo("STEL", 1)),
-                accept_cargo("CORE", produce_cargo("STEL", 1)),
+                accept_cargo("AORE", produce_cargo("STEL", 1)),
                 accept_cargo("SCMT", produce_cargo("STEL", 1))
             ];
             prob_map_gen: 5;
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_copper_ore_mine),
+                industry_type(IND_TYPE_NEW, industry_bauxite_mine),
                 industry_type(IND_TYPE_NEW, industry_iron_ore_mine)
             ];
             nearby_station_name: string(STR_INDUSTRY_FOUNDRY_STATION_NAME);
@@ -1955,7 +2079,7 @@ if (1) {
             override: 18;
             cargo_types: [
                 produce_cargo("IORE", 10),
-                produce_cargo("GRVL", 6)
+                produce_cargo("PORE", 6)
             ];
             prob_map_gen: 5;
             prob_in_game: 2;
@@ -2665,23 +2789,24 @@ if (1) {
     }
 }
 
-// Limestone Quarry, #30
+// Quarry, #30
 if (1) {
-    item(FEAT_INDUSTRIES, industry_limestone_quarry, 30) {
+    item(FEAT_INDUSTRIES, industry_quarry, 30) {
         property {
             substitute: 0;
-            name: string(STR_INDUSTRY_LIMESTONE_QUARRY_NAME);
+            name: string(STR_INDUSTRY_QUARRY_NAME);
             cargo_types: [
-                produce_cargo("LIME", 13)
+                produce_cargo("LIME", 14),
+                produce_cargo("PORE", 14)
             ];
             prob_map_gen: 5;
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_limestone_quarry),
+                industry_type(IND_TYPE_NEW, industry_quarry),
                 industry_type(IND_TYPE_NEW, industry_glass_works)
             ];
-            nearby_station_name: string(STR_INDUSTRY_LIMESTONE_QUARRY_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_QUARRY_STATION_NAME);
         }
     }
 }
@@ -2800,7 +2925,7 @@ if (1) {
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_PROCESSING;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_limestone_quarry),
+                industry_type(IND_TYPE_NEW, industry_quarry),
                 industry_type(IND_TYPE_NEW, industry_gold_mine),
                 industry_type(IND_TYPE_NEW, industry_factory)
             ];
@@ -3098,6 +3223,70 @@ if (1) {
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_TOWN_SQUARE_STATION_NAME);
+        }
+    }
+}
+
+// Assembly Plant, #37
+if (1) {
+    item(FEAT_INDUSTRIES, industry_assembly_plant, 37) {
+        property {
+            substitute: 6;
+            name: string(STR_INDUSTRY_ASSEMBLY_PLANT_NAME);
+            cargo_types: [
+                accept_cargo("VPTS", produce_cargo("VEHI", 1)),
+                accept_cargo("POWR", produce_cargo("VEHI", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_factory)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_ASSEMBLY_PLANT_STATION_NAME);
+        }
+    }
+}
+
+// Bauxite Mine, #38
+if (1) {
+    item(FEAT_INDUSTRIES, industry_bauxite_mine, 38) {
+        property {
+            substitute: 10;
+            name: string(STR_INDUSTRY_BAUXITE_MINE_NAME);
+            cargo_types: [
+                produce_cargo("AORE", 10),
+                produce_cargo("LIME", 6)
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_bauxite_mine),
+                industry_type(IND_TYPE_NEW, industry_foundry)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_BAUXITE_MINE_STATION_NAME);
+        }
+    }
+}
+
+// Electronics Production Plant, #39
+if (1) {
+    item(FEAT_INDUSTRIES, industry_electronics_plant, 39) {
+        property {
+            substitute: 6;
+            name: string(STR_INDUSTRY_ELECTRONICS_PLANT_NAME);
+            cargo_types: [
+                accept_cargo("CORE", produce_cargo("POWR", 1)),
+                accept_cargo("PORE", produce_cargo("POWR", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 2;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            conflicting_ind_types: [
+                industry_type(IND_TYPE_NEW, industry_electronics_plant)
+            ];
+            nearby_station_name: string(STR_INDUSTRY_ELECTRONICS_PLANT_STATION_NAME);
         }
     }
 }

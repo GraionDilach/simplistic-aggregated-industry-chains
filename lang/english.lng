@@ -10,6 +10,11 @@ STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work wi
 
 #Cargos
 
+STR_CARGO_PLURAL_BAUXITE                    :Bauxite
+STR_CARGO_SINGULAR_BAUXITE                  :Bauxite
+STR_QUANTITY_BAUXITE                        :{WEIGHT} of bauxite
+STR_ABBREV_BAUXITE                          :{TINYFONT}BX
+
 STR_CARGO_PLURAL_BEVERAGE                   :Beverage
 STR_CARGO_SINGULAR_BEVERAGE                 :Beverage
 STR_QUANTITY_BEVERAGE                       :{VOLUME} of beverage
@@ -25,15 +30,15 @@ STR_CARGO_SINGULAR_CLAY                     :Clay
 STR_QUANTITY_CLAY                           :{WEIGHT} of clay
 STR_ABBREV_CLAY                             :{TINYFONT}CY
 
-STR_CARGO_PLURAL_DEVICE                     :Devices
-STR_CARGO_SINGULAR_DEVICE                   :Device
-STR_QUANTITY_DEVICE                         :{COMMA} device{P 0 "" s}
-STR_ABBREV_DEVICE                           :{TINYFONT}DE
-
 STR_CARGO_PLURAL_DYES                       :Dyes
 STR_CARGO_SINGULAR_DYES                     :Dye
 STR_QUANTITY_DYES                           :{COMMA} bag{P "" s} of dyes
 STR_ABBREV_DYES                             :{TINYFONT}DY
+
+STR_CARGO_PLURAL_ELECTRICAL_PART            :Electrical Parts
+STR_CARGO_SINGULAR_ELECTRICAL_PART          :Electrical Part
+STR_QUANTITY_ELECTRICAL_PART                :{WEIGHT} of electrical parts
+STR_ABBREV_ELECTRICAL_PART                  :{TINYFONT}EP
 
 STR_CARGO_PLURAL_FLAX                       :Flax
 STR_CARGO_SINGULAR_FLAX                     :Flax
@@ -65,6 +70,11 @@ STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol
 STR_ABBREV_PETROL                           :{TINYFONT}PT
 
+STR_CARGO_PLURAL_QUARZITE                   :Quarzite
+STR_CARGO_SINGULAR_QUARZITE                 :Quarzite
+STR_QUANTITY_QUARZITE                       :{WEIGHT} of quarzite
+STR_ABBREV_QUARZITE                         :{TINYFONT}QZ
+
 STR_CARGO_PLURAL_SAND                       :Sand
 STR_CARGO_SINGULAR_SAND                     :Sand
 STR_QUANTITY_SAND                           :{WEIGHT} of sand
@@ -89,6 +99,16 @@ STR_CARGO_PLURAL_TOURIST                    :Tourists
 STR_CARGO_SINGULAR_TOURIST                  :Tourist
 STR_QUANTITY_TOURIST                        :{COMMA} tourist{P 0 "" s}
 STR_ABBREV_TOURIST                          :{TINYFONT}TR
+
+STR_CARGO_PLURAL_VEHICLE                    :Vehicles
+STR_CARGO_SINGULAR_VEHICLE                  :Vehicle
+STR_QUANTITY_VEHICLE                        :{COMMA} vehicle{P 0 "" s}
+STR_ABBREV_VEHICLE                          :{TINYFONT}VE
+
+STR_CARGO_PLURAL_VEHICLE_PART               :Vehicle Parts
+STR_CARGO_SINGULAR_VEHICLE_PART             :Vehicle Part
+STR_QUANTITY_VEHICLE_PART                   :{WEIGHT} of vehicle parts
+STR_ABBREV_VEHICLE_PART                     :{TINYFONT}VP
 
 STR_CARGO_PLURAL_WASTE                      :Waste
 STR_CARGO_SINGULAR_WASTE                    :Waste
@@ -166,8 +186,8 @@ STR_INDUSTRY_DESALINATION_PLANT_STATION_NAME        :{STRING} Desalination Plant
 STR_INDUSTRY_JUNKYARD_NAME                          :Junkyard
 STR_INDUSTRY_JUNKYARD_STATION_NAME                  :{STRING} Junkyard
 
-STR_INDUSTRY_LIMESTONE_QUARRY_NAME                  :Limestone Quarry
-STR_INDUSTRY_LIMESTONE_QUARRY_STATION_NAME          :{STRING} Limestone Quarry
+STR_INDUSTRY_QUARRY_NAME                            :Quarry
+STR_INDUSTRY_QUARRY_STATION_NAME                    :{STRING} Quarry
 
 STR_INDUSTRY_GLASS_WORKS_NAME                       :Glass Works
 STR_INDUSTRY_GLASS_WORKS_STATION_NAME               :{STRING} Glass Works
@@ -184,5 +204,14 @@ STR_INDUSTRY_CLAY_PIT_STATION_NAME                  :{STRING} Clay Pit
 STR_INDUSTRY_BRICKWORKS_NAME                        :Brickworks
 STR_INDUSTRY_BRICKWORKS_STATION_NAME                :{STRING} Brickworks
 
-STR_INDUSTRY_TOWN_SQUARE_NAME                        :Town Square
-STR_INDUSTRY_TOWN_SQUARE_STATION_NAME                :{STRING} Town Square
+STR_INDUSTRY_TOWN_SQUARE_NAME                       :Town Square
+STR_INDUSTRY_TOWN_SQUARE_STATION_NAME               :{STRING} Town Square
+
+STR_INDUSTRY_ASSEMBLY_PLANT_NAME                    :Assembly Plant
+STR_INDUSTRY_ASSEMBLY_PLANT_STATION_NAME            :{STRING} Assembly Plant
+
+STR_INDUSTRY_BAUXITE_MINE_NAME                      :Bauxite Mine
+STR_INDUSTRY_BAUXITE_MINE_STATION_NAME              :{STRING} Bauxite Mine
+
+STR_INDUSTRY_ELECTRONICS_PLANT_NAME                 :Electronics Production Plant
+STR_INDUSTRY_ELECTRONICS_PLANT_STATION_NAME         :{STRING} Electronics Production Plant

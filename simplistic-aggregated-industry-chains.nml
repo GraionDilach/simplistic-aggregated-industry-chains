@@ -1442,11 +1442,90 @@ if (1) {
 // Sawmill, #2, skipped
 
 // Forest, #3
+tilelayout forest_layout_1 {
+    0, 0: forest_tile_1;
+    0, 1: forest_tile_1;
+    0, 2: forest_tile_1;
+    0, 3: forest_tile_1;
+    1, 0: forest_tile_1;
+    1, 1: forest_tile_1;
+    1, 2: forest_tile_1;
+    1, 3: forest_tile_1;
+    2, 0: forest_tile_1;
+    2, 1: forest_tile_1;
+    2, 2: forest_tile_1;
+    2, 3: forest_tile_1;
+    3, 0: forest_tile_1;
+    3, 1: forest_tile_1;
+    3, 2: forest_tile_1;
+    3, 3: forest_tile_1;
+    1, 4: forest_tile_2;
+    2, 4: forest_tile_4;
+}
+
+tilelayout forest_layout_2 {
+    0, 0: forest_tile_1;
+    1, 0: forest_tile_1;
+    2, 0: forest_tile_1;
+    3, 0: forest_tile_1;
+    4, 0: forest_tile_1;
+    0, 1: forest_tile_1;
+    1, 1: forest_tile_1;
+    2, 1: forest_tile_1;
+    3, 1: forest_tile_1;
+    4, 1: forest_tile_1;
+    0, 2: forest_tile_1;
+    1, 2: forest_tile_1;
+    2, 2: forest_tile_1;
+    3, 2: forest_tile_1;
+    4, 2: forest_tile_1;
+    0, 3: forest_tile_1;
+    1, 3: forest_tile_1;
+    2, 3: forest_tile_1;
+    3, 3: forest_tile_1;
+    4, 3: forest_tile_1;
+    1, 4: forest_tile_2;
+    2, 4: forest_tile_4;
+    3, 4: forest_tile_3;
+}
+
 if (1) {
+    item(FEAT_INDUSTRYTILES, forest_tile_1) {
+	    property {
+	    	substitute:         16;
+	    	override:           16;
+	    }
+    }
+
+    //sawmill building 1
+    item(FEAT_INDUSTRYTILES, forest_tile_2) {
+	    property {
+	    	substitute:         11;
+	    	override:           11;
+	    }
+    }
+
+    // sawmill building 2
+    item(FEAT_INDUSTRYTILES, forest_tile_3) {
+	    property {
+	    	substitute:         13;
+	    	override:           13;
+	    }
+    }
+
+    //logs
+    item(FEAT_INDUSTRYTILES, forest_tile_4) {
+	    property {
+	    	substitute:         14;
+	    	override:           14;
+	    }
+    }
+
     item(FEAT_INDUSTRIES, industry_forest, 3) {
         property {
             substitute: 3;
             override: 3;
+            layouts: [forest_layout_1, forest_layout_2];
             cargo_types: [
                 produce_cargo("WOOD", 13)
             ];

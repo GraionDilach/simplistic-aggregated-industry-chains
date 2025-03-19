@@ -4,6 +4,11 @@ STR_GRF_NAME                                :Simplistic Aggregated Industry Chai
 STR_GRF_DESCRIPTION                         :{}Simplistic Aggregated Industry Chains shakes up the industry setup via adding some additional cargoes but keeping the logics as vanilla.{}{}See readme for more info.{}{}License: GPL v2
 STR_GRF_URL                                 :https://github.com/GraionDilach/TODO
 
+#Params
+
+STR_PARAM_NAME_TOWNGROWTH_SPECIAL           :Enable climate-specific cargo-related town growth
+STR_PARAM_DESC_TOWNGROWTH_SPECIAL           :When enabled, Food and Water are required for Arctic and Tropical towns to grow.
+
 #Error strings
 
 STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work with toyland climate.

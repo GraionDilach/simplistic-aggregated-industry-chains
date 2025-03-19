@@ -20,6 +20,15 @@ grf {
     version: 0000;
     min_compatible_version: 0;
     url: string(STR_GRF_URL);
+
+    param 0 {
+        towngrowth_special {
+            type: bool;
+            name: string(STR_PARAM_NAME_TOWNGROWTH_SPECIAL);
+            desc: string(STR_PARAM_DESC_TOWNGROWTH_SPECIAL);
+            def_value: 0;
+        }
+    }
 }
 
 // ===== CARGO TABLE =====
@@ -388,13 +397,30 @@ item(FEAT_CARGOS, cargo_food, 11) {
         is_freight: 1;
         cargo_classes: bitmask(CC_PIECE_GOODS, CC_REFRIGERATED, CC_EXPRESS, CC_POTABLE);
         cargo_label: "FOOD";
-        town_growth_effect: TOWNGROWTH_FOOD;
-        town_growth_multiplier: 1;
         penalty_lowerbound: 0;
         single_penalty_length: 30;
         price_factor: 168;
         capacity_multiplier: 1;
         number: 11;
+    }
+}
+
+if (towngrowth_special)
+{
+    item(FEAT_CARGOS, cargo_food, 11) {
+        property {
+            town_growth_effect: TOWNGROWTH_FOOD;
+            town_growth_multiplier: 1;
+        }
+    }
+}
+else
+{
+    item(FEAT_CARGOS, cargo_food, 11) {
+        property {
+            town_growth_effect: TOWNGROWTH_NONE;
+            town_growth_multiplier: 0;
+        }
     }
 }
 
@@ -849,13 +875,30 @@ item(FEAT_CARGOS, cargo_water, 27) {
         is_freight: 1;
         cargo_classes: bitmask(CC_LIQUID, CC_POTABLE);
         cargo_label: "WATR";
-        town_growth_effect: TOWNGROWTH_WATER;
-        town_growth_multiplier: 1;
         penalty_lowerbound: 20;
         single_penalty_length: 80;
         price_factor: (4664 * 10.0 * 20 * 255) / (1 << 21); // 113.422393798828
         capacity_multiplier: 1;
         number: 27;
+    }
+}
+
+if (towngrowth_special)
+{
+    item(FEAT_CARGOS, cargo_water, 27) {
+        property {
+            town_growth_effect: TOWNGROWTH_WATER;
+            town_growth_multiplier: 1;
+        }
+    }
+}
+else
+{
+    item(FEAT_CARGOS, cargo_water, 27) {
+        property {
+            town_growth_effect: TOWNGROWTH_NONE;
+            town_growth_multiplier: 0;
+        }
     }
 }
 

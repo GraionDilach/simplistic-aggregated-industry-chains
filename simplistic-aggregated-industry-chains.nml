@@ -1669,7 +1669,7 @@ if (1) {
     item(FEAT_INDUSTRYTILES, forest_tile_2) {
         property {
             substitute:         11;
-            override:           11;
+            accepted_cargos:    [[PASS, 1]];
         }
     }
 
@@ -1677,7 +1677,7 @@ if (1) {
     item(FEAT_INDUSTRYTILES, forest_tile_3) {
         property {
             substitute:         13;
-            override:           13;
+            accepted_cargos:    [[PASS, 1]];
         }
     }
 
@@ -1685,7 +1685,7 @@ if (1) {
     item(FEAT_INDUSTRYTILES, forest_tile_4) {
         property {
             substitute:         14;
-            override:           14;
+            accepted_cargos:    [[PASS, 1]];
         }
     }
 
@@ -3603,6 +3603,51 @@ if (1) {
 
 // Distribution Center, #33
 if (1) {
+    item(FEAT_INDUSTRYTILES, sawmill_tile_1) {
+        property {
+            substitute:      11;
+            override:        11;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, sawmill_tile_2) {
+        property {
+            substitute:      12;
+            override:        12;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, sawmill_tile_3) {
+        property {
+            substitute:      13;
+            override:        13;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, sawmill_tile_4) {
+        property {
+            substitute:      14;
+            override:        14;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
+    item(FEAT_INDUSTRYTILES, sawmill_tile_5) {
+        property {
+            substitute:      15;
+            override:        15;
+            accepted_cargos: [[PASS, 1]];
+            special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        }
+    }
+
     item(FEAT_INDUSTRIES, industry_distribution_center, 33) {
         property {
             substitute: 2;

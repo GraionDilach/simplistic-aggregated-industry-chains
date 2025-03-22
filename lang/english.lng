@@ -19,9 +19,9 @@ STR_PARAM_CONVERSION_RATE_80_PERCENT        :5:4 (80%)
 STR_PARAM_CONVERSION_RATE_90_PERCENT        :10:9 (90%)
 STR_PARAM_CONVERSION_RATE_100_PERCENT       :1:1 (100%)
 
-STR_PARAM_NAME_BANK_VALU_RATE               :Bank - Valuables production rate on delivered Valuables
-STR_PARAM_NAME_BANK_GOLD_RATE               :Bank - Valuables production rate on delivered Gold
-STR_PARAM_NAME_BANK_DIAM_RATE               :Bank - Valuables production rate on delivered Diamonds
+STR_PARAM_NAME_TREASURY_VALU_RATE           :Treasury - Valuables production rate on delivered Valuables
+STR_PARAM_NAME_TREASURY_GOLD_RATE           :Treasury - Valuables production rate on delivered Gold
+STR_PARAM_NAME_TREASURY_DIAM_RATE           :Treasury - Valuables production rate on delivered Diamonds
 
 STR_PARAM_NAME_TOURIST_TOUR_RATE            :Tourist industries - Tourist production rate on delivered Tourists
 STR_PARAM_NAME_RESORT_PASS_RATE             :Resort - Tourist production rate on delivered Passengers
@@ -177,7 +177,8 @@ STR_INDUSTRY_PAPER_MILL_STATION_NAME                :{STRING} Paper Mill
 
 STR_INDUSTRY_GOLD_MINE_STATION_NAME                 :{STRING} Gold Mine
 
-STR_INDUSTRY_BANK_STATION_NAME                      :{STRING} Bank
+STR_INDUSTRY_TREASURY_NAME                          :Treasury
+STR_INDUSTRY_TREASURY_STATION_NAME                  :{STRING} Treasury
 
 STR_INDUSTRY_DIAMOND_MINE_STATION_NAME              :{STRING} Diamond Mine
 

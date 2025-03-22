@@ -30,9 +30,9 @@ grf {
         }
     }
     param 1 {
-        bank_valu {
+        treasury_valu {
             type: int;
-            name: string(STR_PARAM_NAME_BANK_VALU_RATE);
+            name: string(STR_PARAM_NAME_TREASURY_VALU_RATE);
             min_value: 0;
             max_value: 8;
             def_value: 6;
@@ -50,9 +50,9 @@ grf {
         }
     }
     param 2 {
-        bank_gold {
+        treasury_gold {
             type: int;
-            name: string(STR_PARAM_NAME_BANK_GOLD_RATE);
+            name: string(STR_PARAM_NAME_TREASURY_GOLD_RATE);
             min_value: 0;
             max_value: 8;
             def_value: 4;
@@ -70,9 +70,9 @@ grf {
         }
     }
     param 3 {
-        bank_diam {
+        treasury_diam {
             type: int;
-            name: string(STR_PARAM_NAME_BANK_DIAM_RATE);
+            name: string(STR_PARAM_NAME_TREASURY_DIAM_RATE);
             min_value: 0;
             max_value: 8;
             def_value: 8;
@@ -2401,30 +2401,30 @@ if (1) {
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_gold_mine),
-                industry_type(IND_TYPE_NEW, industry_bank)
+                industry_type(IND_TYPE_NEW, industry_treasury)
             ];
             nearby_station_name: string(STR_INDUSTRY_GOLD_MINE_STATION_NAME);
         }
     }
 }
 
-// (Arctic/Tropical) Bank, #16
+// (Arctic/Tropical) Bank (renamed to Treasury against TTRS), #16
 produce(
-    bank_production,
+    treasury_production,
     [
         VALU: incoming_cargo_waiting("VALU");
         GOLD: incoming_cargo_waiting("GOLD");
         DIAM: incoming_cargo_waiting("DIAM");
     ],
     [
-        VALU: incoming_cargo_waiting("VALU") * (2 + bank_valu) / 10
-            + incoming_cargo_waiting("GOLD") * (2 + bank_gold) / 10
-            + incoming_cargo_waiting("DIAM") * (2 + bank_diam) / 10;
+        VALU: incoming_cargo_waiting("VALU") * (2 + treasury_valu) / 10
+            + incoming_cargo_waiting("GOLD") * (2 + treasury_gold) / 10
+            + incoming_cargo_waiting("DIAM") * (2 + treasury_diam) / 10;
     ]
 )
 
 if (1) {
-    item(FEAT_INDUSTRYTILES, bank_tile_1) {
+    item(FEAT_INDUSTRYTILES, treasury_tile_1) {
         property {
             substitute: 89;
             override: 89;
@@ -2433,7 +2433,7 @@ if (1) {
         }
     }
 
-    item(FEAT_INDUSTRYTILES, bank_tile_2) {
+    item(FEAT_INDUSTRYTILES, treasury_tile_2) {
         property {
             substitute: 90;
             override: 90;
@@ -2442,10 +2442,11 @@ if (1) {
         }
     }
 
-    item(FEAT_INDUSTRIES, industry_bank, 16) {
+    item(FEAT_INDUSTRIES, industry_treasury, 16) {
         property {
             substitute: 16;
             override: 16;
+            name: string(STR_INDUSTRY_TREASURY_NAME);
             cargo_types: [
                 produce_cargo("VALU", 2),
                 accept_cargo("VALU"),
@@ -2456,15 +2457,15 @@ if (1) {
             prob_in_game: 7;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
             conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_bank),
+                industry_type(IND_TYPE_NEW, industry_treasury),
                 industry_type(IND_TYPE_NEW, industry_gold_mine),
                 industry_type(IND_TYPE_NEW, industry_diamond_mine)
             ];
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
-            nearby_station_name: string(STR_INDUSTRY_BANK_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_TREASURY_STATION_NAME);
         }
         graphics {
-            produce_cargo_arrival: bank_production;
+            produce_cargo_arrival: treasury_production;
         }
     }
 }
@@ -2484,7 +2485,7 @@ if (1) {
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
             conflicting_ind_types: [
                 industry_type(IND_TYPE_NEW, industry_diamond_mine),
-                industry_type(IND_TYPE_NEW, industry_bank)
+                industry_type(IND_TYPE_NEW, industry_treasury)
             ];
             nearby_station_name: string(STR_INDUSTRY_DIAMOND_MINE_STATION_NAME);
         }

@@ -4,7 +4,7 @@ strict digraph {
         label = "Town"
         "Town Houses" [ shape=ellipse]
         "Store"
-        "Bank"
+        "Treasury"
         "City Hall"
     }
     "Resort"
@@ -47,7 +47,7 @@ strict digraph {
     "Desalination Plant" -> "Store" [label="Water"]
     "Gold Mine"
     "Diamond Mine"
-    Bank -> Bank[label="Valuables"]
+    Treasury -> Treasury[label="Valuables"]
     "Food Processing Plant" -> "Store" [label="Food"]
     "Junkyard" -> "Foundry" [label="Scrap Metal"]
     "Fruit Plantation" "Store"
@@ -56,9 +56,8 @@ strict digraph {
     "Junkyard"
     "Desalination Plant" "Oil Refinery"
     "Junkyard" -> "Power Plant"[label="Waste"]
-    Bank
-    "Gold Mine" -> Bank[label="Gold"]
-    "Diamond Mine" -> Bank[label="Diamond"]
+    "Gold Mine" -> Treasury[label="Gold"]
+    "Diamond Mine" -> Treasury[label="Diamond"]
     "Chemicals Plant"
     "Copper Ore Mine" -> "Chemicals Plant"[label="Sulphur"]
     "Desalination Plant" -> "Chemicals Plant" [label="Chemicals"]

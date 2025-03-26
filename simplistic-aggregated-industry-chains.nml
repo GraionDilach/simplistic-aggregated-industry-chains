@@ -351,7 +351,7 @@ item(FEAT_CARGOS, cargo_goods, 5) {
         station_list_colour: 194;
         cargo_payment_list_colour: 194;
         is_freight: 1;
-        cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_EXPRESS, CC_NON_POTABLE);
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_EXPRESS, CC_NON_POTABLE);
         cargo_label: "GOOD";
         town_growth_effect: TOWNGROWTH_GOODS;
         town_growth_multiplier: 1;

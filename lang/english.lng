@@ -42,6 +42,11 @@ STR_CARGO_SINGULAR_BEVERAGE                 :Beverage
 STR_QUANTITY_BEVERAGE                       :{VOLUME} of beverage
 STR_ABBREV_BEVERAGE                         :{TINYFONT}BE
 
+STR_CARGO_PLURAL_BUILDING_MATERIALS         :Building Materials
+STR_CARGO_SINGULAR_BUILDING_MATERIALS       :Building Materials
+STR_QUANTITY_BUILDING_MATERIALS             :{WEIGHT} of building materials
+STR_ABBREV_BUILDING_MATERIALS               :{TINYFONT}BM
+
 STR_CARGO_PLURAL_CHEMICALS                  :Chemicals
 STR_CARGO_SINGULAR_CHEMICALS                :Chemicals
 STR_QUANTITY_CHEMICALS                      :{VOLUME} of chemicals

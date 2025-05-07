@@ -1314,7 +1314,7 @@ item(FEAT_CARGOS, cargo_sulphur, 38) {
         station_list_colour: 190;
         cargo_payment_list_colour: 190;
         is_freight: 1;
-        cargo_classes: bitmask(CC_BULK, CC_POWDERIZED, CC_NON_POTABLE);
+        cargo_classes: bitmask(CC_BULK, CC_COVERED, CC_POWDERIZED, CC_NON_POTABLE);
         cargo_label: "SULP";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;

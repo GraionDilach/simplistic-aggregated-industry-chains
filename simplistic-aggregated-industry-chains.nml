@@ -2903,7 +2903,7 @@ if (!economy_mode) {
         property {
             substitute: 120;
             override: 120;
-            accepted_cargos: [];
+            accepted_cargos: [[PASS, 2]];
             special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         }
         graphics {

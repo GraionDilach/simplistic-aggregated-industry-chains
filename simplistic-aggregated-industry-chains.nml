@@ -2388,6 +2388,7 @@ if (1) {
         }
         graphics {
             produce_cargo_arrival: city_hall_production;
+            cargo_subtype_display: (0x3800 + string(STR_EMPTY));
         }
     }
 }
@@ -2628,6 +2629,7 @@ if (1) {
         }
         graphics {
             produce_cargo_arrival: treasury_production;
+            cargo_subtype_display: (0x3800 + string(STR_EMPTY));
         }
     }
 }
@@ -3717,7 +3719,20 @@ if (economy_mode) {
 
 // Resort, #32
 produce(
-    resort_production,
+    resort_production_vanilla,
+    [
+        TOUR: incoming_cargo_waiting("TOUR");
+        PASS: incoming_cargo_waiting("PASS");
+        FOOD: incoming_cargo_waiting("FOOD");
+    ],
+    [
+        TOUR: incoming_cargo_waiting("TOUR") * (2 + tourist_tour) / 10
+            + incoming_cargo_waiting("PASS") * (2 + resort_pass) / 10;
+    ]
+)
+
+produce(
+    resort_production_aggregated,
     [
         TOUR: incoming_cargo_waiting("TOUR");
         PASS: incoming_cargo_waiting("PASS");
@@ -3807,14 +3822,6 @@ if (1) {
             substitute: 1;
             name: string(STR_INDUSTRY_RESORT_NAME);
             layouts: [jrhotel_tilelayout1];
-            cargo_types: [
-                produce_cargo("TOUR", 6),
-                accept_cargo("TOUR"),
-                produce_cargo("PASS", 2),
-                accept_cargo("PASS"),
-                accept_cargo("FOOD"),
-                accept_cargo("BEER")
-            ];
             prob_map_gen: 3;
             prob_in_game: 1;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
@@ -3826,8 +3833,44 @@ if (1) {
             spec_flags: 0;
             nearby_station_name: string(STR_INDUSTRY_RESORT_STATION_NAME);
         }
+    }
+}
+
+if (!economy_mode)
+{
+    item(FEAT_INDUSTRIES, industry_resort, 32) {
+        property {
+            cargo_types: [
+                produce_cargo("TOUR", 6),
+                accept_cargo("TOUR"),
+                produce_cargo("PASS", 2),
+                accept_cargo("PASS"),
+                accept_cargo("FOOD")
+            ];
+        }
         graphics {
-            produce_cargo_arrival: resort_production;
+            produce_cargo_arrival: resort_production_vanilla;
+            cargo_subtype_display: (0x3800 + string(STR_EMPTY));
+        }
+    }
+}
+
+if (economy_mode)
+{
+    item(FEAT_INDUSTRIES, industry_resort, 32) {
+        property {
+            cargo_types: [
+                produce_cargo("TOUR", 6),
+                accept_cargo("TOUR"),
+                produce_cargo("PASS", 2),
+                accept_cargo("PASS"),
+                accept_cargo("FOOD"),
+                accept_cargo("BEER")
+            ];
+        }
+        graphics {
+            produce_cargo_arrival: resort_production_aggregated;
+            cargo_subtype_display: (0x3800 + string(STR_EMPTY));
         }
     }
 }
@@ -3983,7 +4026,18 @@ if (economy_mode) {
 
 // Town Square, #36
 produce(
-    town_square_production,
+    town_square_production_vanilla,
+    [
+        TOUR: incoming_cargo_waiting("TOUR");
+        FOOD: incoming_cargo_waiting("GOOD");
+    ],
+    [
+        TOUR: incoming_cargo_waiting("TOUR") * (2 + tourist_tour) / 10;
+    ]
+)
+
+produce(
+    town_square_production_aggregated,
     [
         TOUR: incoming_cargo_waiting("TOUR");
         FOOD: incoming_cargo_waiting("GOOD");
@@ -4099,12 +4153,6 @@ if (1) {
             map_colour: 37;
             name: string(STR_INDUSTRY_TOWN_SQUARE_NAME);
             layouts: [jrtownsquare_tilelayout1];
-            cargo_types: [
-                produce_cargo("TOUR", 4),
-                accept_cargo("TOUR"),
-                accept_cargo("BEER"),
-                accept_cargo("GOOD"),
-            ];
             prob_map_gen: 1;
             prob_in_game: 2;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
@@ -4115,8 +4163,40 @@ if (1) {
             spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
             nearby_station_name: string(STR_INDUSTRY_TOWN_SQUARE_STATION_NAME);
         }
+    }
+}
+
+if (!economy_mode)
+{
+    item(FEAT_INDUSTRIES, industry_town_square, 36) {
+        property {
+            cargo_types: [
+                produce_cargo("TOUR", 4),
+                accept_cargo("TOUR"),
+                accept_cargo("GOOD")
+            ];
+        }
         graphics {
-            produce_cargo_arrival: town_square_production;
+            produce_cargo_arrival: town_square_production_vanilla;
+            cargo_subtype_display: (0x3800 + string(STR_EMPTY));
+        }
+    }
+}
+
+if (economy_mode)
+{
+    item(FEAT_INDUSTRIES, industry_town_square, 36) {
+        property {
+            cargo_types: [
+                produce_cargo("TOUR", 4),
+                accept_cargo("TOUR"),
+                accept_cargo("BEER"),
+                accept_cargo("GOOD")
+            ];
+        }
+        graphics {
+            produce_cargo_arrival: town_square_production_aggregated;
+            cargo_subtype_display: (0x3800 + string(STR_EMPTY));
         }
     }
 }

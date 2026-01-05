@@ -152,6 +152,8 @@ STR_CARGO_SINGULAR_WOOL                     :Wool
 STR_QUANTITY_WOOL                           :{COMMA} item{P "" s} of wool
 STR_ABBREV_WOOL                             :{TINYFONT}WL
 
+STR_EMPTY:
+
 #Station names
 
 STR_INDUSTRY_COAL_MINE_STATION_NAME                 :{STRING} Coal Mine

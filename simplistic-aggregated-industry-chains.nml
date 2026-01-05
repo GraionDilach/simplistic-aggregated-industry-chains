@@ -22,8 +22,21 @@ grf {
     url: string(STR_GRF_URL);
 
     param 0 {
+        economy_mode {
+            type: bool;
+            bit: 0;
+            name: string(STR_PARAM_NAME_ECONOMY_MODE);
+            desc: string(STR_PARAM_DESC_ECONOMY_MODE);
+            def_value: 0;
+            names: {
+                0: string(STR_PARAM_ECONOMY_VANILLA);
+                1: string(STR_PARAM_ECONOMY_AGGREGATED);
+            };
+        }
+
         towngrowth_special {
             type: bool;
+            bit: 1;
             name: string(STR_PARAM_NAME_TOWNGROWTH_SPECIAL);
             desc: string(STR_PARAM_DESC_TOWNGROWTH_SPECIAL);
             def_value: 0;

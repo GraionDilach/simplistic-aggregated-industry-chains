@@ -246,7 +246,7 @@ item(FEAT_CARGOS, cargo_passenger, 0) {
         cargo_classes: bitmask(CC_PASSENGERS);
         cargo_label: "PASS";
         town_growth_effect: TOWNGROWTH_PASSENGERS;
-        town_growth_multiplier: 1.0;
+        town_growth_multiplier: 0.5;
         penalty_lowerbound: 0;
         single_penalty_length: 24;
         price_factor: 137;
@@ -297,7 +297,7 @@ item(FEAT_CARGOS, cargo_mail, 2) {
         cargo_classes: bitmask(CC_MAIL);
         cargo_label: "MAIL";
         town_growth_effect: TOWNGROWTH_MAIL;
-        town_growth_multiplier: 1.0;
+        town_growth_multiplier: 0.5;
         penalty_lowerbound: 20;
         single_penalty_length: 90;
         price_factor: 167;
@@ -1157,8 +1157,10 @@ item(FEAT_CARGOS, cargo_tourist, 31) {
         is_freight: 0;
         cargo_classes: bitmask(CC_PASSENGERS, CC_EXPRESS); // breaking FRAX here; https://github.com/andythenorth/polar-fox/issues/9
         cargo_label: "TOUR";
-        town_growth_effect: TOWNGROWTH_PASSENGERS;
-        town_growth_multiplier: 1.25;
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        town_production_effect: TOWNPRODUCTION_PASSENGERS;
+        town_production_multiplier: 0.35;
         penalty_lowerbound: 0;
         single_penalty_length: 15; // 2/3 passenger value as tourists are usually in a hurry
         price_factor: 191.8; // PASS*1.4
@@ -1430,29 +1432,31 @@ if (economy_mode)
             cargoicon_vehicle_part;
         }
     }
+}
 
-    item(FEAT_CARGOS, cargo_waste, 40) {
-        property {
-            type_name: string(STR_CARGO_PLURAL_WASTE);
-            unit_name: string(STR_CARGO_SINGULAR_WASTE);
-            units_of_cargo: TTD_STR_TONS;
-            items_of_cargo: string(STR_QUANTITY_WASTE);
-            type_abbreviation: string(STR_ABBREV_WASTE);
-            sprite: 4319;
-            weight: 1;
-            station_list_colour: 16;
-            cargo_payment_list_colour: 16;
-            is_freight: 1;
-            cargo_classes: bitmask(CC_PIECE_GOODS, CC_BULK, CC_NON_POTABLE);
-            cargo_label: "WSTE";
-            town_growth_effect: TOWNGROWTH_NONE;
-            town_growth_multiplier: 0;
-            penalty_lowerbound: 38;
-            single_penalty_length: 255;
-            price_factor: 100;
-            capacity_multiplier: 1;
-            number: 40;
-        }
+item(FEAT_CARGOS, cargo_waste, 40) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_WASTE);
+        unit_name: string(STR_CARGO_SINGULAR_WASTE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_WASTE);
+        type_abbreviation: string(STR_ABBREV_WASTE);
+        sprite: 4319;
+        weight: 1;
+        station_list_colour: 16;
+        cargo_payment_list_colour: 16;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_BULK, CC_NON_POTABLE);
+        cargo_label: "WSTE";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        town_production_effect: TOWNPRODUCTION_MAIL;
+        town_production_multiplier: (17 / 7);
+        penalty_lowerbound: 38;
+        single_penalty_length: 255;
+        price_factor: 100;
+        capacity_multiplier: 1;
+        number: 40;
     }
 }
 
@@ -1528,8 +1532,7 @@ if (1) {
             override: 1;
             cargo_types: [
                 accept_cargo("COAL"),
-                accept_cargo("PETR"),
-                accept_cargo("WSTE")
+                accept_cargo("PETR")
             ];
             prob_map_gen: 5;
             prob_in_game: 2;
@@ -3504,70 +3507,90 @@ spritelayout jrrcycdepot_tile_W_spritelayout {
     building { sprite: 4102; xoffset: 0; yoffset: 0; }
 }
 
-if (economy_mode) {
-    item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_N) {
-        property {
-            substitute: 0;
-        }
-        graphics {
-            autoslope: return CB_RESULT_AUTOSLOPE;
-            tile_check: return CB_RESULT_LOCATION_ALLOW;
-            jrrcycdepot_tile_N_spritelayout;
-        }
+item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_N) {
+    property {
+        substitute: 0;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
-
-    item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_E) {
-        property {
-            substitute: 0;
-        }
-        graphics {
-            autoslope: return CB_RESULT_AUTOSLOPE;
-            tile_check: return CB_RESULT_LOCATION_ALLOW;
-            jrrcycdepot_tile_E_spritelayout;
-        }
+    graphics {
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: return CB_RESULT_LOCATION_ALLOW;
+        jrrcycdepot_tile_N_spritelayout;
     }
-
-    item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_S) {
-        property {
-            substitute: 0;
-        }
-        graphics {
-            autoslope: return CB_RESULT_AUTOSLOPE;
-            tile_check: return CB_RESULT_LOCATION_ALLOW;
-            jrrcycdepot_tile_S_spritelayout;
-        }
+}
+item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_E) {
+    property {
+        substitute: 0;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
-
-    item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_W) {
-        property {
-            substitute: 0;
-        }
-        graphics {
-            autoslope: return CB_RESULT_AUTOSLOPE;
-            tile_check: return CB_RESULT_LOCATION_ALLOW;
-            jrrcycdepot_tile_W_spritelayout;
-        }
+    graphics {
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: return CB_RESULT_LOCATION_ALLOW;
+        jrrcycdepot_tile_E_spritelayout;
     }
+}
+item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_S) {
+    property {
+        substitute: 0;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: return CB_RESULT_LOCATION_ALLOW;
+        jrrcycdepot_tile_S_spritelayout;
+    }
+}
+item(FEAT_INDUSTRYTILES, jrrcycdepot_tile_W) {
+    property {
+        substitute: 0;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: return CB_RESULT_LOCATION_ALLOW;
+        jrrcycdepot_tile_W_spritelayout;
+    }
+}
+item(FEAT_INDUSTRIES, industry_junkyard, 29) {
+    property {
+        substitute: 18;
+        name: string(STR_INDUSTRY_JUNKYARD_NAME);
+        layouts: [jrrcycdepot_tilelayout1];
+        prob_map_gen: 6;
+        prob_in_game: 4;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        conflicting_ind_types: [
+            industry_type(IND_TYPE_NEW, industry_junkyard)
+        ];
+        nearby_station_name: string(STR_INDUSTRY_JUNKYARD_STATION_NAME);
+    }
+}
 
+if (!economy_mode)
+{
     item(FEAT_INDUSTRIES, industry_junkyard, 29) {
         property {
-            substitute: 18;
-            name: string(STR_INDUSTRY_JUNKYARD_NAME);
-            layouts: [jrrcycdepot_tilelayout1];
             cargo_types: [
-                produce_cargo("SCMT", 9),
-                produce_cargo("WSTE", 9),
-                produce_cargo("RFPR", 7)
+                accept_cargo("WSTE",
+                    produce_cargo("PAPR", 0.5),
+                    produce_cargo("STEL", 0.5)
+                ),
             ];
-            prob_map_gen: 4;
-            prob_in_game: 2;
-            life_type: IND_LIFE_TYPE_EXTRACTIVE;
-            conflicting_ind_types: [
-                industry_type(IND_TYPE_NEW, industry_junkyard),
-                industry_type(IND_TYPE_NEW, industry_foundry),
-                industry_type(IND_TYPE_NEW, industry_power_plant)
+        }
+    }
+}
+
+if (economy_mode)
+{
+    item(FEAT_INDUSTRIES, industry_junkyard, 29) {
+        property {
+            cargo_types: [
+                accept_cargo("WSTE",
+                    produce_cargo("PAPR", 0.33),
+                    produce_cargo("RFPR", 0.33),
+                    produce_cargo("SCMT", 0.33)
+                ),
             ];
-            nearby_station_name: string(STR_INDUSTRY_JUNKYARD_STATION_NAME);
         }
     }
 }

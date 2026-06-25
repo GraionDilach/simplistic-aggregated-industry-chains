@@ -113,3 +113,8 @@ cargotable
 	#define PLST_INDEX    FREE_INDEX_21
 	#define FZDR_INDEX    FREE_INDEX_22
 }
+
+
+disable_item(FEAT_CARGOS);
+
+#include "cargos/ttd-standard-cargos.pnml"

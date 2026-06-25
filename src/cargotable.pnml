@@ -118,3 +118,4 @@ cargotable
 disable_item(FEAT_CARGOS);
 
 #include "cargos/ttd-standard-cargos.pnml"
+#include "cargos/toyland-cargos.pnml"

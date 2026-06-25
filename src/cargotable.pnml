@@ -1,0 +1,115 @@
+// ==== CARGO TABLE ====
+/*
+
+Cargos use a CARGO_INDEX definition so that I can keep the data centralized
+Note that cargos from ECS and various other old NewGRFs need to reuse/inherit old indices
+for compatibility (but this is only kept for stuff which are consumed by houses pmuch).
+
+*/
+
+// dynamic indices
+
+#define FREE_INDEX_00  1
+#define FREE_INDEX_01  3
+#define FREE_INDEX_02  4
+#define FREE_INDEX_03  6
+#define FREE_INDEX_04  7
+#define FREE_INDEX_05  8
+#define FREE_INDEX_06  9
+#define FREE_INDEX_07 12
+#define FREE_INDEX_08 13
+#define FREE_INDEX_09 14
+#define FREE_INDEX_10 15
+#define FREE_INDEX_11 16
+#define FREE_INDEX_12 17
+#define FREE_INDEX_13 18
+#define FREE_INDEX_14 19
+#define FREE_INDEX_15 20
+#define FREE_INDEX_16 21
+#define FREE_INDEX_17 22
+#define FREE_INDEX_18 23
+#define FREE_INDEX_19 24
+#define FREE_INDEX_20 25
+#define FREE_INDEX_21 26
+#define FREE_INDEX_22 28
+#define FREE_INDEX_23 29
+#define FREE_INDEX_24 30
+#define FREE_INDEX_25 31
+#define FREE_INDEX_26 32
+#define FREE_INDEX_27 33
+#define FREE_INDEX_28 34
+#define FREE_INDEX_29 35
+#define FREE_INDEX_30 36
+#define FREE_INDEX_31 37
+#define FREE_INDEX_32 38
+#define FREE_INDEX_33 39
+#define FREE_INDEX_34 40
+#define FREE_INDEX_35 41
+#define FREE_INDEX_36 42
+#define FREE_INDEX_37 43
+#define FREE_INDEX_38 44
+#define FREE_INDEX_39 45
+#define FREE_INDEX_40 46
+#define FREE_INDEX_41 47
+#define FREE_INDEX_42 48
+#define FREE_INDEX_43 49
+#define FREE_INDEX_44 50
+#define FREE_INDEX_45 51
+#define FREE_INDEX_46 52
+#define FREE_INDEX_47 53
+#define FREE_INDEX_48 54
+#define FREE_INDEX_49 55
+#define FREE_INDEX_50 56
+#define FREE_INDEX_51 57
+#define FREE_INDEX_52 58
+#define FREE_INDEX_53 59
+#define FREE_INDEX_54 60
+#define FREE_INDEX_55 61
+#define FREE_INDEX_56 62
+#define FREE_INDEX_57 63
+
+cargotable
+{
+	// default TTD cargos
+	PASS, COAL, MAIL, OIL_,
+	LVST, GOOD, GRAI, WOOD,
+	IORE, WATR, VALU, FOOD,
+	STEL, CORE, FRUT, DIAM,
+	PAPR, GOLD, RUBR,
+
+	#define PASS_INDEX    0             // FIXED TTD & ECS
+	#define COAL_INDEX    FREE_INDEX_00
+	#define MAIL_INDEX    2             // FIXED TTD & ECS
+	#define OIL__INDEX    FREE_INDEX_01
+	#define LVST_INDEX    FREE_INDEX_02
+	#define GOOD_INDEX    5             // FIXED TTD & ECS
+	#define GRAI_INDEX    FREE_INDEX_03 // WHEA, MAIZ, CERE
+	#define WOOD_INDEX    FREE_INDEX_04
+	#define IORE_INDEX    FREE_INDEX_05
+	#define WATR_INDEX    27            // FIXED ECS (TTD #9)
+	#define VALU_INDEX    10            // FIXED TTD & ECS
+	#define FOOD_INDEX    11            // FIXED TTD & ECS
+	#define STEL_INDEX    FREE_INDEX_06
+	#define CORE_INDEX    FREE_INDEX_07
+	#define FRUT_INDEX    FREE_INDEX_08
+	#define DIAM_INDEX    FREE_INDEX_09
+	#define PAPR_INDEX    FREE_INDEX_10
+	#define GOLD_INDEX    FREE_INDEX_11
+	#define RUBR_INDEX    FREE_INDEX_12
+
+	// Toyland cargos
+	SUGR, TOYS, BATT, SWET,
+	TOFF, COLA, CTCD, BUBL,
+	PLST, FZDR
+
+	#define SUGR_INDEX    FREE_INDEX_13
+	#define TOYS_INDEX    FREE_INDEX_14
+	#define BATT_INDEX    FREE_INDEX_15
+	#define SWET_INDEX    FREE_INDEX_16
+	#define TOFF_INDEX    FREE_INDEX_17
+	#define COLA_INDEX    FREE_INDEX_18
+	#define CTCD_INDEX    FREE_INDEX_19
+	#define BUBL_INDEX    FREE_INDEX_20
+	#define PLST_INDEX    FREE_INDEX_21
+	#define FZDR_INDEX    FREE_INDEX_22
+}

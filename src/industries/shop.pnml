@@ -1,0 +1,71 @@
+switch (FEAT_INDUSTRIES, SELF, location_shop_distance_farm, industry_distance(FARM_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FARM);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_distance_fruit_plantation, industry_distance(FRUIT_PLANTATION_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FRUIT_PLANTATION);
+        location_shop_distance_farm;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_distance_food_processing_plant, industry_distance(FOOD_PROCESSING_PLANT_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FOOD_PROCESSING_PLANT);
+        location_shop_distance_fruit_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_distance_shop, industry_distance(SHOP_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_SHOP);
+        location_shop_distance_food_processing_plant;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_count, industry_town_count(SHOP_INDEX)) {
+        0: location_shop_distance_shop;
+        return string(STR_ERR_LOCATION_SHOP);
+}
+
+tilelayout shop_layout {
+    0, 0: shop_tile_1;
+}
+
+spriteset(shop_sprite, "gfx/shop/shop.png") {
+    [ 0, 0, 64, 36, -31, -4 ]
+}
+
+spritelayout shop_tile_1_layout {
+       ground   { sprite: GROUNDSPRITE_NORMAL; }
+       building { sprite: shop_sprite; }
+}
+
+item(FEAT_INDUSTRYTILES, shop_tile_1) {
+    property {
+        substitute: 0x00;
+        accepted_cargos: [[PASS, 7], [GOOD, 4]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+    }
+    graphics {
+        shop_tile_1_layout;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
+    property {
+        substitute: 22;
+        name: string(STR_INDUSTRY_SHOP_NAME);
+        layouts: [shop_layout];
+        cargo_types: [
+            accept_cargo("FOOD")
+        ];
+        prob_map_gen: 6;
+        prob_in_game: 3;
+        map_colour: 0x30;
+        life_type:                      IND_LIFE_TYPE_BLACK_HOLE;
+        fund_cost_multiplier:           100;
+        spec_flags:                     bitmask(IND_FLAG_ONLY_IN_TOWNS);
+        prospect_chance:                1;
+        nearby_station_name:            string(STR_INDUSTRY_SHOP_STATION_NAME);
+    }
+    graphics {
+        location_check: location_shop_count;
+    }
+}

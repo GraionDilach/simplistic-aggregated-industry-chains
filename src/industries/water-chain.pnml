@@ -1,0 +1,156 @@
+switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_supply, industry_distance(WATER_SUPPLY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_WATER_SUPPLY);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_tower, industry_distance(WATER_TOWER_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_WATER_TOWER);
+        location_water_chain_distance_supply;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_water_tower_count, industry_town_count(WATER_TOWER_INDEX)) {
+        0: location_water_chain_distance_tower;
+        return string(STR_ERR_LOCATION_WATER_TOWER);
+}
+
+#define SPRITELAYOUT_water_supply_TILE_1(recolorpalette) \
+spritelayout spritelayout_water_supply_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state == 0 ? GROUNDSPRITE_CLEARED \
+            : terrain_type == TILETYPE_SNOW ? GROUNDSPRITE_SNOW \
+                : terrain_type == TILETYPE_DESERT ? GROUNDSPRITE_DESERT \
+                    : GROUNDSPRITE_NORMAL; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2347 : \
+                construction_state != 3 ? 2348 : 2349; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_water_supply_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_water_supply_tile_1)
+
+item(FEAT_INDUSTRYTILES, water_supply_tile_1) {
+    property {
+        substitute: 118;
+        override: 118;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_water_supply_tile_1_select_color;
+    }
+}
+
+#define SPRITELAYOUT_water_supply_TILE_2(recolorpalette) \
+spritelayout spritelayout_water_supply_tile_2_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state == 0 ? GROUNDSPRITE_CLEARED \
+            : terrain_type == TILETYPE_SNOW ? GROUNDSPRITE_SNOW \
+                : terrain_type == TILETYPE_DESERT ? GROUNDSPRITE_DESERT \
+                    : GROUNDSPRITE_NORMAL; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2350 : \
+                construction_state != 3 ? 2351 : 2352; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_water_supply_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_water_supply_tile_2)
+
+item(FEAT_INDUSTRYTILES, water_supply_tile_2) {
+    property {
+        substitute: 119;
+        override: 119;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_water_supply_tile_2_select_color;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_water_supply, WATER_SUPPLY_INDEX) {
+    property {
+        substitute: 21;
+        override: 21;
+        cargo_types: [
+            produce_cargo("WATR", 12)
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        nearby_station_name: string(STR_INDUSTRY_WATER_SUPPLY_STATION_NAME);
+    }
+    graphics {
+        location_check: location_water_chain_distance_tower;
+    }
+}
+
+#define SPRITELAYOUT_water_tower_TILE_1(recolorpalette) \
+spritelayout spritelayout_water_tower_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: terrain_type == TILETYPE_SNOW ? GROUNDSPRITE_SNOW \
+            : terrain_type == TILETYPE_DESERT ? GROUNDSPRITE_DESERT : GROUNDSPRITE_NORMAL; \
+        hide_sprite: construction_state < 2 || (town_zone != TOWNZONE_EDGE && town_zone != TOWNZONE_OUTSKIRT); \
+        always_draw: 1; \
+    } \
+    childsprite { \
+        sprite: GROUNDSPRITE_CONCRETE; \
+        hide_sprite: construction_state < 2 || town_zone == TOWNZONE_EDGE || town_zone == TOWNZONE_OUTSKIRT; \
+        always_draw: 1; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2344 : \
+                construction_state != 3 ? 2345 : 2346; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_water_tower_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_water_tower_tile_1)
+
+item(FEAT_INDUSTRYTILES, water_tower_tile_1) {
+    property {
+        substitute: 120;
+        override: 120;
+        accepted_cargos: [[PASS, 2]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_water_tower_tile_1_select_color;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_water_tower, WATER_TOWER_INDEX) {
+    property {
+        substitute: 22;
+        override: 22;
+        cargo_types: [
+            accept_cargo("WATR")
+        ];
+        prob_map_gen: 6;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_BLACK_HOLE;
+        spec_flags: bitmask(IND_FLAG_ONLY_IN_TOWNS);
+        nearby_station_name: string(STR_INDUSTRY_WATER_TOWER_STATION_NAME);
+    }
+    graphics {
+        location_check: location_water_tower_count;
+    }
+}

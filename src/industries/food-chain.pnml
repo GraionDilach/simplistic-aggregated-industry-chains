@@ -184,7 +184,7 @@ item(FEAT_INDUSTRYTILES, food_processing_plant_tile_4) {
     }
 }
 
-item(FEAT_INDUSTRIES, industry_food_processing_plant, 13) {
+item(FEAT_INDUSTRIES, industry_food_processing_plant, FOOD_PROCESSING_PLANT_INDEX) {
     property {
         substitute: 13;
         override: 13;

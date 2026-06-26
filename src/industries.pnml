@@ -13,9 +13,12 @@ disable_item(FEAT_INDUSTRIES);
 #define FRUIT_PLANTATION_INDEX       9
 #define FOOD_PROCESSING_PLANT_INDEX 10
 #define SHOP_INDEX                  11
+#define WATER_SUPPLY_INDEX          12
+#define WATER_TOWER_INDEX           13
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"
 #include "industries/oil-chain.pnml"
 #include "industries/food-chain.pnml"
 #include "industries/shop.pnml" // separated to also add in Sweets
+#include "industries/water-chain.pnml"

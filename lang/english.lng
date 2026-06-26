@@ -53,3 +53,9 @@ STR_ERR_LOCATION_FOOD_PROCESSING_PLANT              :... too close to another Fo
 STR_INDUSTRY_SHOP_NAME                              :Shop
 STR_INDUSTRY_SHOP_STATION_NAME                      :{STRING} Shop
 STR_ERR_LOCATION_SHOP                               :... too close to another Shop
+
+STR_INDUSTRY_WATER_SUPPLY_STATION_NAME              :{STRING} Water Supply
+STR_ERR_LOCATION_WATER_SUPPLY                       :... too close to another Water Supply
+
+STR_INDUSTRY_WATER_TOWER_STATION_NAME               :{STRING} Water Tower
+STR_ERR_LOCATION_WATER_TOWER                        :... too close to another Water Tower

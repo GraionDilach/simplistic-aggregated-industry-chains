@@ -17,7 +17,16 @@ STR_ERR_BELOW_SNOWLINE_ONLY                         :... can only be built below
 STR_ERR_NO_DESERT_ONLY                              :... cannot be built in desert areas
 
 STR_INDUSTRY_COAL_MINE_STATION_NAME                 :{STRING} Coal Mine
+STR_ERR_LOCATION_COAL_MINE                          :... too close to another Coal Mine
+
 STR_INDUSTRY_POWER_PLANT_STATION_NAME               :{STRING} Power Plant
+STR_ERR_LOCATION_POWER_PLANT                        :... too close to another Power Plant
+
 STR_INDUSTRY_FOREST_STATION_NAME                    :{STRING} Forest
+STR_ERR_LOCATION_FOREST                             :... too close to another Forest
+
 STR_INDUSTRY_PAPER_MILL_STATION_NAME                :{STRING} Paper Mill
+STR_ERR_LOCATION_PAPER_MILL                         :... too close to another Paper Mill
+
 STR_INDUSTRY_PRINTING_WORKS_STATION_NAME            :{STRING} Printing Works
+STR_ERR_LOCATION_PRINTING_WORKS                     :... too close to another Printing Works

@@ -1,15 +1,15 @@
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_forest, industry_distance(FOREST_INDEX)) {
-        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        0..24: return string(STR_ERR_LOCATION_FOREST);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
-        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        0..24: return string(STR_ERR_LOCATION_PAPER_MILL);
         location_wood_chain_distance_forest;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
-        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        0..24: return string(STR_ERR_LOCATION_PRINTING_WORKS);
         location_wood_chain_distance_paper_mill;
 }
 

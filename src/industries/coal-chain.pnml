@@ -1,10 +1,10 @@
 switch (FEAT_INDUSTRIES, SELF, location_coal_chain_distance_coal_mine, industry_distance(COAL_MINE_INDEX)) {
-        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        0..24: return string(STR_ERR_LOCATION_COAL_MINE);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_coal_chain_distance_power_plant, industry_distance(POWER_PLANT_INDEX)) {
-        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        0..24: return string(STR_ERR_LOCATION_POWER_PLANT);
         location_coal_chain_distance_coal_mine;
 }
 

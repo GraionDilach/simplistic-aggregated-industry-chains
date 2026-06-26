@@ -7,3 +7,6 @@ STR_GRF_URL                                 :https://github.com/GraionDilach/TOD
 #Error strings
 
 STR_ERR_NO_TOYLAND                          :{STRING} is not designed to work with toyland climate.
+
+STR_PARAM_NAME_ENABLE_CONVERTED_TOYLAND     :Enable Toyland cargos and industries on standard climates.
+STR_PARAM_DESC_ENABLE_CONVERTED_TOYLAND     :Might not work well with all NewGRF vehicle sets.

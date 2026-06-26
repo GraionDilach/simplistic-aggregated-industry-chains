@@ -15,4 +15,6 @@ grf {
     version: 0000;
     min_compatible_version: 0;
     url: string(STR_GRF_URL);
+
+    #include "grf-parameters.pnml"
 }

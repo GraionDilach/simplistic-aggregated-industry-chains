@@ -1,0 +1,9 @@
+param 0 {
+    enable_converted_toyland {
+        type: bool;
+        bit: 1;
+        name: string(STR_PARAM_NAME_ENABLE_CONVERTED_TOYLAND);
+        desc: string(STR_PARAM_DESC_ENABLE_CONVERTED_TOYLAND);
+        def_value: 1;
+    }
+}

@@ -1,0 +1,233 @@
+//company colors are redefined from scratch to be independent against NewCC
+PALETTE_COMPANY_COLORS = reserve_sprites(29);
+replace( PALETTE_COMPANY_COLORS ){
+    // PALETTE_CC_DARK_BLUE
+    recolour_sprite {
+        0xC6..0xCD: 0xC6..0xCD;
+    }
+    // PALETTE_CC_PALE_GREEN
+    recolour_sprite {
+        0xC6..0xCD: 0x60..0x67;
+    }
+    // PALETTE_CC_PINK
+    recolour_sprite {
+        0xC6..0xCD: 0x2A..0x31;
+    }
+    // PALETTE_CC_YELLOW
+    recolour_sprite {
+        0xC6..0xCD: 0x3E..0x45;
+    }
+    // PALETTE_CC_RED
+    recolour_sprite {
+        0xC6..0xCA: 0xB3..0xB7;
+        0xCB..0xCD: 0xA4..0xA6;
+    }
+    // PALETTE_CC_LIGHT_BLUE
+    recolour_sprite {
+        0xC6..0xCD: 0x9A..0xA1;
+    }
+    // PALETTE_CC_GREEN
+    recolour_sprite {
+        0xC6..0xC9: 0x52..0x55;
+        0xCA..0xCD: 0xCE..0xD1;
+    }
+    // PALETTE_CC_DARK_GREEN
+    recolour_sprite {
+        0xC6: 0x60;
+        0xC7..0xCD: 0x59..0x5F;
+    }
+    // PALETTE_CC_BLUE
+    recolour_sprite {
+        0xC6..0xCD: 0x92..0x99;
+    }
+    // PALETTE_CC_CREAM
+    recolour_sprite {
+        0xC6..0xCD: 0x72..0x79;
+    }
+    // PALETTE_CC_MAUVE
+    recolour_sprite {
+        0xC6..0xCD: 0x80..0x87;
+    }
+    // PALETTE_CC_PURPLE
+    recolour_sprite {
+        0xC6: 0xAA;
+        0xC7..0xCD: 0x89..0x8F;
+    }
+    // PALETTE_CC_ORANGE
+    recolour_sprite {
+        0xC6: 0x40;
+        0xC7..0xCC: 0xC0..0xC5;
+        0xCD: 0x27;
+    }
+    // PALETTE_CC_BROWN
+    recolour_sprite {
+        0xC6..0xC7: 0x35..0x36;
+        0xC8..0xCD: 0x22..0x27;
+    }
+    // PALETTE_CC_GREY
+    recolour_sprite {
+        0xC6..0xCD: 0x04..0x0B;
+    }
+    // PALETTE_CC_WHITE
+    recolour_sprite {
+        0xC6..0xCD: 0x08..0x0F;
+    }
+    // PALETTE_NEWCC_BRIGHT_DARK_BLUE
+    recolour_sprite {
+        0xC6..0xCD: 0x90..0x97;
+    }
+    // PALETTE_NEWCC_BRIGHT_PINK
+    recolour_sprite {
+        0xC6..0xC8: 0xB4..0xB6;
+        0xC9..0xCD: 0xA3..0xA7;
+    }
+    // PALETTE_NEWCC_BRIGHT_YELLOW
+    recolour_sprite {
+        0xC6..0xCD: 0x3E..0x45;
+    }
+    // PALETTE_NEWCC_BRIGHT_RED
+    recolour_sprite {
+        0xC6..0xCC: 0xB2..0xB8;
+        0xCD: 0xA4;
+    }
+    // PALETTE_NEWCC_BRIGHT_DARK_GREEN
+    recolour_sprite {
+        0xC6..0xCD: 0x50..0x57;
+    }
+    // PALETTE_NEWCC_BRIGHT_BLACK
+    recolour_sprite {
+        0xC6: 0x01;
+        0xC7..0xCD: 0x01..0x07;
+    }
+    // PALETTE_NEWCC_BRIGHT_CREAM
+    recolour_sprite {
+        0xC6..0xCD: 0x20..0x27;
+    }
+    // PALETTE_NEWCC_BRIGHT_MAUVE
+    recolour_sprite {
+        0xC6..0xCD: 0x47..0x4E;
+    }
+    // PALETTE_NEWCC_BRIGHT_PURPLE
+    recolour_sprite {
+        0xC6..0xCD: 0xAA..0xB1;
+    }
+    // PALETTE_NEWCC_BRIGHT_ORANGE
+    recolour_sprite {
+        0xC6..0xC9: 0xB8..0xBB;
+        0xCA: 0xC2;
+        0xCB: 0xBC;
+        0xCC: 0xC3;
+        0xCD: 0xC4;
+    }
+    // PALETTE_NEWCC_BRIGHT_BROWN
+    recolour_sprite {
+        0xC6..0xCD: 0x3C..0x43;
+    }
+    // PALETTE_NEWCC_CLASSIC_BROWN
+    recolour_sprite {
+        0xC6..0xCD: 0x68..0x6F;
+    }
+    // PALETTE_NEWCC_CLASSIC_WHITE
+    recolour_sprite {
+        0xC6..0xCD: 0x06..0x0D;
+    }
+}
+
+#define PALETTE_OLDCC_DARK_BLUE         (PALETTE_COMPANY_COLORS +  0)
+#define PALETTE_OLDCC_PALE_GREEN        (PALETTE_COMPANY_COLORS +  1)
+#define PALETTE_OLDCC_PINK              (PALETTE_COMPANY_COLORS +  2)
+#define PALETTE_OLDCC_YELLOW            (PALETTE_COMPANY_COLORS +  3)
+#define PALETTE_OLDCC_RED               (PALETTE_COMPANY_COLORS +  4)
+#define PALETTE_OLDCC_LIGHT_BLUE        (PALETTE_COMPANY_COLORS +  5)
+#define PALETTE_OLDCC_GREEN             (PALETTE_COMPANY_COLORS +  6)
+#define PALETTE_OLDCC_DARK_GREEN        (PALETTE_COMPANY_COLORS +  7)
+#define PALETTE_OLDCC_BLUE              (PALETTE_COMPANY_COLORS +  8)
+#define PALETTE_OLDCC_CREAM             (PALETTE_COMPANY_COLORS +  9)
+#define PALETTE_OLDCC_MAUVE             (PALETTE_COMPANY_COLORS + 10)
+#define PALETTE_OLDCC_PURPLE            (PALETTE_COMPANY_COLORS + 11)
+#define PALETTE_OLDCC_ORANGE            (PALETTE_COMPANY_COLORS + 12)
+#define PALETTE_OLDCC_BROWN             (PALETTE_COMPANY_COLORS + 13)
+#define PALETTE_OLDCC_GREY              (PALETTE_COMPANY_COLORS + 14)
+#define PALETTE_OLDCC_WHITE             (PALETTE_COMPANY_COLORS + 15)
+#define PALETTE_NEWCC_BRIGHT_DARK_BLUE  (PALETTE_COMPANY_COLORS + 16)
+#define PALETTE_NEWCC_BRIGHT_PINK       (PALETTE_COMPANY_COLORS + 17)
+#define PALETTE_NEWCC_BRIGHT_YELLOW     (PALETTE_COMPANY_COLORS + 18)
+#define PALETTE_NEWCC_BRIGHT_RED        (PALETTE_COMPANY_COLORS + 19)
+#define PALETTE_NEWCC_BRIGHT_DARK_GREEN (PALETTE_COMPANY_COLORS + 20)
+#define PALETTE_NEWCC_BRIGHT_BLACK      (PALETTE_COMPANY_COLORS + 21)
+#define PALETTE_NEWCC_BRIGHT_CREAM      (PALETTE_COMPANY_COLORS + 22)
+#define PALETTE_NEWCC_BRIGHT_MAUVE      (PALETTE_COMPANY_COLORS + 23)
+#define PALETTE_NEWCC_BRIGHT_PURPLE     (PALETTE_COMPANY_COLORS + 24)
+#define PALETTE_NEWCC_BRIGHT_ORANGE     (PALETTE_COMPANY_COLORS + 25)
+#define PALETTE_NEWCC_BRIGHT_BROWN      (PALETTE_COMPANY_COLORS + 26)
+#define PALETTE_NEWCC_CLASSIC_BROWN     (PALETTE_COMPANY_COLORS + 27)
+#define PALETTE_NEWCC_CLASSIC_WHITE     (PALETTE_COMPANY_COLORS + 28)
+
+#define INDUSTRYTILE_RECOLOR_BLOCK(spritelayout)                                                 \
+switch (FEAT_INDUSTRYTILES, PARENT, spritelayout##_random_company_color, random_bits % 29) {     \
+    0: return spritelayout##_PALETTE_OLDCC_DARK_BLUE;                                            \
+    1: return spritelayout##_PALETTE_OLDCC_PALE_GREEN;                                           \
+    2: return spritelayout##_PALETTE_OLDCC_PINK;                                                 \
+    3: return spritelayout##_PALETTE_OLDCC_YELLOW;                                               \
+    4: return spritelayout##_PALETTE_OLDCC_RED;                                                  \
+    5: return spritelayout##_PALETTE_OLDCC_LIGHT_BLUE;                                           \
+    6: return spritelayout##_PALETTE_OLDCC_GREEN;                                                \
+    7: return spritelayout##_PALETTE_OLDCC_DARK_GREEN;                                           \
+    8: return spritelayout##_PALETTE_OLDCC_BLUE;                                                 \
+    9: return spritelayout##_PALETTE_OLDCC_CREAM;                                                \
+   10: return spritelayout##_PALETTE_OLDCC_MAUVE;                                                \
+   11: return spritelayout##_PALETTE_OLDCC_PURPLE;                                               \
+   12: return spritelayout##_PALETTE_OLDCC_ORANGE;                                               \
+   13: return spritelayout##_PALETTE_OLDCC_BROWN;                                                \
+   14: return spritelayout##_PALETTE_OLDCC_GREY;                                                 \
+   15: return spritelayout##_PALETTE_OLDCC_WHITE;                                                \
+   16: return spritelayout##_PALETTE_NEWCC_BRIGHT_DARK_BLUE;                                     \
+   17: return spritelayout##_PALETTE_NEWCC_BRIGHT_PINK;                                          \
+   18: return spritelayout##_PALETTE_NEWCC_BRIGHT_YELLOW;                                        \
+   19: return spritelayout##_PALETTE_NEWCC_BRIGHT_RED;                                           \
+   20: return spritelayout##_PALETTE_NEWCC_BRIGHT_DARK_GREEN;                                    \
+   21: return spritelayout##_PALETTE_NEWCC_BRIGHT_BLACK;                                         \
+   22: return spritelayout##_PALETTE_NEWCC_BRIGHT_CREAM;                                         \
+   23: return spritelayout##_PALETTE_NEWCC_BRIGHT_MAUVE;                                         \
+   24: return spritelayout##_PALETTE_NEWCC_BRIGHT_PURPLE;                                        \
+   25: return spritelayout##_PALETTE_NEWCC_BRIGHT_ORANGE;                                        \
+   26: return spritelayout##_PALETTE_NEWCC_BRIGHT_BROWN;                                         \
+   27: return spritelayout##_PALETTE_NEWCC_CLASSIC_BROWN;                                        \
+   28: return spritelayout##_PALETTE_NEWCC_CLASSIC_WHITE;                                        \
+}                                                                                                \
+switch (FEAT_INDUSTRYTILES, PARENT, spritelayout##_select_color, founder) {                      \
+    16: return spritelayout##_random_company_color;                                              \
+    return spritelayout##_PALETTE_USE_DEFAULT;                                                   \
+}
+
+#define RECOLOR_SPRITELAYOUTS(spritelayout_tile)   \
+spritelayout_tile(PALETTE_USE_DEFAULT)             \
+spritelayout_tile(PALETTE_OLDCC_DARK_BLUE)         \
+spritelayout_tile(PALETTE_OLDCC_PALE_GREEN)        \
+spritelayout_tile(PALETTE_OLDCC_PINK)              \
+spritelayout_tile(PALETTE_OLDCC_YELLOW)            \
+spritelayout_tile(PALETTE_OLDCC_RED)               \
+spritelayout_tile(PALETTE_OLDCC_LIGHT_BLUE)        \
+spritelayout_tile(PALETTE_OLDCC_GREEN)             \
+spritelayout_tile(PALETTE_OLDCC_DARK_GREEN)        \
+spritelayout_tile(PALETTE_OLDCC_BLUE)              \
+spritelayout_tile(PALETTE_OLDCC_CREAM)             \
+spritelayout_tile(PALETTE_OLDCC_MAUVE)             \
+spritelayout_tile(PALETTE_OLDCC_PURPLE)            \
+spritelayout_tile(PALETTE_OLDCC_ORANGE)            \
+spritelayout_tile(PALETTE_OLDCC_BROWN)             \
+spritelayout_tile(PALETTE_OLDCC_GREY)              \
+spritelayout_tile(PALETTE_OLDCC_WHITE)             \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_DARK_BLUE)  \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_PINK)       \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_YELLOW)     \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_RED)        \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_DARK_GREEN) \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_BLACK)      \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_CREAM)      \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_MAUVE)      \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_PURPLE)     \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_ORANGE)     \
+spritelayout_tile(PALETTE_NEWCC_BRIGHT_BROWN)      \
+spritelayout_tile(PALETTE_NEWCC_CLASSIC_BROWN)     \
+spritelayout_tile(PALETTE_NEWCC_CLASSIC_WHITE)

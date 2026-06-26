@@ -1,6 +1,7 @@
 // header
 
 #include "header.pnml"
+#include "colortable.pnml"
 #include "cargotable.pnml"
 
 #include "industries.pnml"

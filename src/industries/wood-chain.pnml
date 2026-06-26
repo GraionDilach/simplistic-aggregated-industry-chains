@@ -360,6 +360,24 @@ item(FEAT_INDUSTRIES, industry_paper_mill, 14) {
     }
 }
 
+#define SPRITELAYOUT_PRINTING_WORKS_TILE_1(recolorpalette) \
+spritelayout spritelayout_printing_works_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: 3924; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2161 : \
+                construction_state != 3 ? 2165 : 2169; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_PRINTING_WORKS_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_printing_works_tile_1)
+
 item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
     property {
         substitute: 43;
@@ -367,7 +385,29 @@ item(FEAT_INDUSTRYTILES, printing_works_tile_1) {
         accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
+    graphics {
+        spritelayout_printing_works_tile_1_select_color;
+    }
 }
+
+#define SPRITELAYOUT_PRINTING_WORKS_TILE_2(recolorpalette) \
+spritelayout spritelayout_printing_works_tile_2_##recolorpalette \
+{ \
+    ground { \
+        sprite: 3924; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2162 : \
+                construction_state != 3 ? 2166 : 2170; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_PRINTING_WORKS_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_printing_works_tile_2)
+
 item(FEAT_INDUSTRYTILES, printing_works_tile_2) {
     property {
         substitute: 44;
@@ -375,7 +415,29 @@ item(FEAT_INDUSTRYTILES, printing_works_tile_2) {
         accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
+    graphics {
+        spritelayout_printing_works_tile_2_select_color;
+    }
 }
+
+#define SPRITELAYOUT_PRINTING_WORKS_TILE_3(recolorpalette) \
+spritelayout spritelayout_printing_works_tile_3_##recolorpalette \
+{ \
+    ground { \
+        sprite: 3924; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2163 : \
+                construction_state != 3 ? 2167 : 2171; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_PRINTING_WORKS_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_printing_works_tile_3)
+
 item(FEAT_INDUSTRYTILES, printing_works_tile_3) {
     property {
         substitute: 45;
@@ -383,7 +445,29 @@ item(FEAT_INDUSTRYTILES, printing_works_tile_3) {
         accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
+    graphics {
+        spritelayout_printing_works_tile_3_select_color;
+    }
 }
+
+#define SPRITELAYOUT_PRINTING_WORKS_TILE_4(recolorpalette) \
+spritelayout spritelayout_printing_works_tile_4_##recolorpalette \
+{ \
+    ground { \
+        sprite: 3924; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2164 : \
+                construction_state != 3 ? 2168 : 2172; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_PRINTING_WORKS_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_printing_works_tile_4)
+
 item(FEAT_INDUSTRYTILES, printing_works_tile_4) {
     property {
         substitute: 46;
@@ -391,7 +475,11 @@ item(FEAT_INDUSTRYTILES, printing_works_tile_4) {
         accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
+    graphics {
+        spritelayout_printing_works_tile_4_select_color;
+    }
 }
+
 item(FEAT_INDUSTRIES, industry_printing_works, PRINTING_WORKS_INDEX) {
     property {
         substitute: 7;

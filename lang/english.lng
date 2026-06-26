@@ -30,3 +30,13 @@ STR_ERR_LOCATION_PAPER_MILL                         :... too close to another Pa
 
 STR_INDUSTRY_PRINTING_WORKS_STATION_NAME            :{STRING} Printing Works
 STR_ERR_LOCATION_PRINTING_WORKS                     :... too close to another Printing Works
+
+STR_INDUSTRY_OIL_WELLS_STATION_NAME                 :{STRING} Oil Wells
+STR_ERR_LOCATION_OIL_WELLS                          :... too close to another Oil Wells
+
+STR_INDUSTRY_OIL_RIG_STATION_NAME                   :{STRING} Oil Rig
+STR_ERR_LOCATION_OIL_RIG                            :... too close to another Oil Rig
+
+STR_INDUSTRY_REFINERY_NAME                          :Refinery
+STR_INDUSTRY_REFINERY_STATION_NAME                  :{STRING} Refinery
+STR_ERR_LOCATION_REFINERY                           :... too close to another Refinery

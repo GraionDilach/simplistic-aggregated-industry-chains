@@ -2,3 +2,5 @@
 
 #include "header.pnml"
 #include "cargotable.pnml"
+
+#include "industries.pnml"

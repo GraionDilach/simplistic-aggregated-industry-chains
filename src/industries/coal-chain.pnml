@@ -1,0 +1,79 @@
+switch (FEAT_INDUSTRIES, SELF, location_coal_chain_distance_coal_mine, industry_distance(COAL_MINE_INDEX)) {
+        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_coal_chain_distance_power_plant, industry_distance(POWER_PLANT_INDEX)) {
+        0..24: return CB_RESULT_LOCATION_DISALLOW;
+        location_coal_chain_distance_coal_mine;
+}
+
+item(FEAT_INDUSTRIES, industry_coal_mine, COAL_MINE_INDEX) {
+    property {
+        substitute: 0;
+        override: 0;
+        cargo_types: [
+            produce_cargo("COAL", 15)
+        ];
+        prob_map_gen: 8;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        nearby_station_name: string(STR_INDUSTRY_COAL_MINE_STATION_NAME);
+    }
+    graphics {
+       location_check: location_coal_chain_distance_power_plant;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, power_plant_tile_1) {
+    property {
+        substitute: 7;
+        override: 7;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, power_plant_tile_2) {
+    property {
+        substitute: 8;
+        override: 8;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, power_plant_tile_3) {
+    property {
+        substitute: 9;
+        override: 9;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, power_plant_tile_4) {
+    property {
+        substitute: 10;
+        override: 10;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_power_plant, POWER_PLANT_INDEX) {
+    property {
+        substitute: 1;
+        override: 1;
+        cargo_types: [
+            accept_cargo("COAL")
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_BLACK_HOLE;
+        nearby_station_name: string(STR_INDUSTRY_POWER_PLANT_STATION_NAME);
+    }
+    graphics {
+       location_check: location_coal_chain_distance_power_plant;
+    }
+}

@@ -40,3 +40,16 @@ STR_ERR_LOCATION_OIL_RIG                            :... too close to another Oi
 STR_INDUSTRY_REFINERY_NAME                          :Refinery
 STR_INDUSTRY_REFINERY_STATION_NAME                  :{STRING} Refinery
 STR_ERR_LOCATION_REFINERY                           :... too close to another Refinery
+
+STR_INDUSTRY_FARM_STATION_NAME                      :{STRING} Farm
+STR_ERR_LOCATION_FARM                               :... too close to another Farm
+
+STR_INDUSTRY_FRUIT_PLANTATION_STATION_NAME          :{STRING} Fruit Plantation
+STR_ERR_LOCATION_FRUIT_PLANTATION                   :... too close to another Fruit Plantation
+
+STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME     :{STRING} Food Processing Plant
+STR_ERR_LOCATION_FOOD_PROCESSING_PLANT              :... too close to another Food Processing Plant
+
+STR_INDUSTRY_SHOP_NAME                              :Shop
+STR_INDUSTRY_SHOP_STATION_NAME                      :{STRING} Shop
+STR_ERR_LOCATION_SHOP                               :... too close to another Shop

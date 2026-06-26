@@ -1,0 +1,204 @@
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_farm, industry_distance(FARM_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FARM);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_fruit_plantation, industry_distance(FRUIT_PLANTATION_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FRUIT_PLANTATION);
+        location_food_chain_distance_farm;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_food_processing_plant, industry_distance(FOOD_PROCESSING_PLANT_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FOOD_PROCESSING_PLANT);
+        location_food_chain_distance_fruit_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_shop, industry_distance(SHOP_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_SHOP);
+        location_food_chain_distance_food_processing_plant;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_no_desert, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        location_food_chain_distance_shop;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_food_chain_distance_shop;
+}
+
+item(FEAT_INDUSTRIES, industry_farm, FARM_INDEX) {
+    property {
+        substitute: 9;
+        override: 9;
+        cargo_types: [
+            produce_cargo("GRAI", 10),
+            produce_cargo("LVST", 10)
+        ];
+        prob_map_gen: 9;
+        prob_in_game: 4;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        nearby_station_name: string(STR_INDUSTRY_FARM_STATION_NAME);
+        spec_flags: bitmask(IND_FLAG_PLANT_FIELDS_PERIODICALLY, IND_FLAG_PLANT_FIELDS_WHEN_BUILT);
+    }
+    graphics {
+       location_check: location_food_chain_no_desert;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_fruit_plantation, FRUIT_PLANTATION_INDEX) {
+    property {
+        substitute: 19;
+        override: 19;
+        cargo_types: [
+            produce_cargo("FRUT", 10)
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        nearby_station_name: string(STR_INDUSTRY_FRUIT_PLANTATION_STATION_NAME);
+    }
+    graphics {
+       location_check: location_food_chain_no_desert_not_above_snowline;
+    }
+}
+#define SPRITELAYOUT_food_processing_plant_TILE_1(recolorpalette) \
+spritelayout spritelayout_food_processing_plant_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: 2022; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2188 : \
+                construction_state != 3 ? 2189 : 2190; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_food_processing_plant_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_food_processing_plant_tile_1)
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_1) {
+    property {
+        substitute: 60;
+        override: 60;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_food_processing_plant_tile_1_select_color;
+    }
+}
+
+#define SPRITELAYOUT_food_processing_plant_TILE_2(recolorpalette) \
+spritelayout spritelayout_food_processing_plant_tile_2_##recolorpalette \
+{ \
+    ground { \
+        sprite: 2022; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2191 : \
+                construction_state != 3 ? 2192 : 2193; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_food_processing_plant_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_food_processing_plant_tile_2)
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_2) {
+    property {
+        substitute: 61;
+        override: 61;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_food_processing_plant_tile_2_select_color;
+    }
+}
+
+#define SPRITELAYOUT_food_processing_plant_TILE_3(recolorpalette) \
+spritelayout spritelayout_food_processing_plant_tile_3_##recolorpalette \
+{ \
+    ground { \
+        sprite: 2022; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2194 : \
+                construction_state != 3 ? 2195 : 2196; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_food_processing_plant_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_food_processing_plant_tile_3)
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_3) {
+    property {
+        substitute: 62;
+        override: 62;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_food_processing_plant_tile_3_select_color;
+    }
+}
+
+#define SPRITELAYOUT_food_processing_plant_TILE_4(recolorpalette) \
+spritelayout spritelayout_food_processing_plant_tile_4_##recolorpalette \
+{ \
+    ground { \
+        sprite: 2022; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2197 : \
+                construction_state != 3 ? 2198 : 2199; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_food_processing_plant_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_food_processing_plant_tile_4)
+
+item(FEAT_INDUSTRYTILES, food_processing_plant_tile_4) {
+    property {
+        substitute: 63;
+        override: 63;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_food_processing_plant_tile_4_select_color;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_food_processing_plant, 13) {
+    property {
+        substitute: 13;
+        override: 13;
+        cargo_types: [
+            accept_cargo("GRAI", produce_cargo("FOOD", 1)),
+            accept_cargo("LVST", produce_cargo("FOOD", 1)),
+            accept_cargo("FRUT", produce_cargo("FOOD", 1))
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        nearby_station_name: string(STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME);
+    }
+    graphics {
+       location_check: location_food_chain_distance_shop;
+    }
+}

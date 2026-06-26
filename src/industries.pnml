@@ -1,15 +1,21 @@
 // disable default industries to help debugging
 disable_item(FEAT_INDUSTRIES);
 
-#define COAL_MINE_INDEX      0
-#define POWER_PLANT_INDEX    1
-#define FOREST_INDEX         2
-#define PAPER_MILL_INDEX     3
-#define PRINTING_WORKS_INDEX 4
-#define OIL_WELLS_INDEX      5
-#define OIL_RIG_INDEX        6
-#define OIL_REFINERY_INDEX   7
+#define COAL_MINE_INDEX              0
+#define POWER_PLANT_INDEX            1
+#define FOREST_INDEX                 2
+#define PAPER_MILL_INDEX             3
+#define PRINTING_WORKS_INDEX         4
+#define OIL_WELLS_INDEX              5
+#define OIL_RIG_INDEX                6
+#define OIL_REFINERY_INDEX           7
+#define FARM_INDEX                   8
+#define FRUIT_PLANTATION_INDEX       9
+#define FOOD_PROCESSING_PLANT_INDEX 10
+#define SHOP_INDEX                  11
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"
 #include "industries/oil-chain.pnml"
+#include "industries/food-chain.pnml"
+#include "industries/shop.pnml" // separated to also add in Sweets

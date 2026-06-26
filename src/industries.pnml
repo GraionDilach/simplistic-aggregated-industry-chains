@@ -1,0 +1,11 @@
+// disable default industries to help debugging
+disable_item(FEAT_INDUSTRIES);
+
+#define COAL_MINE_INDEX      0
+#define POWER_PLANT_INDEX    1
+#define FOREST_INDEX         2
+#define PAPER_MILL_INDEX     3
+#define PRINTING_WORKS_INDEX 4
+
+#include "industries/coal-chain.pnml"
+#include "industries/wood-chain.pnml"

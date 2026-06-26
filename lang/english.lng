@@ -13,5 +13,11 @@ STR_PARAM_DESC_ENABLE_CONVERTED_TOYLAND     :Might not work well with all NewGRF
 
 #Industry strings
 
+STR_ERR_BELOW_SNOWLINE_ONLY                         :... can only be built below the snowline
+STR_ERR_NO_DESERT_ONLY                              :... cannot be built in desert areas
+
 STR_INDUSTRY_COAL_MINE_STATION_NAME                 :{STRING} Coal Mine
 STR_INDUSTRY_POWER_PLANT_STATION_NAME               :{STRING} Power Plant
+STR_INDUSTRY_FOREST_STATION_NAME                    :{STRING} Forest
+STR_INDUSTRY_PAPER_MILL_STATION_NAME                :{STRING} Paper Mill
+STR_INDUSTRY_PRINTING_WORKS_STATION_NAME            :{STRING} Printing Works

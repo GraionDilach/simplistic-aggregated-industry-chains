@@ -59,3 +59,13 @@ STR_ERR_LOCATION_WATER_SUPPLY                       :... too close to another Wa
 
 STR_INDUSTRY_WATER_TOWER_STATION_NAME               :{STRING} Water Tower
 STR_ERR_LOCATION_WATER_TOWER                        :... too close to another Water Tower
+
+STR_INDUSTRY_DIAMOND_MINE_STATION_NAME              :{STRING} Diamond Mine
+STR_ERR_LOCATION_DIAMOND_MINE                       :... too close to another Diamond Mine
+
+STR_INDUSTRY_GOLD_MINE_STATION_NAME                 :{STRING} Gold Mine
+STR_ERR_LOCATION_GOLD_MINE                          :... too close to another Gold Mine
+
+STR_INDUSTRY_TREASURY_NAME                          :Treasury
+STR_INDUSTRY_TREASURY_STATION_NAME                  :{STRING} Treasury
+STR_ERR_LOCATION_TREASURY                           :... too close to another Treasury

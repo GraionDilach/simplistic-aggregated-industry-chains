@@ -69,3 +69,19 @@ STR_ERR_LOCATION_GOLD_MINE                          :... too close to another Go
 STR_INDUSTRY_TREASURY_NAME                          :Treasury
 STR_INDUSTRY_TREASURY_STATION_NAME                  :{STRING} Treasury
 STR_ERR_LOCATION_TREASURY                           :... too close to another Treasury
+
+STR_INDUSTRY_IRON_ORE_MINE_STATION_NAME             :{STRING} Iron Ore Mine
+STR_ERR_LOCATION_IRON_ORE_MINE                      :... too close to another Iron Ore Mine
+
+STR_INDUSTRY_COPPER_ORE_MINE_STATION_NAME           :{STRING} Copper Ore Mine
+STR_ERR_LOCATION_COPPER_ORE_MINE                    :... too close to another Copper Ore Mine
+
+STR_INDUSTRY_FOUNDRY_NAME                           :Foundry
+STR_INDUSTRY_FOUNDRY_STATION_NAME                   :{STRING} Foundry
+STR_ERR_LOCATION_FOUNDRY                            :... too close to another Foundry
+
+STR_INDUSTRY_RUBBER_PLANTATION_STATION_NAME         :{STRING} Rubber Plantation
+STR_ERR_LOCATION_RUBBER_PLANTATION                  :... too close to another Rubber Plantation
+
+STR_INDUSTRY_FACTORY_STATION_NAME                   :{STRING} Factory
+STR_ERR_LOCATION_FACTORY                            :... too close to another Factory

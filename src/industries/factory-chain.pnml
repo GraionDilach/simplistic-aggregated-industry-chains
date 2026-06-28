@@ -1,0 +1,476 @@
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FOUNDRY);
+        location_factory_chain_distance_iron_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
+        location_factory_chain_distance_steel_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
+        location_factory_chain_distance_copper_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_FACTORY);
+        location_factory_chain_distance_rubber_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_factory_chain_distance_factory;
+}
+
+item(FEAT_INDUSTRIES, industry_iron_ore_mine, IRON_ORE_MINE_INDEX) {
+    property {
+        substitute: 18;
+        override: 18;
+        cargo_types: [
+            produce_cargo("IORE", 10)
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        nearby_station_name: string(STR_INDUSTRY_IRON_ORE_MINE_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_distance_factory;
+    }
+}
+
+#define SPRITELAYOUT_foundry_TILE_1(recolorpalette) \
+spritelayout spritelayout_foundry_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2129 : 2118; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: construction_state != 3 ? 2130 : 2119; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_foundry_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_foundry_tile_1)
+
+item(FEAT_INDUSTRYTILES, foundry_tile_1) {
+    property {
+        substitute: 52;
+        override: 52;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_foundry_tile_1_select_color;
+    }
+}
+
+#define SPRITELAYOUT_foundry_TILE_2(recolorpalette) \
+spritelayout spritelayout_foundry_tile_2_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2131 : 2120; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: construction_state != 3 ? 2132 : 2121; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_foundry_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_foundry_tile_2)
+
+item(FEAT_INDUSTRYTILES, foundry_tile_2) {
+    property {
+        substitute: 53;
+        override: 53;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_foundry_tile_2_select_color;
+    }
+}
+
+#define SPRITELAYOUT_foundry_TILE_3(recolorpalette) \
+spritelayout spritelayout_foundry_tile_3_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2133 : 2122; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: construction_state != 3 ? 2134 : 2123; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_foundry_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_foundry_tile_3)
+
+item(FEAT_INDUSTRYTILES, foundry_tile_3) {
+    property {
+        substitute: 54;
+        override: 54;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_foundry_tile_3_select_color;
+    }
+}
+
+#define SPRITELAYOUT_foundry_TILE_4(recolorpalette) \
+spritelayout spritelayout_foundry_tile_4_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2135 : 2124; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_foundry_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_foundry_tile_4)
+
+item(FEAT_INDUSTRYTILES, foundry_tile_4) {
+    property {
+        substitute: 55;
+        override: 55;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_foundry_tile_4_select_color;
+    }
+}
+
+#define SPRITELAYOUT_foundry_TILE_5(recolorpalette) \
+spritelayout spritelayout_foundry_tile_5_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2136 : 2125; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: construction_state != 3 ? 2137 : 2126; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_foundry_TILE_5)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_foundry_tile_5)
+
+item(FEAT_INDUSTRYTILES, foundry_tile_5) {
+    property {
+        substitute: 56;
+        override: 56;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_foundry_tile_5_select_color;
+    }
+}
+
+#define SPRITELAYOUT_foundry_TILE_6(recolorpalette) \
+spritelayout spritelayout_foundry_tile_6_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2138 : 2127; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: construction_state != 3 ? 2139 : 2128; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_foundry_TILE_6)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_foundry_tile_6)
+
+item(FEAT_INDUSTRYTILES, foundry_tile_6) {
+    property {
+        substitute: 57;
+        override: 57;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_foundry_tile_6_select_color;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_foundry, STEEL_MILL_INDEX) {
+    property {
+        substitute: 8;
+        override: 8;
+        cargo_types: [
+            accept_cargo("IORE", produce_cargo("STEL", 1)),
+            accept_cargo("CORE", produce_cargo("STEL", 1))
+        ];
+        name: string(STR_INDUSTRY_FOUNDRY_NAME);
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        nearby_station_name: string(STR_INDUSTRY_FOUNDRY_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_distance_factory;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_copper_ore_mine, COPPER_ORE_MINE_INDEX) {
+    property {
+        substitute: 10;
+        override: 10;
+        cargo_types: [
+            produce_cargo("CORE", 10)
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        nearby_station_name: string(STR_INDUSTRY_COPPER_ORE_MINE_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_distance_factory;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_rubber_plantation, RUBBER_PLANTATION_INDEX) {
+    property {
+        substitute: 20;
+        override: 20;
+        cargo_types: [
+            produce_cargo("RUBR", 10)
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        conflicting_ind_types: [
+            industry_type(IND_TYPE_NEW, industry_rubber_plantation),
+            industry_type(IND_TYPE_NEW, industry_factory)
+        ];
+        nearby_station_name: string(STR_INDUSTRY_RUBBER_PLANTATION_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_no_desert_not_above_snowline;
+    }
+}
+
+#define SPRITELAYOUT_factory_TILE_1(recolorpalette) \
+spritelayout spritelayout_factory_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2022 : 2146; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2153 : \
+                construction_state != 3 ? 2157 : 2150; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_factory_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_factory_tile_1)
+
+item(FEAT_INDUSTRYTILES, factory_tile_1) {
+    property {
+        substitute: 39;
+        override: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_factory_tile_1_select_color;
+    }
+}
+
+#define SPRITELAYOUT_factory_TILE_2(recolorpalette) \
+spritelayout spritelayout_factory_tile_2_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2022 : 2147; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2154 : \
+                construction_state != 3 ? 2158 : 2151; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_factory_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_factory_tile_2)
+
+item(FEAT_INDUSTRYTILES, factory_tile_2) {
+    property {
+        substitute: 40;
+        override: 40;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_factory_tile_2_select_color;
+    }
+}
+
+#define SPRITELAYOUT_factory_TILE_3(recolorpalette) \
+spritelayout spritelayout_factory_tile_3_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2022 : 2148; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2155 : \
+                construction_state != 3 ? 2159 : 2152; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_factory_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_factory_tile_3)
+
+item(FEAT_INDUSTRYTILES, factory_tile_3) {
+    property {
+        substitute: 41;
+        override: 41;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_factory_tile_3_select_color;
+    }
+}
+
+#define SPRITELAYOUT_factory_TILE_4(recolorpalette) \
+spritelayout spritelayout_factory_tile_4_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? 2022 : 2149; \
+    } \
+    building { \
+        sprite: construction_state == 0 ? 2156 : \
+                construction_state != 3 ? 2160 : 2149; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_factory_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_factory_tile_4)
+
+item(FEAT_INDUSTRYTILES, factory_tile_4) {
+    property {
+        substitute: 42;
+        override: 42;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_factory_tile_4_select_color;
+    }
+}
+
+tilelayout factory_layout_1 {
+    0, 0: factory_tile_1;
+    0, 1: factory_tile_2;
+    1, 0: factory_tile_3;
+    1, 1: factory_tile_4;
+    2, 0: factory_tile_1;
+    2, 1: factory_tile_2;
+    3, 0: factory_tile_3;
+    3, 1: factory_tile_4;
+}
+
+tilelayout factory_layout_2 {
+    0, 0: factory_tile_1;
+    0, 1: factory_tile_2;
+    1, 0: factory_tile_3;
+    1, 1: factory_tile_4;
+    2, 0: factory_tile_1;
+    2, 1: factory_tile_2;
+    3, 0: factory_tile_3;
+    3, 1: factory_tile_4;
+    1, 2: factory_tile_1;
+    1, 3: factory_tile_2;
+    2, 2: factory_tile_3;
+    2, 3: factory_tile_4;
+}
+
+tilelayout factory_layout_3 {
+    0, 0: factory_tile_1;
+    0, 1: factory_tile_2;
+    1, 0: factory_tile_3;
+    1, 1: factory_tile_4;
+    0, 2: factory_tile_1;
+    0, 3: factory_tile_2;
+    1, 2: factory_tile_3;
+    1, 3: factory_tile_4;
+}
+
+tilelayout factory_layout_4 {
+    0, 0: factory_tile_1;
+    0, 1: factory_tile_2;
+    1, 0: factory_tile_3;
+    1, 1: factory_tile_4;
+    0, 2: factory_tile_1;
+    0, 3: factory_tile_2;
+    1, 2: factory_tile_3;
+    1, 3: factory_tile_4;
+    2, 1: factory_tile_1;
+    2, 2: factory_tile_2;
+    3, 1: factory_tile_3;
+    3, 2: factory_tile_4;
+}
+
+item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
+    property {
+        substitute: 6;
+        override: 6;
+        layouts: [factory_layout_1, factory_layout_2, factory_layout_3, factory_layout_4];
+        cargo_types: [
+            accept_cargo("STEL", produce_cargo("GOOD", 1)),
+            accept_cargo("RUBR", produce_cargo("GOOD", 1))
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        nearby_station_name: string(STR_INDUSTRY_FACTORY_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_distance_factory;
+    }
+}

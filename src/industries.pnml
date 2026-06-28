@@ -18,6 +18,11 @@ disable_item(FEAT_INDUSTRIES);
 #define DIAMOND_MINE_INDEX          14
 #define GOLD_MINE_INDEX             15
 #define TREASURY_INDEX              16
+#define IRON_ORE_MINE_INDEX         17
+#define STEEL_MILL_INDEX            18
+#define RUBBER_PLANTATION_INDEX     19
+#define COPPER_ORE_MINE_INDEX       20
+#define FACTORY_INDEX               21
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"
@@ -26,3 +31,4 @@ disable_item(FEAT_INDUSTRIES);
 #include "industries/shop.pnml" // separated to also add in Sweets
 #include "industries/water-chain.pnml"
 #include "industries/valuables-chain.pnml"
+#include "industries/factory-chain.pnml"

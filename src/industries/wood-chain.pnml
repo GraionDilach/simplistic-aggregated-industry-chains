@@ -348,7 +348,7 @@ item(FEAT_INDUSTRYTILES, paper_mill_tile_8) {
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
 }
-item(FEAT_INDUSTRIES, industry_paper_mill, 14) {
+item(FEAT_INDUSTRIES, industry_paper_mill, PAPER_MILL_INDEX) {
     property {
         substitute: 14;
         override: 14;

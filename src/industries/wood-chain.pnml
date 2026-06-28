@@ -3,9 +3,14 @@ switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_forest, industry_dis
         CB_RESULT_LOCATION_ALLOW;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_LUMBER_MILL);
+        location_wood_chain_distance_forest;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
         0..24: return string(STR_ERR_LOCATION_PAPER_MILL);
-        location_wood_chain_distance_forest;
+        location_wood_chain_distance_lumber_mill;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
@@ -491,6 +496,24 @@ item(FEAT_INDUSTRIES, industry_printing_works, PRINTING_WORKS_INDEX) {
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
         nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
+    }
+    graphics {
+        location_check: location_wood_chain_distance_printing_works;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_lumber_mill, LUMBER_MILL_INDEX) {
+    property {
+        substitute: 25;
+        override: 25;
+        cargo_types: [
+            produce_cargo("WOOD", 0)
+        ];
+        prob_map_gen: 1;
+        prob_in_game: 1;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        spec_flags: bitmask(IND_FLAG_CUT_TREES, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+        nearby_station_name: string(STR_INDUSTRY_LUMBER_MILL_STATION_NAME);
     }
     graphics {
         location_check: location_wood_chain_distance_printing_works;

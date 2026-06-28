@@ -23,6 +23,7 @@ disable_item(FEAT_INDUSTRIES);
 #define RUBBER_PLANTATION_INDEX     19
 #define COPPER_ORE_MINE_INDEX       20
 #define FACTORY_INDEX               21
+#define LUMBER_MILL_INDEX           22
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"

@@ -25,6 +25,9 @@ STR_ERR_LOCATION_POWER_PLANT                        :... too close to another Po
 STR_INDUSTRY_FOREST_STATION_NAME                    :{STRING} Forest
 STR_ERR_LOCATION_FOREST                             :... too close to another Forest
 
+STR_INDUSTRY_LUMBER_MILL_STATION_NAME               :{STRING} Lumber Mill
+STR_ERR_LOCATION_LUMBER_MILL                        :... too close to another Lumber Mill
+
 STR_INDUSTRY_PAPER_MILL_STATION_NAME                :{STRING} Paper Mill
 STR_ERR_LOCATION_PAPER_MILL                         :... too close to another Paper Mill
 

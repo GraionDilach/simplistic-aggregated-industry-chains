@@ -100,3 +100,12 @@ STR_ERR_LOCATION_SUGAR_MINE                         :... too close to another Su
 
 STR_INDUSTRY_CANDY_FACTORY_STATION_NAME             :{STRING} Candy Factory
 STR_ERR_LOCATION_CANDY_FACTORY                      :... too close to another Candy Factory
+
+STR_INDUSTRY_COLA_WELLS_STATION_NAME                :{STRING} Cola Wells
+STR_ERR_LOCATION_COLA_WELLS                         :... too close to another Cola Wells
+
+STR_INDUSTRY_BUBBLE_GENERATOR_STATION_NAME          :{STRING} Bubble Generator
+STR_ERR_LOCATION_BUBBLE_GENERATOR                   :... too close to another Bubble Generator
+
+STR_INDUSTRY_FIZZY_DRINK_FACTORY_STATION_NAME       :{STRING} Fizzy Drink Factory
+STR_ERR_LOCATION_FIZZY_DRINK_FACTORY                :... too close to another Fizzy Drink Factory

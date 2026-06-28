@@ -75,7 +75,8 @@ item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
         layouts: [shop_layout];
         cargo_types: [
             accept_cargo("FOOD"),
-            accept_cargo("SWET")
+            accept_cargo("SWET"),
+            accept_cargo("FZDR")
         ];
         prob_map_gen: 6;
         prob_in_game: 3;

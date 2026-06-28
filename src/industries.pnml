@@ -28,7 +28,9 @@ disable_item(FEAT_INDUSTRIES);
 #define TOFFEE_QUARRY_INDEX         24
 #define SUGAR_MINE_INDEX            25
 #define CANDY_FACTORY_INDEX         26
-
+#define COLA_WELLS_INDEX            27
+#define BUBBLE_GENERATOR_INDEX      28
+#define FIZZY_DRINK_FACTORY_INDEX   29
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"
@@ -39,3 +41,4 @@ disable_item(FEAT_INDUSTRIES);
 #include "industries/valuables-chain.pnml"
 #include "industries/factory-chain.pnml"
 #include "industries/candy-chain.pnml"
+#include "industries/fizzy-drink-chain.pnml"

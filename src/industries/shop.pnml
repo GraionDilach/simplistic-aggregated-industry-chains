@@ -18,8 +18,28 @@ switch (FEAT_INDUSTRIES, SELF, location_shop_distance_shop, industry_distance(SH
         location_shop_distance_food_processing_plant;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_candyfloss_forest, industry_distance(CANDYFLOSS_FOREST_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_CANDYFLOSS_FOREST);
+        location_shop_distance_shop;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_sugar_mine, industry_distance(SUGAR_MINE_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_SUGAR_MINE);
+        location_shop_chain_distance_candyfloss_forest;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_toffee_quarry, industry_distance(TOFFEE_QUARRY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_TOFFEE_QUARRY);
+        location_shop_chain_distance_sugar_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_candy_factory, industry_distance(CANDY_FACTORY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_CANDY_FACTORY);
+        location_shop_chain_distance_toffee_quarry;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_shop_count, industry_town_count(SHOP_INDEX)) {
-        0: location_shop_distance_shop;
+        0: location_shop_chain_distance_candy_factory;
         return string(STR_ERR_LOCATION_SHOP);
 }
 
@@ -54,7 +74,8 @@ item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
         name: string(STR_INDUSTRY_SHOP_NAME);
         layouts: [shop_layout];
         cargo_types: [
-            accept_cargo("FOOD")
+            accept_cargo("FOOD"),
+            accept_cargo("SWET")
         ];
         prob_map_gen: 6;
         prob_in_game: 3;

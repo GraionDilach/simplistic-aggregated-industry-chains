@@ -24,6 +24,11 @@ disable_item(FEAT_INDUSTRIES);
 #define COPPER_ORE_MINE_INDEX       20
 #define FACTORY_INDEX               21
 #define LUMBER_MILL_INDEX           22
+#define CANDYFLOSS_FOREST_INDEX     23
+#define TOFFEE_QUARRY_INDEX         24
+#define SUGAR_MINE_INDEX            25
+#define CANDY_FACTORY_INDEX         26
+
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"
@@ -33,3 +38,4 @@ disable_item(FEAT_INDUSTRIES);
 #include "industries/water-chain.pnml"
 #include "industries/valuables-chain.pnml"
 #include "industries/factory-chain.pnml"
+#include "industries/candy-chain.pnml"

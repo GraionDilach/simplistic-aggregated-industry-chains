@@ -88,3 +88,15 @@ STR_ERR_LOCATION_RUBBER_PLANTATION                  :... too close to another Ru
 
 STR_INDUSTRY_FACTORY_STATION_NAME                   :{STRING} Factory
 STR_ERR_LOCATION_FACTORY                            :... too close to another Factory
+
+STR_INDUSTRY_CANDYFLOSS_FOREST_STATION_NAME         :{STRING} Cotton Candy Forest
+STR_ERR_LOCATION_CANDYFLOSS_FOREST                  :... too close to another Cotton Candy Forest
+
+STR_INDUSTRY_TOFFEE_QUARRY_STATION_NAME             :{STRING} Toffee Quarry
+STR_ERR_LOCATION_TOFFEE_QUARRY                      :... too close to another Toffee Quarry
+
+STR_INDUSTRY_SUGAR_MINE_STATION_NAME                :{STRING} Sugar Mine
+STR_ERR_LOCATION_SUGAR_MINE                         :... too close to another Sugar Mine
+
+STR_INDUSTRY_CANDY_FACTORY_STATION_NAME             :{STRING} Candy Factory
+STR_ERR_LOCATION_CANDY_FACTORY                      :... too close to another Candy Factory

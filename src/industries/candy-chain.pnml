@@ -1,0 +1,156 @@
+switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_candyfloss_forest, industry_distance(CANDYFLOSS_FOREST_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_CANDYFLOSS_FOREST);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_sugar_mine, industry_distance(SUGAR_MINE_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_SUGAR_MINE);
+        location_candy_chain_distance_candyfloss_forest;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_toffee_quarry, industry_distance(TOFFEE_QUARRY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_TOFFEE_QUARRY);
+        location_candy_chain_distance_sugar_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_candy_factory, industry_distance(CANDY_FACTORY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_CANDY_FACTORY);
+        location_candy_chain_distance_toffee_quarry;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_shop, industry_distance(SHOP_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_SHOP);
+        location_candy_chain_distance_candy_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_candy_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_candy_chain_distance_shop;
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_candyfloss_forest, CANDYFLOSS_FOREST_INDEX) {
+        property {
+            substitute: 26;
+            override: 26;
+            cargo_types: [
+                produce_cargo("CTCD", 13),
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            nearby_station_name: string(STR_INDUSTRY_CANDYFLOSS_FOREST_STATION_NAME);
+        }
+        graphics {
+           location_check: location_candy_chain_no_desert_not_above_snowline;
+        }
+    }
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_toffee_quarry, TOFFEE_QUARRY_INDEX) {
+        property {
+            substitute: 35;
+            override: 35;
+            cargo_types: [
+                produce_cargo("TOFF", 10),
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            nearby_station_name: string(STR_INDUSTRY_TOFFEE_QUARRY_STATION_NAME);
+        }
+        graphics {
+           location_check: location_candy_chain_distance_shop;
+        }
+    }
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_sugar_mine, SUGAR_MINE_INDEX) {
+        property {
+            substitute: 36;
+            override: 36;
+            cargo_types: [
+                produce_cargo("SUGR", 11),
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            nearby_station_name: string(STR_INDUSTRY_SUGAR_MINE_STATION_NAME);
+        }
+        graphics {
+           location_check: location_candy_chain_distance_shop;
+        }
+    }
+}
+
+item(FEAT_INDUSTRYTILES, candy_factory_tile_1)
+{
+    property
+    {
+		substitute: 131;
+		override: 131;
+		accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+}
+
+item(FEAT_INDUSTRYTILES, candy_factory_tile_2)
+{
+    property
+    {
+		substitute: 132;
+		override: 132;
+		accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+}
+
+item(FEAT_INDUSTRYTILES, candy_factory_tile_3)
+{
+    property
+    {
+		substitute: 133;
+		override: 133;
+		accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+}
+
+item(FEAT_INDUSTRYTILES, candy_factory_tile_4)
+{
+    property
+    {
+		substitute: 134;
+		override: 134;
+		accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_candy_factory, CANDY_FACTORY_INDEX) {
+        property {
+            substitute: 27;
+            override: 27;
+            cargo_types: [
+                accept_cargo("CTCD", produce_cargo("SWET", 1)),
+                accept_cargo("TOFF", produce_cargo("SWET", 1)),
+                accept_cargo("SUGR", produce_cargo("SWET", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            nearby_station_name: string(STR_INDUSTRY_SUGAR_MINE_STATION_NAME);
+        }
+        graphics {
+           location_check: location_candy_chain_distance_shop;
+        }
+    }
+}

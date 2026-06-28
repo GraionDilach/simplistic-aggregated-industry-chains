@@ -93,42 +93,42 @@ item(FEAT_INDUSTRYTILES, candy_factory_tile_1)
 {
     property
     {
-		substitute: 131;
-		override: 131;
-		accepted_cargos: [];
+        substitute: 131;
+        override: 131;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-	}
+    }
 }
 
 item(FEAT_INDUSTRYTILES, candy_factory_tile_2)
 {
     property
     {
-		substitute: 132;
-		override: 132;
-		accepted_cargos: [];
+        substitute: 132;
+        override: 132;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-	}
+    }
 }
 
 item(FEAT_INDUSTRYTILES, candy_factory_tile_3)
 {
     property
     {
-		substitute: 133;
-		override: 133;
-		accepted_cargos: [];
+        substitute: 133;
+        override: 133;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-	}
+    }
 }
 
 item(FEAT_INDUSTRYTILES, candy_factory_tile_4)
 {
     property
     {
-		substitute: 134;
-		override: 134;
-		accepted_cargos: [];
+        substitute: 134;
+        override: 134;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
 }
@@ -147,7 +147,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_PROCESSING;
-            nearby_station_name: string(STR_INDUSTRY_SUGAR_MINE_STATION_NAME);
+            nearby_station_name: string(STR_INDUSTRY_CANDY_FACTORY_STATION_NAME);
         }
         graphics {
            location_check: location_candy_chain_distance_shop;

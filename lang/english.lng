@@ -133,3 +133,7 @@ STR_ERR_LOCATION_TOY_FACTORY                        :... too close to another To
 
 STR_INDUSTRY_TOY_SHOP_STATION_NAME                  :{STRING} Toy Shop
 STR_ERR_LOCATION_TOY_SHOP                           :... too close to another Toy Shop
+
+STR_INDUSTRY_RESORT_NAME                            :Resort
+STR_INDUSTRY_RESORT_STATION_NAME                    :{STRING} Resort
+STR_ERR_LOCATION_RESORT                             :... too close to another Resort

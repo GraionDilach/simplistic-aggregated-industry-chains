@@ -1,0 +1,104 @@
+switch (FEAT_INDUSTRIES, SELF, location_tourist_chain_distance_resort, industry_distance(RESORT_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_RESORT);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_resort_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_tourist_chain_distance_resort;
+}
+
+spritelayout resort_tile_N_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 4471 : construction_state==3 ? 4475 : 4473); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
+}
+
+spritelayout resort_tile_E_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474); recolour_mode: RECOLOUR_REMAP; palette: PALETTE_STRUCT_YELLOW; }
+}
+
+spritelayout resort_tile_S_spritelayout {
+    ground { sprite: GROUNDSPRITE_NORMAL; }
+    childsprite { sprite: 1455; yoffset: 6; }
+}
+
+spritelayout resort_tile_W_spritelayout {
+    ground { sprite: GROUNDSPRITE_NORMAL; }
+    building { sprite: 1456; }
+}
+
+item(FEAT_INDUSTRYTILES, resort_tile_N) {
+    property {
+        substitute: 0;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        resort_tile_N_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, resort_tile_E) {
+    property {
+        substitute: 0;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        resort_tile_E_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, resort_tile_S) {
+    property {
+        substitute: 0;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        resort_tile_S_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, resort_tile_W) {
+    property {
+        substitute: 0;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        resort_tile_W_spritelayout;
+    }
+}
+
+tilelayout resort_tilelayout1 {
+    0, 0: resort_tile_N;
+    0, 1: resort_tile_E;
+    1, 1: resort_tile_S;
+    1, 0: resort_tile_W;
+}
+
+item(FEAT_INDUSTRIES, industry_resort, RESORT_INDEX) {
+    property {
+        substitute: 1;
+        name: string(STR_INDUSTRY_RESORT_NAME);
+        cargo_types: [
+            produce_cargo("TOUR", 6),
+            accept_cargo("TOUR"),
+            produce_cargo("PASS", 2),
+            accept_cargo("PASS", produce_cargo("TOUR", 0.33)),
+            accept_cargo("FOOD")
+        ];
+        layouts: [resort_tilelayout1];
+        prob_map_gen: 3;
+        prob_in_game: 1;
+        life_type: IND_LIFE_TYPE_BLACK_HOLE;
+        spec_flags: 0;
+        nearby_station_name: string(STR_INDUSTRY_RESORT_STATION_NAME);
+    }
+    graphics {
+       location_check: location_resort_chain_no_desert_not_above_snowline;
+    }
+}

@@ -100,18 +100,10 @@ item(FEAT_INDUSTRIES, industry_water_supply, WATER_SUPPLY_INDEX) {
 spritelayout spritelayout_water_tower_tile_1_##recolorpalette \
 { \
     ground { \
-        sprite: GROUNDSPRITE_CLEARED; \
-    } \
-    childsprite { \
-        sprite: terrain_type == TILETYPE_SNOW ? GROUNDSPRITE_SNOW \
+        sprite: construction_state < 2 ? GROUNDSPRITE_CLEARED \
+            : (town_zone != TOWNZONE_EDGE && town_zone != TOWNZONE_OUTSKIRT) ? GROUNDSPRITE_CONCRETE \
+            : terrain_type == TILETYPE_SNOW ? GROUNDSPRITE_SNOW \
             : terrain_type == TILETYPE_DESERT ? GROUNDSPRITE_DESERT : GROUNDSPRITE_NORMAL; \
-        hide_sprite: construction_state < 2 || (town_zone != TOWNZONE_EDGE && town_zone != TOWNZONE_OUTSKIRT); \
-        always_draw: 1; \
-    } \
-    childsprite { \
-        sprite: GROUNDSPRITE_CONCRETE; \
-        hide_sprite: construction_state < 2 || town_zone == TOWNZONE_EDGE || town_zone == TOWNZONE_OUTSKIRT; \
-        always_draw: 1; \
     } \
     building { \
         sprite: construction_state == 0 ? 2344 : \

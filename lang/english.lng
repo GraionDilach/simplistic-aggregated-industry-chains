@@ -109,3 +109,15 @@ STR_ERR_LOCATION_BUBBLE_GENERATOR                   :... too close to another Bu
 
 STR_INDUSTRY_FIZZY_DRINK_FACTORY_STATION_NAME       :{STRING} Fizzy Drink Factory
 STR_ERR_LOCATION_FIZZY_DRINK_FACTORY                :... too close to another Fizzy Drink Factory
+
+STR_INDUSTRY_BATTERY_FARM_STATION_NAME              :{STRING} Battery Farm
+STR_ERR_LOCATION_BATTERY_FARM                       :... too close to another Battery Farm
+
+STR_INDUSTRY_PLASTIC_FOUNTAINS_STATION_NAME         :{STRING} Plastic Fountains
+STR_ERR_LOCATION_PLASTIC_FOUNTAINS                  :... too close to another Plastic Fountains
+
+STR_INDUSTRY_TOY_FACTORY_STATION_NAME               :{STRING} Toy Factory
+STR_ERR_LOCATION_TOY_FACTORY                        :... too close to another Toy Factory
+
+STR_INDUSTRY_TOY_SHOP_STATION_NAME                  :{STRING} Toy Shop
+STR_ERR_LOCATION_TOY_SHOP                           :... too close to another Toy Shop

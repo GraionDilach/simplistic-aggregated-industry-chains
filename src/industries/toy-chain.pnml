@@ -1,0 +1,220 @@
+switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_battery_farm, industry_distance(BATTERY_FARM_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_BATTERY_FARM);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_plastic_fountains, industry_distance(PLASTIC_FOUNTAINS_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_PLASTIC_FOUNTAINS);
+        location_toy_chain_distance_battery_farm;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_toy_factory, industry_distance(TOY_FACTORY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_TOY_FACTORY);
+        location_toy_chain_distance_plastic_fountains;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_toy_shop, industry_distance(TOY_SHOP_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_TOY_SHOP);
+        location_toy_chain_distance_toy_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_toy_shop_count, industry_town_count(TOY_SHOP_INDEX)) {
+        0: location_toy_chain_distance_toy_shop;
+        return string(STR_ERR_LOCATION_TOY_SHOP);
+}
+
+switch (FEAT_INDUSTRIES, PARENT, location_toy_shop_count_population, population) {
+        0..750: return string(STR_ERR_LOCATION_TOY_SHOP);
+        return location_toy_shop_count;
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_battery_farm, BATTERY_FARM_INDEX) {
+        property {
+            substitute: 28;
+            override: 28;
+            cargo_types: [
+                produce_cargo("BATT", 11),
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            nearby_station_name: string(STR_INDUSTRY_BATTERY_FARM_STATION_NAME);
+        }
+        graphics {
+           location_check: location_toy_chain_distance_toy_shop;
+        }
+    }
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_plastic_fountains, PLASTIC_FOUNTAINS_INDEX) {
+        property {
+            substitute: 32;
+            override: 32;
+            cargo_types: [
+                produce_cargo("PLST", 14),
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_ORGANIC;
+            nearby_station_name: string(STR_INDUSTRY_PLASTIC_FOUNTAINS_STATION_NAME);
+        }
+        graphics {
+           location_check: location_toy_chain_distance_toy_shop;
+        }
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_factory_tile_1)
+{
+    property
+    {
+        substitute: 142;
+        override: 142;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_factory_tile_2)
+{
+    property
+    {
+        substitute: 143;
+        override: 143;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_factory_tile_3)
+{
+    property
+    {
+        substitute: 144;
+        override: 144;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_factory_tile_4)
+{
+    property
+    {
+        substitute: 145;
+        override: 145;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_factory_tile_5)
+{
+    property
+    {
+        substitute: 146;
+        override: 146;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_factory_tile_6)
+{
+    property
+    {
+        substitute: 147;
+        override: 147;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_toy_factory, TOY_FACTORY_INDEX) {
+        property {
+            substitute: 31;
+            override: 31;
+            cargo_types: [
+                accept_cargo("BATT", produce_cargo("TOYS", 1)),
+                accept_cargo("PLST", produce_cargo("TOYS", 1))
+            ];
+            prob_map_gen: 5;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_PROCESSING;
+            nearby_station_name: string(STR_INDUSTRY_TOY_FACTORY_STATION_NAME);
+        }
+        graphics {
+           location_check: location_toy_chain_distance_toy_shop;
+        }
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_shop_tile_1)
+{
+    property
+    {
+        substitute: 138;
+        override: 138;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_shop_tile_2)
+{
+    property
+    {
+        substitute: 139;
+        override: 139;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_shop_tile_3)
+{
+    property
+    {
+        substitute: 140;
+        override: 140;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, toy_shop_tile_4)
+{
+    property
+    {
+        substitute: 141;
+        override: 141;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+if (enable_converted_toyland)
+{
+    item(FEAT_INDUSTRIES, industry_toy_shop, TOY_SHOP_INDEX) {
+        property {
+            substitute: 30;
+            override: 30;
+            cargo_types: [
+                accept_cargo("TOYS")
+            ];
+            prob_map_gen: 4;
+            prob_in_game: 3;
+            life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            nearby_station_name: string(STR_INDUSTRY_TOY_SHOP_STATION_NAME);
+        }
+        graphics {
+           location_check: location_toy_shop_count_population;
+        }
+    }
+}

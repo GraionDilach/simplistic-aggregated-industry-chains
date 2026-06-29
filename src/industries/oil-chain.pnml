@@ -13,6 +13,11 @@ switch (FEAT_INDUSTRIES, SELF, location_oil_chain_distance_oil_refinery, industr
         location_oil_chain_distance_oil_rig;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_oil_chain_distance_shop, industry_distance(SHOP_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_SHOP);
+        location_oil_chain_distance_oil_refinery;
+}
+
 item(FEAT_INDUSTRIES, industry_oil_wells, OIL_WELLS_INDEX) {
     property {
         substitute: 11;
@@ -27,7 +32,7 @@ item(FEAT_INDUSTRIES, industry_oil_wells, OIL_WELLS_INDEX) {
         spec_flags: 0;
     }
     graphics {
-        location_check: location_oil_chain_distance_oil_refinery;
+        location_check: location_oil_chain_distance_shop;
     }
 }
 
@@ -50,7 +55,7 @@ item(FEAT_INDUSTRIES, industry_oil_rig, OIL_RIG_INDEX) {
         spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
     }
     graphics {
-        location_check: location_oil_chain_distance_oil_refinery;
+        location_check: location_oil_chain_distance_shop;
     }
 }
 
@@ -240,7 +245,7 @@ item(FEAT_INDUSTRIES, industry_refinery, OIL_REFINERY_INDEX) {
         override: 4;
         name: string(STR_INDUSTRY_REFINERY_NAME);
         cargo_types: [
-            accept_cargo("OIL_", produce_cargo("GOOD", 1))
+            accept_cargo("OIL_", produce_cargo("PETR", 1))
         ];
         prob_map_gen: 4;
         prob_in_game: 2;
@@ -248,6 +253,6 @@ item(FEAT_INDUSTRIES, industry_refinery, OIL_REFINERY_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_REFINERY_STATION_NAME);
     }
     graphics {
-        location_check: location_oil_chain_distance_oil_refinery;
+        location_check: location_oil_chain_distance_shop;
     }
 }

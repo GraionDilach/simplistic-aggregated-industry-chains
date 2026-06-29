@@ -29,44 +29,42 @@ for compatibility (but this is only kept for stuff which are consumed by houses 
 #define FREE_INDEX_17 22
 #define FREE_INDEX_18 23
 #define FREE_INDEX_19 24
-#define FREE_INDEX_20 25
-#define FREE_INDEX_21 26
-#define FREE_INDEX_22 28
-#define FREE_INDEX_23 29
-#define FREE_INDEX_24 30
-#define FREE_INDEX_25 31
-#define FREE_INDEX_26 32
-#define FREE_INDEX_27 33
-#define FREE_INDEX_28 34
-#define FREE_INDEX_29 35
-#define FREE_INDEX_30 36
-#define FREE_INDEX_31 37
-#define FREE_INDEX_32 38
-#define FREE_INDEX_33 39
-#define FREE_INDEX_34 40
-#define FREE_INDEX_35 41
-#define FREE_INDEX_36 42
-#define FREE_INDEX_37 43
-#define FREE_INDEX_38 44
-#define FREE_INDEX_39 45
-#define FREE_INDEX_40 46
-#define FREE_INDEX_41 47
-#define FREE_INDEX_42 48
-#define FREE_INDEX_43 49
-#define FREE_INDEX_44 50
-#define FREE_INDEX_45 51
-#define FREE_INDEX_46 52
-#define FREE_INDEX_47 53
-#define FREE_INDEX_48 54
-#define FREE_INDEX_49 55
-#define FREE_INDEX_50 56
-#define FREE_INDEX_51 57
-#define FREE_INDEX_52 58
-#define FREE_INDEX_53 59
-#define FREE_INDEX_54 60
-#define FREE_INDEX_55 61
-#define FREE_INDEX_56 62
-#define FREE_INDEX_57 63
+#define FREE_INDEX_20 26
+#define FREE_INDEX_21 28
+#define FREE_INDEX_22 29
+#define FREE_INDEX_23 30
+#define FREE_INDEX_24 32
+#define FREE_INDEX_25 33
+#define FREE_INDEX_26 34
+#define FREE_INDEX_27 35
+#define FREE_INDEX_28 36
+#define FREE_INDEX_29 37
+#define FREE_INDEX_30 38
+#define FREE_INDEX_31 39
+#define FREE_INDEX_32 40
+#define FREE_INDEX_33 41
+#define FREE_INDEX_34 42
+#define FREE_INDEX_35 43
+#define FREE_INDEX_36 44
+#define FREE_INDEX_37 45
+#define FREE_INDEX_38 46
+#define FREE_INDEX_39 47
+#define FREE_INDEX_40 48
+#define FREE_INDEX_41 49
+#define FREE_INDEX_42 50
+#define FREE_INDEX_43 51
+#define FREE_INDEX_44 52
+#define FREE_INDEX_45 53
+#define FREE_INDEX_46 54
+#define FREE_INDEX_47 55
+#define FREE_INDEX_48 56
+#define FREE_INDEX_49 57
+#define FREE_INDEX_50 58
+#define FREE_INDEX_51 59
+#define FREE_INDEX_52 60
+#define FREE_INDEX_53 61
+#define FREE_INDEX_54 62
+#define FREE_INDEX_55 63
 
 cargotable
 {
@@ -100,7 +98,7 @@ cargotable
 	// Toyland cargos
 	SUGR, TOYS, BATT, SWET,
 	TOFF, COLA, CTCD, BUBL,
-	PLST, FZDR
+	PLST, FZDR,
 
 	#define SUGR_INDEX    FREE_INDEX_13
 	#define TOYS_INDEX    FREE_INDEX_14
@@ -112,6 +110,12 @@ cargotable
 	#define BUBL_INDEX    FREE_INDEX_20
 	#define PLST_INDEX    FREE_INDEX_21
 	#define FZDR_INDEX    FREE_INDEX_22
+
+	// ECS inherited Graion cargos
+	PETR, TOUR
+
+	#define PETR_INDEX    25
+	#define TOUR_INDEX    31
 }
 
 
@@ -123,3 +127,5 @@ if (enable_converted_toyland)
 {
 #include "cargos/toyland-cargos.pnml"
 }
+
+#include "cargos/graion-cargos.pnml"

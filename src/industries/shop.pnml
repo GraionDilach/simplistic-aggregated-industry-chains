@@ -18,9 +18,24 @@ switch (FEAT_INDUSTRIES, SELF, location_shop_distance_shop, industry_distance(SH
         location_shop_distance_food_processing_plant;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_oil_wells, industry_distance(OIL_WELLS_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_OIL_WELLS);
+        location_shop_distance_shop;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_oil_rig, industry_distance(OIL_RIG_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_OIL_RIG);
+        location_shop_chain_distance_oil_wells;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_oil_refinery, industry_distance(OIL_REFINERY_INDEX)) {
+        0..24: return string(STR_ERR_LOCATION_REFINERY);
+        location_shop_chain_distance_oil_rig;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_candyfloss_forest, industry_distance(CANDYFLOSS_FOREST_INDEX)) {
         0..24: return string(STR_ERR_LOCATION_CANDYFLOSS_FOREST);
-        location_shop_distance_shop;
+        location_shop_chain_distance_oil_refinery;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_sugar_mine, industry_distance(SUGAR_MINE_INDEX)) {
@@ -75,6 +90,7 @@ item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
         layouts: [shop_layout];
         cargo_types: [
             accept_cargo("FOOD"),
+            accept_cargo("PETR"),
             accept_cargo("SWET"),
             accept_cargo("FZDR")
         ];

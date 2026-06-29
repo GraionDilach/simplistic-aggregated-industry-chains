@@ -21,6 +21,10 @@ bit | OTTD              | FRAX
  14 | CC_NON_POTABLE    | CC_NON_POTABLE
 */
 
+spriteset(cargoicon_passenger) {
+    [0, 0, "gfx/cargo_icons/pass.png"]
+}
+
 item(FEAT_CARGOS, cargo_passenger, PASS_INDEX) {
     property {
         type_name: TTD_STR_CARGO_PLURAL_PASSENGERS;
@@ -28,7 +32,7 @@ item(FEAT_CARGOS, cargo_passenger, PASS_INDEX) {
         units_of_cargo: TTD_STR_PASSENGERS;
         items_of_cargo: TTD_STR_QUANTITY_PASSENGERS;
         type_abbreviation: TTD_STR_ABBREV_PASSENGERS;
-        sprite: 4297; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.0625; // 1/16
         station_list_colour: 152;
         cargo_payment_list_colour: 152;
@@ -42,6 +46,9 @@ item(FEAT_CARGOS, cargo_passenger, PASS_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(3185);
         capacity_multiplier: 4;
         number: PASS_INDEX;
+    }
+    graphics {
+        cargoicon_passenger;
     }
 }
 

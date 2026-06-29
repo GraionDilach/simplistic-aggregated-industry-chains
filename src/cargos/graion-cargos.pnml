@@ -22,7 +22,7 @@ item(FEAT_CARGOS, cargo_petrol, PETR_INDEX) {
         single_penalty_length: 255;
         price_factor: 145;
         capacity_multiplier: 1;
-        number: 25;
+        number: PETR_INDEX;
     }
     graphics {
         cargoicon_petrol;
@@ -55,7 +55,7 @@ item(FEAT_CARGOS, cargo_tourist, TOUR_INDEX) {
         single_penalty_length: 15; // 2/3 passenger value as tourists are usually in a hurry
         price_factor: 191.8; // PASS*1.4
         capacity_multiplier: 2.67;
-        number: 31;
+        number: TOUR_INDEX;
     }
     graphics {
         cargoicon_tourist;

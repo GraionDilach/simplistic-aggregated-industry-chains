@@ -30,6 +30,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, COLA_WELLS_INDEX);
             nearby_station_name: string(STR_INDUSTRY_COLA_WELLS_STATION_NAME);
         }
         graphics {
@@ -50,6 +51,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, BUBBLE_GENERATOR_INDEX);
             nearby_station_name: string(STR_INDUSTRY_BUBBLE_GENERATOR_STATION_NAME);
         }
         graphics {
@@ -115,6 +117,7 @@ if (enable_converted_toyland)
             prob_map_gen: 4;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_PROCESSING;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FIZZY_DRINK_FACTORY_INDEX);
             nearby_station_name: string(STR_INDUSTRY_FIZZY_DRINK_FACTORY_STATION_NAME);
         }
         graphics {

@@ -1,4 +1,7 @@
-// header
+// helpers
+
+#define ARRAY_EVAL2( x, y ) x ## _ ## y
+#define ARRAY_EVAL( x, y ) ARRAY_EVAL2 (x,y)
 
 #include "header.pnml"
 #include "colortable.pnml"

@@ -89,6 +89,7 @@ item(FEAT_INDUSTRIES, industry_water_supply, WATER_SUPPLY_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, WATER_SUPPLY_INDEX);
         nearby_station_name: string(STR_INDUSTRY_WATER_SUPPLY_STATION_NAME);
     }
     graphics {
@@ -140,6 +141,7 @@ item(FEAT_INDUSTRIES, industry_water_tower, WATER_TOWER_INDEX) {
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_BLACK_HOLE;
         spec_flags: bitmask(IND_FLAG_ONLY_IN_TOWNS);
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, WATER_TOWER_INDEX);
         nearby_station_name: string(STR_INDUSTRY_WATER_TOWER_STATION_NAME);
     }
     graphics {

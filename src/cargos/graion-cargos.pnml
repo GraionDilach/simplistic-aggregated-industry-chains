@@ -11,8 +11,8 @@ item(FEAT_CARGOS, cargo_petrol, PETR_INDEX) {
         type_abbreviation: string(STR_ABBREV_PETROL);
         sprite: NEW_CARGO_SPRITE;
         weight: 1;
-        station_list_colour: 174;
-        cargo_payment_list_colour: 174;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PETR_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PETR_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
         cargo_label: "PETR";
@@ -42,8 +42,8 @@ item(FEAT_CARGOS, cargo_tourist, TOUR_INDEX) {
         type_abbreviation: string(STR_ABBREV_TOURIST);
         sprite: NEW_CARGO_SPRITE;
         weight: 0.125;
-        station_list_colour: 94;
-        cargo_payment_list_colour: 94;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOUR_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOUR_INDEX);
         is_freight: 0;
         cargo_classes: bitmask(CC_PASSENGERS, CC_EXPRESS); // breaking FRAX here; https://github.com/andythenorth/polar-fox/issues/9
         cargo_label: "TOUR";

@@ -41,6 +41,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_ORGANIC;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, CANDYFLOSS_FOREST_INDEX);
             nearby_station_name: string(STR_INDUSTRY_CANDYFLOSS_FOREST_STATION_NAME);
         }
         graphics {
@@ -61,6 +62,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TOFFEE_QUARRY_INDEX);
             nearby_station_name: string(STR_INDUSTRY_TOFFEE_QUARRY_STATION_NAME);
         }
         graphics {
@@ -81,6 +83,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_EXTRACTIVE;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, SUGAR_MINE_INDEX);
             nearby_station_name: string(STR_INDUSTRY_SUGAR_MINE_STATION_NAME);
         }
         graphics {
@@ -147,6 +150,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_PROCESSING;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, CANDY_FACTORY_INDEX);
             nearby_station_name: string(STR_INDUSTRY_CANDY_FACTORY_STATION_NAME);
         }
         graphics {

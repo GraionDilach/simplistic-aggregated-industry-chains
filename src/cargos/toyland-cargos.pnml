@@ -8,8 +8,8 @@ item(FEAT_CARGOS, cargo_sugar, SUGR_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_SUGAR;
         sprite: 4316; // vanilla
         weight: 1;
-        station_list_colour: 6;
-        cargo_payment_list_colour: 6;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, SUGR_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, SUGR_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_BULK, CC_POTABLE);
         cargo_label: "SUGR";
@@ -32,8 +32,8 @@ item(FEAT_CARGOS, cargo_toys, TOYS_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_TOYS;
         sprite: 4317; // vanilla
         weight: 0.125; // 2/16
-        station_list_colour: 0xAE;
-        cargo_payment_list_colour: 0xAE;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOYS_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOYS_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_PIECE_GOODS, CC_NON_POTABLE);
         cargo_label: "TOYS";
@@ -56,8 +56,8 @@ item(FEAT_CARGOS, cargo_batteries, BATT_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_BATTERIES;
         sprite: 4323; // vanilla
         weight: 0.25; // 4/16
-        station_list_colour: 0xD0;
-        cargo_payment_list_colour: 0xD0;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BATT_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BATT_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_NON_POTABLE);
         cargo_label: "BATT";
@@ -80,8 +80,8 @@ item(FEAT_CARGOS, cargo_candy, SWET_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_SWEETS;
         sprite: 4315; // vanilla
         weight: 0.3125; // 5/16
-        station_list_colour: 0xC2;
-        cargo_payment_list_colour: 0xC2;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, SWET_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, SWET_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "SWET";
@@ -104,8 +104,8 @@ item(FEAT_CARGOS, cargo_toffee, TOFF_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_TOFFEE;
         sprite: 4320; // vanilla
         weight: 1;
-        station_list_colour: 0xBF;
-        cargo_payment_list_colour: 0xBF;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOFF_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOFF_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_BULK, CC_POTABLE);
         cargo_label: "TOFF";
@@ -128,8 +128,8 @@ item(FEAT_CARGOS, cargo_cola, COLA_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_COLA;
         sprite: 4310; // vanilla
         weight: 1;
-        station_list_colour: 160;
-        cargo_payment_list_colour: 160;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COLA_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COLA_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_LIQUID, CC_POTABLE);
         cargo_label: "COLA";
@@ -152,8 +152,8 @@ item(FEAT_CARGOS, cargo_cotton_candy, CTCD_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_CANDYFLOSS;
         sprite: 4318; // vanilla
         weight: 1;
-        station_list_colour: 0xB8;
-        cargo_payment_list_colour: 0xB8;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CTCD_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CTCD_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_BULK, CC_POTABLE);
         cargo_label: "CTCD";
@@ -176,8 +176,8 @@ item(FEAT_CARGOS, cargo_bubbles, BUBL_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_BUBBLES;
         sprite: 4321; // vanilla
         weight: 0.0625; // 1/16
-        station_list_colour: 0x0A;
-        cargo_payment_list_colour: 0x0A;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BUBL_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BUBL_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "BUBL";
@@ -200,8 +200,8 @@ item(FEAT_CARGOS, cargo_plastic, PLST_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_PLASTIC;
         sprite: 4322; // vanilla
         weight: 1;
-        station_list_colour: 0xBF;
-        cargo_payment_list_colour: 0xCA;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PLST_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PLST_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
         cargo_label: "PLST";
@@ -224,8 +224,8 @@ item(FEAT_CARGOS, cargo_fizzy_drinks, FZDR_INDEX) {
         type_abbreviation: TTD_STR_ABBREV_FIZZY_DRINKS;
         sprite: 4319; // vanilla
         weight: 0.125; // 2/16
-        station_list_colour: 0x30;
-        cargo_payment_list_colour: 0x01;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, FZDR_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, FZDR_INDEX);
         is_freight: 1;
         cargo_classes: bitmask(CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "FZDR";

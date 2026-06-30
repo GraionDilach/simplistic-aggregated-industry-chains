@@ -96,11 +96,11 @@ item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
         ];
         prob_map_gen: 6;
         prob_in_game: 3;
-        map_colour: 0x30;
         life_type:                      IND_LIFE_TYPE_BLACK_HOLE;
         fund_cost_multiplier:           100;
         spec_flags:                     bitmask(IND_FLAG_ONLY_IN_TOWNS);
         prospect_chance:                1;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, SHOP_INDEX);
         nearby_station_name:            string(STR_INDUSTRY_SHOP_STATION_NAME);
     }
     graphics {

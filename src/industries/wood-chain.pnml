@@ -277,6 +277,7 @@ item(FEAT_INDUSTRIES, industry_forest, FOREST_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 4;
         life_type: IND_LIFE_TYPE_ORGANIC;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FOREST_INDEX);
         nearby_station_name: string(STR_INDUSTRY_FOREST_STATION_NAME);
     }
     graphics {
@@ -358,6 +359,7 @@ item(FEAT_INDUSTRIES, industry_paper_mill, PAPER_MILL_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, PAPER_MILL_INDEX);
         nearby_station_name: string(STR_INDUSTRY_PAPER_MILL_STATION_NAME);
     }
     graphics {
@@ -495,6 +497,7 @@ item(FEAT_INDUSTRIES, industry_printing_works, PRINTING_WORKS_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, PRINTING_WORKS_INDEX);
         nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
     }
     graphics {
@@ -513,6 +516,7 @@ item(FEAT_INDUSTRIES, industry_lumber_mill, LUMBER_MILL_INDEX) {
         prob_in_game: 1;
         life_type: IND_LIFE_TYPE_PROCESSING;
         spec_flags: bitmask(IND_FLAG_CUT_TREES, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, LUMBER_MILL_INDEX);
         nearby_station_name: string(STR_INDUSTRY_LUMBER_MILL_STATION_NAME);
     }
     graphics {

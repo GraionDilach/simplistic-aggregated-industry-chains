@@ -18,6 +18,7 @@ item(FEAT_INDUSTRIES, industry_coal_mine, COAL_MINE_INDEX) {
         prob_map_gen: 8;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, COAL_MINE_INDEX);
         nearby_station_name: string(STR_INDUSTRY_COAL_MINE_STATION_NAME);
     }
     graphics {
@@ -71,6 +72,7 @@ item(FEAT_INDUSTRIES, industry_power_plant, POWER_PLANT_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_BLACK_HOLE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, POWER_PLANT_INDEX);
         nearby_station_name: string(STR_INDUSTRY_POWER_PLANT_STATION_NAME);
     }
     graphics {

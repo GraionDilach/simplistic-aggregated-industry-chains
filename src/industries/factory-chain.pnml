@@ -39,6 +39,7 @@ item(FEAT_INDUSTRIES, industry_iron_ore_mine, IRON_ORE_MINE_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, IRON_ORE_MINE_INDEX);
         nearby_station_name: string(STR_INDUSTRY_IRON_ORE_MINE_STATION_NAME);
     }
     graphics {
@@ -239,6 +240,7 @@ item(FEAT_INDUSTRIES, industry_foundry, STEEL_MILL_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, STEEL_MILL_INDEX);
         nearby_station_name: string(STR_INDUSTRY_FOUNDRY_STATION_NAME);
     }
     graphics {
@@ -256,6 +258,7 @@ item(FEAT_INDUSTRIES, industry_copper_ore_mine, COPPER_ORE_MINE_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, COPPER_ORE_MINE_INDEX);
         nearby_station_name: string(STR_INDUSTRY_COPPER_ORE_MINE_STATION_NAME);
     }
     graphics {
@@ -273,10 +276,7 @@ item(FEAT_INDUSTRIES, industry_rubber_plantation, RUBBER_PLANTATION_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_ORGANIC;
-        conflicting_ind_types: [
-            industry_type(IND_TYPE_NEW, industry_rubber_plantation),
-            industry_type(IND_TYPE_NEW, industry_factory)
-        ];
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, RUBBER_PLANTATION_INDEX);
         nearby_station_name: string(STR_INDUSTRY_RUBBER_PLANTATION_STATION_NAME);
     }
     graphics {
@@ -468,6 +468,7 @@ item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FACTORY_INDEX);
         nearby_station_name: string(STR_INDUSTRY_FACTORY_STATION_NAME);
     }
     graphics {

@@ -40,6 +40,7 @@ item(FEAT_INDUSTRIES, industry_farm, FARM_INDEX) {
         prob_map_gen: 9;
         prob_in_game: 4;
         life_type: IND_LIFE_TYPE_ORGANIC;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FARM_INDEX);
         nearby_station_name: string(STR_INDUSTRY_FARM_STATION_NAME);
         spec_flags: bitmask(IND_FLAG_PLANT_FIELDS_PERIODICALLY, IND_FLAG_PLANT_FIELDS_WHEN_BUILT);
     }
@@ -58,6 +59,7 @@ item(FEAT_INDUSTRIES, industry_fruit_plantation, FRUIT_PLANTATION_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_ORGANIC;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FRUIT_PLANTATION_INDEX);
         nearby_station_name: string(STR_INDUSTRY_FRUIT_PLANTATION_STATION_NAME);
     }
     graphics {
@@ -196,6 +198,7 @@ item(FEAT_INDUSTRIES, industry_food_processing_plant, FOOD_PROCESSING_PLANT_INDE
         prob_map_gen: 4;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FOOD_PROCESSING_PLANT_INDEX);
         nearby_station_name: string(STR_INDUSTRY_FOOD_PROCESSING_PLANT_STATION_NAME);
     }
     graphics {

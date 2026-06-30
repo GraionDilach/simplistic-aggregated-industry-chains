@@ -28,6 +28,7 @@ item(FEAT_INDUSTRIES, industry_oil_wells, OIL_WELLS_INDEX) {
         prob_map_gen: 5;
         prob_in_game: 5;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, OIL_WELLS_INDEX);
         nearby_station_name: string(STR_INDUSTRY_OIL_WELLS_STATION_NAME);
         spec_flags: 0;
     }
@@ -47,10 +48,7 @@ item(FEAT_INDUSTRIES, industry_oil_rig, OIL_RIG_INDEX) {
         prob_map_gen: 3;
         prob_in_game: 6;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
-        conflicting_ind_types: [
-            industry_type(IND_TYPE_NEW, industry_oil_rig),
-            industry_type(IND_TYPE_NEW, industry_refinery)
-        ];
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, OIL_RIG_INDEX);
         nearby_station_name: string(STR_INDUSTRY_OIL_RIG_STATION_NAME);
         spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
     }
@@ -250,6 +248,7 @@ item(FEAT_INDUSTRIES, industry_refinery, OIL_REFINERY_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, OIL_REFINERY_INDEX);
         nearby_station_name: string(STR_INDUSTRY_REFINERY_STATION_NAME);
     }
     graphics {

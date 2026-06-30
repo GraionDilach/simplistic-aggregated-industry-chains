@@ -96,6 +96,7 @@ item(FEAT_INDUSTRIES, industry_resort, RESORT_INDEX) {
         prob_in_game: 1;
         life_type: IND_LIFE_TYPE_BLACK_HOLE;
         spec_flags: 0;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, RESORT_INDEX);
         nearby_station_name: string(STR_INDUSTRY_RESORT_STATION_NAME);
     }
     graphics {

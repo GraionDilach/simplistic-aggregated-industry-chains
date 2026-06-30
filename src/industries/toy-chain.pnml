@@ -40,6 +40,7 @@ if (enable_converted_toyland)
             prob_map_gen: 4;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_ORGANIC;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, BATTERY_FARM_INDEX);
             nearby_station_name: string(STR_INDUSTRY_BATTERY_FARM_STATION_NAME);
         }
         graphics {
@@ -60,6 +61,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_ORGANIC;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, PLASTIC_FOUNTAINS_INDEX);
             nearby_station_name: string(STR_INDUSTRY_PLASTIC_FOUNTAINS_STATION_NAME);
         }
         graphics {
@@ -147,6 +149,7 @@ if (enable_converted_toyland)
             prob_map_gen: 5;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_PROCESSING;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TOY_FACTORY_INDEX);
             nearby_station_name: string(STR_INDUSTRY_TOY_FACTORY_STATION_NAME);
         }
         graphics {
@@ -211,6 +214,7 @@ if (enable_converted_toyland)
             prob_map_gen: 4;
             prob_in_game: 3;
             life_type: IND_LIFE_TYPE_BLACK_HOLE;
+            map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TOY_SHOP_INDEX);
             nearby_station_name: string(STR_INDUSTRY_TOY_SHOP_STATION_NAME);
         }
         graphics {

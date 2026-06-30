@@ -33,6 +33,7 @@ item(FEAT_INDUSTRIES, industry_diamond_mine, DIAMOND_MINE_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, DIAMOND_MINE_INDEX);
         nearby_station_name: string(STR_INDUSTRY_DIAMOND_MINE_STATION_NAME);
     }
     graphics {
@@ -50,6 +51,7 @@ item(FEAT_INDUSTRIES, industry_gold_mine, GOLD_MINE_INDEX) {
         prob_map_gen: 4;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, GOLD_MINE_INDEX);
         nearby_station_name: string(STR_INDUSTRY_GOLD_MINE_STATION_NAME);
     }
     graphics {
@@ -118,6 +120,7 @@ item(FEAT_INDUSTRIES, industry_treasury, TREASURY_INDEX) {
         prob_in_game: 7;
         life_type: IND_LIFE_TYPE_BLACK_HOLE;
         spec_flags: bitmask(IND_FLAG_ONLY_IN_TOWNS);
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TREASURY_INDEX);
         nearby_station_name: string(STR_INDUSTRY_TREASURY_STATION_NAME);
     }
     graphics {

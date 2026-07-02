@@ -66,6 +66,34 @@ for compatibility (but this is only kept for stuff which are consumed by houses 
 #define FREE_INDEX_54 62
 #define FREE_INDEX_55 63
 
+/*
+FRAX cargo conversion table
+bit | OTTD              | FRAX
+  0 | CC_PASSENGERS     | CC_PASSENGERS
+  1 | CC_MAIL           | CC_MAIL
+  2 | CC_EXPRESS        | CC_EXPRESS
+  3 | CC_ARMOURED       | CC_ARMOURED
+  4 | CC_BULK           | CC_OPEN_BULK
+  5 | CC_PIECE_GOODS    | CC_PIECE_GOODS
+  6 | CC_LIQUID         | CC_LIQUID_BULK
+  7 | CC_REFRIGERATED   | CC_REFRIGERATED
+  8 | CC_HAZARDOUS      | CC_GAS_BULK
+  9 | CC_COVERED        | CC_COVERED_BULK
+ 10 | CC_OVERSIZED      | CC_FLATBED
+ 11 | CC_POWDERIZED     | CC_POWDER_BULK
+ 12 | CC_NON_POURABLE   | CC_WEIRD
+ 13 | CC_POTABLE        | CC_POTABLE
+ 14 | CC_NON_POTABLE    | CC_NON_POTABLE
+*/
+
+#define CC_OPEN_BULK     4
+#define CC_LIQUID_BULK   6
+#define CC_GAS_BULK      8
+#define CC_COVERED_BULK  9
+#define CC_FLATBED      10
+#define CC_POWDER_BULK  11
+#define CC_WEIRD        12
+
 cargotable
 {
 	// default TTD cargos

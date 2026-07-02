@@ -11,7 +11,7 @@ item(FEAT_CARGOS, cargo_sugar, SUGR_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, SUGR_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, SUGR_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_BULK, CC_POTABLE);
+        cargo_classes: bitmask(CC_POWDER_BULK, CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "SUGR";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -59,7 +59,7 @@ item(FEAT_CARGOS, cargo_batteries, BATT_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BATT_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BATT_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_PIECE_GOODS, CC_OVERSIZED, CC_NON_POTABLE);
+        cargo_classes: bitmask(CC_FLATBED, CC_PIECE_GOODS, CC_NON_POTABLE);
         cargo_label: "BATT";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -107,7 +107,7 @@ item(FEAT_CARGOS, cargo_toffee, TOFF_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOFF_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, TOFF_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_BULK, CC_POTABLE);
+        cargo_classes: bitmask(CC_COVERED_BULK, CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "TOFF";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -131,7 +131,7 @@ item(FEAT_CARGOS, cargo_cola, COLA_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COLA_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COLA_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_LIQUID, CC_POTABLE);
+        cargo_classes: bitmask(CC_LIQUID_BULK, CC_POTABLE);
         cargo_label: "COLA";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -155,7 +155,7 @@ item(FEAT_CARGOS, cargo_cotton_candy, CTCD_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CTCD_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CTCD_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_BULK, CC_POTABLE);
+        cargo_classes: bitmask(CC_COVERED_BULK, CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "CTCD";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -179,7 +179,7 @@ item(FEAT_CARGOS, cargo_bubbles, BUBL_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BUBL_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, BUBL_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_PIECE_GOODS, CC_POTABLE);
+        cargo_classes: bitmask(CC_WEIRD, CC_PIECE_GOODS, CC_POTABLE);
         cargo_label: "BUBL";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
@@ -203,7 +203,7 @@ item(FEAT_CARGOS, cargo_plastic, PLST_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PLST_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PLST_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
+        cargo_classes: bitmask(CC_LIQUID_BULK, CC_NON_POTABLE);
         cargo_label: "PLST";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;

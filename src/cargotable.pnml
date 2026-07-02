@@ -67,7 +67,7 @@ for compatibility (but this is only kept for stuff which are consumed by houses 
 #define FREE_INDEX_55 63
 
 /*
-FRAX cargo conversion table
+FRAX cargo class conversion table
 bit | OTTD              | FRAX
   0 | CC_PASSENGERS     | CC_PASSENGERS
   1 | CC_MAIL           | CC_MAIL

@@ -14,7 +14,7 @@ item(FEAT_CARGOS, cargo_petrol, PETR_INDEX) {
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PETR_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PETR_INDEX);
         is_freight: 1;
-        cargo_classes: bitmask(CC_LIQUID, CC_NON_POTABLE);
+        cargo_classes: bitmask(CC_LIQUID_BULK, CC_NON_POTABLE);
         cargo_label: "PETR";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;

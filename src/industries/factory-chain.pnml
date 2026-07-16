@@ -1,25 +1,25 @@
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
+        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_FOUNDRY);
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
         location_factory_chain_distance_iron_ore_mine;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
+        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
         location_factory_chain_distance_steel_mill;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
+        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
         location_factory_chain_distance_copper_ore_mine;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_factory, industry_distance(FACTORY_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_FACTORY);
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
         location_factory_chain_distance_rubber_plantation;
 }
 

@@ -1,5 +1,5 @@
 switch (FEAT_INDUSTRIES, SELF, location_tourist_chain_distance_resort, industry_distance(RESORT_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_RESORT);
+        0..36: return string(STR_ERR_LOCATION_RESORT);
         CB_RESULT_LOCATION_ALLOW;
 }
 

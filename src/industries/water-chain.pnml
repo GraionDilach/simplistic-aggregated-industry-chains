@@ -1,10 +1,10 @@
 switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_supply, industry_distance(WATER_SUPPLY_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_WATER_SUPPLY);
+        0..36: return string(STR_ERR_LOCATION_WATER_SUPPLY);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_tower, industry_distance(WATER_TOWER_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_WATER_TOWER);
+        0..36: return string(STR_ERR_LOCATION_WATER_TOWER);
         location_water_chain_distance_supply;
 }
 

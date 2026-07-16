@@ -1,25 +1,25 @@
 switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_candyfloss_forest, industry_distance(CANDYFLOSS_FOREST_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_CANDYFLOSS_FOREST);
+        0..36: return string(STR_ERR_LOCATION_CANDYFLOSS_FOREST);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_sugar_mine, industry_distance(SUGAR_MINE_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_SUGAR_MINE);
+        0..36: return string(STR_ERR_LOCATION_SUGAR_MINE);
         location_candy_chain_distance_candyfloss_forest;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_toffee_quarry, industry_distance(TOFFEE_QUARRY_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_TOFFEE_QUARRY);
+        0..36: return string(STR_ERR_LOCATION_TOFFEE_QUARRY);
         location_candy_chain_distance_sugar_mine;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_candy_factory, industry_distance(CANDY_FACTORY_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_CANDY_FACTORY);
+        0..36: return string(STR_ERR_LOCATION_CANDY_FACTORY);
         location_candy_chain_distance_toffee_quarry;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_candy_chain_distance_shop, industry_distance(SHOP_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_SHOP);
+        0..36: return string(STR_ERR_LOCATION_SHOP);
         location_candy_chain_distance_candy_factory;
 }
 

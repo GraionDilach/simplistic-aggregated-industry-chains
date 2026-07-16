@@ -1,20 +1,20 @@
 switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_farm, industry_distance(FARM_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_FARM);
+        0..36: return string(STR_ERR_LOCATION_FARM);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_fruit_plantation, industry_distance(FRUIT_PLANTATION_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_FRUIT_PLANTATION);
+        0..36: return string(STR_ERR_LOCATION_FRUIT_PLANTATION);
         location_food_chain_distance_farm;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_food_processing_plant, industry_distance(FOOD_PROCESSING_PLANT_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_FOOD_PROCESSING_PLANT);
+        0..36: return string(STR_ERR_LOCATION_FOOD_PROCESSING_PLANT);
         location_food_chain_distance_fruit_plantation;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_shop, industry_distance(SHOP_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_SHOP);
+        0..36: return string(STR_ERR_LOCATION_SHOP);
         location_food_chain_distance_food_processing_plant;
 }
 

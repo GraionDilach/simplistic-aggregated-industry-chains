@@ -1,15 +1,15 @@
 switch (FEAT_INDUSTRIES, SELF, location_valuables_chain_distance_diamond_mine, industry_distance(DIAMOND_MINE_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_DIAMOND_MINE);
+        0..36: return string(STR_ERR_LOCATION_DIAMOND_MINE);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_valuables_chain_distance_gold_mine, industry_distance(GOLD_MINE_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_GOLD_MINE);
+        0..36: return string(STR_ERR_LOCATION_GOLD_MINE);
         location_valuables_chain_distance_diamond_mine;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_valuables_chain_distance_treasury, industry_distance(TREASURY_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_TREASURY);
+        0..36: return string(STR_ERR_LOCATION_TREASURY);
         location_valuables_chain_distance_gold_mine;
 }
 

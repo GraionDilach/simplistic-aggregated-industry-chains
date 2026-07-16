@@ -1,20 +1,20 @@
 switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_battery_farm, industry_distance(BATTERY_FARM_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_BATTERY_FARM);
+        0..36: return string(STR_ERR_LOCATION_BATTERY_FARM);
         CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_plastic_fountains, industry_distance(PLASTIC_FOUNTAINS_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_PLASTIC_FOUNTAINS);
+        0..36: return string(STR_ERR_LOCATION_PLASTIC_FOUNTAINS);
         location_toy_chain_distance_battery_farm;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_toy_factory, industry_distance(TOY_FACTORY_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_TOY_FACTORY);
+        0..36: return string(STR_ERR_LOCATION_TOY_FACTORY);
         location_toy_chain_distance_plastic_fountains;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_toy_chain_distance_toy_shop, industry_distance(TOY_SHOP_INDEX)) {
-        0..24: return string(STR_ERR_LOCATION_TOY_SHOP);
+        0..36: return string(STR_ERR_LOCATION_TOY_SHOP);
         location_toy_chain_distance_toy_factory;
 }
 

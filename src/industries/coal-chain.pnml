@@ -86,13 +86,7 @@ spritelayout spritelayout_power_plant_tile_4
         hide_sprite: construction_state == 0;
     }
     childsprite {
-        sprite: animation_frame == 0 ? 2054
-              : animation_frame == 1 ? 2055
-              : animation_frame == 2 ? 2056
-              : animation_frame == 3 ? 2057
-              : animation_frame == 4 ? 2058
-              : animation_frame == 5 ? 2059
-                                     : 2060;
+        sprite: 2054 + animation_frame;
         hide_sprite: construction_state != 3 || animation_frame == 0;
     }
 }

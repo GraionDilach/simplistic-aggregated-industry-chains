@@ -520,6 +520,6 @@ item(FEAT_INDUSTRIES, industry_lumber_mill, LUMBER_MILL_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_LUMBER_MILL_STATION_NAME);
     }
     graphics {
-        location_check: location_wood_chain_distance_printing_works;
+        location_check: location_wood_chain_forest_no_desert;
     }
 }

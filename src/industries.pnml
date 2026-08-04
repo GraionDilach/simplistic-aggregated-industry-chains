@@ -103,6 +103,7 @@ disable_item(FEAT_INDUSTRIES);
 #define TOY_FACTORY_INDEX           32
 #define TOY_SHOP_INDEX              33
 #define RESORT_INDEX                34
+#define RANCH_INDEX                 35
 
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"

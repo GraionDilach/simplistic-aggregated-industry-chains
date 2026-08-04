@@ -18,15 +18,20 @@ switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_shop, industry_dista
         location_food_chain_distance_food_processing_plant;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_food_chain_distance_ranch, industry_distance(RANCH_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RANCH);
+        location_food_chain_distance_shop;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_food_chain_no_desert, nearby_tile_terrain_type(0, 0)) {
         TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
-        location_food_chain_distance_shop;
+        location_food_chain_distance_ranch;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_food_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
         TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
         TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
-        location_food_chain_distance_shop;
+        location_food_chain_distance_ranch;
 }
 
 item(FEAT_INDUSTRYTILES, farm_tile_1) {
@@ -75,7 +80,6 @@ item(FEAT_INDUSTRYTILES, farm_tile_5) {
 }
 
 // animal kennel
-/*
 item(FEAT_INDUSTRYTILES, farm_tile_6) {
     property {
         substitute: 38;
@@ -84,7 +88,6 @@ item(FEAT_INDUSTRYTILES, farm_tile_6) {
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
 }
-*/
 
 tilelayout farm_layout_1 {
     0, 0: farm_tile_5;
@@ -133,8 +136,7 @@ item(FEAT_INDUSTRIES, industry_farm, FARM_INDEX) {
         substitute: 9;
         override: 9;
         cargo_types: [
-            produce_cargo("GRAI", 10),
-            produce_cargo("LVST", 10)
+            produce_cargo("GRAI", 10)
         ];
         layouts: [farm_layout_1, farm_layout_2, farm_layout_3];
         random_sound_effects: [];
@@ -304,5 +306,60 @@ item(FEAT_INDUSTRIES, industry_food_processing_plant, FOOD_PROCESSING_PLANT_INDE
     }
     graphics {
        location_check: location_food_chain_distance_shop;
+    }
+}
+
+tilelayout ranch_layout_1 {
+    0, 0: farm_tile_1;
+    0, 1: farm_tile_2;
+    0, 2: farm_tile_4;
+    1, 0: farm_tile_6;
+    1, 1: farm_tile_6;
+    1, 2: farm_tile_3;
+}
+
+tilelayout ranch_layout_2 {
+    0, 0: farm_tile_6;
+    0, 1: farm_tile_6;
+    0, 2: farm_tile_4;
+    1, 0: farm_tile_1;
+    1, 1: farm_tile_2;
+    1, 2: farm_tile_3;
+    2, 0: farm_tile_4;
+    2, 1: farm_tile_3;
+    2, 2: farm_tile_6;
+}
+
+tilelayout ranch_layout_3 {
+    0, 0: farm_tile_3;
+    0, 1: farm_tile_1;
+    0, 2: farm_tile_2;
+    0, 3: farm_tile_4;
+    1, 0: farm_tile_6;
+    1, 1: farm_tile_6;
+    1, 2: farm_tile_6;
+    1, 3: farm_tile_6;
+}
+
+item(FEAT_INDUSTRIES, industry_ranch, RANCH_INDEX) {
+    property {
+        substitute: 24;
+        override: 24;
+        name: string(STR_INDUSTRY_RANCH_NAME);
+        nearby_station_name: string(STR_INDUSTRY_RANCH_STATION_NAME);
+        layouts: [ranch_layout_1, ranch_layout_2, ranch_layout_3];
+        random_sound_effects: [SOUND_FARM_1, SOUND_FARM_2, SOUND_FARM_3];
+        cargo_types: [
+            produce_cargo("LVST", 10)
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, RANCH_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_RANCH_STATION_NAME);
+        spec_flags: 0;
+    }
+    graphics {
+       location_check: location_food_chain_no_desert_not_above_snowline;
     }
 }

@@ -25,7 +25,7 @@ item(FEAT_CARGOS, cargo_passenger, PASS_INDEX) {
         town_growth_multiplier: 1;
         penalty_lowerbound: 0;
         single_penalty_length: 24;
-        price_factor: CONVERT_PRICE_FACTOR(3185);
+        price_factor: 137; // CONVERT_PRICE_FACTOR(3185); // 77.45
         capacity_multiplier: 4;
         number: PASS_INDEX;
     }
@@ -53,7 +53,7 @@ item(FEAT_CARGOS, cargo_coal, COAL_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 40;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5916);
+        price_factor: CONVERT_PRICE_FACTOR(5916); // 143.86
         capacity_multiplier: 1;
     }
 }
@@ -77,7 +77,7 @@ item(FEAT_CARGOS, cargo_mail, MAIL_INDEX) {
         town_growth_multiplier: 0.5;
         penalty_lowerbound: 20;
         single_penalty_length: 90;
-        price_factor: CONVERT_PRICE_FACTOR(4550);
+        price_factor: 167; // CONVERT_PRICE_FACTOR(4550); //110.65
         capacity_multiplier: 2;
     }
 }
@@ -101,8 +101,8 @@ item(FEAT_CARGOS, cargo_oil, OIL__INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(4437); // Temperate
-        // price_factor: CONVERT_PRICE_FACTOR(4892); // Tropic
+        price_factor: CONVERT_PRICE_FACTOR(4437); // 107.90 // Temperate
+        // price_factor: CONVERT_PRICE_FACTOR(4892); // 118.96 // Tropic
         capacity_multiplier: 1;
     }
 }
@@ -126,7 +126,7 @@ item(FEAT_CARGOS, cargo_livestock, LVST_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 4;
         single_penalty_length: 18;
-        price_factor: CONVERT_PRICE_FACTOR(4322);
+        price_factor: 122; // CONVERT_PRICE_FACTOR(4322); //105.10
         capacity_multiplier: 1;
     }
 }
@@ -148,9 +148,9 @@ item(FEAT_CARGOS, cargo_goods, GOOD_INDEX) {
         cargo_label: "GOOD";
         town_growth_effect: TOWNGROWTH_GOODS;
         town_growth_multiplier: 1;
-        penalty_lowerbound: 10;
+        penalty_lowerbound: 80; //10;
         single_penalty_length: 56;
-        price_factor: CONVERT_PRICE_FACTOR(6144);
+        price_factor: 169; //CONVERT_PRICE_FACTOR(6144); //149.41
         capacity_multiplier: 1;
     }
 }
@@ -174,7 +174,7 @@ item(FEAT_CARGOS, cargo_grain, GRAI_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 4;
         single_penalty_length: 40;
-        price_factor: CONVERT_PRICE_FACTOR(4778);
+        price_factor: CONVERT_PRICE_FACTOR(4778); //116.19
         capacity_multiplier: 1;
     }
 }
@@ -198,7 +198,8 @@ item(FEAT_CARGOS, cargo_wood, WOOD_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 25;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5005);
+        price_factor: CONVERT_PRICE_FACTOR(5005); //121.71 //Temperate-Arctic
+        // price_factor: CONVERT_PRICE_FACTOR(7964); //193.67 //Tropic
         capacity_multiplier: 1;
     }
 }
@@ -222,7 +223,7 @@ item(FEAT_CARGOS, cargo_iron_ore, IORE_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 40;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5120);
+        price_factor: CONVERT_PRICE_FACTOR(5120); //124.51
         capacity_multiplier: 1;
     }
 }
@@ -244,9 +245,9 @@ item(FEAT_CARGOS, cargo_steel, STEL_INDEX) {
         cargo_label: "STEL";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 14;
+        penalty_lowerbound: 60; //14;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5688);
+        price_factor: CONVERT_PRICE_FACTOR(5688); //138.32
         capacity_multiplier: 1;
     }
 }
@@ -270,7 +271,8 @@ item(FEAT_CARGOS, cargo_valuables, VALU_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(7509);
+        price_factor: CONVERT_PRICE_FACTOR(7964); //193.67 //Wood - Tropic
+        // price_factor: CONVERT_PRICE_FACTOR(7509); //182.60 // TTD
         capacity_multiplier: 2;
     }
 }
@@ -294,7 +296,7 @@ item(FEAT_CARGOS, cargo_paper, PAPR_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 12;
         single_penalty_length: 60;
-        price_factor: CONVERT_PRICE_FACTOR(5461);
+        price_factor: 143; // CONVERT_PRICE_FACTOR(5461); //132.80
         capacity_multiplier: 1;
     }
 }
@@ -318,7 +320,7 @@ item(FEAT_CARGOS, cargo_gold, GOLD_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5802);
+        price_factor: 152; //CONVERT_PRICE_FACTOR(5802); //141.09
         capacity_multiplier: 2;
     }
 }
@@ -342,7 +344,7 @@ item(FEAT_CARGOS, cargo_food, FOOD_INDEX) {
         town_growth_multiplier: 1;
         penalty_lowerbound: 0;
         single_penalty_length: 30;
-        price_factor: CONVERT_PRICE_FACTOR(5688);
+        price_factor: 168; //CONVERT_PRICE_FACTOR(5688); //138.32
         capacity_multiplier: 1;
     }
 }
@@ -364,9 +366,9 @@ item(FEAT_CARGOS, cargo_rubber, RUBR_INDEX) {
         cargo_label: "RUBR";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 2;
-        single_penalty_length: 20;
-        price_factor: CONVERT_PRICE_FACTOR(4437);
+        penalty_lowerbound: 10; //2;
+        single_penalty_length: 36; //20;
+        price_factor: 110; //CONVERT_PRICE_FACTOR(4437); //107.90
         capacity_multiplier: 1;
     }
 }
@@ -389,8 +391,8 @@ item(FEAT_CARGOS, cargo_fruit, FRUT_INDEX) {
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
         penalty_lowerbound: 0;
-        single_penalty_length: 15;
-        price_factor: CONVERT_PRICE_FACTOR(4209);
+        single_penalty_length: 26; //15;
+        price_factor: 124; //CONVERT_PRICE_FACTOR(4209); //102.35
         capacity_multiplier: 1;
     }
 }
@@ -412,9 +414,9 @@ item(FEAT_CARGOS, cargo_copper_ore, CORE_INDEX) {
         cargo_label: "CORE";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 12;
+        penalty_lowerbound: 30; //12;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(4892);
+        price_factor: CONVERT_PRICE_FACTOR(4892); //118.96
         capacity_multiplier: 1;
     }
 }
@@ -438,7 +440,7 @@ item(FEAT_CARGOS, cargo_water, WATR_INDEX) {
         town_growth_multiplier: 1;
         penalty_lowerbound: 20;
         single_penalty_length: 80;
-        price_factor: CONVERT_PRICE_FACTOR(4664);
+        price_factor: CONVERT_PRICE_FACTOR(4664); //113.42
         capacity_multiplier: 1;
     }
 }
@@ -460,9 +462,10 @@ item(FEAT_CARGOS, cargo_diamond, DIAM_INDEX) {
         cargo_label: "DIAM";
         town_growth_effect: TOWNGROWTH_NONE;
         town_growth_multiplier: 0;
-        penalty_lowerbound: 10;
+        penalty_lowerbound: 30; //10;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5882);
+        price_factor: CONVERT_PRICE_FACTOR(5882); //143.04
+        //FIRS has a price factor of 179 on this one which is huge
         capacity_multiplier: 2;
     }
 }

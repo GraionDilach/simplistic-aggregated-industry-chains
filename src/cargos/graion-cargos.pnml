@@ -52,7 +52,7 @@ item(FEAT_CARGOS, cargo_tourist, TOUR_INDEX) {
         town_production_effect: TOWNPRODUCTION_PASSENGERS;
         town_production_multiplier: 0.125;
         penalty_lowerbound: 0;
-        single_penalty_length: 15; // 2/3 passenger value as tourists are usually in a hurry
+        single_penalty_length: 16; // 2/3 passenger value as tourists are usually in a hurry
         price_factor: 191.8; // PASS*1.4
         capacity_multiplier: 2.67;
         number: TOUR_INDEX;

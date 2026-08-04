@@ -17,7 +17,7 @@ item(FEAT_CARGOS, cargo_sugar, SUGR_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 20;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(4437);
+        price_factor: CONVERT_PRICE_FACTOR(4437); //107.90
         capacity_multiplier: 1;
     }
 }
@@ -41,7 +41,8 @@ item(FEAT_CARGOS, cargo_toys, TOYS_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 25;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5574);
+        price_factor: CONVERT_PRICE_FACTOR(7509); //182.60 // TTD Valuables
+        //price_factor: CONVERT_PRICE_FACTOR(5574); //135.55
         capacity_multiplier: 1;
     }
 }
@@ -65,7 +66,7 @@ item(FEAT_CARGOS, cargo_batteries, BATT_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 25;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(4322);
+        price_factor: CONVERT_PRICE_FACTOR(4322); //105.10
         capacity_multiplier: 1;
     }
 }
@@ -89,7 +90,7 @@ item(FEAT_CARGOS, cargo_candy, SWET_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 8;
         single_penalty_length: 40;
-        price_factor: CONVERT_PRICE_FACTOR(6144);
+        price_factor: CONVERT_PRICE_FACTOR(6144); //149.41
         capacity_multiplier: 2;
     }
 }
@@ -113,7 +114,7 @@ item(FEAT_CARGOS, cargo_toffee, TOFF_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 14;
         single_penalty_length: 60;
-        price_factor: CONVERT_PRICE_FACTOR(4778);
+        price_factor: CONVERT_PRICE_FACTOR(4778); //116.19
         capacity_multiplier: 1;
     }
 }
@@ -137,7 +138,7 @@ item(FEAT_CARGOS, cargo_cola, COLA_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 5;
         single_penalty_length: 75;
-        price_factor: CONVERT_PRICE_FACTOR(4892);
+        price_factor: CONVERT_PRICE_FACTOR(4892); //118.96
         capacity_multiplier: 1;
     }
 }
@@ -161,7 +162,7 @@ item(FEAT_CARGOS, cargo_cotton_candy, CTCD_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 10;
         single_penalty_length: 25;
-        price_factor: CONVERT_PRICE_FACTOR(5005);
+        price_factor: CONVERT_PRICE_FACTOR(5005); //121.71
         capacity_multiplier: 1;
     }
 }
@@ -185,7 +186,7 @@ item(FEAT_CARGOS, cargo_bubbles, BUBL_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 20;
         single_penalty_length: 80;
-        price_factor: CONVERT_PRICE_FACTOR(5077);
+        price_factor: CONVERT_PRICE_FACTOR(5077); //123.46
         capacity_multiplier: 1;
     }
 }
@@ -209,7 +210,7 @@ item(FEAT_CARGOS, cargo_plastic, PLST_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(4664);
+        price_factor: CONVERT_PRICE_FACTOR(4664); //113.42
         capacity_multiplier: 1;
     }
 }
@@ -233,7 +234,7 @@ item(FEAT_CARGOS, cargo_fizzy_drinks, FZDR_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 30;
         single_penalty_length: 5;
-        price_factor: CONVERT_PRICE_FACTOR(6250);
+        price_factor: CONVERT_PRICE_FACTOR(6250); //151.99
         capacity_multiplier: 1;
     }
 }

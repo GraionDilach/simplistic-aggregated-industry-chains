@@ -105,6 +105,10 @@ disable_item(FEAT_INDUSTRIES);
 #define RESORT_INDEX                34
 #define RANCH_INDEX                 35
 
+switch (FEAT_INDUSTRYTILES, PARENT, return_counter, counter) { return; }
+
+switch (FEAT_INDUSTRYTILES, SELF, switch_industrytile_empty, animation_frame) { return; }
+
 #include "industries/coal-chain.pnml"
 #include "industries/wood-chain.pnml"
 #include "industries/oil-chain.pnml"

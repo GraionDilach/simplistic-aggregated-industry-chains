@@ -29,6 +29,77 @@ switch (FEAT_INDUSTRIES, SELF, location_candy_chain_no_desert_not_above_snowline
         location_candy_chain_distance_shop;
 }
 
+spriteset(candyfloss_forest_sprite) {
+    [ 0, 0, 64, 71, -31, -40, "gfx/candyfloss/candyfloss_0.png" ]
+    [ 0, 0, 64, 71, -31, -40, "gfx/candyfloss/candyfloss_1.png" ]
+    [ 0, 0, 64, 71, -31, -40, "gfx/candyfloss/candyfloss_2.png" ]
+    [ 0, 0, 64, 71, -31, -40, "gfx/candyfloss/candyfloss_3.png" ]
+    [ 0, 0, 64, 71, -31, -40, "gfx/candyfloss/candyfloss_4.png" ]
+}
+
+spritelayout candyfloss_forest_tile_1_spritelayout {
+    ground   {
+        sprite: GROUNDSPRITE_NORMAL;
+    }
+    building {
+        sprite: candyfloss_forest_sprite(animation_frame / 2);
+    }
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_anim_next_iterate, animation_frame) {
+    0..4: return animation_frame + 1;
+    5..7: return 6;
+    8: return animation_frame + 1;
+    9: return 0;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_anim_next, construction_state) {
+    3: return candyfloss_forest_tile_1_anim_next_iterate;
+    0..2: return 2 * construction_state;
+}
+
+random_switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_random_harvest) {
+    1: return 0;
+    1: return 1;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_harvest,
+                            ((return_counter() / 256) + candyfloss_forest_tile_1_random_harvest() + relative_x + relative_y) % 2) {
+    1: return 8;
+    return animation_frame;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_check_harvest, animation_frame) {
+    6: return candyfloss_forest_tile_1_harvest;
+    return animation_frame;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_anim_control, getbits(extra_callback_info2, 0, 8)) {
+    ANIM_TRIGGER_INDTILE_TILE_LOOP: candyfloss_forest_tile_1_anim_next;
+    ANIM_TRIGGER_INDTILE_CONSTRUCTION_STATE: candyfloss_forest_tile_1_anim_next;
+    ANIM_TRIGGER_INDTILE_DISTRIBUTES_CARGO: candyfloss_forest_tile_1_check_harvest;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, candyfloss_forest_tile_1_random_trigger, animation_frame) {
+    6: return bitmask(TRIGGER_INDUSTRYTILE_TILELOOP);
+    return 0;
+}
+
+item(FEAT_INDUSTRYTILES, candyfloss_forest_tile_1) {
+    property {
+        substitute:         129;
+        override:           129;
+        animation_info:     [ANIMATION_NON_LOOPING, 10];
+        animation_triggers: bitmask(ANIM_TRIGGER_INDTILE_DISTRIBUTES_CARGO, ANIM_TRIGGER_INDTILE_CONSTRUCTION_STATE, ANIM_TRIGGER_INDTILE_TILE_LOOP);
+    }
+    graphics {
+        anim_next_frame: switch_industrytile_empty;
+        anim_control: candyfloss_forest_tile_1_anim_control;
+        random_trigger: candyfloss_forest_tile_1_random_trigger;
+        candyfloss_forest_tile_1_spritelayout;
+    }
+}
+
 if (enable_converted_toyland)
 {
     item(FEAT_INDUSTRIES, industry_candyfloss_forest, CANDYFLOSS_FOREST_INDEX) {

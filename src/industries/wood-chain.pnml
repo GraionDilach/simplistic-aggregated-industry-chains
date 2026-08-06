@@ -36,6 +36,7 @@ tree_base_sprite = (climate == CLIMATE_TROPICAL) ? 1870 : 1709;
 /* OpenGFX+ Trees uses different tree sprites. Choose another
  * one which looks better as forest tree sprite
  */
+
 if (grf_future_status("\46\72\78\06")) {
     tree_base_sprite = (climate == CLIMATE_TROPICAL) ? 1870 : 1716;
 }
@@ -197,24 +198,12 @@ item(FEAT_INDUSTRYTILES, forest_tile_1) {
             forest_tile_1_graphics_switch;
     }
 }
-//sawmill building 1
+
+// sawmill building 2
+// needs to be redefined to delete Wood acceptance
 item(FEAT_INDUSTRYTILES, forest_tile_2) {
     property {
-        substitute:         11;
-        accepted_cargos:    [[PASS, 1]];
-    }
-}
-// sawmill building 2
-item(FEAT_INDUSTRYTILES, forest_tile_3) {
-    property {
         substitute:         13;
-        accepted_cargos:    [[PASS, 1]];
-    }
-}
-//logs
-item(FEAT_INDUSTRYTILES, forest_tile_4) {
-    property {
-        substitute:         14;
         accepted_cargos:    [[PASS, 1]];
     }
 }
@@ -236,8 +225,8 @@ tilelayout forest_layout_1 {
     3, 1: forest_tile_1;
     3, 2: forest_tile_1;
     3, 3: forest_tile_1;
-    1, 4: forest_tile_2;
-    2, 4: forest_tile_4;
+    1, 4: 11;
+    2, 4: 14;
 }
 
 tilelayout forest_layout_2 {
@@ -261,9 +250,9 @@ tilelayout forest_layout_2 {
     2, 3: forest_tile_1;
     3, 3: forest_tile_1;
     4, 3: forest_tile_1;
-    1, 4: forest_tile_2;
-    2, 4: forest_tile_4;
-    3, 4: forest_tile_3;
+    1, 4: 11;
+    2, 4: 14;
+    3, 4: forest_tile_2;
 }
 
 item(FEAT_INDUSTRIES, industry_forest, FOREST_INDEX) {

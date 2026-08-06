@@ -24,7 +24,7 @@ switch (FEAT_INDUSTRIES, SELF, location_toy_shop_count, industry_town_count(TOY_
 }
 
 switch (FEAT_INDUSTRIES, PARENT, location_toy_shop_count_population, population) {
-        0..750: return string(STR_ERR_LOCATION_TOY_SHOP);
+        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
         return location_toy_shop_count;
 }
 

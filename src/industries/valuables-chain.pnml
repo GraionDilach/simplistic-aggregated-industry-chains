@@ -19,7 +19,7 @@ switch (FEAT_INDUSTRIES, SELF, location_treasury_count, industry_town_count(TREA
 }
 
 switch (FEAT_INDUSTRIES, PARENT, location_treasury_count_population, population) {
-        0..750: return string(STR_ERR_LOCATION_TREASURY);
+        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
         return location_treasury_count;
 }
 

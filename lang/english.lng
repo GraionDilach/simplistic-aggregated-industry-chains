@@ -27,6 +27,7 @@ STR_ABBREV_TOURIST                          :{TINYFONT}TR
 
 STR_ERR_BELOW_SNOWLINE_ONLY                         :... can only be built below the snowline
 STR_ERR_NO_DESERT_ONLY                              :... cannot be built in desert areas
+STR_ERR_TOO_SMALL_TOWN                              :... town is too small for this industry
 
 STR_INDUSTRY_COAL_MINE_STATION_NAME                 :{STRING} Coal Mine
 STR_ERR_LOCATION_COAL_MINE                          :... too close to another Coal Mine

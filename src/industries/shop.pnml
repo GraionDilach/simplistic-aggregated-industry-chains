@@ -96,8 +96,7 @@ item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
         cargo_types: [
             accept_cargo("FOOD"),
             accept_cargo("PETR"),
-            accept_cargo("SWET"),
-            accept_cargo("FZDR")
+            accept_cargo("SWET")
         ];
         prob_map_gen: 6;
         prob_in_game: 3;

@@ -13,8 +13,8 @@ switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_fizzy_drink_f
         location_fizzy_drink_chain_distance_bubble_generator;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_shop, industry_distance(SHOP_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_SHOP);
+switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
         location_fizzy_drink_chain_distance_fizzy_drink_factory;
 }
 
@@ -34,7 +34,7 @@ if (enable_converted_toyland)
             nearby_station_name: string(STR_INDUSTRY_COLA_WELLS_STATION_NAME);
         }
         graphics {
-           location_check: location_fizzy_drink_chain_distance_shop;
+           location_check: location_fizzy_drink_chain_distance_teahouse;
         }
     }
 }
@@ -55,7 +55,7 @@ if (enable_converted_toyland)
             nearby_station_name: string(STR_INDUSTRY_BUBBLE_GENERATOR_STATION_NAME);
         }
         graphics {
-           location_check: location_fizzy_drink_chain_distance_shop;
+           location_check: location_fizzy_drink_chain_distance_teahouse;
         }
     }
 }
@@ -121,7 +121,7 @@ if (enable_converted_toyland)
             nearby_station_name: string(STR_INDUSTRY_FIZZY_DRINK_FACTORY_STATION_NAME);
         }
         graphics {
-           location_check: location_fizzy_drink_chain_distance_shop;
+           location_check: location_fizzy_drink_chain_distance_teahouse;
         }
     }
 }

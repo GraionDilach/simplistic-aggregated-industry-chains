@@ -1,0 +1,82 @@
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_count, industry_town_count(TEAHOUSE_INDEX)) {
+        0: location_fizzy_drink_chain_distance_fizzy_drink_factory;
+        return string(STR_ERR_LOCATION_TEAHOUSE);
+}
+
+switch (FEAT_INDUSTRIES, PARENT, location_teahouse_count_population, population) {
+        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
+        return location_teahouse_count;
+}
+
+spriteset (teahouse_ground) {
+    [ -31, -8, "gfx/teahouse/teahouse-ground-stage0.png"]
+    [ -31, -8, "gfx/teahouse/teahouse-ground-stage1.png"]
+    [ -31, -8, "gfx/teahouse/teahouse-ground.png"]
+}
+
+spriteset (teahouse_building) {
+    sprite_null()
+    [ -31, -8, "gfx/teahouse/teahouse-stage1.png"]
+    [ -31, -8, "gfx/teahouse/teahouse.png"]
+}
+
+#define SPRITELAYOUT_teahouse_TILE_1(recolorpalette) \
+spritelayout spritelayout_teahouse_tile_1_##recolorpalette { \
+    ground { \
+        sprite: GROUNDSPRITE_CONCRETE; \
+    } \
+    childsprite { \
+        sprite: teahouse_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: teahouse_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_teahouse_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_teahouse_tile_1)
+
+item(FEAT_INDUSTRYTILES, teahouse_tile_1) {
+    property {
+        substitute: 120;
+        accepted_cargos: [[PASS, 8], [GOOD, 4]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+        land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+    }
+    graphics {
+        spritelayout_teahouse_tile_1_select_color;
+    }
+}
+
+tilelayout teahouse_layout {
+    0, 0: teahouse_tile_1;
+}
+
+item(FEAT_INDUSTRIES, industry_teahouse, TEAHOUSE_INDEX) {
+    property {
+        substitute: 22;
+        name: string(STR_INDUSTRY_TEAHOUSE_NAME);
+        layouts: [teahouse_layout];
+        cargo_types: [
+            accept_cargo("FZDR")
+        ];
+        prob_map_gen: 6;
+        prob_in_game: 3;
+        life_type:                      IND_LIFE_TYPE_BLACK_HOLE;
+        fund_cost_multiplier:           100;
+        spec_flags:                     bitmask(IND_FLAG_ONLY_IN_TOWNS);
+        prospect_chance:                1;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TEAHOUSE_INDEX);
+        nearby_station_name:            string(STR_INDUSTRY_TEAHOUSE_STATION_NAME);
+    }
+    graphics {
+        location_check: location_teahouse_count_population;
+    }
+}

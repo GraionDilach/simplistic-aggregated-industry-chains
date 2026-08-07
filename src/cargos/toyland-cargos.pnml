@@ -127,7 +127,7 @@ item(FEAT_CARGOS, cargo_cola, COLA_INDEX) {
         units_of_cargo: TTD_STR_LITERS;
         items_of_cargo: TTD_STR_QUANTITY_COLA;
         type_abbreviation: TTD_STR_ABBREV_COLA;
-        sprite: 4310; // vanilla
+        sprite: NEW_CARGO_SPRITE; // vanilla is shared with water, split off
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COLA_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COLA_INDEX);
@@ -140,6 +140,9 @@ item(FEAT_CARGOS, cargo_cola, COLA_INDEX) {
         single_penalty_length: 75;
         price_factor: CONVERT_PRICE_FACTOR(4892); //118.96
         capacity_multiplier: 1;
+    }
+    graphics {
+        cargoicon_cola;
     }
 }
 

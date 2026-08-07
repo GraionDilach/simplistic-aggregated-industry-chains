@@ -232,4 +232,5 @@ if (enable_converted_toyland)
 #include "cargos/toyland-cargos.pnml"
 }
 
+#include "cargos/tea-tea-deluxe-cargos.pnml"
 #include "cargos/graion-cargos.pnml"

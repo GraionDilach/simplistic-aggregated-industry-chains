@@ -65,6 +65,7 @@ item(FEAT_INDUSTRIES, industry_teahouse, TEAHOUSE_INDEX) {
         name: string(STR_INDUSTRY_TEAHOUSE_NAME);
         layouts: [teahouse_layout];
         cargo_types: [
+            accept_cargo("TEAB"),
             accept_cargo("FZDR")
         ];
         prob_map_gen: 6;

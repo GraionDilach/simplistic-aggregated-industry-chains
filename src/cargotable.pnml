@@ -139,6 +139,12 @@ cargotable
 	#define PLST_INDEX    FREE_INDEX_21
 	#define FZDR_INDEX    FREE_INDEX_22
 
+	// Tea Tea Deluxe cargos
+	TEAL, TEAB,
+
+	#define TEAL_INDEX    FREE_INDEX_23
+	#define TEAB_INDEX    FREE_INDEX_24
+
 	// ECS inherited Graion cargos
 	PETR, TOUR
 

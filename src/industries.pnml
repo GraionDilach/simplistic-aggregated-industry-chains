@@ -104,6 +104,9 @@ disable_item(FEAT_INDUSTRIES);
 #define TOY_SHOP_INDEX              33
 #define RESORT_INDEX                34
 #define RANCH_INDEX                 35
+#define TEA_TREE_FARM_INDEX         36
+#define TEA_FACTORY_INDEX           37
+#define TEAHOUSE_INDEX              38
 
 switch (FEAT_INDUSTRYTILES, PARENT, return_counter, counter) { return; }
 

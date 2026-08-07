@@ -78,7 +78,7 @@ spritelayout shop_tile_1_layout {
 
 item(FEAT_INDUSTRYTILES, shop_tile_1) {
     property {
-        substitute: 0x00;
+        substitute: 120;
         accepted_cargos: [[PASS, 7], [GOOD, 4]];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
         land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);

@@ -1,12 +1,205 @@
+switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
+        location_tea_chain_distance_tea_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
+        location_fizzy_drink_chain_distance_fizzy_drink_factory;
+}
 
 switch (FEAT_INDUSTRIES, SELF, location_teahouse_count, industry_town_count(TEAHOUSE_INDEX)) {
-        0: location_fizzy_drink_chain_distance_fizzy_drink_factory;
+        0: location_teahouse_distance_tea_factory;
         return string(STR_ERR_LOCATION_TEAHOUSE);
 }
 
 switch (FEAT_INDUSTRIES, PARENT, location_teahouse_count_population, population) {
         0..750: return string(STR_ERR_TOO_SMALL_TOWN);
         return location_teahouse_count;
+}
+
+spriteset (tea_factory_tile1_building) {
+    [-31, -11, "gfx/tea_factory/tile1.png"]
+}
+
+#define SPRITELAYOUT_tea_factory_TILE_1(recolorpalette) \
+spritelayout spritelayout_tea_factory_tile_1_##recolorpalette { \
+    ground { \
+        sprite: GROUNDSPRITE_CONCRETE; \
+    } \
+    building { \
+        sprite: tea_factory_tile1_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_factory_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_factory_tile_1)
+
+item(FEAT_INDUSTRYTILES, tea_factory_tile_1) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_factory_tile_1_select_color;
+    }
+}
+
+spriteset (tea_factory_tile2_building) {
+    [-31, -11, "gfx/tea_factory/tile2.png"]
+}
+
+#define SPRITELAYOUT_tea_factory_TILE_2(recolorpalette) \
+spritelayout spritelayout_tea_factory_tile_2_##recolorpalette { \
+    ground { \
+        sprite: GROUNDSPRITE_CONCRETE; \
+    } \
+    building { \
+        sprite: tea_factory_tile2_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_factory_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_factory_tile_2)
+
+item(FEAT_INDUSTRYTILES, tea_factory_tile_2) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_factory_tile_2_select_color;
+    }
+}
+
+spriteset (tea_factory_tile3_building) {
+    [-31, -11, "gfx/tea_factory/tile3.png"]
+}
+
+#define SPRITELAYOUT_tea_factory_TILE_3(recolorpalette) \
+spritelayout spritelayout_tea_factory_tile_3_##recolorpalette { \
+    ground { \
+        sprite: GROUNDSPRITE_CONCRETE; \
+    } \
+    building { \
+        sprite: tea_factory_tile3_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_factory_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_factory_tile_3)
+
+item(FEAT_INDUSTRYTILES, tea_factory_tile_3) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_factory_tile_3_select_color;
+    }
+}
+
+spriteset (tea_factory_tile4_building) {
+    [-31, -11, "gfx/tea_factory/tile4.png"]
+}
+
+#define SPRITELAYOUT_tea_factory_TILE_4(recolorpalette) \
+spritelayout spritelayout_tea_factory_tile_4_##recolorpalette { \
+    ground { \
+        sprite: GROUNDSPRITE_CONCRETE; \
+    } \
+    building { \
+        sprite: tea_factory_tile4_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_factory_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_factory_tile_4)
+
+item(FEAT_INDUSTRYTILES, tea_factory_tile_4) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_factory_tile_4_select_color;
+    }
+}
+
+spritelayout spritelayout_tea_factory_tile_5 {
+	ground {
+        sprite: GROUNDSPRITE_CONCRETE;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, tea_factory_tile_5) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_factory_tile_5;
+    }
+}
+
+tilelayout tea_factory_layout_1 {
+	0, 0: tea_factory_tile_3;
+	1, 0: tea_factory_tile_1;
+	0, 1: tea_factory_tile_5;
+	1, 1: tea_factory_tile_4;
+}
+tilelayout tea_factory_layout_2 {
+	0, 0: tea_factory_tile_2;
+	1, 0: tea_factory_tile_4;
+	0, 1: tea_factory_tile_3;
+	1, 1: tea_factory_tile_5;
+}
+tilelayout tea_factory_layout_3 {
+	0, 0: tea_factory_tile_3;
+	1, 0: tea_factory_tile_1;
+	0, 1: tea_factory_tile_2;
+	1, 1: tea_factory_tile_4;
+}
+
+item(FEAT_INDUSTRIES, industry_tea_factory, TEA_FACTORY_INDEX) {
+    property {
+        substitute: 6;
+        name: string(STR_INDUSTRY_TEA_FACTORY_NAME);
+        layouts: [tea_factory_layout_1, tea_factory_layout_2, tea_factory_layout_3];
+        cargo_types: [
+            accept_cargo("TEAL", produce_cargo("TEAB", 1))
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TEA_FACTORY_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_TEA_FACTORY_STATION_NAME);
+    }
+    graphics {
+        location_check: location_tea_chain_distance_teahouse;
+    }
 }
 
 spriteset (teahouse_ground) {

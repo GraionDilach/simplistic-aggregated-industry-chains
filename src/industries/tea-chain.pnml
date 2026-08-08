@@ -23,14 +23,28 @@ switch (FEAT_INDUSTRIES, PARENT, location_teahouse_count_population, population)
         return location_teahouse_count;
 }
 
+spriteset (tea_factory_tile1_ground) {
+    sprite_null()
+    [-31, -11, "gfx/tea_factory/tile1-ground.png"]
+    [-31, -11, "gfx/tea_factory/tile1-ground.png"]
+}
+
 spriteset (tea_factory_tile1_building) {
+    sprite_null()
+    [-31, -11, "gfx/tea_factory/tile1-stage1.png"]
     [-31, -11, "gfx/tea_factory/tile1.png"]
 }
 
 #define SPRITELAYOUT_tea_factory_TILE_1(recolorpalette) \
 spritelayout spritelayout_tea_factory_tile_1_##recolorpalette { \
     ground { \
-        sprite: GROUNDSPRITE_CONCRETE; \
+        sprite: construction_state == 3 ? GROUNDSPRITE_CONCRETE : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_factory_tile1_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
     } \
     building { \
         sprite: tea_factory_tile1_building; \
@@ -54,14 +68,28 @@ item(FEAT_INDUSTRYTILES, tea_factory_tile_1) {
     }
 }
 
+spriteset (tea_factory_tile2_ground) {
+    sprite_null()
+    [-31, -11, "gfx/tea_factory/tile2-ground.png"]
+    [-31, -11, "gfx/tea_factory/tile2-ground.png"]
+}
+
 spriteset (tea_factory_tile2_building) {
+    sprite_null()
+    [-31, -11, "gfx/tea_factory/tile2-stage1.png"]
     [-31, -11, "gfx/tea_factory/tile2.png"]
 }
 
 #define SPRITELAYOUT_tea_factory_TILE_2(recolorpalette) \
 spritelayout spritelayout_tea_factory_tile_2_##recolorpalette { \
     ground { \
-        sprite: GROUNDSPRITE_CONCRETE; \
+        sprite: construction_state == 3 ? GROUNDSPRITE_CONCRETE : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_factory_tile2_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
     } \
     building { \
         sprite: tea_factory_tile2_building; \
@@ -85,14 +113,28 @@ item(FEAT_INDUSTRYTILES, tea_factory_tile_2) {
     }
 }
 
+spriteset (tea_factory_tile3_ground) {
+    sprite_null()
+    [-31, -11, "gfx/tea_factory/tile3-ground.png"]
+    [-31, -11, "gfx/tea_factory/tile3-ground.png"]
+}
+
 spriteset (tea_factory_tile3_building) {
+    sprite_null()
+    [-31, -11, "gfx/tea_factory/tile3-stage1.png"]
     [-31, -11, "gfx/tea_factory/tile3.png"]
 }
 
 #define SPRITELAYOUT_tea_factory_TILE_3(recolorpalette) \
 spritelayout spritelayout_tea_factory_tile_3_##recolorpalette { \
     ground { \
-        sprite: GROUNDSPRITE_CONCRETE; \
+        sprite: construction_state == 3 ? GROUNDSPRITE_CONCRETE : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_factory_tile3_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
     } \
     building { \
         sprite: tea_factory_tile3_building; \
@@ -117,13 +159,15 @@ item(FEAT_INDUSTRYTILES, tea_factory_tile_3) {
 }
 
 spriteset (tea_factory_tile4_building) {
+    sprite_null()
+    sprite_null()
     [-31, -11, "gfx/tea_factory/tile4.png"]
 }
 
 #define SPRITELAYOUT_tea_factory_TILE_4(recolorpalette) \
 spritelayout spritelayout_tea_factory_tile_4_##recolorpalette { \
     ground { \
-        sprite: GROUNDSPRITE_CONCRETE; \
+        sprite: construction_state == 3 ? GROUNDSPRITE_CONCRETE : GROUNDSPRITE_CLEARED; \
     } \
     building { \
         sprite: tea_factory_tile4_building; \
@@ -149,7 +193,7 @@ item(FEAT_INDUSTRYTILES, tea_factory_tile_4) {
 
 spritelayout spritelayout_tea_factory_tile_5 {
 	ground {
-        sprite: GROUNDSPRITE_CONCRETE;
+        sprite: construction_state == 3 ? GROUNDSPRITE_CONCRETE : GROUNDSPRITE_CLEARED; \
     }
 }
 

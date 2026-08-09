@@ -153,6 +153,10 @@ STR_INDUSTRY_RANCH_NAME                             :Ranch
 STR_INDUSTRY_RANCH_STATION_NAME                     :{STRING} Ranch
 STR_ERR_LOCATION_RANCH                              :... too close to another Ranch
 
+STR_INDUSTRY_TEA_GARDEN_NAME                        :Tea Garden
+STR_INDUSTRY_TEA_GARDEN_STATION_NAME                :{STRING} Tea Garden
+STR_ERR_LOCATION_TEA_GARDEN                         :... too close to another Tea Garden
+
 STR_INDUSTRY_TEA_FACTORY_NAME                       :Tea Factory
 STR_INDUSTRY_TEA_FACTORY_STATION_NAME               :{STRING} Tea Factory
 STR_ERR_LOCATION_TEA_FACTORY                        :... too close to another Tea Factory

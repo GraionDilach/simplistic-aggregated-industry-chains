@@ -1,6 +1,11 @@
+switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_tea_garden, industry_distance(TEA_GARDEN_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_GARDEN);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
-        CB_RESULT_LOCATION_ALLOW;
+        location_tea_chain_distance_tea_garden;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
@@ -8,9 +13,20 @@ switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_teahouse, industry_di
         location_tea_chain_distance_tea_factory;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_tea_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_tea_chain_distance_teahouse;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_tea_garden, industry_distance(TEA_GARDEN_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_GARDEN);
+        location_fizzy_drink_chain_distance_fizzy_drink_factory;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
-        location_fizzy_drink_chain_distance_fizzy_drink_factory;
+        location_teahouse_distance_tea_garden;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_teahouse_count, industry_town_count(TEAHOUSE_INDEX)) {
@@ -21,6 +37,240 @@ switch (FEAT_INDUSTRIES, SELF, location_teahouse_count, industry_town_count(TEAH
 switch (FEAT_INDUSTRIES, PARENT, location_teahouse_count_population, population) {
         0..750: return string(STR_ERR_TOO_SMALL_TOWN);
         return location_teahouse_count;
+}
+
+spriteset (tea_garden_tile1_ground) {
+    sprite_null()
+}
+
+spriteset (tea_garden_tile1_building) {
+    [-31, -12, "gfx/tea_garden/tile1.png"]
+}
+
+#define SPRITELAYOUT_tea_garden_TILE_1(recolorpalette) \
+spritelayout spritelayout_tea_garden_tile_1_##recolorpalette { \
+    ground { \
+        sprite: construction_state == 3 ? GROUNDSPRITE_GRASS : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_garden_tile1_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: tea_garden_tile1_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_garden_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_garden_tile_1)
+
+item(FEAT_INDUSTRYTILES, tea_garden_tile_1) {
+    property {
+        substitute: 33;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_garden_tile_1_select_color;
+    }
+}
+
+spriteset (tea_garden_tile2_ground) {
+    sprite_null()
+}
+
+spriteset (tea_garden_tile2_building) {
+    [-31, -12, "gfx/tea_garden/tile2.png"]
+}
+
+#define SPRITELAYOUT_tea_garden_TILE_2(recolorpalette) \
+spritelayout spritelayout_tea_garden_tile_2_##recolorpalette { \
+    ground { \
+        sprite: construction_state == 3 ? GROUNDSPRITE_GRASS : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_garden_tile2_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: tea_garden_tile2_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_garden_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_garden_tile_2)
+
+item(FEAT_INDUSTRYTILES, tea_garden_tile_2) {
+    property {
+        substitute: 33;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_garden_tile_2_select_color;
+    }
+}
+
+spriteset (tea_garden_tile3_ground) {
+    sprite_null()
+}
+
+spriteset (tea_garden_tile3_building) {
+    [-31, -12, "gfx/tea_garden/tile3.png"]
+}
+
+#define SPRITELAYOUT_tea_garden_TILE_3(recolorpalette) \
+spritelayout spritelayout_tea_garden_tile_3_##recolorpalette { \
+    ground { \
+        sprite: construction_state == 3 ? GROUNDSPRITE_GRASS : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_garden_tile3_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: tea_garden_tile3_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_garden_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_garden_tile_3)
+
+item(FEAT_INDUSTRYTILES, tea_garden_tile_3) {
+    property {
+        substitute: 33;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_garden_tile_3_select_color;
+    }
+}
+
+spriteset (tea_garden_tile4_ground) {
+    sprite_null()
+}
+
+spriteset (tea_garden_tile4_building) {
+    [-31, -12, "gfx/tea_garden/tile4.png"]
+}
+
+#define SPRITELAYOUT_tea_garden_TILE_4(recolorpalette) \
+spritelayout spritelayout_tea_garden_tile_4_##recolorpalette { \
+    ground { \
+        sprite: construction_state == 3 ? GROUNDSPRITE_GRASS : GROUNDSPRITE_CLEARED; \
+    } \
+    childsprite { \
+        sprite: tea_garden_tile4_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: tea_garden_tile4_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_tea_garden_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_tea_garden_tile_4)
+
+item(FEAT_INDUSTRYTILES, tea_garden_tile_4) {
+    property {
+        substitute: 33;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_tea_garden_tile_4_select_color;
+    }
+}
+
+tilelayout tea_garden_layout_1 {
+	0, 1: 116; // tea_garden_field_tile;
+	2, 0: 116; // tea_garden_field_tile;
+	3, 2: 116; // tea_garden_field_tile;
+	2, 3: 116; // tea_garden_field_tile;
+	0, 3: 116; // tea_garden_field_tile;
+
+	1, 1: tea_garden_tile_1;
+	1, 2: tea_garden_tile_2;
+	0, 2: tea_garden_tile_4;
+}
+
+tilelayout tea_garden_layout_2 {
+	1, 2: 116; // tea_garden_field_tile;
+	2, 0: 116; // tea_garden_field_tile;
+	3, 2: 116; // tea_garden_field_tile;
+	2, 3: 116; // tea_garden_field_tile;
+	0, 3: 116; // tea_garden_field_tile;
+
+	0, 0: tea_garden_tile_3;
+	1, 0: tea_garden_tile_1;
+	0, 1: tea_garden_tile_2;
+}
+
+tilelayout tea_garden_layout_3 {
+	1, 0: 116; // tea_garden_field_tile;
+	2, 2: 116; // tea_garden_field_tile;
+	3, 3: 116; // tea_garden_field_tile;
+	3, 1: 116; // tea_garden_field_tile;
+	0, 2: 116; // tea_garden_field_tile;
+
+	1, 2: tea_garden_tile_3;
+	1, 3: tea_garden_tile_2;
+	0, 3: tea_garden_tile_4;
+}
+
+tilelayout tea_garden_layout_4 {
+	0, 0: 116; // tea_garden_field_tile;
+	1, 1: 116; // tea_garden_field_tile;
+	3, 1: 116; // tea_garden_field_tile;
+	3, 3: 116; // tea_garden_field_tile;
+	0, 3: 116; // tea_garden_field_tile;
+
+	2, 0: tea_garden_tile_1;
+	1, 2: tea_garden_tile_2;
+	0, 2: tea_garden_tile_4;
+}
+
+item(FEAT_INDUSTRIES, industry_tea_garden, TEA_GARDEN_INDEX) {
+    property {
+        substitute: 9;
+        name: string(STR_INDUSTRY_TEA_GARDEN_NAME);
+        cargo_types: [
+            produce_cargo("TEAL", 12)
+        ];
+        layouts: [tea_garden_layout_1, tea_garden_layout_2, tea_garden_layout_3, tea_garden_layout_4];
+        random_sound_effects: [];
+        min_cargo_distr: 4;
+		prob_map_gen: 8;
+		prob_in_game: 5;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TEA_GARDEN_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_TEA_GARDEN_STATION_NAME);
+        spec_flags: 0;
+    }
+    graphics {
+       location_check: location_tea_chain_no_desert_not_above_snowline;
+    }
 }
 
 spriteset (tea_factory_tile1_ground) {

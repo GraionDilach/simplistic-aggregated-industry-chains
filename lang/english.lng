@@ -33,6 +33,11 @@ STR_CARGO_SINGULAR_TOURIST                  :Tourist
 STR_QUANTITY_TOURIST                        :{COMMA} tourist{P 0 "" s}
 STR_ABBREV_TOURIST                          :{TINYFONT}TR
 
+STR_CARGO_PLURAL_WASTE                      :Waste
+STR_CARGO_SINGULAR_WASTE                    :Waste
+STR_QUANTITY_WASTE                          :{WEIGHT} of waste
+STR_ABBREV_WASTE                            :{TINYFONT}WS
+
 # Industry strings
 
 STR_ERR_BELOW_SNOWLINE_ONLY                         :... can only be built below the snowline

@@ -61,3 +61,36 @@ item(FEAT_CARGOS, cargo_tourist, TOUR_INDEX) {
         cargoicon_tourist;
     }
 }
+
+spriteset(cargoicon_waste) {
+    [0, 0, "gfx/cargo_icons/wste.png"]
+}
+
+item(FEAT_CARGOS, cargo_waste, WSTE_INDEX) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_WASTE);
+        unit_name: string(STR_CARGO_SINGULAR_WASTE);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_WASTE);
+        type_abbreviation: string(STR_ABBREV_WASTE);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, WSTE_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, WSTE_INDEX);
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_BULK, CC_NON_POTABLE);
+        cargo_label: "WSTE";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        town_production_effect: TOWNPRODUCTION_MAIL;
+        town_production_multiplier: (17 / 7);
+        penalty_lowerbound: 38;
+        single_penalty_length: 255;
+        price_factor: 100;
+        capacity_multiplier: 1;
+        number: WSTE_INDEX;
+    }
+    graphics {
+        cargoicon_waste;
+    }
+}

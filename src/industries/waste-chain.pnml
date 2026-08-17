@@ -96,6 +96,7 @@ spritelayout junkyard_tile_W_spritelayout {
 item(FEAT_INDUSTRYTILES, junkyard_tile_N) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -106,6 +107,7 @@ item(FEAT_INDUSTRYTILES, junkyard_tile_N) {
 item(FEAT_INDUSTRYTILES, junkyard_tile_E) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -116,6 +118,7 @@ item(FEAT_INDUSTRYTILES, junkyard_tile_E) {
 item(FEAT_INDUSTRYTILES, junkyard_tile_S) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -126,6 +129,7 @@ item(FEAT_INDUSTRYTILES, junkyard_tile_S) {
 item(FEAT_INDUSTRYTILES, junkyard_tile_W) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -203,6 +207,7 @@ spritelayout recycling_center_tile_W_spritelayout {
 item(FEAT_INDUSTRYTILES, recycling_center_tile_N) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -213,6 +218,7 @@ item(FEAT_INDUSTRYTILES, recycling_center_tile_N) {
 item(FEAT_INDUSTRYTILES, recycling_center_tile_E) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -223,6 +229,7 @@ item(FEAT_INDUSTRYTILES, recycling_center_tile_E) {
 item(FEAT_INDUSTRYTILES, recycling_center_tile_S) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {
@@ -233,6 +240,7 @@ item(FEAT_INDUSTRYTILES, recycling_center_tile_S) {
 item(FEAT_INDUSTRYTILES, recycling_center_tile_W) {
     property {
         substitute: 39;
+        accepted_cargos: [];
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
     graphics {

@@ -1,0 +1,263 @@
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_forest, industry_distance(FOREST_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOREST);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_LUMBER_MILL);
+        location_waste_chain_distance_forest;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
+        location_waste_chain_distance_lumber_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
+        location_waste_chain_distance_paper_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
+        location_waste_chain_distance_printing_works;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
+        location_waste_chain_distance_iron_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
+        location_waste_chain_distance_steel_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
+        location_waste_chain_distance_copper_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_waste_chain_distance_rubber_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        location_waste_chain_distance_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_waste_chain_distance_junkyard;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_junkyard_count, industry_town_count(JUNKYARD_INDEX)) {
+        0: location_waste_chain_distance_recycling_center;
+        return string(STR_ERR_LOCATION_WATER_TOWER);
+}
+
+tilelayout junkyard_tilelayout1 {
+    0, 0: junkyard_tile_N;
+    0, 1: junkyard_tile_E;
+    1, 1: junkyard_tile_S;
+    1, 0: junkyard_tile_W;
+}
+
+spritelayout junkyard_tile_N_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4103; xoffset: 0; yoffset: -16; }
+    building { sprite: 4102; xoffset: -16; yoffset: 0; }
+    building { sprite: (construction_state==0 ? 2037 : construction_state==3 ? 2039 : 2038); xoffset: 2; yoffset: 1; }
+}
+
+spritelayout junkyard_tile_E_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4102; xoffset: -16; yoffset: 0; }
+    building { sprite: (construction_state==0 ? 2031 : construction_state==3 ? 2033 : 2032); xoffset: 8; yoffset: 4; }
+    building { sprite: (construction_state==0 ? 2034 : construction_state==3 ? 2036 : 2035); xoffset: 2; yoffset: 4; }
+    building { sprite: 4103; xoffset: 0; yoffset: 0; }
+}
+
+spritelayout junkyard_tile_S_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4103; xoffset: 0; yoffset: 0; }
+    building { sprite: 4102; xoffset: 0; yoffset: 0; }
+}
+
+spritelayout junkyard_tile_W_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4103; xoffset: 0; yoffset: -16; }
+    building { sprite: (construction_state==0 ? 2037 : construction_state==3 ? 2039 : 2038); xoffset: 2; yoffset: 1; }
+    building { sprite: 4102; xoffset: 0; yoffset: 0; }
+}
+
+item(FEAT_INDUSTRYTILES, junkyard_tile_N) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        junkyard_tile_N_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, junkyard_tile_E) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        junkyard_tile_E_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, junkyard_tile_S) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        junkyard_tile_S_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, junkyard_tile_W) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        junkyard_tile_W_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_junkyard, JUNKYARD_INDEX) {
+    property {
+        substitute: 30;
+        name: string(STR_INDUSTRY_JUNKYARD_NAME);
+        layouts: [junkyard_tilelayout1];
+        prob_map_gen: 6;
+        prob_in_game: 4;
+        cargo_types: [
+            produce_cargo("WSTE", 8)
+        ];
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, JUNKYARD_INDEX);
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        nearby_station_name: string(STR_INDUSTRY_JUNKYARD_STATION_NAME);
+    }
+    graphics {
+        location_check: location_junkyard_count;
+    }
+}
+
+tilelayout recycling_center_tilelayout1 {
+    0, 0: recycling_center_tile_N;
+    0, 1: recycling_center_tile_E;
+    1, 1: recycling_center_tile_S;
+    1, 0: recycling_center_tile_W;
+}
+
+
+tilelayout recycling_center_tilelayout2 {
+    0, 0: recycling_center_tile_N;
+    1, 0: recycling_center_tile_N;
+    0, 1: recycling_center_tile_E;
+    1, 1: recycling_center_tile_E;
+    2, 1: recycling_center_tile_S;
+    2, 0: recycling_center_tile_W;
+}
+
+spritelayout recycling_center_tile_N_spritelayout {
+	ground { sprite: 2210; }
+	building { sprite: 1301; xoffset: 0; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+	building { sprite: 1302; xoffset: 0; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+	building { sprite: 2115; xoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_PALE_GREEN; }
+	building { sprite: 2115; xoffset: 6; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_CREAM; }
+	building { sprite: 2115; xoffset: 12; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_BROWN; }
+}
+
+spritelayout recycling_center_tile_E_spritelayout {
+	ground { sprite: 2210; }
+	building { sprite: 1302; xoffset: 0; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+	building { sprite: 2351; xoffset: 1; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_YELLOW; }
+	building { sprite: 1301; xoffset: 0; yoffset: 16; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+}
+
+spritelayout recycling_center_tile_S_spritelayout {
+	ground { sprite: 2210; }
+	building { sprite: 1301; xoffset: 0; yoffset: 16; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+	building { sprite: 1302; xoffset: 16; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+}
+
+spritelayout recycling_center_tile_W_spritelayout {
+	ground { sprite: 2210; }
+	building { sprite: 1301; xoffset: 0; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+	building { sprite: (construction_state==0 ? 2093 : construction_state==3 ? 2095 : 2094); xoffset: 6; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+	building { sprite: (construction_state==0 ? 2093 : construction_state==3 ? 2095 : 2094); xoffset: 6; yoffset: 10; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+	building { sprite: (construction_state==0 ? 2093 : construction_state==3 ? 2095 : 2094); xoffset: 6; yoffset: 18; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+	building { sprite: 1302; xoffset: 16; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_CC_GREY; }
+}
+
+item(FEAT_INDUSTRYTILES, recycling_center_tile_N) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        recycling_center_tile_N_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, recycling_center_tile_E) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        recycling_center_tile_E_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, recycling_center_tile_S) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        recycling_center_tile_S_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, recycling_center_tile_W) {
+    property {
+        substitute: 39;
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        recycling_center_tile_W_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_recycling_center, RECYCLING_CENTER_INDEX) {
+    property {
+        substitute: 18;
+        name: string(STR_INDUSTRY_RECYCLING_CENTER_NAME);
+        layouts: [recycling_center_tilelayout1, recycling_center_tilelayout2];
+        prob_map_gen: 6;
+        prob_in_game: 4;
+        cargo_types: [
+            accept_cargo("WSTE",
+                produce_cargo("PAPR", 0.5),
+                produce_cargo("STEL", 0.5)
+            ),
+        ];
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, RECYCLING_CENTER_INDEX);
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        nearby_station_name: string(STR_INDUSTRY_RECYCLING_CENTER_STATION_NAME);
+    }
+    graphics {
+        location_check: location_waste_chain_distance_recycling_center;
+    }
+}

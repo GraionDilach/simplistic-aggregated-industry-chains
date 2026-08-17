@@ -18,9 +18,19 @@ switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_rubber_plantation
         location_factory_chain_distance_copper_ore_mine;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        location_factory_chain_distance_rubber_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_factory_chain_distance_junkyard;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_factory, industry_distance(FACTORY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_FACTORY);
-        location_factory_chain_distance_rubber_plantation;
+        location_factory_chain_distance_recycling_center;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {

@@ -107,6 +107,8 @@ disable_item(FEAT_INDUSTRIES);
 #define TEA_GARDEN_INDEX            36
 #define TEA_FACTORY_INDEX           37
 #define TEAHOUSE_INDEX              38
+#define JUNKYARD_INDEX              39
+#define RECYCLING_CENTER_INDEX      40
 
 template sprite_null() { [0, 0, "gfx/null.png"]}
 
@@ -127,3 +129,4 @@ switch (FEAT_INDUSTRYTILES, SELF, switch_industrytile_empty, animation_frame) { 
 #include "industries/toy-chain.pnml"
 #include "industries/tea-chain.pnml"
 #include "industries/tourist-chain.pnml"
+#include "industries/waste-chain.pnml"

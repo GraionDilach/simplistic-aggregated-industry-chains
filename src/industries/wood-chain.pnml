@@ -13,9 +13,19 @@ switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_paper_mill, industry
         location_wood_chain_distance_lumber_mill;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        location_wood_chain_distance_paper_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_wood_chain_distance_junkyard;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
-        location_wood_chain_distance_paper_mill;
+        location_wood_chain_distance_recycling_center;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_forest_no_desert, nearby_tile_terrain_type(0, 0)) {

@@ -169,3 +169,11 @@ STR_ERR_LOCATION_TEA_FACTORY                        :... too close to another Te
 STR_INDUSTRY_TEAHOUSE_NAME                          :Teahouse
 STR_INDUSTRY_TEAHOUSE_STATION_NAME                  :{STRING} Teahouse
 STR_ERR_LOCATION_TEAHOUSE                           :... too close to another Teahouse
+
+STR_INDUSTRY_JUNKYARD_NAME                          :Junkyard
+STR_INDUSTRY_JUNKYARD_STATION_NAME                  :{STRING} Junkyard
+STR_ERR_LOCATION_JUNKYARD                           :... too close to another Junkyard
+
+STR_INDUSTRY_RECYCLING_CENTER_NAME                  :Recycling Center
+STR_INDUSTRY_RECYCLING_CENTER_STATION_NAME          :{STRING} Recycling Center
+STR_ERR_LOCATION_RECYCLING_CENTER                   :... too close to another Recycling Center

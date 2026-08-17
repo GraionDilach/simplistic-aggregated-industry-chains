@@ -1,0 +1,123 @@
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_forest, industry_distance(FOREST_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOREST);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_LUMBER_MILL);
+        location_farm_distance_forest;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_farm, industry_distance(FARM_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FARM);
+        location_farm_distance_lumber_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
+        location_farm_distance_farm;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        location_farm_distance_paper_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_farm_distance_junkyard;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
+        location_farm_distance_recycling_center;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_fruit_plantation, industry_distance(FRUIT_PLANTATION_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FRUIT_PLANTATION);
+        location_farm_distance_printing_works;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_food_processing_plant, industry_distance(FOOD_PROCESSING_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOOD_PROCESSING_PLANT);
+        location_farm_distance_fruit_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_shop, industry_distance(SHOP_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_SHOP);
+        location_farm_distance_food_processing_plant;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_distance_ranch, industry_distance(RANCH_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RANCH);
+        location_farm_distance_shop;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_farm_no_desert, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        location_farm_distance_ranch;
+}
+
+tilelayout farm_layout_1 {
+    0, 0: 37;
+    0, 1: 37;
+    0, 2: 37;
+    0, 3: 36;
+    1, 0: 37;
+    1, 1: farm_tile_1;
+    1, 2: farm_tile_2;
+    1, 3: farm_tile_3;
+    2, 0: 36;
+    2, 1: 36;
+    2, 2: farm_tile_3;
+    2, 3: farm_tile_3;
+}
+
+tilelayout farm_layout_2 {
+    0, 0: 37;
+    0, 1: 37;
+    0, 2: 36;
+    1, 0: farm_tile_1;
+    1, 1: farm_tile_2;
+    1, 2: farm_tile_3;
+    2, 0: 36;
+    2, 1: farm_tile_3;
+    2, 2: farm_tile_3;
+}
+
+tilelayout farm_layout_3 {
+    0, 0: 37;
+    0, 1: 36;
+    0, 2: 37;
+    0, 3: 37;
+    1, 0: 36;
+    1, 1: farm_tile_3;
+    1, 2: farm_tile_3;
+    1, 3: 36;
+    2, 0: farm_tile_1;
+    2, 1: farm_tile_2;
+    2, 2: 37;
+    2, 3: farm_tile_3;
+}
+
+item(FEAT_INDUSTRIES, industry_farm, FARM_INDEX) {
+    property {
+        substitute: 9;
+        override: 9;
+        cargo_types: [
+            produce_cargo("GRAI", 10),
+            produce_cargo("FICR", 10)
+        ];
+        layouts: [farm_layout_1, farm_layout_2, farm_layout_3];
+        random_sound_effects: [];
+        prob_map_gen: 9;
+        prob_in_game: 4;
+        life_type: IND_LIFE_TYPE_ORGANIC;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, FARM_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_FARM_STATION_NAME);
+        spec_flags: bitmask(IND_FLAG_PLANT_FIELDS_PERIODICALLY, IND_FLAG_PLANT_FIELDS_WHEN_BUILT);
+    }
+    graphics {
+       location_check: location_farm_no_desert;
+    }
+}

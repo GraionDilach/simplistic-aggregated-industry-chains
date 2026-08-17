@@ -8,9 +8,14 @@ switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_lumber_mill, industr
         location_wood_chain_distance_forest;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_farm, industry_distance(FARM_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FARM);
+        location_wood_chain_distance_lumber_mill;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
-        location_wood_chain_distance_lumber_mill;
+        location_wood_chain_distance_farm;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
@@ -353,7 +358,8 @@ item(FEAT_INDUSTRIES, industry_paper_mill, PAPER_MILL_INDEX) {
         substitute: 14;
         override: 14;
         cargo_types: [
-            accept_cargo("WOOD", produce_cargo("PAPR", 1))
+            accept_cargo("WOOD", produce_cargo("PAPR", 1)),
+            accept_cargo("FICR", produce_cargo("PAPR", 1))
         ];
         prob_map_gen: 5;
         prob_in_game: 2;

@@ -122,6 +122,7 @@ switch (FEAT_INDUSTRYTILES, SELF, switch_industrytile_empty, animation_frame) { 
 #include "industries/wood-chain.pnml"
 #include "industries/oil-chain.pnml"
 #include "industries/food-chain.pnml"
+#include "industries/farm.pnml" // separated because Farm involves both Wood and Food chains
 #include "industries/shop.pnml" // separated to also add in Sweets
 #include "industries/water-chain.pnml"
 #include "industries/valuables-chain.pnml"

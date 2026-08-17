@@ -100,12 +100,37 @@ item(FEAT_INDUSTRYTILES, candyfloss_forest_tile_1) {
     }
 }
 
+tilelayout candyfloss_forest_layout_1 {
+	0, 1: candyfloss_forest_tile_1;
+	0, 2: candyfloss_forest_tile_1;
+	0, 3: candyfloss_forest_tile_1;
+	1, 0: candyfloss_forest_tile_1;
+	1, 1: candyfloss_forest_tile_1;
+    1, 2: candyfloss_forest_tile_1;
+	1, 3: candyfloss_forest_tile_1;
+	1, 4: candyfloss_forest_tile_1;
+	2, 0: candyfloss_forest_tile_1;
+	2, 1: candyfloss_forest_tile_1;
+    2, 2: candyfloss_forest_tile_1;
+	2, 3: candyfloss_forest_tile_1;
+	2, 4: candyfloss_forest_tile_1;
+    3, 0: candyfloss_forest_tile_1;
+	3, 1: candyfloss_forest_tile_1;
+    3, 2: candyfloss_forest_tile_1;
+	3, 3: candyfloss_forest_tile_1;
+	3, 4: candyfloss_forest_tile_1;
+    4, 1: candyfloss_forest_tile_1;
+	4, 2: candyfloss_forest_tile_1;
+	4, 3: candyfloss_forest_tile_1;
+}
+
 if (enable_converted_toyland)
 {
     item(FEAT_INDUSTRIES, industry_candyfloss_forest, CANDYFLOSS_FOREST_INDEX) {
         property {
             substitute: 26;
             override: 26;
+            layouts: [candyfloss_forest_layout_1];
             cargo_types: [
                 produce_cargo("CTCD", 13),
             ];

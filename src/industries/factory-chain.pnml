@@ -18,9 +18,14 @@ switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_rubber_plantation
         location_factory_chain_distance_copper_ore_mine;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_desalination_plant, industry_distance(DESALINATION_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_DESALINATION_PLANT);
+        location_factory_chain_distance_rubber_plantation;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_factory_chain_distance_rubber_plantation;
+        location_factory_chain_distance_desalination_plant;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
@@ -473,7 +478,8 @@ item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
         layouts: [factory_layout_1, factory_layout_2, factory_layout_3, factory_layout_4];
         cargo_types: [
             accept_cargo("STEL", produce_cargo("GOOD", 1)),
-            accept_cargo("RUBR", produce_cargo("GOOD", 1))
+            accept_cargo("RUBR", produce_cargo("GOOD", 1)),
+            accept_cargo("CHEM", produce_cargo("GOOD", 1))
         ];
         prob_map_gen: 5;
         prob_in_game: 2;

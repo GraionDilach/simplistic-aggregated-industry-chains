@@ -1,0 +1,250 @@
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
+        location_desalination_plant_distance_iron_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
+        location_desalination_plant_distance_steel_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
+        location_desalination_plant_distance_copper_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        location_desalination_plant_distance_rubber_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_desalination_plant_distance_junkyard;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_desalination_plant_distance_recycling_center;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_supply, industry_distance(WATER_SUPPLY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_WATER_SUPPLY);
+        location_desalination_plant_distance_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_tower, industry_distance(WATER_TOWER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_WATER_TOWER);
+        location_desalination_plant_distance_supply;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_desalination_plant, industry_distance(DESALINATION_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_DESALINATION_PLANT);
+        location_desalination_plant_distance_tower;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, desalination_plant_tile_water_check, (nearby_tile_water_class(0, 0) == WATER_CLASS_SEA)) {
+    1: return CB_RESULT_LOCATION_ALLOW;
+    return CB_RESULT_LOCATION_DISALLOW;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, desalination_plant_tile_slope_check_se, nearby_tile_slope(0, 0) == SLOPE_SE) {
+    0: return CB_RESULT_LOCATION_DISALLOW;
+    desalination_plant_tile_water_check;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, desalination_plant_tile_slope_check_sw, nearby_tile_slope(0, 0) == SLOPE_SW) {
+    0: return CB_RESULT_LOCATION_DISALLOW;
+    desalination_plant_tile_water_check;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, desalination_plant_tile_slope_check_nw, nearby_tile_slope(0, 0) == SLOPE_NW) {
+    0: return CB_RESULT_LOCATION_DISALLOW;
+    desalination_plant_tile_water_check;
+}
+
+switch (FEAT_INDUSTRYTILES, SELF, desalination_plant_tile_slope_check_ne, nearby_tile_slope(0, 0) == SLOPE_NE) {
+    0: return CB_RESULT_LOCATION_DISALLOW;
+    desalination_plant_tile_water_check;
+}
+
+spritelayout desalination_plant_tile_pump_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2350 : construction_state==3 ? 2352 : 2351); xoffset: 3; yoffset: 0; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_RED); }
+}
+
+spritelayout desalination_plant_tile_talltanks_se_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+}
+
+spritelayout desalination_plant_tile_talltanks_sw_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+}
+
+spritelayout desalination_plant_tile_talltanks_nw_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+}
+
+spritelayout desalination_plant_tile_talltanks_ne_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_DARK_BLUE); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+    building { sprite: (construction_state==0 ? 2081 : construction_state==3 ? 2083 : 2082); xoffset: 8; yoffset: 8; recolour_mode: RECOLOUR_REMAP; palette: palette_1cc(COLOUR_YELLOW); }
+}
+
+spritelayout desalination_plant_tile_widetank_spritelayout {
+    ground { sprite: GROUNDSPRITE_CONCRETE; }
+    building { sprite: (construction_state==0 ? 2078 : construction_state==3 ? 2080 : 2079); xoffset: 2; yoffset: 2; recolour_mode: RECOLOUR_REMAP; palette: PALETTE_USE_DEFAULT; }
+}
+
+tilelayout desalination_plant_layout_se {
+    0, 0: desalination_plant_tile_talltanks_se;
+    0, 1: desalination_plant_tile_widetank;
+    1, 1: desalination_plant_tile_pump;
+    1, 0: desalination_plant_tile_pump_sloped;
+}
+
+tilelayout desalination_plant_layout_sw {
+    0, 0: desalination_plant_tile_talltanks_sw;
+    0, 1: desalination_plant_tile_pump_sloped;
+    1, 1: desalination_plant_tile_pump;
+    1, 0: desalination_plant_tile_widetank;
+}
+
+tilelayout desalination_plant_layout_nw {
+    0, 0: desalination_plant_tile_widetank;
+    0, 1: desalination_plant_tile_talltanks_nw;
+    1, 1: desalination_plant_tile_pump_sloped;
+    1, 0: desalination_plant_tile_pump;
+}
+
+tilelayout desalination_plant_layout_ne {
+    0, 0: desalination_plant_tile_widetank;
+    0, 1: desalination_plant_tile_pump;
+    1, 1: desalination_plant_tile_pump_sloped;
+    1, 0: desalination_plant_tile_talltanks_ne;
+}
+
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_pump) {
+    property {
+        substitute: 39;
+    }
+    graphics {
+        default: desalination_plant_tile_pump_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_pump_sloped) {
+    property {
+        substitute: 39;
+        land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+    }
+    graphics {
+        default: desalination_plant_tile_pump_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_talltanks_se) {
+    property {
+        substitute: 39;
+        land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+    }
+    graphics {
+        default: desalination_plant_tile_talltanks_se_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: desalination_plant_tile_slope_check_se;
+    }
+}
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_talltanks_sw) {
+    property {
+        substitute: 39;
+        land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+    }
+    graphics {
+        default: desalination_plant_tile_talltanks_sw_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: desalination_plant_tile_slope_check_sw;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_talltanks_nw) {
+    property {
+        substitute: 39;
+        land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+    }
+    graphics {
+        default: desalination_plant_tile_talltanks_nw_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: desalination_plant_tile_slope_check_nw;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_talltanks_ne) {
+    property {
+        substitute: 39;
+        land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+    }
+    graphics {
+        default: desalination_plant_tile_talltanks_ne_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+        tile_check: desalination_plant_tile_slope_check_ne;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, desalination_plant_tile_widetank) {
+    property {
+        substitute: 39;
+    }
+    graphics {
+        default: desalination_plant_tile_widetank_spritelayout;
+        foundations: return CB_RESULT_FOUNDATIONS;
+        autoslope: return CB_RESULT_AUTOSLOPE;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_desalination_plant, DESALINATION_PLANT_INDEX) {
+    property {
+        substitute: 21;
+        name: string(STR_INDUSTRY_DESALINATION_PLANT_NAME);
+        layouts: [desalination_plant_layout_se, desalination_plant_layout_sw, desalination_plant_layout_nw, desalination_plant_layout_ne];
+        cargo_types: [
+            produce_cargo("WATR", 8),
+            produce_cargo("CHEM", 8),
+        ];
+        prob_map_gen: 4;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, DESALINATION_PLANT_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_DESALINATION_PLANT_STATION_NAME);
+    }
+    graphics {
+        colour:	(founder == 16) ? COLOUR_LIGHT_BLUE : founder_colour1;
+        location_check: location_desalination_plant_distance_desalination_plant;
+    }
+}

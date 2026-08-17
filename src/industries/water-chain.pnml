@@ -3,9 +3,14 @@ switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_supply, industry_di
         CB_RESULT_LOCATION_ALLOW;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_desalination_plant, industry_distance(DESALINATION_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_DESALINATION_PLANT);
+        location_water_chain_distance_supply;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_water_chain_distance_tower, industry_distance(WATER_TOWER_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_WATER_TOWER);
-        location_water_chain_distance_supply;
+        location_water_chain_distance_desalination_plant;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_water_tower_count, industry_town_count(WATER_TOWER_INDEX)) {

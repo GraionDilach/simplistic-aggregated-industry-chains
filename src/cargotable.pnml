@@ -146,11 +146,12 @@ cargotable
 	#define TEAB_INDEX    FREE_INDEX_24
 
 	// ECS/FIRS/misc inherited cargos
-	PETR, TOUR, WSTE
+	CHEM, PETR, TOUR, WSTE
 
+	#define CHEM_INDEX    FREE_INDEX_25
 	#define PETR_INDEX    25            // FIXED ECS
 	#define TOUR_INDEX    31            // FIXED ECS
-	#define WSTE_INDEX    FREE_INDEX_25
+	#define WSTE_INDEX    FREE_INDEX_26
 }
 
 disable_item(FEAT_CARGOS);

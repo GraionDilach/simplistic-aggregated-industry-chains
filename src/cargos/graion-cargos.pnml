@@ -1,3 +1,34 @@
+spriteset(cargoicon_chemicals) {
+    [0, 0, "gfx/cargo_icons/chem.png"]
+}
+
+item(FEAT_CARGOS, cargo_chemicals, CHEM_INDEX) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_CHEMICALS);
+        unit_name: string(STR_CARGO_SINGULAR_CHEMICALS);
+        units_of_cargo: TTD_STR_LITERS;
+        items_of_cargo: string(STR_QUANTITY_CHEMICALS);
+        type_abbreviation: string(STR_ABBREV_CHEMICALS);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CHEM_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CHEM_INDEX);
+        is_freight: 1;
+        cargo_classes: bitmask(CC_LIQUID_BULK, CC_NON_POTABLE);
+        cargo_label: "CHEM";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 25;
+        single_penalty_length: 255;
+        price_factor: 115;
+        capacity_multiplier: 1;
+        number: CHEM_INDEX;
+    }
+    graphics {
+        cargoicon_chemicals;
+    }
+}
+
 spriteset(cargoicon_petrol) {
     [0, 0, "gfx/cargo_icons/petr.png"]
 }

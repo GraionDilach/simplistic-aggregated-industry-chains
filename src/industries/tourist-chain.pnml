@@ -3,10 +3,25 @@ switch (FEAT_INDUSTRIES, SELF, location_tourist_chain_distance_resort, industry_
         CB_RESULT_LOCATION_ALLOW;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_resort_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+switch (FEAT_INDUSTRIES, SELF, location_tourist_chain_distance_town_square, industry_distance(TOWN_SQUARE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TOWN_SQUARE);
+        location_tourist_chain_distance_resort;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_tourist_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
         TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
         TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
-        location_tourist_chain_distance_resort;
+        location_tourist_chain_distance_town_square;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_town_square_count, industry_town_count(TOWN_SQUARE_INDEX)) {
+        0: location_tourist_chain_distance_town_square;
+        return string(STR_ERR_LOCATION_TOWN_SQUARE);
+}
+
+switch (FEAT_INDUSTRIES, PARENT, location_town_square_count_population, population) {
+        0..375: return string(STR_ERR_TOO_SMALL_TOWN);
+        return location_town_square_count;
 }
 
 spritelayout resort_tile_N_spritelayout {
@@ -93,13 +108,133 @@ item(FEAT_INDUSTRIES, industry_resort, RESORT_INDEX) {
         ];
         layouts: [resort_tilelayout1];
         prob_map_gen: 3;
-        prob_in_game: 1;
+        prob_in_game: 2;
         life_type: IND_LIFE_TYPE_BLACK_HOLE;
         spec_flags: 0;
         map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, RESORT_INDEX);
         nearby_station_name: string(STR_INDUSTRY_RESORT_STATION_NAME);
     }
     graphics {
-       location_check: location_resort_chain_no_desert_not_above_snowline;
+       location_check: location_tourist_chain_no_desert_not_above_snowline;
+    }
+}
+
+tilelayout town_square_tilelayout1 {
+    0, 0: town_square_tile_N;
+    0, 1: town_square_tile_E;
+    1, 1: town_square_tile_S;
+    1, 0: town_square_tile_W;
+}
+
+spritelayout town_square_tile_N_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: -16; }
+    building { sprite: 4090; xoffset: -16; yoffset: 0; }
+    building { sprite: 1877; xoffset: 0; }
+    building { sprite: 1877; xoffset: 6; }
+    building { sprite: 1877; xoffset: 11; }
+    building { sprite: 1877; yoffset: 6; }
+    building { sprite: 1877; yoffset: 11; }
+}
+
+spritelayout town_square_tile_E_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: 0; }
+    building { sprite: 4090; xoffset: -16; yoffset: 0; }
+    building { sprite: 1877; yoffset: 0; }
+    building { sprite: 1877; yoffset: 6; }
+    building { sprite: 1877; yoffset: 11; }
+    //building { sprite: 2000; yoffset: 10; }
+    building { sprite: 1877; xoffset: 11; yoffset: 11; }
+    building { sprite: 1877; xoffset: 6; yoffset: 11; }
+}
+
+spritelayout town_square_tile_S_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: 0; }
+    building { sprite: 4090; xoffset: 0; yoffset: 0; }
+    building { sprite: 1455; xoffset: -7; yoffset: -7; }
+    building { sprite: 1877; xoffset: 11; }
+    building { sprite: 1877; xoffset: 11; yoffset: 5; }
+    building { sprite: 1877; xoffset: 11; yoffset: 11; }
+    building { sprite: 1877; xoffset: 5; yoffset: 11; }
+    building { sprite: 1877; xoffset: 0; yoffset: 11; }
+}
+
+spritelayout town_square_tile_W_spritelayout {
+    ground { sprite: 4675; }
+    building { sprite: 4091; xoffset: 0; yoffset: -16; }
+    building { sprite: 4090; xoffset: 0; yoffset: 0; }
+    building { sprite: 1877; xoffset: 0; }
+    building { sprite: 1877; xoffset: 6; }
+    building { sprite: 1877; xoffset: 11; }
+    building { sprite: 1877; xoffset: 11; yoffset: 6; }
+    building { sprite: 1877; xoffset: 11; yoffset: 11; }
+    //building { sprite: 2000; xoffset: 10; }
+}
+
+item(FEAT_INDUSTRYTILES, town_square_tile_N) {
+    property {
+        substitute: 0;
+        accepted_cargos: [[PASS, 2]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        town_square_tile_N_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, town_square_tile_E) {
+    property {
+        substitute: 0;
+        accepted_cargos: [[PASS, 2]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        town_square_tile_E_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, town_square_tile_S) {
+    property {
+        substitute: 0;
+        accepted_cargos: [[PASS, 2]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        town_square_tile_S_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRYTILES, town_square_tile_W) {
+    property {
+        substitute: 0;
+        accepted_cargos: [[PASS, 2]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        town_square_tile_W_spritelayout;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_town_square, TOWN_SQUARE_INDEX) {
+    property {
+        substitute: 23;
+        name: string(STR_INDUSTRY_TOWN_SQUARE_NAME);
+        layouts: [town_square_tilelayout1];
+        prob_map_gen: 2;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_BLACK_HOLE;
+        cargo_types: [
+            produce_cargo("TOUR", 4),
+            accept_cargo("TOUR", produce_cargo("TOUR", 0.5)),
+            accept_cargo("GOOD")
+        ];
+        spec_flags: bitmask(IND_FLAG_ONLY_IN_TOWNS);
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, TOWN_SQUARE_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_TOWN_SQUARE_STATION_NAME);
+    }
+    graphics {
+        location_check: location_town_square_count_population;
     }
 }

@@ -186,3 +186,7 @@ STR_ERR_LOCATION_RECYCLING_CENTER                   :... too close to another Re
 STR_INDUSTRY_DESALINATION_PLANT_NAME                :Desalination Plant
 STR_INDUSTRY_DESALINATION_PLANT_STATION_NAME        :{STRING} Desalination Plant
 STR_ERR_LOCATION_DESALINATION_PLANT                 :... too close to another Desalination Plant
+
+STR_INDUSTRY_TOWN_SQUARE_NAME                       :Town Square
+STR_INDUSTRY_TOWN_SQUARE_STATION_NAME               :{STRING} Town Square
+STR_ERR_LOCATION_TOWN_SQUARE                        :... too close to another Town Square

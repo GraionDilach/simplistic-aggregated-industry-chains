@@ -110,6 +110,7 @@ disable_item(FEAT_INDUSTRIES);
 #define JUNKYARD_INDEX              39
 #define RECYCLING_CENTER_INDEX      40
 #define DESALINATION_PLANT_INDEX    41
+#define TOWN_SQUARE_INDEX           42
 
 template sprite_null() { [0, 0, "gfx/null.png"]}
 

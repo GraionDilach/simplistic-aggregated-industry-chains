@@ -23,6 +23,11 @@ STR_CARGO_SINGULAR_FICR                     :Fibre Crops
 STR_QUANTITY_FICR                           :{WEIGHT} of fibre crops
 STR_ABBREV_FICR                             :{TINYFONT}FC
 
+STR_CARGO_PLURAL_GLASS                      :Glass
+STR_CARGO_SINGULAR_GLASS                    :Glass
+STR_QUANTITY_GLASS                          :{WEIGHT} of glass
+STR_ABBREV_GLASS                            :{TINYFONT}GL
+
 STR_CARGO_PLURAL_PETROL                     :Petrol
 STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol

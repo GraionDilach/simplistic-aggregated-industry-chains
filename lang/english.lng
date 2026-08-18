@@ -28,6 +28,11 @@ STR_CARGO_SINGULAR_GLASS                    :Glass
 STR_QUANTITY_GLASS                          :{WEIGHT} of glass
 STR_ABBREV_GLASS                            :{TINYFONT}GL
 
+STR_CARGO_PLURAL_METAL                      :Metal
+STR_CARGO_SINGULAR_METAL                    :Metal
+STR_QUANTITY_METAL                          :{WEIGHT} of metal
+STR_ABBREV_METAL                            :{TINYFONT}MT
+
 STR_CARGO_PLURAL_PETROL                     :Petrol
 STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol

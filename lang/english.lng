@@ -38,6 +38,11 @@ STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol
 STR_ABBREV_PETROL                           :{TINYFONT}PT
 
+STR_CARGO_PLURAL_SAND                       :Sand
+STR_CARGO_SINGULAR_SAND                     :Sand
+STR_QUANTITY_SAND                           :{WEIGHT} of sand
+STR_ABBREV_SAND                             :{TINYFONT}SN
+
 STR_CARGO_PLURAL_TEA                        :Tea Tea Deluxe
 STR_CARGO_SINGULAR_TEA                      :Tea Tea Deluxe
 STR_QUANTITY_TEA                            :{COMMA} crate{P "" s} of tea

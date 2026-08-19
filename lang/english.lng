@@ -210,3 +210,7 @@ STR_ERR_LOCATION_DESALINATION_PLANT                 :... too close to another De
 STR_INDUSTRY_TOWN_SQUARE_NAME                       :Town Square
 STR_INDUSTRY_TOWN_SQUARE_STATION_NAME               :{STRING} Town Square
 STR_ERR_LOCATION_TOWN_SQUARE                        :... too close to another Town Square
+
+STR_INDUSTRY_GLASS_WORKS_NAME                       :Glass Works
+STR_INDUSTRY_GLASS_WORKS_STATION_NAME               :{STRING} Glass Works
+STR_ERR_LOCATION_GLASS_WORKS                        :... too close to another Glass Works

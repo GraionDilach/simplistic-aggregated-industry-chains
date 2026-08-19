@@ -18,9 +18,14 @@ switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_rubber_plant
         location_desalination_plant_distance_copper_ore_mine;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
+        location_desalination_plant_distance_rubber_plantation;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_desalination_plant_distance_rubber_plantation;
+        location_desalination_plant_distance_glass_works;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {

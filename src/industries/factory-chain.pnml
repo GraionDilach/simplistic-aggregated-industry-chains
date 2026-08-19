@@ -23,9 +23,14 @@ switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_desalination_plan
         location_factory_chain_distance_rubber_plantation;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
+        location_factory_chain_distance_desalination_plant;
+}
+
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_factory_chain_distance_desalination_plant;
+        location_factory_chain_distance_glass_works;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
@@ -299,6 +304,267 @@ item(FEAT_INDUSTRIES, industry_rubber_plantation, RUBBER_PLANTATION_INDEX) {
     }
 }
 
+spriteset (glass_works_tile1_ground) {
+    sprite_null()
+    [220, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+    [220, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+}
+
+spriteset (glass_works_tile1_building) {
+    sprite_null()
+    sprite_null()
+    [220, 60, 64, 90, -31, -59, "gfx/glass_works/glass_works.png"]
+}
+
+#define SPRITELAYOUT_glass_works_TILE_1(recolorpalette) \
+spritelayout spritelayout_glass_works_tile_1_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? GROUNDSPRITE_CLEARED : GROUNDSPRITE_CONCRETE; \
+    } \
+    childsprite { \
+        sprite: glass_works_tile1_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: glass_works_tile1_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_glass_works_TILE_1)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_glass_works_tile_1)
+
+item(FEAT_INDUSTRYTILES, glass_works_tile_1) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_glass_works_tile_1_select_color;
+    }
+}
+
+spriteset (glass_works_tile2_ground) {
+    sprite_null()
+    [150, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+    [150, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+}
+
+spriteset (glass_works_tile2_building) {
+    sprite_null()
+    [150, 60, 64, 90, -31, -59, "gfx/glass_works/glass_works.png"]
+    [150, 60, 64, 90, -31, -59, "gfx/glass_works/glass_works.png"]
+}
+
+#define SPRITELAYOUT_glass_works_TILE_2(recolorpalette) \
+spritelayout spritelayout_glass_works_tile_2_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? GROUNDSPRITE_CLEARED : GROUNDSPRITE_CONCRETE; \
+    } \
+    childsprite { \
+        sprite: glass_works_tile2_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: glass_works_tile2_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_glass_works_TILE_2)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_glass_works_tile_2)
+
+item(FEAT_INDUSTRYTILES, glass_works_tile_2) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_glass_works_tile_2_select_color;
+    }
+}
+
+spriteset (glass_works_tile3_ground) {
+    sprite_null()
+    [10, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+    [10, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+}
+
+spriteset (glass_works_tile3_building) {
+    sprite_null()
+    [10, 60, 64, 90, -31, -59, "gfx/glass_works/glass_works.png"]
+    [10, 60, 64, 90, -31, -59, "gfx/glass_works/glass_works.png"]
+}
+
+#define SPRITELAYOUT_glass_works_TILE_3(recolorpalette) \
+spritelayout spritelayout_glass_works_tile_3_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? GROUNDSPRITE_CLEARED : GROUNDSPRITE_CONCRETE; \
+    } \
+    childsprite { \
+        sprite: glass_works_tile3_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: glass_works_tile3_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_glass_works_TILE_3)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_glass_works_tile_3)
+
+item(FEAT_INDUSTRYTILES, glass_works_tile_3) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_glass_works_tile_3_select_color;
+    }
+}
+
+spriteset (glass_works_tile4_ground) {
+    sprite_null()
+    [80, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+    [80, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]
+}
+
+spriteset (glass_works_tile4_building) {
+    sprite_null()
+    [80, 60, 64, 90, -31, -71, "gfx/glass_works/glass_works.png"]
+    [80, 60, 64, 90, -31, -71, "gfx/glass_works/glass_works.png"]
+}
+
+#define SPRITELAYOUT_glass_works_TILE_4(recolorpalette) \
+spritelayout spritelayout_glass_works_tile_4_##recolorpalette \
+{ \
+    ground { \
+        sprite: construction_state != 3 ? GROUNDSPRITE_CLEARED : GROUNDSPRITE_CONCRETE; \
+    } \
+    childsprite { \
+        sprite: glass_works_tile4_ground; \
+        always_draw: 1; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: glass_works_tile4_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+    building { \
+        sprite: glass_works_tile1_building; \
+        recolour_mode: RECOLOUR_REMAP; \
+        palette: recolorpalette; \
+    } \
+}
+
+RECOLOR_SPRITELAYOUTS(SPRITELAYOUT_glass_works_TILE_4)
+
+INDUSTRYTILE_RECOLOR_BLOCK(spritelayout_glass_works_tile_4)
+
+item(FEAT_INDUSTRYTILES, glass_works_tile_4) {
+    property {
+        substitute: 39;
+        accepted_cargos: [];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+    graphics {
+        spritelayout_glass_works_tile_4_select_color;
+    }
+}
+
+tilelayout glass_works_layout_1 {
+    0, 0: glass_works_tile_1;
+    0, 1: glass_works_tile_2;
+    1, 0: glass_works_tile_3;
+    1, 1: glass_works_tile_4;
+    2, 0: glass_works_tile_1;
+    2, 1: glass_works_tile_2;
+    3, 0: glass_works_tile_3;
+    3, 1: glass_works_tile_4;
+}
+
+tilelayout glass_works_layout_2 {
+    0, 0: glass_works_tile_1;
+    0, 1: glass_works_tile_2;
+    1, 0: glass_works_tile_3;
+    1, 1: glass_works_tile_4;
+    2, 0: glass_works_tile_1;
+    2, 1: glass_works_tile_2;
+    3, 0: glass_works_tile_3;
+    3, 1: glass_works_tile_4;
+    1, 2: glass_works_tile_1;
+    1, 3: glass_works_tile_2;
+    2, 2: glass_works_tile_3;
+    2, 3: glass_works_tile_4;
+}
+
+tilelayout glass_works_layout_3 {
+    0, 0: glass_works_tile_1;
+    0, 1: glass_works_tile_2;
+    1, 0: glass_works_tile_3;
+    1, 1: glass_works_tile_4;
+    0, 2: glass_works_tile_1;
+    0, 3: glass_works_tile_2;
+    1, 2: glass_works_tile_3;
+    1, 3: glass_works_tile_4;
+}
+
+tilelayout glass_works_layout_4 {
+    0, 0: glass_works_tile_1;
+    0, 1: glass_works_tile_2;
+    1, 0: glass_works_tile_3;
+    1, 1: glass_works_tile_4;
+    0, 2: glass_works_tile_1;
+    0, 3: glass_works_tile_2;
+    1, 2: glass_works_tile_3;
+    1, 3: glass_works_tile_4;
+    2, 1: glass_works_tile_1;
+    2, 2: glass_works_tile_2;
+    3, 1: glass_works_tile_3;
+    3, 2: glass_works_tile_4;
+}
+
+item(FEAT_INDUSTRIES, industry_glass_works, GLASS_WORKS_INDEX) {
+    property {
+        substitute: 6;
+        name: string(STR_INDUSTRY_GLASS_WORKS_NAME);
+        layouts: [glass_works_layout_1, glass_works_layout_2, glass_works_layout_3, glass_works_layout_4];
+        cargo_types: [
+            accept_cargo("SAND", produce_cargo("GLAS", 1)),
+            accept_cargo("CHEM", produce_cargo("GLAS", 1))
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, GLASS_WORKS_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_GLASS_WORKS_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_distance_factory;
+    }
+}
+
 #define SPRITELAYOUT_factory_TILE_1(recolorpalette) \
 spritelayout spritelayout_factory_tile_1_##recolorpalette \
 { \
@@ -479,8 +745,7 @@ item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
         cargo_types: [
             accept_cargo("STEL", produce_cargo("GOOD", 1)),
             accept_cargo("RUBR", produce_cargo("GOOD", 1)),
-            accept_cargo("GLAS", produce_cargo("GOOD", 1)),
-            accept_cargo("CHEM", produce_cargo("GOOD", 1))
+            accept_cargo("GLAS", produce_cargo("GOOD", 1))
         ];
         prob_map_gen: 5;
         prob_in_game: 2;

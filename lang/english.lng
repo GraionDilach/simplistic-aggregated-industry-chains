@@ -214,3 +214,7 @@ STR_ERR_LOCATION_TOWN_SQUARE                        :... too close to another To
 STR_INDUSTRY_GLASS_WORKS_NAME                       :Glass Works
 STR_INDUSTRY_GLASS_WORKS_STATION_NAME               :{STRING} Glass Works
 STR_ERR_LOCATION_GLASS_WORKS                        :... too close to another Glass Works
+
+STR_INDUSTRY_SAND_PIT_NAME                          :Sand Pit
+STR_INDUSTRY_SAND_PIT_STATION_NAME                  :{STRING} Sand Pit
+STR_ERR_LOCATION_SAND_PIT                           :... too close to another Sand Pit

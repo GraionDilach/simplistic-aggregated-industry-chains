@@ -304,6 +304,24 @@ item(FEAT_INDUSTRIES, industry_rubber_plantation, RUBBER_PLANTATION_INDEX) {
     }
 }
 
+item(FEAT_INDUSTRIES, industry_sand_pit, SAND_PIT_INDEX) {
+    property {
+        substitute: 18;
+        name: string(STR_INDUSTRY_SAND_PIT_NAME);
+        cargo_types: [
+            produce_cargo("SAND", 10)
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, SAND_PIT_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_SAND_PIT_STATION_NAME);
+    }
+    graphics {
+        location_check: location_factory_chain_distance_factory;
+    }
+}
+
 spriteset (glass_works_tile1_ground) {
     sprite_null()
     [220, 10, 64, 31, -31, 0, "gfx/glass_works/glass_works.png"]

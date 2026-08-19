@@ -223,3 +223,7 @@ STR_ERR_LOCATION_GLASS_WORKS                        :... too close to another Gl
 STR_INDUSTRY_SAND_PIT_NAME                          :Sand Pit
 STR_INDUSTRY_SAND_PIT_STATION_NAME                  :{STRING} Sand Pit
 STR_ERR_LOCATION_SAND_PIT                           :... too close to another Sand Pit
+
+STR_INDUSTRY_BRICKWORKS_NAME                        :Brickworks
+STR_INDUSTRY_BRICKWORKS_STATION_NAME                :{STRING} Brickworks
+STR_ERR_LOCATION_BRICKWORKS                         :... too close to another Brickworks

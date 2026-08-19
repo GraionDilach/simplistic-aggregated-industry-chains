@@ -365,8 +365,7 @@ item(FEAT_INDUSTRIES, industry_power_plant, POWER_PLANT_INDEX) {
         substitute: 1;
         override: 1;
         cargo_types: [
-            accept_cargo("PETR"),
-            accept_cargo("COAL")
+            accept_cargo("PETR")
         ];
         prob_map_gen: 5;
         prob_in_game: 2;

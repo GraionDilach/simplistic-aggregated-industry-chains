@@ -25,3 +25,53 @@ item(FEAT_INDUSTRIES, industry_coal_mine, COAL_MINE_INDEX) {
        location_check: location_coal_chain_distance_power_plant;
     }
 }
+
+item(FEAT_INDUSTRYTILES, brickworks_tile_1) {
+    property {
+        substitute:      121;
+        override:        121;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, brickworks_tile_2) {
+    property {
+        substitute:      122;
+        override:        122;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, brickworks_tile_3) {
+    property {
+        substitute:      123;
+        override:        123;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRYTILES, brickworks_tile_4) {
+    property {
+        substitute:      124;
+        override:        124;
+        accepted_cargos: [[PASS, 1]];
+        special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_brickworks, BRICKWORKS_INDEX) {
+    property {
+        substitute: 23;
+        name: string(STR_INDUSTRY_BRICKWORKS_NAME);
+        cargo_types: [
+            accept_cargo("COAL", produce_cargo("BDMT", 1))
+        ];
+        prob_map_gen: 5;
+        prob_in_game: 2;
+        life_type: IND_LIFE_TYPE_PROCESSING;
+        nearby_station_name: string(STR_INDUSTRY_BRICKWORKS_STATION_NAME);
+    }
+}

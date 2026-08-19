@@ -113,6 +113,7 @@ disable_item(FEAT_INDUSTRIES);
 #define TOWN_SQUARE_INDEX           42
 #define GLASS_WORKS_INDEX           43
 #define SAND_PIT_INDEX              44
+#define BRICKWORKS_INDEX            45
 
 template sprite_null() { [0, 0, "gfx/null.png"]}
 

@@ -1,3 +1,33 @@
+spriteset(cargoicon_building_materials) {
+    [0, 0, "gfx/cargo_icons/bdmt.png"]
+}
+
+item(FEAT_CARGOS, cargo_building_materials, BDMT_INDEX) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_BUILDING_MATERIALS);
+        unit_name: string(STR_CARGO_SINGULAR_BUILDING_MATERIALS);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_BUILDING_MATERIALS);
+        type_abbreviation: string(STR_ABBREV_BUILDING_MATERIALS);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: 67;
+        cargo_payment_list_colour: 67;
+        is_freight: 1;
+        cargo_classes: bitmask(CC_PIECE_GOODS, CC_COVERED, CC_NON_POTABLE);
+        cargo_label: "BDMT";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 12;
+        single_penalty_length: 255;
+        price_factor: CONVERT_PRICE_FACTOR(6144); //149.41
+        number: BDMT_INDEX;
+    }
+    graphics {
+        cargoicon_building_materials;
+    }
+}
+
 spriteset(cargoicon_chemicals) {
     [0, 0, "gfx/cargo_icons/chem.png"]
 }

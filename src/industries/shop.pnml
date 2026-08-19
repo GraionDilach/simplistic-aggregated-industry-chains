@@ -95,7 +95,7 @@ item(FEAT_INDUSTRIES, industry_shop, SHOP_INDEX) {
         layouts: [shop_layout];
         cargo_types: [
             accept_cargo("FOOD"),
-            accept_cargo("PETR"),
+            accept_cargo("BDMT"),
             accept_cargo("SWET")
         ];
         prob_map_gen: 6;

@@ -13,6 +13,11 @@ STR_PARAM_DESC_ENABLE_CONVERTED_TOYLAND     :Might not work well with all NewGRF
 
 # Cargo strings
 
+STR_CARGO_PLURAL_BUILDING_MATERIALS         :Building Materials
+STR_CARGO_SINGULAR_BUILDING_MATERIALS       :Building Materials
+STR_QUANTITY_BUILDING_MATERIALS             :{WEIGHT} of building materials
+STR_ABBREV_BUILDING_MATERIALS               :{TINYFONT}BM
+
 STR_CARGO_PLURAL_CHEMICALS                  :Chemicals
 STR_CARGO_SINGULAR_CHEMICALS                :Chemicals
 STR_QUANTITY_CHEMICALS                      :{VOLUME} of chemicals

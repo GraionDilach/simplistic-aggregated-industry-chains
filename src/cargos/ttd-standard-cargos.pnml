@@ -53,7 +53,9 @@ item(FEAT_CARGOS, cargo_coal, COAL_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 40;
         single_penalty_length: 255;
-        price_factor: CONVERT_PRICE_FACTOR(5916); // 143.86
+        // decrease coal worth in preparation for brickworks
+        //price_factor: CONVERT_PRICE_FACTOR(5916); // 143.86
+        price_factor: CONVERT_PRICE_FACTOR(4550); // 110.65
         capacity_multiplier: 1;
     }
 }

@@ -479,6 +479,7 @@ item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
         cargo_types: [
             accept_cargo("STEL", produce_cargo("GOOD", 1)),
             accept_cargo("RUBR", produce_cargo("GOOD", 1)),
+            accept_cargo("GLAS", produce_cargo("GOOD", 1)),
             accept_cargo("CHEM", produce_cargo("GOOD", 1))
         ];
         prob_map_gen: 5;

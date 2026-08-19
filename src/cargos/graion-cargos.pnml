@@ -146,7 +146,7 @@ item(FEAT_CARGOS, cargo_sand, SAND_INDEX) {
         town_growth_multiplier: 0;
         penalty_lowerbound: 40;
         single_penalty_length: 255;
-        price_factor: 93;
+        price_factor: 106;
         capacity_multiplier: 1;
         number: SAND_INDEX;
     }

@@ -114,6 +114,7 @@ disable_item(FEAT_INDUSTRIES);
 #define GLASS_WORKS_INDEX           43
 #define SAND_PIT_INDEX              44
 #define BRICKWORKS_INDEX            45
+#define PEATLANDS_INDEX             46
 
 template sprite_null() { [0, 0, "gfx/null.png"]}
 
@@ -121,7 +122,7 @@ switch (FEAT_INDUSTRYTILES, PARENT, return_counter, counter) { return; }
 
 switch (FEAT_INDUSTRYTILES, SELF, switch_industrytile_empty, animation_frame) { return; }
 
-#include "industries/coal-chain.pnml"
+#include "industries/bdmt-chain.pnml"
 #include "industries/wood-chain.pnml"
 #include "industries/oil-chain.pnml"
 #include "industries/food-chain.pnml"

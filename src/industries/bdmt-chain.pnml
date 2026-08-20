@@ -13,13 +13,31 @@ item(FEAT_INDUSTRIES, industry_coal_mine, COAL_MINE_INDEX) {
         substitute: 0;
         override: 0;
         cargo_types: [
-            produce_cargo("COAL", 15)
+            produce_cargo("COAL", 12)
         ];
         prob_map_gen: 8;
         prob_in_game: 3;
         life_type: IND_LIFE_TYPE_EXTRACTIVE;
         map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, COAL_MINE_INDEX);
         nearby_station_name: string(STR_INDUSTRY_COAL_MINE_STATION_NAME);
+    }
+    graphics {
+       location_check: location_coal_chain_distance_power_plant;
+    }
+}
+
+item(FEAT_INDUSTRIES, industry_peatlands, PEATLANDS_INDEX) {
+    property {
+        substitute: 17;
+        name: string(STR_INDUSTRY_PEATLANDS_NAME);
+        cargo_types: [
+            produce_cargo("PEAT", 15)
+        ];
+        prob_map_gen: 8;
+        prob_in_game: 3;
+        life_type: IND_LIFE_TYPE_EXTRACTIVE;
+        map_colour: ARRAY_EVAL(INDUSTRY_COLOR_INDEX, PEATLANDS_INDEX);
+        nearby_station_name: string(STR_INDUSTRY_PEATLANDS_STATION_NAME);
     }
     graphics {
        location_check: location_coal_chain_distance_power_plant;
@@ -67,7 +85,8 @@ item(FEAT_INDUSTRIES, industry_brickworks, BRICKWORKS_INDEX) {
         substitute: 23;
         name: string(STR_INDUSTRY_BRICKWORKS_NAME);
         cargo_types: [
-            accept_cargo("COAL", produce_cargo("BDMT", 1))
+            accept_cargo("COAL", produce_cargo("BDMT", 1)),
+            accept_cargo("PEAT", produce_cargo("BDMT", 1))
         ];
         prob_map_gen: 5;
         prob_in_game: 2;

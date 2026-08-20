@@ -146,16 +146,18 @@ cargotable
 
 	// ECS/FIRS/misc inherited cargos
 	BDMT, CHEM, FICR, GLAS,
-	PETR, SAND, TOUR, WSTE
+	PEAT, PETR, SAND, TOUR,
+	WSTE
 
 	#define BDMT_INDEX    28            // FIXED ECS
 	#define CHEM_INDEX    FREE_INDEX_25
 	#define FICR_INDEX    FREE_INDEX_26
 	#define GLAS_INDEX    FREE_INDEX_27
+	#define PEAT_INDEX    FREE_INDEX_28
 	#define PETR_INDEX    25            // FIXED ECS
-	#define SAND_INDEX    FREE_INDEX_28
+	#define SAND_INDEX    FREE_INDEX_29
 	#define TOUR_INDEX    31            // FIXED ECS
-	#define WSTE_INDEX    FREE_INDEX_29
+	#define WSTE_INDEX    FREE_INDEX_30
 }
 
 disable_item(FEAT_CARGOS);

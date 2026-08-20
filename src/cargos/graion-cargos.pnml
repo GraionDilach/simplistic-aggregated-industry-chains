@@ -121,6 +121,36 @@ item(FEAT_CARGOS, cargo_glass, GLAS_INDEX) {
     }
 }
 
+spriteset(cargoicon_peat) {
+     [0, 0, "gfx/cargo_icons/peat.png"]
+}
+
+item(FEAT_CARGOS, cargo_peat, PEAT_INDEX) {
+    property {
+        type_name: string(STR_CARGO_PLURAL_PEAT);
+        unit_name: string(STR_CARGO_SINGULAR_PEAT);
+        units_of_cargo: TTD_STR_TONS;
+        items_of_cargo: string(STR_QUANTITY_PEAT);
+        type_abbreviation: string(STR_ABBREV_PEAT);
+        sprite: NEW_CARGO_SPRITE;
+        weight: 1;
+        station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PEAT_INDEX);
+        cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PEAT_INDEX);
+        is_freight: 1;
+        cargo_classes: bitmask(CC_BULK, CC_POWDER_BULK, CC_NON_POTABLE);
+        cargo_label: "PEAT";
+        town_growth_effect: TOWNGROWTH_NONE;
+        town_growth_multiplier: 0;
+        penalty_lowerbound: 30;
+        single_penalty_length: 255;
+        price_factor: 111;
+        capacity_multiplier: 1;
+        number: SAND_INDEX;
+    }
+    graphics {
+        cargoicon_peat;
+    }
+}
 
 spriteset(cargoicon_petrol) {
     [0, 0, "gfx/cargo_icons/petr.png"]

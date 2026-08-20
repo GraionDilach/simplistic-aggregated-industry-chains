@@ -38,10 +38,15 @@ STR_CARGO_SINGULAR_METAL                    :Metal
 STR_QUANTITY_METAL                          :{WEIGHT} of metal
 STR_ABBREV_METAL                            :{TINYFONT}MT
 
+STR_CARGO_PLURAL_PEAT                       :Peat
+STR_CARGO_SINGULAR_PEAT                     :Peat
+STR_QUANTITY_PEAT                           :{WEIGHT} of peat
+STR_ABBREV_PEAT                             :{TINYFONT}PT
+
 STR_CARGO_PLURAL_PETROL                     :Petrol
 STR_CARGO_SINGULAR_PETROL                   :Petrol
 STR_QUANTITY_PETROL                         :{VOLUME} of petrol
-STR_ABBREV_PETROL                           :{TINYFONT}PT
+STR_ABBREV_PETROL                           :{TINYFONT}PR
 
 STR_CARGO_PLURAL_SAND                       :Sand
 STR_CARGO_SINGULAR_SAND                     :Sand
@@ -227,3 +232,7 @@ STR_ERR_LOCATION_SAND_PIT                           :... too close to another Sa
 STR_INDUSTRY_BRICKWORKS_NAME                        :Brickworks
 STR_INDUSTRY_BRICKWORKS_STATION_NAME                :{STRING} Brickworks
 STR_ERR_LOCATION_BRICKWORKS                         :... too close to another Brickworks
+
+STR_INDUSTRY_PEATLANDS_NAME                         :Peatlands
+STR_INDUSTRY_PEATLANDS_STATION_NAME                 :{STRING} Peatlands
+STR_ERR_LOCATION_PEATLANDS                          :... too close to another Peatlands

@@ -3,6 +3,7 @@
 
 // number * 51000 / 2097152
 
+// FIRS passenger
 spriteset(cargoicon_passenger) {
     [0, 0, "gfx/cargo_icons/pass.png"]
 }
@@ -34,6 +35,11 @@ item(FEAT_CARGOS, cargo_passenger, PASS_INDEX) {
     }
 }
 
+// FIRS coal
+spriteset(cargoicon_coal) {
+    [0, 0, "gfx/cargo_icons/coal.png"]
+}
+
 item(FEAT_CARGOS, cargo_coal, COAL_INDEX) {
     property {
         number: COAL_INDEX;
@@ -42,7 +48,7 @@ item(FEAT_CARGOS, cargo_coal, COAL_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_COAL;
         type_abbreviation: TTD_STR_ABBREV_COAL;
-        sprite: 4298; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COAL_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, COAL_INDEX);
@@ -58,6 +64,14 @@ item(FEAT_CARGOS, cargo_coal, COAL_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(4550); // 110.65
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_coal;
+    }
+}
+
+// OpenGFX2 mail
+spriteset(cargoicon_mail) {
+    [0, 0, "gfx/cargo_icons/mail.png"]
 }
 
 item(FEAT_CARGOS, cargo_mail, MAIL_INDEX) {
@@ -68,7 +82,7 @@ item(FEAT_CARGOS, cargo_mail, MAIL_INDEX) {
         units_of_cargo: TTD_STR_BAGS;
         items_of_cargo: TTD_STR_QUANTITY_MAIL;
         type_abbreviation: TTD_STR_ABBREV_MAIL;
-        sprite: 4299; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.25; // 4/16
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, MAIL_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, MAIL_INDEX);
@@ -82,6 +96,14 @@ item(FEAT_CARGOS, cargo_mail, MAIL_INDEX) {
         price_factor: 167; // CONVERT_PRICE_FACTOR(4550); //110.65
         capacity_multiplier: 2;
     }
+    graphics {
+        cargoicon_mail;
+    }
+}
+
+// FIRS oil
+spriteset(cargoicon_oil) {
+    [0, 0, "gfx/cargo_icons/oil_.png"]
 }
 
 item(FEAT_CARGOS, cargo_oil, OIL__INDEX) {
@@ -92,7 +114,7 @@ item(FEAT_CARGOS, cargo_oil, OIL__INDEX) {
         units_of_cargo: TTD_STR_LITERS;
         items_of_cargo: TTD_STR_QUANTITY_OIL;
         type_abbreviation: TTD_STR_ABBREV_OIL;
-        sprite: 4300; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, OIL__INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, OIL__INDEX);
@@ -107,7 +129,17 @@ item(FEAT_CARGOS, cargo_oil, OIL__INDEX) {
         // price_factor: CONVERT_PRICE_FACTOR(4892); // 118.96 // Tropic
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_oil;
+    }
 }
+
+// mix of OGFX2 and FIRS livestock
+//(FIRS recolors the OGFX1 cow icon to black, this one uses the OGFX2 one instead with it's original colors)
+spriteset(cargoicon_livestock) {
+    [0, 0, "gfx/cargo_icons/lvst.png"]
+}
+
 
 item(FEAT_CARGOS, cargo_livestock, LVST_INDEX) {
     property {
@@ -117,7 +149,7 @@ item(FEAT_CARGOS, cargo_livestock, LVST_INDEX) {
         units_of_cargo: TTD_STR_ITEMS;
         items_of_cargo: TTD_STR_QUANTITY_LIVESTOCK;
         type_abbreviation: TTD_STR_ABBREV_LIVESTOCK;
-        sprite: 4301; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.1875; // 3/16
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, LVST_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, LVST_INDEX);
@@ -131,6 +163,14 @@ item(FEAT_CARGOS, cargo_livestock, LVST_INDEX) {
         price_factor: 122; // CONVERT_PRICE_FACTOR(4322); //105.10
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_livestock;
+    }
+}
+
+// OpenGFX2 goods
+spriteset(cargoicon_goods) {
+    [0, 0, "gfx/cargo_icons/good.png"]
 }
 
 item(FEAT_CARGOS, cargo_goods, GOOD_INDEX) {
@@ -141,7 +181,7 @@ item(FEAT_CARGOS, cargo_goods, GOOD_INDEX) {
         units_of_cargo: TTD_STR_CRATES;
         items_of_cargo: TTD_STR_QUANTITY_GOODS;
         type_abbreviation: TTD_STR_ABBREV_GOODS;
-        sprite: 4302; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.5; // 8/16
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, GOOD_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, GOOD_INDEX);
@@ -155,6 +195,14 @@ item(FEAT_CARGOS, cargo_goods, GOOD_INDEX) {
         price_factor: 169; //CONVERT_PRICE_FACTOR(6144); //149.41
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_goods;
+    }
+}
+
+// FIRS grain
+spriteset(cargoicon_grain) {
+    [0, 0, "gfx/cargo_icons/grai.png"]
 }
 
 item(FEAT_CARGOS, cargo_grain, GRAI_INDEX) {
@@ -165,7 +213,7 @@ item(FEAT_CARGOS, cargo_grain, GRAI_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_GRAIN;
         type_abbreviation: TTD_STR_ABBREV_GRAIN;
-        sprite: 4303; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, GRAI_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, GRAI_INDEX);
@@ -179,6 +227,14 @@ item(FEAT_CARGOS, cargo_grain, GRAI_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(4778); //116.19
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_grain;
+    }
+}
+
+// FIRS logs
+spriteset(cargoicon_wood) {
+    [0, 0, "gfx/cargo_icons/wood.png"]
 }
 
 item(FEAT_CARGOS, cargo_wood, WOOD_INDEX) {
@@ -189,7 +245,7 @@ item(FEAT_CARGOS, cargo_wood, WOOD_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_WOOD;
         type_abbreviation: TTD_STR_ABBREV_WOOD;
-        sprite: 4304; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, WOOD_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, WOOD_INDEX);
@@ -204,6 +260,14 @@ item(FEAT_CARGOS, cargo_wood, WOOD_INDEX) {
         // price_factor: CONVERT_PRICE_FACTOR(7964); //193.67 //Tropic
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_wood;
+    }
+}
+
+// FIRS iron ore
+spriteset(cargoicon_iron_ore) {
+    [0, 0, "gfx/cargo_icons/iore.png"]
 }
 
 item(FEAT_CARGOS, cargo_iron_ore, IORE_INDEX) {
@@ -214,7 +278,7 @@ item(FEAT_CARGOS, cargo_iron_ore, IORE_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_IRON_ORE;
         type_abbreviation: TTD_STR_ABBREV_IRON_ORE;
-        sprite: 4305; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, IORE_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, IORE_INDEX);
@@ -228,6 +292,14 @@ item(FEAT_CARGOS, cargo_iron_ore, IORE_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(5120); //124.51
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_iron_ore;
+    }
+}
+
+// FIRS steel
+spriteset(cargoicon_steel) {
+    [0, 0, "gfx/cargo_icons/stel.png"]
 }
 
 item(FEAT_CARGOS, cargo_steel, STEL_INDEX) {
@@ -238,7 +310,7 @@ item(FEAT_CARGOS, cargo_steel, STEL_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: string(STR_QUANTITY_METAL);
         type_abbreviation: string(STR_ABBREV_METAL);
-        sprite: 4306; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, STEL_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, STEL_INDEX);
@@ -252,6 +324,14 @@ item(FEAT_CARGOS, cargo_steel, STEL_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(5688); //138.32
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_steel;
+    }
+}
+
+// FIRS mail
+spriteset(cargoicon_valuables) {
+    [0, 0, "gfx/cargo_icons/valu.png"]
 }
 
 item(FEAT_CARGOS, cargo_valuables, VALU_INDEX) {
@@ -262,7 +342,7 @@ item(FEAT_CARGOS, cargo_valuables, VALU_INDEX) {
         units_of_cargo: TTD_STR_BAGS;
         items_of_cargo: TTD_STR_QUANTITY_VALUABLES;
         type_abbreviation: TTD_STR_ABBREV_VALUABLES;
-        sprite: 4307; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.125; // 2/16
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, VALU_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, VALU_INDEX);
@@ -277,6 +357,14 @@ item(FEAT_CARGOS, cargo_valuables, VALU_INDEX) {
         // price_factor: CONVERT_PRICE_FACTOR(7509); //182.60 // TTD
         capacity_multiplier: 2;
     }
+    graphics {
+        cargoicon_valuables;
+    }
+}
+
+// OpenGFX2 EZ paper (downsized and stretched)
+spriteset(cargoicon_paper) {
+    [0, 0, "gfx/cargo_icons/papr.png"]
 }
 
 item(FEAT_CARGOS, cargo_paper, PAPR_INDEX) {
@@ -287,7 +375,7 @@ item(FEAT_CARGOS, cargo_paper, PAPR_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_PAPER;
         type_abbreviation: TTD_STR_ABBREV_PAPER;
-        sprite: 4313; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PAPR_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, PAPR_INDEX);
@@ -301,6 +389,14 @@ item(FEAT_CARGOS, cargo_paper, PAPR_INDEX) {
         price_factor: 143; // CONVERT_PRICE_FACTOR(5461); //132.80
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_paper;
+    }
+}
+
+// OpenGFX2 gold
+spriteset(cargoicon_gold) {
+    [0, 0, "gfx/cargo_icons/gold.png"]
 }
 
 item(FEAT_CARGOS, cargo_gold, GOLD_INDEX) {
@@ -311,7 +407,7 @@ item(FEAT_CARGOS, cargo_gold, GOLD_INDEX) {
         units_of_cargo: TTD_STR_BAGS;
         items_of_cargo: TTD_STR_QUANTITY_GOLD;
         type_abbreviation: TTD_STR_ABBREV_GOLD;
-        sprite: 4307; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.5; // 8/16
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, GOLD_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, GOLD_INDEX);
@@ -325,6 +421,14 @@ item(FEAT_CARGOS, cargo_gold, GOLD_INDEX) {
         price_factor: 152; //CONVERT_PRICE_FACTOR(5802); //141.09
         capacity_multiplier: 2;
     }
+    graphics {
+        cargoicon_gold;
+    }
+}
+
+// FIRS food
+spriteset(cargoicon_food) {
+    [0, 0, "gfx/cargo_icons/food.png"]
 }
 
 item(FEAT_CARGOS, cargo_food, FOOD_INDEX) {
@@ -335,7 +439,7 @@ item(FEAT_CARGOS, cargo_food, FOOD_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_FOOD;
         type_abbreviation: TTD_STR_ABBREV_FOOD;
-        sprite: 4312; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, FOOD_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, FOOD_INDEX);
@@ -349,6 +453,14 @@ item(FEAT_CARGOS, cargo_food, FOOD_INDEX) {
         price_factor: 168; //CONVERT_PRICE_FACTOR(5688); //138.32
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_food;
+    }
+}
+
+// OpenGFX2 rubber
+spriteset(cargoicon_rubber) {
+    [0, 0, "gfx/cargo_icons/rubr.png"]
 }
 
 item(FEAT_CARGOS, cargo_rubber, RUBR_INDEX) {
@@ -359,7 +471,7 @@ item(FEAT_CARGOS, cargo_rubber, RUBR_INDEX) {
         units_of_cargo: TTD_STR_LITERS;
         items_of_cargo: TTD_STR_QUANTITY_RUBBER;
         type_abbreviation: TTD_STR_ABBREV_RUBBER;
-        sprite: 4314; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, RUBR_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, RUBR_INDEX);
@@ -373,6 +485,14 @@ item(FEAT_CARGOS, cargo_rubber, RUBR_INDEX) {
         price_factor: 110; //CONVERT_PRICE_FACTOR(4437); //107.90
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_rubber;
+    }
+}
+
+// FIRS fruit
+spriteset(cargoicon_fruit) {
+    [0, 0, "gfx/cargo_icons/frut.png"]
 }
 
 item(FEAT_CARGOS, cargo_fruit, FRUT_INDEX) {
@@ -383,7 +503,7 @@ item(FEAT_CARGOS, cargo_fruit, FRUT_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_FRUIT;
         type_abbreviation: TTD_STR_ABBREV_FRUIT;
-        sprite: 4308; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, FRUT_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, FRUT_INDEX);
@@ -397,6 +517,14 @@ item(FEAT_CARGOS, cargo_fruit, FRUT_INDEX) {
         price_factor: 124; //CONVERT_PRICE_FACTOR(4209); //102.35
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_fruit;
+    }
+}
+
+// FIRS copper ore
+spriteset(cargoicon_copper_ore) {
+    [0, 0, "gfx/cargo_icons/core.png"]
 }
 
 item(FEAT_CARGOS, cargo_copper_ore, CORE_INDEX) {
@@ -407,7 +535,7 @@ item(FEAT_CARGOS, cargo_copper_ore, CORE_INDEX) {
         units_of_cargo: TTD_STR_TONS;
         items_of_cargo: TTD_STR_QUANTITY_COPPER_ORE;
         type_abbreviation: TTD_STR_ABBREV_COPPER_ORE;
-        sprite: 4309; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CORE_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, CORE_INDEX);
@@ -421,6 +549,14 @@ item(FEAT_CARGOS, cargo_copper_ore, CORE_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(4892); //118.96
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_copper_ore;
+    }
+}
+
+// OpenGFX2 water (duplicated)
+spriteset(cargoicon_water) {
+    [0, 0, "gfx/cargo_icons/watr.png"]
 }
 
 item(FEAT_CARGOS, cargo_water, WATR_INDEX) {
@@ -431,7 +567,7 @@ item(FEAT_CARGOS, cargo_water, WATR_INDEX) {
         units_of_cargo: TTD_STR_LITERS;
         items_of_cargo: TTD_STR_QUANTITY_WATER;
         type_abbreviation: TTD_STR_ABBREV_WATER;
-        sprite: 4310; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 1;
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, WATR_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, WATR_INDEX);
@@ -445,6 +581,14 @@ item(FEAT_CARGOS, cargo_water, WATR_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(4664); //113.42
         capacity_multiplier: 1;
     }
+    graphics {
+        cargoicon_water;
+    }
+}
+
+// OpenGFX2 diamond tweaked
+spriteset(cargoicon_diamond) {
+    [0, 0, "gfx/cargo_icons/diam.png"]
 }
 
 item(FEAT_CARGOS, cargo_diamond, DIAM_INDEX) {
@@ -455,7 +599,7 @@ item(FEAT_CARGOS, cargo_diamond, DIAM_INDEX) {
         units_of_cargo: TTD_STR_BAGS;
         items_of_cargo: TTD_STR_QUANTITY_DIAMONDS;
         type_abbreviation: TTD_STR_ABBREV_DIAMONDS;
-        sprite: 4311; // vanilla
+        sprite: NEW_CARGO_SPRITE;
         weight: 0.125; // 2/16
         station_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, DIAM_INDEX);
         cargo_payment_list_colour: ARRAY_EVAL(CARGO_COLOR_INDEX, DIAM_INDEX);
@@ -469,5 +613,8 @@ item(FEAT_CARGOS, cargo_diamond, DIAM_INDEX) {
         price_factor: CONVERT_PRICE_FACTOR(5882); //143.04
         //FIRS has a price factor of 179 on this one which is huge
         capacity_multiplier: 2;
+    }
+    graphics {
+        cargoicon_diamond;
     }
 }

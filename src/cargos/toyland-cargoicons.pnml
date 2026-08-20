@@ -1,0 +1,49 @@
+// FIRS salt
+spriteset(cargoicon_sugar) {
+    [0, 0, "gfx/cargo_icons/sugr.png"]
+}
+
+// OpenGFX2 toys
+spriteset(cargoicon_toys) {
+    [0, 0, "gfx/cargo_icons/toys.png"]
+}
+
+// OpenGFX2 batteries (tweaked)
+spriteset(cargoicon_batteries) {
+    [0, 0, "gfx/cargo_icons/batt.png"]
+}
+
+// OpenGFX2 candy
+spriteset(cargoicon_candy) {
+    [0, 0, "gfx/cargo_icons/swet.png"]
+}
+
+// OpenGFX2 toffee
+spriteset(cargoicon_toffee) {
+    [0, 0, "gfx/cargo_icons/toff.png"]
+}
+
+// OpenGFX2 water derivate
+spriteset(cargoicon_cola) {
+    [0, 0, "gfx/cargo_icons/cola.png"]
+}
+
+// OpenGFX2 cotton candy
+spriteset(cargoicon_cotton_candy) {
+    [0, 0, "gfx/cargo_icons/ctcd.png"]
+}
+
+// FIRS soap derivate
+spriteset(cargoicon_bubbles) {
+    [0, 0, "gfx/cargo_icons/bubl.png"]
+}
+
+// FIRS pyrite ore
+spriteset(cargoicon_plastic) {
+    [0, 0, "gfx/cargo_icons/plst.png"]
+}
+
+// OpenGFX fizzy drink (tweaked)
+spriteset(cargoicon_fizzy_drinks) {
+    [0, 0, "gfx/cargo_icons/fzdr.png"]
+}

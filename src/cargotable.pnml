@@ -231,9 +231,7 @@ disable_item(FEAT_CARGOS);
 
 #include "cargos/ttd-standard-cargos.pnml"
 
-spriteset(cargoicon_cola) {
-    [0, 0, "gfx/cargo_icons/cola.png"]
-}
+#include "cargos/toyland-cargoicons.pnml"
 
 if (enable_converted_toyland)
 {

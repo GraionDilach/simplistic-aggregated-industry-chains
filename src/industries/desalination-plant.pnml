@@ -1,46 +1,11 @@
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
-        CB_RESULT_LOCATION_ALLOW;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
-        location_desalination_plant_distance_iron_ore_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
-        location_desalination_plant_distance_steel_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
-        location_desalination_plant_distance_copper_ore_mine;
-}
-
 switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
-        location_desalination_plant_distance_rubber_plantation;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_desalination_plant_distance_glass_works;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
-        location_desalination_plant_distance_junkyard;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_factory, industry_distance(FACTORY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FACTORY);
-        location_desalination_plant_distance_recycling_center;
+        CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_supply, industry_distance(WATER_SUPPLY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_WATER_SUPPLY);
-        location_desalination_plant_distance_factory;
+        location_desalination_plant_distance_glass_works;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_desalination_plant_distance_tower, industry_distance(WATER_TOWER_INDEX)) {

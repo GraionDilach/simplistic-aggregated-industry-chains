@@ -1,11 +1,11 @@
-switch (FEAT_INDUSTRIES, SELF, location_coal_chain_distance_coal_mine, industry_distance(COAL_MINE_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_coal_mine_distance_coal_mine, industry_distance(COAL_MINE_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_COAL_MINE);
         CB_RESULT_LOCATION_ALLOW;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_coal_chain_distance_power_plant, industry_distance(POWER_PLANT_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_POWER_PLANT);
-        location_coal_chain_distance_coal_mine;
+switch (FEAT_INDUSTRIES, SELF, location_coal_mine_distance_brickworks, industry_distance(BRICKWORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_BRICKWORKS);
+        location_coal_mine_distance_coal_mine;
 }
 
 item(FEAT_INDUSTRIES, industry_coal_mine, COAL_MINE_INDEX) {
@@ -22,8 +22,18 @@ item(FEAT_INDUSTRIES, industry_coal_mine, COAL_MINE_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_COAL_MINE_STATION_NAME);
     }
     graphics {
-       location_check: location_coal_chain_distance_power_plant;
+       location_check: location_coal_mine_distance_brickworks;
     }
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_peatlands_distance_peatlands, industry_distance(PEATLANDS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PEATLANDS);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_peatlands_distance_brickworks, industry_distance(BRICKWORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_BRICKWORKS);
+        location_peatlands_distance_peatlands;
 }
 
 item(FEAT_INDUSTRIES, industry_peatlands, PEATLANDS_INDEX) {
@@ -40,7 +50,7 @@ item(FEAT_INDUSTRIES, industry_peatlands, PEATLANDS_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_PEATLANDS_STATION_NAME);
     }
     graphics {
-       location_check: location_coal_chain_distance_power_plant;
+       location_check: location_peatlands_distance_brickworks;
     }
 }
 
@@ -80,6 +90,26 @@ item(FEAT_INDUSTRYTILES, brickworks_tile_4) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_brickworks_distance_coal_mine, industry_distance(COAL_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_COAL_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_brickworks_distance_peatlands, industry_distance(PEATLANDS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PEATLANDS);
+        location_brickworks_distance_coal_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_brickworks_distance_brickworks, industry_distance(BRICKWORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_BRICKWORKS);
+        location_brickworks_distance_peatlands;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_brickworks_distance_shop, industry_distance(SHOP_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_SHOP);
+        location_brickworks_distance_brickworks;
+}
+
 item(FEAT_INDUSTRIES, industry_brickworks, BRICKWORKS_INDEX) {
     property {
         substitute: 23;
@@ -92,5 +122,8 @@ item(FEAT_INDUSTRIES, industry_brickworks, BRICKWORKS_INDEX) {
         prob_in_game: 2;
         life_type: IND_LIFE_TYPE_PROCESSING;
         nearby_station_name: string(STR_INDUSTRY_BRICKWORKS_STATION_NAME);
+    }
+    graphics {
+       location_check: location_brickworks_distance_shop;
     }
 }

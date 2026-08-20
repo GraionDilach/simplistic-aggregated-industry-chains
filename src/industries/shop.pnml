@@ -1,65 +1,25 @@
-switch (FEAT_INDUSTRIES, SELF, location_shop_distance_farm, industry_distance(FARM_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FARM);
-        CB_RESULT_LOCATION_ALLOW;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_distance_fruit_plantation, industry_distance(FRUIT_PLANTATION_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FRUIT_PLANTATION);
-        location_shop_distance_farm;
-}
-
 switch (FEAT_INDUSTRIES, SELF, location_shop_distance_food_processing_plant, industry_distance(FOOD_PROCESSING_PLANT_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_FOOD_PROCESSING_PLANT);
-        location_shop_distance_fruit_plantation;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_distance_ranch, industry_distance(SHOP_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RANCH);
-        location_shop_distance_food_processing_plant;
+        CB_RESULT_LOCATION_ALLOW;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_shop_distance_shop, industry_distance(SHOP_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_SHOP);
-        location_shop_distance_ranch;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_oil_wells, industry_distance(OIL_WELLS_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_OIL_WELLS);
-        location_shop_distance_shop;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_oil_rig, industry_distance(OIL_RIG_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_OIL_RIG);
-        location_shop_chain_distance_oil_wells;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_oil_refinery, industry_distance(OIL_REFINERY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_REFINERY);
-        location_shop_chain_distance_oil_rig;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_candyfloss_forest, industry_distance(CANDYFLOSS_FOREST_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_CANDYFLOSS_FOREST);
-        location_shop_chain_distance_oil_refinery;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_sugar_mine, industry_distance(SUGAR_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_SUGAR_MINE);
-        location_shop_chain_distance_candyfloss_forest;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_toffee_quarry, industry_distance(TOFFEE_QUARRY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TOFFEE_QUARRY);
-        location_shop_chain_distance_sugar_mine;
+        location_shop_distance_food_processing_plant;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_candy_factory, industry_distance(CANDY_FACTORY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_CANDY_FACTORY);
-        location_shop_chain_distance_toffee_quarry;
+        location_shop_distance_shop;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_shop_chain_distance_brickworks, industry_distance(BRICKWORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_BRICKWORKS);
+        location_shop_chain_distance_candy_factory;
 }
 
 switch (FEAT_INDUSTRIES, SELF, location_shop_count, industry_town_count(SHOP_INDEX)) {
-        0: location_shop_chain_distance_candy_factory;
+        0: location_shop_chain_distance_brickworks;
         return string(STR_ERR_LOCATION_SHOP);
 }
 

@@ -1,26 +1,11 @@
-switch (FEAT_INDUSTRIES, SELF, location_valuables_chain_distance_diamond_mine, industry_distance(DIAMOND_MINE_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_diamond_mine_distance_diamond_mine, industry_distance(DIAMOND_MINE_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_DIAMOND_MINE);
         CB_RESULT_LOCATION_ALLOW;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_valuables_chain_distance_gold_mine, industry_distance(GOLD_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_GOLD_MINE);
-        location_valuables_chain_distance_diamond_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_valuables_chain_distance_treasury, industry_distance(TREASURY_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_diamond_mine_distance_treasury, industry_distance(TREASURY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_TREASURY);
-        location_valuables_chain_distance_gold_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_treasury_count, industry_town_count(TREASURY_INDEX)) {
-        0: location_valuables_chain_distance_treasury;
-        return string(STR_ERR_LOCATION_TREASURY);
-}
-
-switch (FEAT_INDUSTRIES, PARENT, location_treasury_count_population, population) {
-        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
-        return location_treasury_count;
+        location_diamond_mine_distance_diamond_mine;
 }
 
 item(FEAT_INDUSTRIES, industry_diamond_mine, DIAMOND_MINE_INDEX) {
@@ -37,8 +22,18 @@ item(FEAT_INDUSTRIES, industry_diamond_mine, DIAMOND_MINE_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_DIAMOND_MINE_STATION_NAME);
     }
     graphics {
-        location_check: location_valuables_chain_distance_treasury;
+        location_check: location_diamond_mine_distance_treasury;
     }
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_gold_mine_distance_gold_mine, industry_distance(GOLD_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GOLD_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_gold_mine_distance_treasury, industry_distance(TREASURY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TREASURY);
+        location_gold_mine_distance_gold_mine;
 }
 
 item(FEAT_INDUSTRIES, industry_gold_mine, GOLD_MINE_INDEX) {
@@ -55,7 +50,7 @@ item(FEAT_INDUSTRIES, industry_gold_mine, GOLD_MINE_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_GOLD_MINE_STATION_NAME);
     }
     graphics {
-        location_check: location_valuables_chain_distance_treasury;
+        location_check: location_gold_mine_distance_treasury;
     }
 }
 
@@ -103,6 +98,31 @@ tilelayout treasury_layout_1 {
 tilelayout treasury_layout_2 {
     0, 0: treasury_tile_3;
     1, 0: treasury_tile_4;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_treasury_distance_diamond_mine, industry_distance(DIAMOND_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_DIAMOND_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_treasury_distance_gold_mine, industry_distance(GOLD_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GOLD_MINE);
+        location_treasury_distance_diamond_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_treasury_distance_treasury, industry_distance(TREASURY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TREASURY);
+        location_treasury_distance_gold_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_treasury_count, industry_town_count(TREASURY_INDEX)) {
+        0: location_treasury_distance_treasury;
+        return string(STR_ERR_LOCATION_TREASURY);
+}
+
+switch (FEAT_INDUSTRIES, PARENT, location_treasury_count_population, population) {
+        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
+        return location_treasury_count;
 }
 
 item(FEAT_INDUSTRIES, industry_treasury, TREASURY_INDEX) {

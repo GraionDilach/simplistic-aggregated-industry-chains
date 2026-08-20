@@ -1,21 +1,11 @@
-switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_cola_wells, industry_distance(COLA_WELLS_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_cola_wells_distance_cola_wells, industry_distance(COLA_WELLS_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_COLA_WELLS);
         CB_RESULT_LOCATION_ALLOW;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_bubble_generator, industry_distance(BUBBLE_GENERATOR_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_BUBBLE_GENERATOR);
-        location_fizzy_drink_chain_distance_cola_wells;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_fizzy_drink_factory, industry_distance(FIZZY_DRINK_FACTORY_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_cola_wells_distance_fizzy_drink_factory, industry_distance(FIZZY_DRINK_FACTORY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_FIZZY_DRINK_FACTORY);
-        location_fizzy_drink_chain_distance_bubble_generator;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_chain_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
-        location_fizzy_drink_chain_distance_fizzy_drink_factory;
+        location_cola_wells_distance_cola_wells;
 }
 
 if (enable_converted_toyland)
@@ -34,9 +24,19 @@ if (enable_converted_toyland)
             nearby_station_name: string(STR_INDUSTRY_COLA_WELLS_STATION_NAME);
         }
         graphics {
-           location_check: location_fizzy_drink_chain_distance_teahouse;
+           location_check: location_cola_wells_distance_fizzy_drink_factory;
         }
     }
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_bubble_generator_distance_bubble_generator, industry_distance(BUBBLE_GENERATOR_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_BUBBLE_GENERATOR);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_bubble_generator_distance_fizzy_drink_factory, industry_distance(FIZZY_DRINK_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FIZZY_DRINK_FACTORY);
+        location_bubble_generator_distance_bubble_generator;
 }
 
 if (enable_converted_toyland)
@@ -55,7 +55,7 @@ if (enable_converted_toyland)
             nearby_station_name: string(STR_INDUSTRY_BUBBLE_GENERATOR_STATION_NAME);
         }
         graphics {
-           location_check: location_fizzy_drink_chain_distance_teahouse;
+           location_check: location_bubble_generator_distance_fizzy_drink_factory;
         }
     }
 }
@@ -104,6 +104,26 @@ item(FEAT_INDUSTRYTILES, fizzy_drink_factory_tile_4)
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_factory_distance_cola_wells, industry_distance(COLA_WELLS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_COLA_WELLS);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_factory_distance_bubble_generator, industry_distance(BUBBLE_GENERATOR_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_BUBBLE_GENERATOR);
+        location_fizzy_drink_factory_distance_cola_wells;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_factory_distance_fizzy_drink_factory, industry_distance(FIZZY_DRINK_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FIZZY_DRINK_FACTORY);
+        location_fizzy_drink_factory_distance_bubble_generator;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_fizzy_drink_factory_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
+        location_fizzy_drink_factory_distance_fizzy_drink_factory;
+}
+
 if (enable_converted_toyland)
 {
     item(FEAT_INDUSTRIES, industry_fizzy_drink_factory, FIZZY_DRINK_FACTORY_INDEX) {
@@ -121,7 +141,7 @@ if (enable_converted_toyland)
             nearby_station_name: string(STR_INDUSTRY_FIZZY_DRINK_FACTORY_STATION_NAME);
         }
         graphics {
-           location_check: location_fizzy_drink_chain_distance_teahouse;
+           location_check: location_fizzy_drink_factory_distance_teahouse;
         }
     }
 }

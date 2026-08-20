@@ -1,43 +1,3 @@
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_forest, industry_distance(FOREST_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FOREST);
-        CB_RESULT_LOCATION_ALLOW;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_LUMBER_MILL);
-        location_wood_chain_distance_forest;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_farm, industry_distance(FARM_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FARM);
-        location_wood_chain_distance_lumber_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
-        location_wood_chain_distance_farm;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_wood_chain_distance_paper_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
-        location_wood_chain_distance_junkyard;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
-        location_wood_chain_distance_recycling_center;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_wood_chain_forest_no_desert, nearby_tile_terrain_type(0, 0)) {
-        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
-        location_wood_chain_distance_printing_works;
-}
-
 // define default_tree_base 1709
 // define ogfxtrees_tree_base 1716
 // define stolentrees_tree_base 1709
@@ -270,6 +230,26 @@ tilelayout forest_layout_2 {
     3, 4: forest_tile_2;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_forest_distance_forest, industry_distance(FOREST_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOREST);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_forest_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_LUMBER_MILL);
+        location_forest_distance_forest;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_forest_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
+        location_forest_distance_lumber_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_forest_no_desert, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        location_forest_distance_paper_mill;
+}
+
 item(FEAT_INDUSTRIES, industry_forest, FOREST_INDEX) {
     property {
         substitute: 3;
@@ -285,7 +265,7 @@ item(FEAT_INDUSTRIES, industry_forest, FOREST_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_FOREST_STATION_NAME);
     }
     graphics {
-       location_check: location_wood_chain_forest_no_desert;
+       location_check: location_forest_no_desert;
     }
 }
 
@@ -353,6 +333,37 @@ item(FEAT_INDUSTRYTILES, paper_mill_tile_8) {
         special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
     }
 }
+
+switch (FEAT_INDUSTRIES, SELF, location_paper_mill_distance_forest, industry_distance(FOREST_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOREST);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_paper_mill_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_LUMBER_MILL);
+        location_paper_mill_distance_forest;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_paper_mill_distance_farm, industry_distance(FARM_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FARM);
+        location_paper_mill_distance_lumber_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_paper_mill_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
+        location_paper_mill_distance_farm;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_paper_mill_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_paper_mill_distance_paper_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_paper_mill_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
+        location_paper_mill_distance_recycling_center;
+}
+
 item(FEAT_INDUSTRIES, industry_paper_mill, PAPER_MILL_INDEX) {
     property {
         substitute: 14;
@@ -368,7 +379,7 @@ item(FEAT_INDUSTRIES, industry_paper_mill, PAPER_MILL_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_PAPER_MILL_STATION_NAME);
     }
     graphics {
-        location_check: location_wood_chain_distance_printing_works;
+        location_check: location_paper_mill_distance_printing_works;
     }
 }
 
@@ -492,6 +503,27 @@ item(FEAT_INDUSTRYTILES, printing_works_tile_4) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_printing_works_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_printing_works_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_printing_works_distance_paper_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_printing_works_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
+        location_printing_works_distance_recycling_center;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_printing_works_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_printing_works_distance_printing_works;
+}
+
+
 item(FEAT_INDUSTRIES, industry_printing_works, PRINTING_WORKS_INDEX) {
     property {
         substitute: 7;
@@ -506,7 +538,7 @@ item(FEAT_INDUSTRIES, industry_printing_works, PRINTING_WORKS_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_PRINTING_WORKS_STATION_NAME);
     }
     graphics {
-        location_check: location_wood_chain_distance_printing_works;
+        location_check: location_printing_works_distance_factory;
     }
 }
 
@@ -525,6 +557,6 @@ item(FEAT_INDUSTRIES, industry_lumber_mill, LUMBER_MILL_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_LUMBER_MILL_STATION_NAME);
     }
     graphics {
-        location_check: location_wood_chain_forest_no_desert;
+        location_check: location_forest_no_desert;
     }
 }

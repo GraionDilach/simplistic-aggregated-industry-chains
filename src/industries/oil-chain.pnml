@@ -1,21 +1,16 @@
-switch (FEAT_INDUSTRIES, SELF, location_oil_chain_distance_oil_wells, industry_distance(OIL_WELLS_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_oil_source_distance_oil_wells, industry_distance(OIL_WELLS_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_OIL_WELLS);
         CB_RESULT_LOCATION_ALLOW;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_oil_chain_distance_oil_rig, industry_distance(OIL_RIG_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_oil_source_distance_oil_rig, industry_distance(OIL_RIG_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_OIL_RIG);
-        location_oil_chain_distance_oil_wells;
+        location_oil_source_distance_oil_wells;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_oil_chain_distance_oil_refinery, industry_distance(OIL_REFINERY_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_oil_source_distance_oil_refinery, industry_distance(OIL_REFINERY_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_REFINERY);
-        location_oil_chain_distance_oil_rig;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_oil_chain_distance_shop, industry_distance(SHOP_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_SHOP);
-        location_oil_chain_distance_oil_refinery;
+        location_oil_source_distance_oil_rig;
 }
 
 item(FEAT_INDUSTRIES, industry_oil_wells, OIL_WELLS_INDEX) {
@@ -33,7 +28,7 @@ item(FEAT_INDUSTRIES, industry_oil_wells, OIL_WELLS_INDEX) {
         spec_flags: 0;
     }
     graphics {
-        location_check: location_oil_chain_distance_shop;
+        location_check: location_oil_source_distance_oil_refinery;
     }
 }
 
@@ -53,7 +48,7 @@ item(FEAT_INDUSTRIES, industry_oil_rig, OIL_RIG_INDEX) {
         spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
     }
     graphics {
-        location_check: location_oil_chain_distance_shop;
+        location_check: location_oil_source_distance_oil_refinery;
     }
 }
 
@@ -237,6 +232,26 @@ item(FEAT_INDUSTRYTILES, refinery_tile_6) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_refinery_distance_oil_wells, industry_distance(OIL_WELLS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_OIL_WELLS);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_refinery_distance_oil_rig, industry_distance(OIL_RIG_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_OIL_RIG);
+        location_refinery_distance_oil_wells;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_refinery_distance_oil_refinery, industry_distance(OIL_REFINERY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_REFINERY);
+        location_refinery_distance_oil_rig;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_refinery_distance_power_plant, industry_distance(POWER_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_POWER_PLANT);
+        location_refinery_distance_oil_refinery;
+}
+
 item(FEAT_INDUSTRIES, industry_refinery, OIL_REFINERY_INDEX) {
     property {
         substitute: 4;
@@ -252,7 +267,7 @@ item(FEAT_INDUSTRIES, industry_refinery, OIL_REFINERY_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_REFINERY_STATION_NAME);
     }
     graphics {
-        location_check: location_oil_chain_distance_shop;
+        location_check: location_refinery_distance_power_plant;
     }
 }
 
@@ -360,6 +375,16 @@ item(FEAT_INDUSTRYTILES, power_plant_tile_4) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_power_plant_distance_oil_refinery, industry_distance(OIL_REFINERY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_REFINERY);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_power_plant_distance_power_plant, industry_distance(POWER_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_POWER_PLANT);
+        location_power_plant_distance_oil_refinery;
+}
+
 item(FEAT_INDUSTRIES, industry_power_plant, POWER_PLANT_INDEX) {
     property {
         substitute: 1;
@@ -374,6 +399,6 @@ item(FEAT_INDUSTRIES, industry_power_plant, POWER_PLANT_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_POWER_PLANT_STATION_NAME);
     }
     graphics {
-       location_check: location_coal_chain_distance_power_plant;
+       location_check: location_power_plant_distance_power_plant;
     }
 }

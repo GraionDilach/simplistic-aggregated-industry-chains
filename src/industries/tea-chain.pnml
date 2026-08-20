@@ -1,44 +1,3 @@
-switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_tea_garden, industry_distance(TEA_GARDEN_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TEA_GARDEN);
-        CB_RESULT_LOCATION_ALLOW;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
-        location_tea_chain_distance_tea_garden;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_tea_chain_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
-        location_tea_chain_distance_tea_factory;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_tea_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
-        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
-        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
-        location_tea_chain_distance_teahouse;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_tea_garden, industry_distance(TEA_GARDEN_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TEA_GARDEN);
-        location_fizzy_drink_chain_distance_fizzy_drink_factory;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
-        location_teahouse_distance_tea_garden;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_teahouse_count, industry_town_count(TEAHOUSE_INDEX)) {
-        0: location_teahouse_distance_tea_factory;
-        return string(STR_ERR_LOCATION_TEAHOUSE);
-}
-
-switch (FEAT_INDUSTRIES, PARENT, location_teahouse_count_population, population) {
-        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
-        return location_teahouse_count;
-}
-
 spriteset (tea_garden_tile1_ground) {
     sprite_null()
 }
@@ -251,6 +210,22 @@ tilelayout tea_garden_layout_4 {
 	0, 2: tea_garden_tile_4;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_tea_garden_distance_tea_garden, industry_distance(TEA_GARDEN_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_GARDEN);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_tea_garden_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
+        location_tea_garden_distance_tea_garden;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_tea_garden_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_tea_garden_distance_tea_factory;
+}
+
 item(FEAT_INDUSTRIES, industry_tea_garden, TEA_GARDEN_INDEX) {
     property {
         substitute: 9;
@@ -269,7 +244,7 @@ item(FEAT_INDUSTRIES, industry_tea_garden, TEA_GARDEN_INDEX) {
         spec_flags: 0;
     }
     graphics {
-       location_check: location_tea_chain_no_desert_not_above_snowline;
+       location_check: location_tea_garden_no_desert_not_above_snowline;
     }
 }
 
@@ -477,6 +452,21 @@ tilelayout tea_factory_layout_3 {
 	1, 1: tea_factory_tile_4;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_tea_factory_distance_tea_garden, industry_distance(TEA_GARDEN_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_GARDEN);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_tea_factory_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
+        location_tea_factory_distance_tea_garden;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_tea_factory_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
+        location_tea_factory_distance_tea_factory;
+}
+
 item(FEAT_INDUSTRIES, industry_tea_factory, TEA_FACTORY_INDEX) {
     property {
         substitute: 6;
@@ -492,7 +482,7 @@ item(FEAT_INDUSTRIES, industry_tea_factory, TEA_FACTORY_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_TEA_FACTORY_STATION_NAME);
     }
     graphics {
-        location_check: location_tea_chain_distance_teahouse;
+        location_check: location_tea_factory_distance_teahouse;
     }
 }
 
@@ -544,6 +534,31 @@ item(FEAT_INDUSTRYTILES, teahouse_tile_1) {
 
 tilelayout teahouse_layout {
     0, 0: teahouse_tile_1;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_fizzy_drink_factory, industry_distance(FIZZY_DRINK_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FIZZY_DRINK_FACTORY);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_tea_factory, industry_distance(TEA_FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEA_FACTORY);
+        location_teahouse_distance_fizzy_drink_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_distance_teahouse, industry_distance(TEAHOUSE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_TEAHOUSE);
+        location_teahouse_distance_tea_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_teahouse_count, industry_town_count(TEAHOUSE_INDEX)) {
+        0: location_teahouse_distance_teahouse;
+        return string(STR_ERR_LOCATION_TEAHOUSE);
+}
+
+switch (FEAT_INDUSTRIES, PARENT, location_teahouse_count_population, population) {
+        0..750: return string(STR_ERR_TOO_SMALL_TOWN);
+        return location_teahouse_count;
 }
 
 item(FEAT_INDUSTRIES, industry_teahouse, TEAHOUSE_INDEX) {

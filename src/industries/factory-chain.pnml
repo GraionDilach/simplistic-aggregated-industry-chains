@@ -1,52 +1,11 @@
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_iron_ore_mine_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
         CB_RESULT_LOCATION_ALLOW;
 }
 
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+switch (FEAT_INDUSTRIES, SELF, location_iron_ore_mine_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
         0..36: return string(STR_ERR_LOCATION_FOUNDRY);
-        location_factory_chain_distance_iron_ore_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
-        location_factory_chain_distance_steel_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
-        location_factory_chain_distance_copper_ore_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_desalination_plant, industry_distance(DESALINATION_PLANT_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_DESALINATION_PLANT);
-        location_factory_chain_distance_rubber_plantation;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
-        location_factory_chain_distance_desalination_plant;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_factory_chain_distance_glass_works;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
-        location_factory_chain_distance_junkyard;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_distance_factory, industry_distance(FACTORY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FACTORY);
-        location_factory_chain_distance_recycling_center;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_factory_chain_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
-        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
-        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
-        location_factory_chain_distance_factory;
+        location_iron_ore_mine_distance_iron_ore_mine;
 }
 
 item(FEAT_INDUSTRIES, industry_iron_ore_mine, IRON_ORE_MINE_INDEX) {
@@ -63,7 +22,7 @@ item(FEAT_INDUSTRIES, industry_iron_ore_mine, IRON_ORE_MINE_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_IRON_ORE_MINE_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_distance_factory;
+        location_check: location_iron_ore_mine_distance_steel_mill;
     }
 }
 
@@ -248,6 +207,26 @@ item(FEAT_INDUSTRYTILES, foundry_tile_6) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_foundry_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_foundry_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
+        location_foundry_distance_iron_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_foundry_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
+        location_foundry_distance_copper_ore_mine;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_foundry_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_foundry_distance_steel_mill;
+}
+
 item(FEAT_INDUSTRIES, industry_foundry, STEEL_MILL_INDEX) {
     property {
         substitute: 8;
@@ -264,8 +243,18 @@ item(FEAT_INDUSTRIES, industry_foundry, STEEL_MILL_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_FOUNDRY_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_distance_factory;
+        location_check: location_foundry_distance_factory;
     }
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_copper_ore_mine_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_copper_ore_mine_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
+        location_copper_ore_mine_distance_copper_ore_mine;
 }
 
 item(FEAT_INDUSTRIES, industry_copper_ore_mine, COPPER_ORE_MINE_INDEX) {
@@ -282,8 +271,24 @@ item(FEAT_INDUSTRIES, industry_copper_ore_mine, COPPER_ORE_MINE_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_COPPER_ORE_MINE_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_distance_factory;
+        location_check: location_copper_ore_mine_distance_steel_mill;
     }
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_rubber_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_rubber_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_rubber_distance_rubber_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_rubber_no_desert_not_above_snowline, nearby_tile_terrain_type(0, 0)) {
+        TILETYPE_DESERT: return string(STR_ERR_NO_DESERT_ONLY);
+        TILETYPE_SNOW: return string(STR_ERR_BELOW_SNOWLINE_ONLY);
+        location_rubber_distance_factory;
 }
 
 item(FEAT_INDUSTRIES, industry_rubber_plantation, RUBBER_PLANTATION_INDEX) {
@@ -300,8 +305,18 @@ item(FEAT_INDUSTRIES, industry_rubber_plantation, RUBBER_PLANTATION_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_RUBBER_PLANTATION_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_no_desert_not_above_snowline;
+        location_check: location_rubber_no_desert_not_above_snowline;
     }
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_sand_pit_distance_sand_pit, industry_distance(SAND_PIT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_SAND_PIT);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_sand_pit_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
+        location_sand_pit_distance_sand_pit;
 }
 
 item(FEAT_INDUSTRIES, industry_sand_pit, SAND_PIT_INDEX) {
@@ -318,7 +333,7 @@ item(FEAT_INDUSTRIES, industry_sand_pit, SAND_PIT_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_SAND_PIT_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_distance_factory;
+        location_check: location_sand_pit_distance_glass_works;
     }
 }
 
@@ -563,6 +578,26 @@ tilelayout glass_works_layout_4 {
     3, 2: glass_works_tile_4;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_glass_works_distance_sand_pit, industry_distance(SAND_PIT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_SAND_PIT);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_glass_works_distance_desalination_plant, industry_distance(DESALINATION_PLANT_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_DESALINATION_PLANT);
+        location_glass_works_distance_sand_pit;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_glass_works_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
+        location_glass_works_distance_desalination_plant;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_glass_works_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_glass_works_distance_glass_works;
+}
+
 item(FEAT_INDUSTRIES, industry_glass_works, GLASS_WORKS_INDEX) {
     property {
         substitute: 6;
@@ -579,7 +614,7 @@ item(FEAT_INDUSTRIES, industry_glass_works, GLASS_WORKS_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_GLASS_WORKS_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_distance_factory;
+        location_check: location_glass_works_distance_factory;
     }
 }
 
@@ -755,6 +790,36 @@ tilelayout factory_layout_4 {
     3, 2: factory_tile_4;
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_factory_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
+        location_factory_distance_steel_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_distance_glass_works, industry_distance(GLASS_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_GLASS_WORKS);
+        location_factory_distance_rubber_plantation;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_factory_distance_glass_works;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_factory_distance_recycling_center;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_factory_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
+        location_factory_distance_factory;
+}
+
 item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
     property {
         substitute: 6;
@@ -772,6 +837,6 @@ item(FEAT_INDUSTRIES, industry_factory, FACTORY_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_FACTORY_STATION_NAME);
     }
     graphics {
-        location_check: location_factory_chain_distance_factory;
+        location_check: location_factory_distance_printing_works;
     }
 }

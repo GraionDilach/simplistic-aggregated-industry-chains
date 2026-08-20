@@ -1,63 +1,3 @@
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_forest, industry_distance(FOREST_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FOREST);
-        CB_RESULT_LOCATION_ALLOW;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_lumber_mill, industry_distance(LUMBER_MILL_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_LUMBER_MILL);
-        location_waste_chain_distance_forest;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
-        location_waste_chain_distance_lumber_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
-        location_waste_chain_distance_paper_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_iron_ore_mine, industry_distance(IRON_ORE_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_IRON_ORE_MINE);
-        location_waste_chain_distance_printing_works;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
-        location_waste_chain_distance_iron_ore_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_copper_ore_mine, industry_distance(COPPER_ORE_MINE_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_COPPER_ORE_MINE);
-        location_waste_chain_distance_steel_mill;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_rubber_plantation, industry_distance(RUBBER_PLANTATION_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RUBBER_PLANTATION);
-        location_waste_chain_distance_copper_ore_mine;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_factory, industry_distance(FACTORY_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_FACTORY);
-        location_waste_chain_distance_rubber_plantation;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
-        location_waste_chain_distance_factory;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_waste_chain_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
-        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
-        location_waste_chain_distance_junkyard;
-}
-
-switch (FEAT_INDUSTRIES, SELF, location_junkyard_count, industry_town_count(JUNKYARD_INDEX)) {
-        0: location_waste_chain_distance_recycling_center;
-        return string(STR_ERR_LOCATION_WATER_TOWER);
-}
-
 tilelayout junkyard_tilelayout1 {
     0, 0: junkyard_tile_N;
     0, 1: junkyard_tile_E;
@@ -137,6 +77,21 @@ item(FEAT_INDUSTRYTILES, junkyard_tile_W) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_junkyard_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_junkyard_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_junkyard_distance_junkyard;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_junkyard_count, industry_town_count(JUNKYARD_INDEX)) {
+        0: location_junkyard_distance_recycling_center;
+        return string(STR_ERR_LOCATION_JUNKYARD);
+}
+
 item(FEAT_INDUSTRIES, industry_junkyard, JUNKYARD_INDEX) {
     property {
         substitute: 30;
@@ -162,7 +117,6 @@ tilelayout recycling_center_tilelayout1 {
     1, 1: recycling_center_tile_S;
     1, 0: recycling_center_tile_W;
 }
-
 
 tilelayout recycling_center_tilelayout2 {
     0, 0: recycling_center_tile_N;
@@ -248,6 +202,36 @@ item(FEAT_INDUSTRYTILES, recycling_center_tile_W) {
     }
 }
 
+switch (FEAT_INDUSTRIES, SELF, location_recycling_center_distance_paper_mill, industry_distance(PAPER_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PAPER_MILL);
+        CB_RESULT_LOCATION_ALLOW;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_recycling_center_distance_printing_works, industry_distance(PRINTING_WORKS_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_PRINTING_WORKS);
+        location_recycling_center_distance_paper_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_recycling_center_distance_steel_mill, industry_distance(STEEL_MILL_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FOUNDRY);
+        location_recycling_center_distance_printing_works;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_recycling_center_distance_factory, industry_distance(FACTORY_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_FACTORY);
+        location_recycling_center_distance_steel_mill;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_recycling_center_distance_junkyard, industry_distance(JUNKYARD_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_JUNKYARD);
+        location_recycling_center_distance_factory;
+}
+
+switch (FEAT_INDUSTRIES, SELF, location_recycling_center_distance_recycling_center, industry_distance(RECYCLING_CENTER_INDEX)) {
+        0..36: return string(STR_ERR_LOCATION_RECYCLING_CENTER);
+        location_recycling_center_distance_junkyard;
+}
+
 item(FEAT_INDUSTRIES, industry_recycling_center, RECYCLING_CENTER_INDEX) {
     property {
         substitute: 18;
@@ -266,6 +250,6 @@ item(FEAT_INDUSTRIES, industry_recycling_center, RECYCLING_CENTER_INDEX) {
         nearby_station_name: string(STR_INDUSTRY_RECYCLING_CENTER_STATION_NAME);
     }
     graphics {
-        location_check: location_waste_chain_distance_recycling_center;
+        location_check: location_recycling_center_distance_recycling_center;
     }
 }
